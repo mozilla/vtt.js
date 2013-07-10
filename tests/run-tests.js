@@ -130,6 +130,12 @@ check("tests/long-line.vtt", 1, expect_line_num(1));
 // We can't test streaming with this test since we get early callbacks with partial (single line) cue texts.
 checkAllAtOnce("tests/two-lines.vtt", 1, expect_line_num(2));
 check("tests/arrows.vtt", 1, expect_field("id", "- - > -- > - -> -- <--"));
+check("tests/bold-spans.vtt", 4);
+check("tests/underline-spans.vtt", 4);
+check("tests/italic-spans.vtt", 4);
+check("tests/class-spans.vtt", 4);
+check("tests/lang-spans.vtt", 3);
+check("tests/timestamp-spans.vtt", 3);
 
 // Leave this until the end.
 done();
