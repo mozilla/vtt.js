@@ -4,117 +4,42 @@
 // We throw this exception if parsing fails.
 var ParseError = {};
 
-function isSpaceOrTab(ch) {
-  return ch === ' ' || ch === '\t';
-}
-
-function isWhiteSpace(ch) {
-  return isSpaceOrTab(ch) || ch === '\n' || ch == '\f' || ch == '\r';
-}
-
-function isDigit(ch) {
-  return ch >= '0' && ch <= '9';
+// Throw a parse error if condition is not met.
+function expect(cond) {
+  if (!cond)
+    throw ParseError;
 }
 
 function parseCue(input, cue) {
-  var pos = 0;
-
-  function skipWhiteSpace() {
-    while (isWhiteSpace(input[pos]))
-      ++pos;
-  }
-
-  function parseDigits() {
-    var start = pos;
-    while (isDigit(input[pos]))
-      ++pos;
-    return input.substr(start, pos - start);
-  }
-
-  function current() {
-    return input[pos];
-  }
-
-  function next() {
-    return input[pos++];
-  }
-
-  function expect(ok) {
-    if (!ok)
-      throw ParseError;
-  }
-
+  // 4.8.10.13.3 Collect a WebVTT timestamp.
   function parseTimeStamp() {
-    // 4.8.10.13.3 Collect a WebVTT timestamp.
-    // 1-4 - Initial checks, let most significant units be minutes.
-    var mode = 'MINUTES';
+    var match = input.match(/^(\d{2,}:)?([0-5][0-9]):([0-5][0-9])\.(\d{3})/);
+    expect(!!match);
+    // Remove matched substring from input.
+    input = input.substr(match.input.length);
+    // Hours are optional, and include a trailing ":", which we have to strip first.
+    var h = match[1] ? match[1].replace(":", "") | 0 : 0;
+    var m = match[2] | 0;
+    var s = match[3] | 0;
+    var f = match[4] | 0;
+    return h * 3600 + m * 60 + s + f * 0.001;
+  }
 
-    // 5-6 - Collect a sequence of characters that are 0-9.
-    var digits1 = parseDigits();
-    var value1 = digits1 | 0;
-
-    // 7 - If not 2 characters or value is greater than 59, interpret as hours.
-    expect(digits1);
-    if (digits1.length !== 2 || value1 > 59)
-      mode = 'HOURS';
-
-    // 8-12 - Collect the next sequence of 0-9 after ':' (must be 2 chars).
-    expect(next() == ':');
-    var digits2 = parseDigits();
-    var value2 = digits2 | 0;
-    expect(digits2.length === 2);
-
-    // 13 - Detect whether this timestamp includes hours.
-    var value3;
-    if (mode === 'HOURS' || current() === ':') {
-      expect(':');
-      var digits3 = parseDigits();
-      expect(digits3.length === 2);
-      value3 = digits3 | 0;
-    } else {
-      value3 = value2;
-      value2 = value1;
-      value1 = 0;
-    }
-
-    // 14-19 - Collect next sequence of 0-9 after '.' (must be 3 chars).
-    expect(next() === '.');
-    var digits4 = parseDigits();
-    expect(digits4.length === 3);
-    var value4 = digits4 | 0;
-    expect(value2 <= 59 && value3 <= 59);
-
-    input = input.substr(pos);
-
-    // 20-21 - Calculate result.
-    return value1 * 60 * 60 + value2 * 60 + value + value * 0.001;
+  function skipWhitespace() {
+    input = input.replace(/^\s+/, "");
   }
 
   // 4.8.10.13.3 Collect WebVTT cue timings and settings.
+  skipWhitespace();
+  cue.startTime = parseTimeStamp();     // (4) collect cue start time
+  skipWhitespace();
+  expect(input.substr(0, 3) === "-->"); // (6-8) next characters must match "-->"
+  skipWhitespace();
+  cue.endTime = parseTimeStamp();       // (10) collect cue end time
 
-  // 1-3 - Skip white space at the beginning of the line.
-  skipWhiteSpace();
-
-  // 4-5 - Collect a WebVTT timestamp. If that fails, then abort and return
-  // failure. Otherwise, let cue's text track cue start time be the collected
-  // time.
-  cue.startTime = parseTimeStamp();
-  expect(isSpaceOrTab(next()));
-  skipWhiteSpace();
-
-  // 6-9 - If the next three characters are not "-->", abort and return failure.
-  expect(next(3) === "-->");
-  expect(isSpaceOrTab(next()));
-  skipWhiteSpace();
-
-  // 10-11 - Collect a WebVTT timestamp. If that fails, then abort and return
-  // failure. Otherwise, let cue's text track cue end time be the collected
-  // time.
-  cue.endTime = parseTimeStamp();
-  skipWhiteSpace();
-
-  // 12 - Parse the WebVTT settings for the cue.
-  cue.settings = input.substr(pos);
+  // 4.8.10.13.4 Parse the WebVTT settings for the cue.
+  skipWhitespace();
+  cue.settings = input.split(/\s/);     // (1) split on spaces
 }
 
 const BOM = "\xEF\xBB\xBF";
@@ -152,12 +77,11 @@ ParseWebVTT.prototype = {
       // Skip the optional BOM.
       if (this.buffer.substr(0, BOM.length) === BOM)
         this.buffer = this.buffer.substr(BOM.length);
-      // 4-12 - Check for the "WEBVTT" identifier followed by an optional space or tab,
+      // (4-12) - Check for the "WEBVTT" identifier followed by an optional space or tab,
       // and ignore the rest of the line.
       var line = collectNextLine();
-      if (line.length < WEBVTT.length ||
-          line.substr(0, WEBVTT.length) != WEBVTT ||
-          line.length > WEBVTT.length && line[WEBVTT.length] != ' ' && line[WEBVTT.length] != '\t') {
+      if (line.substr(0, WEBVTT.length) !== WEBVTT ||
+          line.length > WEBVTT.length && !/[ \t]/.test(line[WEBVTT.length])) {
         this.onerror && this.onerror();
         return;
       }
@@ -165,7 +89,7 @@ ParseWebVTT.prototype = {
     }
 
     // We can't parse a line until we have the full line.
-    if (this.buffer.indexOf('\r') == -1 && this.buffer.indexOf('\n') == -1)
+    if (!/[\r\n]/.test(this.buffer))
       return;
 
     while (this.buffer) {
@@ -177,7 +101,17 @@ ParseWebVTT.prototype = {
         if (!line)
           this.state = "ID";
         continue;
+      case "NOTE":
+        // Ignore NOTE blocks.
+        if (!line)
+          this.state = "ID";
+        continue;
       case "ID":
+        // Check for the start of NOTE blocks.
+        if (/^NOTE($|[ \t])/.test(line)) {
+          this.state = "NOTE";
+          break;
+        }
         // 19-29 - Allow any number of line terminators, then initialize new cue values.
         if (!line)
           continue;
