@@ -210,3 +210,7 @@ WebVTTParser.prototype = {
     return this;
   }
 };
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports.WebVTTParser = WebVTTParser;
+}
