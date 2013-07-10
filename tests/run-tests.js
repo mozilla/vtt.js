@@ -11,8 +11,11 @@ function parse(callback, done) {
   parser.oncue = function (cue) {
     if (callback && !callback(null, cue))
       result = FAIL;
-    if (result >= 0)
+    // Don't get tricked by a cue being reported multiple times for updates in
+    // case of streaming parsing.
+    if (!cue.seen && result >= 0)
       ++result;
+    cue.seen = true;
   }
   parser.onerror = function (msg) {
     if (callback && !callback(msg, null))
@@ -24,15 +27,20 @@ function parse(callback, done) {
   return parser;
 }
 
+function handle_error(error) {
+  print(error);
+  return false;
+}
+
 function expect_line_num(num) {
   return function (error, cue) {
-    return !error && cue.content.split("\n").length === num;
+    return error ? handle_error(error) : (cue.content.split("\n").length === num);
   }
 }
 
 function expect_field(field, value) {
   return function (error, cue) {
-    return !error && cue[field] === value;
+    return error ? handle_error(error) : (cue[field] === value);
   }
 }
 
@@ -41,34 +49,41 @@ function expect_fail(msg) {
     if (!error)
       return true;
     if (error !== msg)
-      print(error);
+      handle_error(error);
     return error === msg;
   }
 }
 
 function report(name, expected) {
   return function (result) {
-    print(name + " " + ((result == expected) ? "PASS" : "FAIL"));
+    if (result !== expected)
+      print("expected: " + expected + ", got: " + result);
+    print(name + " " + ((result === expected) ? "PASS" : "FAIL"));
   };
 }
 
-function checkAllAtOnce(name, text, expected, callback) {
-  parse(callback, report(name, expected)).parse(text).flush();
+function checkAllAtOnce(file, expected, callback) {
+  parse(callback, report(file, expected)).parse(snarf(file)).flush();
 }
 
-function checkStreaming(name, text, expected, callback) {
+function checkStreaming(file, expected, callback) {
+  var counter = 0;
+  var text = snarf(file);
   for (var n = 0; n < text.length; ++n) {
-    var parser = parse(callback, report(name + n, expected));
+    var parser = parse(callback, function (result) {
+      if (result === expected)
+        ++counter;
+    });
     parser.parse(text.substr(0, n));
     parser.parse(text.substr(n));
     parser.flush();
   }
+  report(file + " (streaming)", text.length)(counter);
 }
 
 function check(file, expected, callback) {
-  var text = snarf(file);
-  checkAllAtOnce(file, text, expected, callback);
-  //checkStreaming(file, text, expected, callback);
+  checkAllAtOnce(file, expected, callback);
+  checkStreaming(file, expected, callback);
 }
 
 check("tests/no-newline-at-end.vtt", 1);
@@ -82,5 +97,6 @@ check("tests/not-only-nested-cues.vtt", 2);
 check("tests/only-nested-cues.vtt", 6);
 check("tests/voice-spans.vtt", 4);
 check("tests/long-line.vtt", 1, expect_line_num(1));
-check("tests/two-lines.vtt", 1, expect_line_num(2));
+// We can't test streaming with this test since we get early callbacks with partial (single line) cue texts.
+checkAllAtOnce("tests/two-lines.vtt", 1, expect_line_num(2));
 check("tests/arrows.vtt", 1, expect_field("id", "- - > -- > - -> -- <--"));

@@ -101,16 +101,16 @@ WebVTTParser.prototype = {
         self.state = "HEADER";
       }
 
-      // We can't parse a line until we have the full line.
-      if (!/[\r\n]/.test(self.buffer)) {
-        // If we are in the midst of parsing a cue, report it early. We will report it
-        // again when updates come in.
-        if (self.state === "CUETEXT" && self.cue && self.oncue)
-          self.oncue(self.cue);
-        return this;
-      }
-
       while (self.buffer) {
+        // We can't parse a line until we have the full line.
+        if (!/[\r\n]/.test(self.buffer)) {
+          // If we are in the midst of parsing a cue, report it early. We will report it
+          // again when updates come in.
+          if (self.state === "CUETEXT" && self.cue && self.oncue)
+            self.oncue(self.cue);
+          return this;
+        }
+
         var line = collectNextLine();
 
         switch (self.state) {
