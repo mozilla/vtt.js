@@ -74,7 +74,6 @@ WebVTTParser.prototype = {
     }
 
     // 4.8.10.13.3 WHATWG WebVTT Parser algorithm.
-
     try {
       if (self.state === "INITIAL") {
         // Wait until we have enough data to parse the header.
