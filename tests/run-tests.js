@@ -28,15 +28,15 @@ function test(file) {
 
 var TESTS = [
              "cue-identifier.vtt",
-             /*"fail-bad-utf8.vtt",
+             "fail-bad-utf8.vtt",
              "many-comments.vtt",
              "one-line-comment.vtt",
-             "run-tests.js",
              "example1.vtt",
              "line-breaks.vtt",
              "not-only-nested-cues.vtt",
              "only-nested-cues.vtt",
-             "voice-spans.vtt"*/
+             "no-newline-at-end.vtt",
+             "voice-spans.vtt"
 ];
 
 for (var n in TESTS)
