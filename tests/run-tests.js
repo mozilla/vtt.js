@@ -1,7 +1,27 @@
 /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
 
-load("vtt.js");
+var done;
+if (typeof require !== "undefined") {
+  // node.js, emulate jsshell
+  var WebVTTParser = require("../").WebVTTParser,
+    fs = require("fs"),
+    snarf = function(filename) {
+      return fs.readFileSync(filename, 'utf8');
+    },
+    print = function(){/*noop - don't pollute TAP output*/},
+    testCount = 0,
+    done = function() {
+      // print TAP test count
+      console.log("1..%s", testCount);
+    }
+} else {
+  // jsshell
+  load("vtt.js");
+  done = function(){
+    print("Done, ran " + i + " tests.");
+  }
+}
 
 const FAIL = -1;
 
@@ -56,9 +76,19 @@ function expect_fail(msg) {
 
 function report(name, expected) {
   return function (result) {
-    if (result !== expected)
-      print("expected: " + expected + ", got: " + result);
-    print(name + " " + ((result === expected) ? "PASS" : "FAIL"));
+    // If we're node, format as TAP stream
+    if (typeof require !== "undefined") {
+      testCount += 1;
+      console.log("# %s", name);
+      if (result !== expected)
+        console.log("not ok %s - expected: %s, got: %s", testCount, expected, result);
+      else
+        console.log("ok %s", testCount);
+    } else {
+      if (result !== expected)
+        print("expected: " + expected + ", got: " + result);
+      print(name + " " + ((result === expected) ? "PASS" : "FAIL"));
+    }
   };
 }
 
@@ -100,3 +130,6 @@ check("tests/long-line.vtt", 1, expect_line_num(1));
 // We can't test streaming with this test since we get early callbacks with partial (single line) cue texts.
 checkAllAtOnce("tests/two-lines.vtt", 1, expect_line_num(2));
 check("tests/arrows.vtt", 1, expect_field("id", "- - > -- > - -> -- <--"));
+
+// Leave this until the end.
+done();

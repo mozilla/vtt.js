@@ -9,12 +9,11 @@
   },
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.6.0",
-    "mocha": "~1.12.0"
+    "grunt-contrib-jshint": "~0.6.0"
   },
   "main": "vtt.js",
   "scripts": {
-    "test": "grunt travis --verbose && mocha --reporter spec"
+    "test": "grunt && node ./tests/run-tests.js"
   },
   "license": {
     "type": "Apache-2.0",
