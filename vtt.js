@@ -66,16 +66,18 @@ WebVTTParser.prototype = {
       var pos = 0;
       while (pos < buffer.length && buffer[pos] != '\r' && buffer[pos] != '\n')
         ++pos;
-      try {
-        var line = decodeURIComponent(escape(buffer.substr(0, pos)));
-      } catch (e) {
-        reportError(buffer, "invalid UTF8 encoding in '" + buffer.substr(0, pos) + "'");
-      }
+      var utf8 = buffer.substr(0, pos);
+      // Advance the buffer early in case we fail below.
       if (buffer[pos] === '\r')
         ++pos;
       if (buffer[pos] === '\n')
         ++pos;
       self.buffer = buffer.substr(pos);
+      try {
+        var line = decodeURIComponent(escape(utf8));
+      } catch (e) {
+        reportError(buffer, "invalid UTF8 encoding in '" + buffer.substr(0, pos).replace(/[\r\n]/g, "") + "'");
+      }
       return line;
     }
 
@@ -147,6 +149,7 @@ WebVTTParser.prototype = {
           } catch (e) {
             // In case of an error ignore self cue.
             self.onerror && self.onerror(e.msg);
+            self.cue = null;
             self.state = "BADCUE";
             continue;
           }
@@ -175,8 +178,10 @@ WebVTTParser.prototype = {
         }
       }
     } catch (e) {
-      print(e.stack);
       self.onerror && self.onerror(e.msg);
+      self.cue = null;
+      if (self.state !== "INITIAL")
+        self.state = "BADCUE";
     }
   },
   flush: function () {

@@ -6,20 +6,20 @@ load("vtt.js");
 const FAIL = -1;
 const EXCEPTION = 2;
 
-function parse(file, oncue) {
+function parse(file, callback) {
   var text = snarf(file);
   var result = 0;
   try {
     var parser = new WebVTTParser();
     parser.oncue = function (cue) {
-      if (oncue && !oncue(cue))
+      if (callback && !callback(null, cue))
         result = FAIL;
       if (result >= 0)
         ++result;
     }
     parser.onerror = function (msg) {
-      print(msg);
-      result = FAIL;
+      if (callback && !callback(msg, null))
+        result = FAIL;
     }
     parser.parse(text);
     parser.flush();
@@ -30,24 +30,34 @@ function parse(file, oncue) {
 }
 
 function expect_line_num(num) {
-  return function (cue) {
-    return cue.content.split("\n").length === num;
+  return function (error, cue) {
+    return !error && cue.content.split("\n").length === num;
   }
 }
 
 function expect_field(field, value) {
-  return function (cue) {
-    return cue[field] === value;
+  return function (error, cue) {
+    return !error && cue[field] === value;
   }
 }
 
-function check(file, expected, oncue) {
-  print(file + " " + ((parse(file, oncue) === expected) ? "PASS" : "FAIL"));
+function expect_fail(msg) {
+  return function (error, cue) {
+    if (!error)
+      return true;
+    if (error !== msg)
+      print(error);
+    return error === msg;
+  }
+}
+
+function check(file, expected, callback) {
+  print(file + " " + ((parse(file, callback) === expected) ? "PASS" : "FAIL"));
 }
 
 check("tests/no-newline-at-end.vtt", 1);
 check("tests/cue-identifier.vtt", 2);
-check("tests/fail-bad-utf8.vtt", FAIL);
+check("tests/fail-bad-utf8.vtt", 0, expect_fail("invalid UTF8 encoding in '<v Roger Bingham>When we e-mailed—'"));
 check("tests/many-comments.vtt", 2);
 check("tests/one-line-comment.vtt", 2);
 check("tests/example1.vtt", 13);
