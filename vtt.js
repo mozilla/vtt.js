@@ -73,8 +73,9 @@ WebVTTParser.prototype = {
       if (buffer[pos] === '\n')
         ++pos;
       self.buffer = buffer.substr(pos);
+      var line;
       try {
-        var line = decodeURIComponent(escape(utf8));
+        line = decodeURIComponent(escape(utf8));
       } catch (e) {
         reportError(buffer, "invalid UTF8 encoding in '" + buffer.substr(0, pos).replace(/[\r\n]/g, "") + "'");
       }
@@ -83,6 +84,7 @@ WebVTTParser.prototype = {
 
     // 4.8.10.13.3 WHATWG WebVTT Parser algorithm.
     try {
+      var line;
       if (self.state === "INITIAL") {
         // Wait until we have enough data to parse the header.
         if (self.buffer.length < BOM.length + WEBVTT.length)
@@ -92,7 +94,7 @@ WebVTTParser.prototype = {
           self.buffer = self.buffer.substr(BOM.length);
         // (4-12) - Check for the "WEBVTT" identifier followed by an optional space or tab,
         // and ignore the rest of the line.
-        var line = collectNextLine();
+        line = collectNextLine();
         if (line.substr(0, WEBVTT.length) !== WEBVTT ||
             line.length > WEBVTT.length && !/[ \t]/.test(line[WEBVTT.length])) {
           reportError(line, "invalid signature '" + line + "'");
@@ -111,7 +113,7 @@ WebVTTParser.prototype = {
           return this;
         }
 
-        var line = collectNextLine();
+        line = collectNextLine();
 
         switch (self.state) {
         case "HEADER":
@@ -146,7 +148,8 @@ WebVTTParser.prototype = {
             self.cue.id = line;
             continue;
           }
-          // Fall through, process line as start of a cue.
+          // process line as start of a cue.
+          /*falls through*/
         case "CUE":
           // 40 - Collect cue timings and settings.
           try {
