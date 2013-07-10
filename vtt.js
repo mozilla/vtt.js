@@ -45,17 +45,19 @@ function parseCue(input, cue) {
 const BOM = "\xEF\xBB\xBF";
 const WEBVTT = "WEBVTT";
 
-function ParseWebVTT() {
+function WebVTTParser() {
   this.state = "INITIAL";
   this.buffer = "";
 }
 
-ParseWebVTT.prototype = {
+WebVTTParser.prototype = {
   parse: function (data) {
-    this.buffer += data;
+    var self = this;
+
+    self.buffer += data;
 
     function collectNextLine() {
-      var buffer = this.buffer;
+      var buffer = self.buffer;
       var pos = 0;
       while (pos < buffer.length && buffer[pos] != '\r' && buffer[pos] != '\n')
         ++pos;
@@ -64,99 +66,99 @@ ParseWebVTT.prototype = {
         ++pos;
       if (buffer[pos] === '\n')
         ++pos;
-      this.buffer = buffer.substr(pos);
+      self.buffer = buffer.substr(pos);
       return line;
     }
 
     // 4.8.10.13.3 WHATWG WebVTT Parser algorithm.
 
-    if (this.state === "INITIAL") {
+    if (self.state === "INITIAL") {
       // Wait until we have enough data to parse the header.
-      if (this.buffer.length < BOM.length + WEBVTT.length)
+      if (self.buffer.length < BOM.length + WEBVTT.length)
         return;
       // Skip the optional BOM.
-      if (this.buffer.substr(0, BOM.length) === BOM)
-        this.buffer = this.buffer.substr(BOM.length);
+      if (self.buffer.substr(0, BOM.length) === BOM)
+        self.buffer = self.buffer.substr(BOM.length);
       // (4-12) - Check for the "WEBVTT" identifier followed by an optional space or tab,
       // and ignore the rest of the line.
       var line = collectNextLine();
       if (line.substr(0, WEBVTT.length) !== WEBVTT ||
           line.length > WEBVTT.length && !/[ \t]/.test(line[WEBVTT.length])) {
-        this.onerror && this.onerror();
+        self.onerror && self.onerror();
         return;
       }
-      this.state = "HEADER";
+      self.state = "HEADER";
     }
 
     // We can't parse a line until we have the full line.
-    if (!/[\r\n]/.test(this.buffer))
+    if (!/[\r\n]/.test(self.buffer))
       return;
 
-    while (this.buffer) {
+    while (self.buffer) {
       var line = collectNextLine();
 
-      switch (this.state) {
+      switch (self.state) {
       case "HEADER":
         // 13-18 - Allow a header (comment area) under the WEBVTT line.
         if (!line)
-          this.state = "ID";
+          self.state = "ID";
         continue;
       case "NOTE":
         // Ignore NOTE blocks.
         if (!line)
-          this.state = "ID";
+          self.state = "ID";
         continue;
       case "ID":
         // Check for the start of NOTE blocks.
         if (/^NOTE($|[ \t])/.test(line)) {
-          this.state = "NOTE";
+          self.state = "NOTE";
           break;
         }
         // 19-29 - Allow any number of line terminators, then initialize new cue values.
         if (!line)
           continue;
-        this.currentCue = {
+        self.currentCue = {
           id: "",
           settings: "",
           startTime: 0,
           endTime: 0,
           contnet: ""
         };
-        this.state = "CUE";
-        // 30-39 - Check if this line contains an optional identifier or timing data.
+        self.state = "CUE";
+        // 30-39 - Check if self line contains an optional identifier or timing data.
         if (line.indexOf("-->") == -1) {
-          this.cue.id = line;
+          self.cue.id = line;
           continue;
         }
         // Fall through, process line as start of a cue.
       case "CUE":
         // 40 - Collect cue timings and settings.
         try {
-          parseCue(line, this.cue);
+          parseCue(line, self.cue);
         } catch (e) {
-          // In case of an error ignore this cue.
-          this.state = "BADCUE";
+          // In case of an error ignore self cue.
+          self.state = "BADCUE";
           continue;
         }
-        this.state = "CUETEXT";
+        self.state = "CUETEXT";
         continue;
       case "CUETEXT":
         // 41-53 - Collect the cue text, create a cue, and add it to the output.
         if (!line) {
-          // We are done parsing this cue.
-          this.oncue && this.oncue(this.cue);
-          this.cue = null;
-          this.state = "ID";
+          // We are done parsing self cue.
+          self.oncue && self.oncue(self.cue);
+          self.cue = null;
+          self.state = "ID";
           continue;
         }
-        if (!this.cue.content)
-          this.cue.content += "\n";
-        this.cue.content += line;
+        if (!self.cue.content)
+          self.cue.content += "\n";
+        self.cue.content += line;
         continue;
       default: // BADCUE
         // 54-62 - Collect and discard the remaining cue.
         if (!line) {
-          this.state = "ID";
+          self.state = "ID";
           continue;
         }
         continue;
