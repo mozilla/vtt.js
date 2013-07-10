@@ -4,7 +4,8 @@
 // We throw this exception if parsing fails.
 var ParseError = {};
 
-// Throw a parse error if condition is not met.
+// Throw a parse error if condition is not met. This exception is only thrown
+// within this file. We catch it here and invoke the onerror event if needed.
 function expect(cond) {
   if (!cond)
     throw ParseError;
