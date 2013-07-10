@@ -1,4 +1,4 @@
 vtt.js
 ======
 
-WebVTT parser in JavaScript
+WebVTT parser in JavaScript.
