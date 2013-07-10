@@ -3,6 +3,9 @@
 
 load("vtt.js");
 
+const FAIL = -1;
+const EXCEPTION = 2;
+
 function parse(file) {
   var text = snarf(file);
   var result = 0;
@@ -13,36 +16,27 @@ function parse(file) {
         ++result;
     }
     parser.onerror = function () {
-      result = -1;
+      result = FAIL;
     }
     parser.parse(text);
     parser.flush();
   } catch (e) {
-    result = -2;
+    result = EXCEPTION;
   }
   return result;
 }
 
-function check(file, status, expected) {
-  print(file + " " + ((status === expected) ? "PASS" : "FAIL"));
+function check(file, expected) {
+  print(file + " " + ((parse(file) === expected) ? "PASS" : "FAIL"));
 }
 
-function test(file) {
-  check(file, parse(file), (file.indexOf("fail-") !== -1) ? 1 : 0);
-}
-
-var TESTS = [
-             "no-newline-at-end.vtt",
-             "cue-identifier.vtt",
-             "fail-bad-utf8.vtt",
-             "many-comments.vtt",
-             "one-line-comment.vtt",
-             "example1.vtt",
-             "line-breaks.vtt",
-             "not-only-nested-cues.vtt",
-             "only-nested-cues.vtt",
-             "voice-spans.vtt"
-];
-
-for (var n in TESTS)
-  test("tests/" + TESTS[n]);
+check("tests/no-newline-at-end.vtt", 1);
+check("tests/cue-identifier.vtt", 2);
+check("tests/fail-bad-utf8.vtt", FAIL);
+check("tests/many-comments.vtt", 2);
+check("tests/one-line-comment.vtt", 2);
+check("tests/example1.vtt", 13);
+check("tests/line-breaks.vtt", 3);
+check("tests/not-only-nested-cues.vtt", 2);
+check("tests/only-nested-cues.vtt", 6);
+check("tests/voice-spans.vtt", 4);
