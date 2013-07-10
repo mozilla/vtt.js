@@ -55,7 +55,8 @@ WebVTTParser.prototype = {
   parse: function (data) {
     var self = this;
 
-    self.buffer += data;
+    if (data)
+      self.buffer += data;
 
     function collectNextLine() {
       var buffer = self.buffer;
@@ -124,7 +125,7 @@ WebVTTParser.prototype = {
             settings: "",
             startTime: 0,
             endTime: 0,
-            contnet: ""
+            content: ""
           };
           self.state = "CUE";
           // 30-39 - Check if self line contains an optional identifier or timing data.
@@ -153,7 +154,7 @@ WebVTTParser.prototype = {
             self.state = "ID";
             continue;
           }
-          if (!self.cue.content)
+          if (self.cue.content)
             self.cue.content += "\n";
           self.cue.content += line;
           continue;
@@ -167,6 +168,18 @@ WebVTTParser.prototype = {
         }
       }
     } catch (e) {
+      self.onerror && self.onerror();
+    }
+  },
+  flush: function () {
+    var self = this;
+    if (self.state === "ID")
+      return;
+    // Synthesize the end of the current block.
+    self.buffer += "\n\n";
+    self.parse();
+    if (self.buffer) {
+      // Incompletely parsed file.
       self.onerror && self.onerror();
     }
   }

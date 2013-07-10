@@ -8,12 +8,17 @@ function parse(file) {
   var result = 0;
   try {
     var parser = new WebVTTParser();
+    parser.oncue = function (cue) {
+      if (result >= 0)
+        ++result;
+    }
     parser.onerror = function () {
-      result = 1;
+      result = -1;
     }
     parser.parse(text);
+    parser.flush();
   } catch (e) {
-    result = 2;
+    result = -2;
   }
   return result;
 }
@@ -27,6 +32,7 @@ function test(file) {
 }
 
 var TESTS = [
+             "no-newline-at-end.vtt",
              "cue-identifier.vtt",
              "fail-bad-utf8.vtt",
              "many-comments.vtt",
@@ -35,7 +41,6 @@ var TESTS = [
              "line-breaks.vtt",
              "not-only-nested-cues.vtt",
              "only-nested-cues.vtt",
-             "no-newline-at-end.vtt",
              "voice-spans.vtt"
 ];
 
