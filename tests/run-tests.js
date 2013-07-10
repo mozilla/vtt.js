@@ -57,7 +57,7 @@ function check(file, expected, callback) {
 
 check("tests/no-newline-at-end.vtt", 1);
 check("tests/cue-identifier.vtt", 2);
-check("tests/fail-bad-utf8.vtt", 0, expect_fail("invalid UTF8 encoding in '<v Roger Bingham>When we e-mailed—'"));
+check("tests/fail-bad-utf8.vtt", 1, expect_fail("invalid UTF8 encoding in '<v Roger Bingham>When we e-mailed—'"));
 check("tests/many-comments.vtt", 2);
 check("tests/one-line-comment.vtt", 2);
 check("tests/example1.vtt", 13);

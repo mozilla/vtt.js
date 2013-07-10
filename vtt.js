@@ -102,8 +102,13 @@ WebVTTParser.prototype = {
       }
 
       // We can't parse a line until we have the full line.
-      if (!/[\r\n]/.test(self.buffer))
+      if (!/[\r\n]/.test(self.buffer)) {
+        // If we are in the midst of parsing a cue, report it early. We will report it
+        // again when updates come in.
+        if (self.state === "CUETEXT" && self.cue && self.oncue)
+          self.oncue(self.cue);
         return;
+      }
 
       while (self.buffer) {
         var line = collectNextLine();
@@ -178,8 +183,13 @@ WebVTTParser.prototype = {
         }
       }
     } catch (e) {
-      self.onerror && self.onerror(e.msg);
+      // If we are currently parsing a cue, report what we have, and then the error.
+      if (self.state === "CUETEXT" && self.cue && self.oncue)
+        self.oncue(self.cue);
       self.cue = null;
+      // Report the error and enter the BADCUE state, except if we haven't even made
+      // it through the header yet.
+      self.onerror && self.onerror(e.msg);
       if (self.state !== "INITIAL")
         self.state = "BADCUE";
     }
