@@ -15,8 +15,8 @@ function parseCue(input, cue) {
   function parseTimeStamp() {
     var match = input.match(/^(\d{2,}:)?([0-5][0-9]):([0-5][0-9])\.(\d{3})/);
     expect(!!match);
-    // Remove matched substring from input.
-    input = input.substr(match.input.length);
+    // Remove time stamp from input.
+    input = input.replace(/^[^\s]+/, "");
     // Hours are optional, and include a trailing ":", which we have to strip first.
     var h = match[1] ? match[1].replace(":", "") | 0 : 0;
     var m = match[2] | 0;
@@ -34,6 +34,7 @@ function parseCue(input, cue) {
   cue.startTime = parseTimeStamp();     // (4) collect cue start time
   skipWhitespace();
   expect(input.substr(0, 3) === "-->"); // (6-8) next characters must match "-->"
+  input = input.substr(3);
   skipWhitespace();
   cue.endTime = parseTimeStamp();       // (10) collect cue end time
 
@@ -118,7 +119,7 @@ WebVTTParser.prototype = {
           // 19-29 - Allow any number of line terminators, then initialize new cue values.
           if (!line)
             continue;
-          self.currentCue = {
+          self.cue = {
             id: "",
             settings: "",
             startTime: 0,

@@ -26,5 +26,18 @@ function test(file) {
   check(file, parse(file), (file.indexOf("fail-") !== -1) ? 1 : 0);
 }
 
-test("tests/example1.vtt");
-test("tests/fail-bad-utf8.vtt");
+var TESTS = [
+             "cue-identifier.vtt",
+             /*"fail-bad-utf8.vtt",
+             "many-comments.vtt",
+             "one-line-comment.vtt",
+             "run-tests.js",
+             "example1.vtt",
+             "line-breaks.vtt",
+             "not-only-nested-cues.vtt",
+             "only-nested-cues.vtt",
+             "voice-spans.vtt"*/
+];
+
+for (var n in TESTS)
+  test("tests/" + TESTS[n]);
