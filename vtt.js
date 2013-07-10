@@ -86,7 +86,7 @@ WebVTTParser.prototype = {
       if (self.state === "INITIAL") {
         // Wait until we have enough data to parse the header.
         if (self.buffer.length < BOM.length + WEBVTT.length)
-          return;
+          return this;
         // Skip the optional BOM.
         if (self.buffer.substr(0, BOM.length) === BOM)
           self.buffer = self.buffer.substr(BOM.length);
@@ -96,7 +96,7 @@ WebVTTParser.prototype = {
         if (line.substr(0, WEBVTT.length) !== WEBVTT ||
             line.length > WEBVTT.length && !/[ \t]/.test(line[WEBVTT.length])) {
           reportError(line, "invalid signature '" + line + "'");
-          return;
+          return this;
         }
         self.state = "HEADER";
       }
@@ -107,7 +107,7 @@ WebVTTParser.prototype = {
         // again when updates come in.
         if (self.state === "CUETEXT" && self.cue && self.oncue)
           self.oncue(self.cue);
-        return;
+        return this;
       }
 
       while (self.buffer) {
@@ -193,17 +193,20 @@ WebVTTParser.prototype = {
       if (self.state !== "INITIAL")
         self.state = "BADCUE";
     }
+    return this;
   },
   flush: function () {
     var self = this;
-    if (self.state === "ID")
-      return;
-    // Synthesize the end of the current block.
-    self.buffer += "\n\n";
-    self.parse();
-    if (self.buffer) {
-      // Incompletely parsed file.
-      self.onerror && self.onerror("unparsed input");
+    if (self.state !== "ID") {
+      // Synthesize the end of the current block.
+      self.buffer += "\n\n";
+      self.parse();
+      if (self.buffer) {
+        // Incompletely parsed file.
+        self.onerror && self.onerror("unparsed input");
+      }
     }
+    self.onflush && self.onflush();
+    return this;
   }
 };

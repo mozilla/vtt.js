@@ -4,29 +4,24 @@
 load("vtt.js");
 
 const FAIL = -1;
-const EXCEPTION = 2;
 
-function parse(file, callback) {
-  var text = snarf(file);
+function parse(callback, done) {
   var result = 0;
-  try {
-    var parser = new WebVTTParser();
-    parser.oncue = function (cue) {
-      if (callback && !callback(null, cue))
-        result = FAIL;
-      if (result >= 0)
-        ++result;
-    }
-    parser.onerror = function (msg) {
-      if (callback && !callback(msg, null))
-        result = FAIL;
-    }
-    parser.parse(text);
-    parser.flush();
-  } catch (e) {
-    result = EXCEPTION;
+  var parser = new WebVTTParser();
+  parser.oncue = function (cue) {
+    if (callback && !callback(null, cue))
+      result = FAIL;
+    if (result >= 0)
+      ++result;
   }
-  return result;
+  parser.onerror = function (msg) {
+    if (callback && !callback(msg, null))
+      result = FAIL;
+  }
+  parser.onflush = function () {
+    done && done(result);
+  }
+  return parser;
 }
 
 function expect_line_num(num) {
@@ -51,8 +46,15 @@ function expect_fail(msg) {
   }
 }
 
+function checkAllAtOnce(name, text, expected, callback) {
+  parse(callback, function (result) {
+    print(name + " " + ((result == expected) ? "PASS" : "FAIL"));
+  }).parse(text).flush();
+}
+
 function check(file, expected, callback) {
-  print(file + " " + ((parse(file, callback) === expected) ? "PASS" : "FAIL"));
+  var text = snarf(file);
+  checkAllAtOnce(file, text, expected, callback);
 }
 
 check("tests/no-newline-at-end.vtt", 1);
