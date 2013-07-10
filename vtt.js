@@ -2,20 +2,21 @@
 /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
 
 // We throw this exception if parsing fails.
-var ParseError = {};
+function ParseError(msg) {
+  this.msg = msg;
+}
 
-// Throw a parse error if condition is not met. This exception is only thrown
-// within this file. We catch it here and invoke the onerror event if needed.
-function expect(cond) {
-  if (!cond)
-    throw ParseError;
+function reportError(input, msg) {
+  msg = msg.replace("%", "'" + input.replace(/^[^\s]+/, "") + "'");
+  throw new ParseError(msg);
 }
 
 function parseCue(input, cue) {
   // 4.8.10.13.3 Collect a WebVTT timestamp.
   function parseTimeStamp() {
     var match = input.match(/^(\d{2,}:)?([0-5][0-9]):([0-5][0-9])\.(\d{3})/);
-    expect(!!match);
+    if (!match)
+      reportError(input, "invalid timestamp %");
     // Remove time stamp from input.
     input = input.replace(/^[^\s]+/, "");
     // Hours are optional, and include a trailing ":", which we have to strip first.
@@ -34,7 +35,8 @@ function parseCue(input, cue) {
   skipWhitespace();
   cue.startTime = parseTimeStamp();     // (4) collect cue start time
   skipWhitespace();
-  expect(input.substr(0, 3) === "-->"); // (6-8) next characters must match "-->"
+  if (input.substr(0, 3) !== "-->")     // (6-8) next characters must match "-->"
+    reportError(input, "'-->' expected, got %");
   input = input.substr(3);
   skipWhitespace();
   cue.endTime = parseTimeStamp();       // (10) collect cue end time
@@ -64,7 +66,11 @@ WebVTTParser.prototype = {
       var pos = 0;
       while (pos < buffer.length && buffer[pos] != '\r' && buffer[pos] != '\n')
         ++pos;
-      var line = decodeURIComponent(escape(buffer.substr(0, pos)));
+      try {
+        var line = decodeURIComponent(escape(buffer.substr(0, pos)));
+      } catch (e) {
+        reportError(buffer, "invalid UTF8 encoding in '" + buffer.substr(0, pos) + "'");
+      }
       if (buffer[pos] === '\r')
         ++pos;
       if (buffer[pos] === '\n')
@@ -87,7 +93,7 @@ WebVTTParser.prototype = {
         var line = collectNextLine();
         if (line.substr(0, WEBVTT.length) !== WEBVTT ||
             line.length > WEBVTT.length && !/[ \t]/.test(line[WEBVTT.length])) {
-          self.onerror && self.onerror();
+          reportError(line, "invalid signature '" + line + "'");
           return;
         }
         self.state = "HEADER";
@@ -140,6 +146,7 @@ WebVTTParser.prototype = {
             parseCue(line, self.cue);
           } catch (e) {
             // In case of an error ignore self cue.
+            self.onerror && self.onerror(e.msg);
             self.state = "BADCUE";
             continue;
           }
@@ -168,7 +175,8 @@ WebVTTParser.prototype = {
         }
       }
     } catch (e) {
-      self.onerror && self.onerror();
+      print(e.stack);
+      self.onerror && self.onerror(e.msg);
     }
   },
   flush: function () {
@@ -180,7 +188,7 @@ WebVTTParser.prototype = {
     self.parse();
     if (self.buffer) {
       // Incompletely parsed file.
-      self.onerror && self.onerror();
+      self.onerror && self.onerror("unparsed input");
     }
   }
 };

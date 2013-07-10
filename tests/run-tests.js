@@ -17,7 +17,8 @@ function parse(file, oncue) {
       if (result >= 0)
         ++result;
     }
-    parser.onerror = function () {
+    parser.onerror = function (msg) {
+      print(msg);
       result = FAIL;
     }
     parser.parse(text);
