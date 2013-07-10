@@ -46,15 +46,29 @@ function expect_fail(msg) {
   }
 }
 
-function checkAllAtOnce(name, text, expected, callback) {
-  parse(callback, function (result) {
+function report(name, expected) {
+  return function (result) {
     print(name + " " + ((result == expected) ? "PASS" : "FAIL"));
-  }).parse(text).flush();
+  };
+}
+
+function checkAllAtOnce(name, text, expected, callback) {
+  parse(callback, report(name, expected)).parse(text).flush();
+}
+
+function checkStreaming(name, text, expected, callback) {
+  for (var n = 0; n < text.length; ++n) {
+    var parser = parse(callback, report(name + n, expected));
+    parser.parse(text.substr(0, n));
+    parser.parse(text.substr(n));
+    parser.flush();
+  }
 }
 
 function check(file, expected, callback) {
   var text = snarf(file);
   checkAllAtOnce(file, text, expected, callback);
+  //checkStreaming(file, text, expected, callback);
 }
 
 check("tests/no-newline-at-end.vtt", 1);
