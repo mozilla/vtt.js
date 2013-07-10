@@ -28,12 +28,16 @@ function parse(file, oncue) {
   return result;
 }
 
-function constraint_one_line(cue) {
-  return cue.content.split("\n").length == 1;
+function expect_line_num(num) {
+  return function (cue) {
+    return cue.content.split("\n").length === num;
+  }
 }
 
-function constraint_two_lines(cue) {
-  return cue.content.split("\n").length == 2;
+function expect_field(field, value) {
+  return function (cue) {
+    return cue[field] === value;
+  }
 }
 
 function check(file, expected, oncue) {
@@ -50,5 +54,6 @@ check("tests/line-breaks.vtt", 3);
 check("tests/not-only-nested-cues.vtt", 2);
 check("tests/only-nested-cues.vtt", 6);
 check("tests/voice-spans.vtt", 4);
-check("tests/long-line.vtt", 1, constraint_one_line);
-check("tests/two-lines.vtt", 1, constraint_two_lines);
+check("tests/long-line.vtt", 1, expect_line_num(1));
+check("tests/two-lines.vtt", 1, expect_line_num(2));
+check("tests/arrows.vtt", 1, expect_field("id", "- - > -- > - -> -- <--"));
