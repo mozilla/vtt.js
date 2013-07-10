@@ -72,97 +72,101 @@ WebVTTParser.prototype = {
 
     // 4.8.10.13.3 WHATWG WebVTT Parser algorithm.
 
-    if (self.state === "INITIAL") {
-      // Wait until we have enough data to parse the header.
-      if (self.buffer.length < BOM.length + WEBVTT.length)
-        return;
-      // Skip the optional BOM.
-      if (self.buffer.substr(0, BOM.length) === BOM)
-        self.buffer = self.buffer.substr(BOM.length);
-      // (4-12) - Check for the "WEBVTT" identifier followed by an optional space or tab,
-      // and ignore the rest of the line.
-      var line = collectNextLine();
-      if (line.substr(0, WEBVTT.length) !== WEBVTT ||
-          line.length > WEBVTT.length && !/[ \t]/.test(line[WEBVTT.length])) {
-        self.onerror && self.onerror();
-        return;
+    try {
+      if (self.state === "INITIAL") {
+        // Wait until we have enough data to parse the header.
+        if (self.buffer.length < BOM.length + WEBVTT.length)
+          return;
+        // Skip the optional BOM.
+        if (self.buffer.substr(0, BOM.length) === BOM)
+          self.buffer = self.buffer.substr(BOM.length);
+        // (4-12) - Check for the "WEBVTT" identifier followed by an optional space or tab,
+        // and ignore the rest of the line.
+        var line = collectNextLine();
+        if (line.substr(0, WEBVTT.length) !== WEBVTT ||
+            line.length > WEBVTT.length && !/[ \t]/.test(line[WEBVTT.length])) {
+          self.onerror && self.onerror();
+          return;
+        }
+        self.state = "HEADER";
       }
-      self.state = "HEADER";
-    }
 
-    // We can't parse a line until we have the full line.
-    if (!/[\r\n]/.test(self.buffer))
-      return;
+      // We can't parse a line until we have the full line.
+      if (!/[\r\n]/.test(self.buffer))
+        return;
 
-    while (self.buffer) {
-      var line = collectNextLine();
+      while (self.buffer) {
+        var line = collectNextLine();
 
-      switch (self.state) {
-      case "HEADER":
-        // 13-18 - Allow a header (comment area) under the WEBVTT line.
-        if (!line)
-          self.state = "ID";
-        continue;
-      case "NOTE":
-        // Ignore NOTE blocks.
-        if (!line)
-          self.state = "ID";
-        continue;
-      case "ID":
-        // Check for the start of NOTE blocks.
-        if (/^NOTE($|[ \t])/.test(line)) {
-          self.state = "NOTE";
-          break;
-        }
-        // 19-29 - Allow any number of line terminators, then initialize new cue values.
-        if (!line)
+        switch (self.state) {
+        case "HEADER":
+          // 13-18 - Allow a header (comment area) under the WEBVTT line.
+          if (!line)
+            self.state = "ID";
           continue;
-        self.currentCue = {
-          id: "",
-          settings: "",
-          startTime: 0,
-          endTime: 0,
-          contnet: ""
-        };
-        self.state = "CUE";
-        // 30-39 - Check if self line contains an optional identifier or timing data.
-        if (line.indexOf("-->") == -1) {
-          self.cue.id = line;
+        case "NOTE":
+          // Ignore NOTE blocks.
+          if (!line)
+            self.state = "ID";
+          continue;
+        case "ID":
+          // Check for the start of NOTE blocks.
+          if (/^NOTE($|[ \t])/.test(line)) {
+            self.state = "NOTE";
+            break;
+          }
+          // 19-29 - Allow any number of line terminators, then initialize new cue values.
+          if (!line)
+            continue;
+          self.currentCue = {
+            id: "",
+            settings: "",
+            startTime: 0,
+            endTime: 0,
+            contnet: ""
+          };
+          self.state = "CUE";
+          // 30-39 - Check if self line contains an optional identifier or timing data.
+          if (line.indexOf("-->") == -1) {
+            self.cue.id = line;
+            continue;
+          }
+          // Fall through, process line as start of a cue.
+        case "CUE":
+          // 40 - Collect cue timings and settings.
+          try {
+            parseCue(line, self.cue);
+          } catch (e) {
+            // In case of an error ignore self cue.
+            self.state = "BADCUE";
+            continue;
+          }
+          self.state = "CUETEXT";
+          continue;
+        case "CUETEXT":
+          // 41-53 - Collect the cue text, create a cue, and add it to the output.
+          if (!line) {
+            // We are done parsing self cue.
+            self.oncue && self.oncue(self.cue);
+            self.cue = null;
+            self.state = "ID";
+            continue;
+          }
+          if (!self.cue.content)
+            self.cue.content += "\n";
+          self.cue.content += line;
+          continue;
+        default: // BADCUE
+          // 54-62 - Collect and discard the remaining cue.
+          if (!line) {
+            self.state = "ID";
+            continue;
+          }
           continue;
         }
-        // Fall through, process line as start of a cue.
-      case "CUE":
-        // 40 - Collect cue timings and settings.
-        try {
-          parseCue(line, self.cue);
-        } catch (e) {
-          // In case of an error ignore self cue.
-          self.state = "BADCUE";
-          continue;
-        }
-        self.state = "CUETEXT";
-        continue;
-      case "CUETEXT":
-        // 41-53 - Collect the cue text, create a cue, and add it to the output.
-        if (!line) {
-          // We are done parsing self cue.
-          self.oncue && self.oncue(self.cue);
-          self.cue = null;
-          self.state = "ID";
-          continue;
-        }
-        if (!self.cue.content)
-          self.cue.content += "\n";
-        self.cue.content += line;
-        continue;
-      default: // BADCUE
-        // 54-62 - Collect and discard the remaining cue.
-        if (!line) {
-          self.state = "ID";
-          continue;
-        }
-        continue;
       }
+    } catch (e) {
+      self.onerror && self.onerror();
     }
   }
 };
