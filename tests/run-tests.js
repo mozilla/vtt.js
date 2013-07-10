@@ -28,8 +28,8 @@ function parse(file, oncue) {
   return result;
 }
 
-function constraint_one_line(cue) {
-  return cue.content.split("\n").length == 1;
+function constraint_lines(cue, expected) {
+  return cue.content.split("\n").length == expected;
 }
 
 function check(file, expected, oncue) {
@@ -46,4 +46,4 @@ check("tests/line-breaks.vtt", 3);
 check("tests/not-only-nested-cues.vtt", 2);
 check("tests/only-nested-cues.vtt", 6);
 check("tests/voice-spans.vtt", 4);
-check("tests/long-line.vtt", 1, constraint_one_line);
+check("tests/long-line.vtt", 1, constraint_lines.bind(null, 1));
