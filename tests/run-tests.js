@@ -125,7 +125,7 @@ check("tests/underline-spans.vtt", 4);
 check("tests/italic-spans.vtt", 4);
 check("tests/class-spans.vtt", 4);
 check("tests/lang-spans.vtt", 3);
-check("tests/timestamp-spans.vtt", 3);
+check("tests/timestamp-spans.vtt", 4);
 check("tests/escape-characters.vtt", 8);
 check("tests/bad-tag-spans.vtt", 4);
 check("tests/ruby-spans.vtt", 5);
