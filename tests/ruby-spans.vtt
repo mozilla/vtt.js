@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00.000 --> 00:02.000
+<ruby>It's a <rt>blue apple tree!</rt></ruby>
+
+00:02.000 --> 00:04.000
+<ruby>No <rt>way!</ruby>
+
+00:04.000 --> 00:06.000
+<rt>Hee!</rt>
+
+00:06.000 --> 00:08.000
+<ruby>That's <rt>awesome!
+
+00:06.000 --> 00:08.000
+<ruby.first Annotation>That's <rt>awesome!
