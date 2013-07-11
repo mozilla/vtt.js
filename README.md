@@ -1,6 +1,8 @@
 vtt.js
 ======
 
+[![Build Status](https://travis-ci.org/andreasgal/vtt.js.png?branch=master)](https://travis-ci.org/andreasgal/vtt.js)
+
 WebVTT parser in JavaScript.
 
 API
@@ -30,3 +32,13 @@ parser.flush();
 `onerror` is invoked when a parser error occurs. When parsing cues, oncue will be invoked if a partial cue was parsed successfully before 'onerror' is invoked.
 
 `onflush` is invoked in response to flush() and after the content was parsed completely.
+
+Tests
+=====
+
+To run tests locally, use node.js:
+
+```
+$ npm install
+$ npm test
+```

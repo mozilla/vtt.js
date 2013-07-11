@@ -9,11 +9,13 @@
   },
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.6.0"
+    "grunt-cli": "~0.1.9",
+    "grunt-contrib-jshint": "~0.6.0",
+    "tape": "~1.0.4"
   },
   "main": "vtt.js",
   "scripts": {
-    "test": "grunt && node ./tests/run-tests.js"
+    "test": "./node_modules/.bin/grunt && node ./tests/run-tests.js"
   },
   "license": {
     "type": "Apache-2.0",

@@ -1,26 +1,18 @@
 /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
 
-var done;
 if (typeof require !== "undefined") {
-  // node.js, emulate jsshell
+  // node.js, emulate jsshell funcs, use node-tap
   var WebVTTParser = require("../").WebVTTParser,
     fs = require("fs"),
-    snarf = function(filename) {
-      return fs.readFileSync(filename, 'utf8');
+    tap = require('tape');
+    snarf = function(file) {
+      return fs.readFileSync(file, "utf8");
     },
-    print = function(){/*noop - don't pollute TAP output*/},
-    testCount = 0,
-    done = function() {
-      // print TAP test count
-      console.log("1..%s", testCount);
-    }
+    print = function(){};
 } else {
   // jsshell
   load("vtt.js");
-  done = function(){
-    print("Done, ran " + i + " tests.");
-  }
 }
 
 const FAIL = -1;
@@ -78,12 +70,10 @@ function report(name, expected) {
   return function (result) {
     // If we're node, format as TAP stream
     if (typeof require !== "undefined") {
-      testCount += 1;
-      console.log("# %s", name);
-      if (result !== expected)
-        console.log("not ok %s - expected: %s, got: %s", testCount, expected, result);
-      else
-        console.log("ok %s", testCount);
+      tap.test(name, function(t) {
+        t.equal(result, expected);
+        t.end();
+      });
     } else {
       if (result !== expected)
         print("expected: " + expected + ", got: " + result);
@@ -136,6 +126,3 @@ check("tests/italic-spans.vtt", 4);
 check("tests/class-spans.vtt", 4);
 check("tests/lang-spans.vtt", 3);
 check("tests/timestamp-spans.vtt", 3);
-
-// Leave this until the end.
-done();
