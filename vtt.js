@@ -27,6 +27,72 @@ function parseCue(input, cue) {
     return h * 3600 + m * 60 + s + f * 0.001;
   }
 
+  // 4.4.2 WebVTT cue settings
+  function parseCueSettings(input) {
+    var settings = Object.create(null);
+
+    // Each setting must not be included more than once per WebVTT cue settings list.
+    function set(k, v) {
+      if (!settings[k])
+        settings[k] = v;
+    }
+
+    // Accept a setting if its one of the given alternatives.
+    function alt(k, v, a) {
+      for (var n = 0; n < a.length; ++n) {
+        if (v === a[n]) {
+          set(k, v);
+          break;
+        }
+      }
+    }
+
+    // Accept a setting if its a valid (signed) integer.
+    function integer(k, v) {
+      if (/^-?\d+$/.test(v)) // integer
+        set(k, v);
+    }
+
+    // Accept a setting if its a valid percentage.
+    function percent(k, v) {
+      if (/^\d+%$/.test(v)) {
+        v = v.replace("%", "") | 0;
+        if (v >= 0 && v <= 100)
+          set(k, v + "%");
+      }
+    }
+
+    var list = input.split(/\s/);
+    for (var i in list) {
+      var kv = list[i].split(':');
+      if (kv.length !== 2)
+        continue;
+      var k = kv[0].trim();
+      var v = kv[1].trim();
+      switch (k) {
+      case "region":
+        set(k, v);
+        break;
+      case "vertical":
+        alt(k, v, ["rl", "lr"]);
+        break;
+      case "line":
+        integer(k, v);
+        percent(k, v);
+        break;
+      case "position":
+      case "size":
+        percent(k, v);
+        break;
+      case "align":
+        alt(k, v, ["start", "middle", "end", "left", "right"]);
+        break;
+      }
+    }
+
+    return settings;
+  }
+
   function skipWhitespace() {
     input = input.replace(/^\s+/, "");
   }
@@ -43,7 +109,7 @@ function parseCue(input, cue) {
 
   // 4.1 WebVTT cue settings list.
   skipWhitespace();
-  cue.settings = input.split(/\s/);
+  cue.settings = parseCueSettings(input);
 }
 
 const BOM = "\xEF\xBB\xBF";
