@@ -200,7 +200,7 @@ WebVTTParser.prototype = {
   },
   flush: function () {
     var self = this;
-    if (self.state !== "ID") {
+    if (self.state !== "ID" && self.state !== "INITIAL") {
       // Synthesize the end of the current block.
       self.buffer += "\n\n";
       self.parse();
