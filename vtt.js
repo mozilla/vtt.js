@@ -148,14 +148,14 @@ WebVTTParser.prototype = {
             self.cue.id = line;
             continue;
           }
-          // process line as start of a cue.
+          // Process line as start of a cue.
           /*falls through*/
         case "CUE":
           // 40 - Collect cue timings and settings.
           try {
             parseCue(line, self.cue);
           } catch (e) {
-            // In case of an error ignore self cue.
+            // In case of an error ignore rest of the cue.
             self.onerror && self.onerror(e.msg);
             self.cue = null;
             self.state = "BADCUE";
@@ -200,7 +200,7 @@ WebVTTParser.prototype = {
   },
   flush: function () {
     var self = this;
-    if (self.state !== "ID" && self.state !== "INITIAL") {
+    if (self.state !== "INITIAL" && self.state !== "ID") {
       // Synthesize the end of the current block.
       self.buffer += "\n\n";
       self.parse();
