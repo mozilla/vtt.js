@@ -12,7 +12,7 @@ function reportError(input, msg) {
 }
 
 function parseCue(input, cue) {
-  // 4.8.10.13.3 Collect a WebVTT timestamp.
+  // 4.1 WebVTT timestamp
   function parseTimeStamp() {
     var match = input.match(/^(\d{2,}:)?([0-5][0-9]):([0-5][0-9])\.(\d{3})/);
     if (!match)
@@ -31,19 +31,19 @@ function parseCue(input, cue) {
     input = input.replace(/^\s+/, "");
   }
 
-  // 4.8.10.13.3 Collect WebVTT cue timings and settings.
+  // 4.1 WebVTT cue timings.
   skipWhitespace();
-  cue.startTime = parseTimeStamp();     // (4) collect cue start time
+  cue.startTime = parseTimeStamp();     // (1) collect cue start time
   skipWhitespace();
-  if (input.substr(0, 3) !== "-->")     // (6-8) next characters must match "-->"
+  if (input.substr(0, 3) !== "-->")     // (3) next characters must match "-->"
     reportError(input, "'-->' expected, got %");
   input = input.substr(3);
   skipWhitespace();
-  cue.endTime = parseTimeStamp();       // (10) collect cue end time
+  cue.endTime = parseTimeStamp();       // (5) collect cue end time
 
-  // 4.8.10.13.4 Parse the WebVTT settings for the cue.
+  // 4.1 WebVTT cue settings list.
   skipWhitespace();
-  cue.settings = input.split(/\s/);     // (1) split on spaces
+  cue.settings = input.split(/\s/);
 }
 
 const BOM = "\xEF\xBB\xBF";
@@ -82,7 +82,7 @@ WebVTTParser.prototype = {
       return line;
     }
 
-    // 4.8.10.13.3 WHATWG WebVTT Parser algorithm.
+    // 5.1 WebVTT file parsing.
     try {
       var line;
       if (self.state === "INITIAL") {
