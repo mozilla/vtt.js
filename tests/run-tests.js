@@ -128,7 +128,7 @@ check("tests/lang-spans.vtt", 3);
 check("tests/timestamp-spans.vtt", 3);
 check("tests/escape-characters.vtt", 8);
 check("tests/bad-tag-spans.vtt", 4);
-check("tests/ruby-span.vtt", 5);
+check("tests/ruby-spans.vtt", 5);
 check("tests/cue-settings-align.vtt", 13);
 check("tests/cue-settings-vertical.vtt", 10);
 check("tests/cue-settings-size.vtt", 11);
