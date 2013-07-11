@@ -11,6 +11,65 @@ function reportError(input, msg) {
   throw new ParseError(msg);
 }
 
+// A settings object holds key/value pairs and will ignore anything but the first
+// assignment to a specific key.
+function Settings() {
+  this.values = Object.create(null);
+}
+
+Settings.prototype = {
+  // Only accept the first assignment to any key.
+  set: function(k, v) {
+    if (!this.get(k))
+      this.values[k] = v;
+  },
+  // Return the value for a key, or a default value.
+  get: function(k, dflt) {
+    return this.has(k) ? this.values[k] : dflt;
+  },
+  // Check whether we have a value for a key.
+  has: function(k) {
+    return k in this.values;
+  },
+  // Accept a setting if its one of the given alternatives.
+  alt: function(k, v, a) {
+    for (var n = 0; n < a.length; ++n) {
+      if (v === a[n]) {
+        this.set(k, v);
+        break;
+      }
+    }
+  },
+  // Accept a setting if its a valid (signed) integer.
+  integer: function(k, v) {
+    if (/^-?\d+$/.test(v)) // integer
+      this.set(k, v);
+  },
+  // Accept a setting if its a valid percentage.
+  percent: function(k, v, frac) {
+    if (/^\d+%$/.test(v)) {
+      v = v.replace("%", "");
+      v = frac ? (v * 1) : (v | 0);
+      if (v >= 0 && v <= 100)
+        this.set(k, v + "%");
+    }
+  }
+};
+
+// Helper function to parse input into groups separated by 'groupDelim', and
+// interprete each group as a key/value pair separated by 'keyValueDelim'.
+function parseOptions(input, callback, keyValueDelim, groupDelim) {
+  var groups = groupDelim ? input.split(groupDelim) : [input];
+  for (var i in groups) {
+    var kv = groups[i].split(keyValueDelim);
+    if (kv.length !== 2)
+      continue;
+    var k = kv[0].trim();
+    var v = kv[1].trim();
+    callback(k, v);
+  }
+}
+
 function parseCue(input, cue) {
   // 4.1 WebVTT timestamp
   function parseTimeStamp() {
@@ -29,68 +88,40 @@ function parseCue(input, cue) {
 
   // 4.4.2 WebVTT cue settings
   function parseCueSettings(input) {
-    var settings = Object.create(null);
+    var settings = new Settings();
 
-    // Each setting must not be included more than once per WebVTT cue settings list.
-    function set(k, v) {
-      if (!settings[k])
-        settings[k] = v;
-    }
-
-    // Accept a setting if its one of the given alternatives.
-    function alt(k, v, a) {
-      for (var n = 0; n < a.length; ++n) {
-        if (v === a[n]) {
-          set(k, v);
-          break;
-        }
-      }
-    }
-
-    // Accept a setting if its a valid (signed) integer.
-    function integer(k, v) {
-      if (/^-?\d+$/.test(v)) // integer
-        set(k, v);
-    }
-
-    // Accept a setting if its a valid percentage.
-    function percent(k, v) {
-      if (/^\d+%$/.test(v)) {
-        v = v.replace("%", "") | 0;
-        if (v >= 0 && v <= 100)
-          set(k, v + "%");
-      }
-    }
-
-    var list = input.split(/\s/);
-    for (var i in list) {
-      var kv = list[i].split(':');
-      if (kv.length !== 2)
-        continue;
-      var k = kv[0].trim();
-      var v = kv[1].trim();
+    parseOptions(input, function (k, v) {
       switch (k) {
       case "region":
-        set(k, v);
+        settings.set(k, v);
         break;
       case "vertical":
-        alt(k, v, ["rl", "lr"]);
+        settings.alt(k, v, ["rl", "lr"]);
         break;
       case "line":
-        integer(k, v);
-        percent(k, v);
+        settings.integer(k, v);
+        settings.percent(k, v);
+        settings.alt(k, v, ["auto"]);
         break;
       case "position":
       case "size":
-        percent(k, v);
+        settings.percent(k, v);
         break;
       case "align":
-        alt(k, v, ["start", "middle", "end", "left", "right"]);
+        settings.alt(k, v, ["start", "middle", "end", "left", "right"]);
         break;
       }
-    }
+    }, /:/, /\s/);
 
-    return settings;
+    // Apply default values for any missing fields.
+    return {
+      region: settings.get("region", ""),
+      vertical: settings.get("vertical", ""),
+      line: settings.get("line", "auto"),
+      position: settings.get("position", "50%"),
+      size: settings.get("size", "100%"),
+      align: settings.get("align", "middle")
+    };
   }
 
   function skipWhitespace() {
@@ -148,6 +179,74 @@ WebVTTParser.prototype = {
       return line;
     }
 
+    var regions = new Settings();
+
+    // 3.4 WebVTT region and WebVTT region settings syntax
+    function parseRegion(input) {
+      var region = new Settings();
+
+      parseOptions(input, function (k, v) {
+        switch (k) {
+        case "id":
+          // The string must not contain the substring "-->".
+          if (v.indexOf("-->") !== -1)
+            return;
+          region.set(k, v);
+          break;
+        case "width":
+          region.percent(k, v, true);
+          break;
+        case "lines":
+          region.integer(k, v);
+          break;
+        case "regionanchor":
+        case "viewportanchor":
+          var xy = v.split(',');
+          if (xy.length !== 2)
+            break;
+          // We have to make sure both x and y parse, so use a temporary
+          // settings object here.
+          var anchor = new Settings();
+          anchor.percent("x", xy[0]);
+          anchor.percent("y", xy[1]);
+          if (!anchor.has("x") || !anchor.has("y"))
+            break;
+          region.set(k + "X", anchor.get("x"));
+          region.get(k + "Y", anchor.get("y"));
+          break;
+        case "scroll":
+          region.alt(k, v, "up");
+          break;
+        }
+      }, /=/, /\s/);
+
+      // Register the region, using default values for any values that were not
+      // specified.
+      if (region.has("id")) {
+        regions.set(region.get("id"), {
+          width: region.get("width", "100%"),
+          lines: region.get("lines", "3"),
+          regionAnchorX: region.get("regionanchorX", "0%"),
+          regionAnchorY: region.get("regionanchorY", "100%"),
+          viewportAnchorX: region.get("viewportanchorX", "0%"),
+          viewportAnchorY: region.get("viewportanchorY", "100%"),
+          scroll: region.get("scroll", "")
+        });
+      }
+    }
+
+    // 3.2 WebVTT metadata header syntax
+    function parseHeader(input) {
+      parseOptions(input, function (k, v) {
+        switch (k) {
+        case "Region":
+          // 3.3 WebVTT region metadata header syntax
+          parseRegion(v);
+          break;
+        }
+      }, /:/);
+    }
+
     // 5.1 WebVTT file parsing.
     try {
       var line;
@@ -183,9 +282,13 @@ WebVTTParser.prototype = {
 
         switch (self.state) {
         case "HEADER":
-          // 13-18 - Allow a header (comment area) under the WEBVTT line.
-          if (!line)
+          // 13-18 - Allow a header (metadata) under the WEBVTT line.
+          if (/:/.test(line)) {
+            parseHeader(line);
+          } else if (!line) {
+            // An empty line terminates the header and starts the body (cues).
             self.state = "ID";
+          }
           continue;
         case "NOTE":
           // Ignore NOTE blocks.

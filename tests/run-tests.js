@@ -137,3 +137,4 @@ check("tests/cue-settings-line-position.vtt", 15);
 // Can't check streaming as waiting for 7 characters before starting to process the file messes
 // the expected value up.
 checkAllAtOnce("tests/garbage-signature.vtt", 0, expect_fail("invalid signature 'garbage vtt file'"));
+check("tests/regions.vtt", 6);
