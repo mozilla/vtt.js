@@ -1,12 +1,10 @@
-var util = require("./util"),
-    test = util.test;
+var util = require("./util");
 
-test("Simple example test", function(t) {
-  var vtt = util.parse("simple.vtt");
-  t.equal(1, vtt.cues.length);
-  t.equal("ID", vtt.cues[0].id);
-  t.equal(0, vtt.cues[0].startTime);
-  t.equal(2, vtt.cues[0].endTime);
-  t.equal("Text", vtt.cues[0].content);
+util.parseTest("simple.vtt", function(vtt, t) {
+  t.equal(vtt.cues.length, 1);
+  t.equal(vtt.cues[0].id, "ID");
+  t.equal(vtt.cues[0].startTime, 0);
+  t.equal(vtt.cues[0].endTime, 2);
+  t.equal(vtt.cues[0].content, "Text");
   t.end();
 });
