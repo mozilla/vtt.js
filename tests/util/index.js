@@ -10,6 +10,12 @@ tape.Test.prototype.assertCue = function(a, b, msg, extra) {
   return tape.Test.prototype.deepEqual(a, b, msg, extra);
 };
 
+function runTest(name, assertions, vtt) {
+  tape(name, function(t) {
+    assertions(vtt, t);
+  });
+}
+
 function parseWhole(filename, assertions) {
   var result = {
     cues: [],
@@ -23,9 +29,7 @@ function parseWhole(filename, assertions) {
   p.parse(fs.readFileSync(filename, "utf8"));
   p.flush();
 
-  tape(filename, function(t) {
-    assertions(result, t);
-  });
+  runTest(filename, assertions, result);
 }
 
 function parseStreaming(filename, assertions) {
@@ -45,9 +49,7 @@ function parseStreaming(filename, assertions) {
     p.parse(vtt.substr(n));
     p.flush();
 
-    tape(filename + " - streaming (n=" + n + ")", function(t) {
-      assertions(result, t);
-    });
+    runTest(filename + " - streaming (n=" + n + ")", assertions, result);
   }
 }
 
