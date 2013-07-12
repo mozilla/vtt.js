@@ -149,7 +149,6 @@ check("tests/escape-characters.vtt", 8);
 check("tests/bad-tag-spans.vtt", 4);
 check("tests/ruby-spans.vtt", 5);
 check("tests/cue-settings-align.vtt", 13);
-check("tests/cue-settings-vertical.vtt", 10);
 check("tests/cue-settings-size.vtt", 11);
 check("tests/cue-settings-position.vtt", 11);
 check("tests/cue-settings-line-position.vtt", 15);
@@ -163,3 +162,6 @@ check("tests/cue-content.vtt", 1, expect_content({
 check("tests/cue-content-class.vtt", 1, expect_content({
  "childNodes":[{"tagName":"span","localName":"v","title":"Mary","className":"loud","childNodes":[{"textContent":"That's awesome!"}]}]
 }));
+
+var vertical = require("./cue-settings/vertical/vertical.js");
+vertical.test();
