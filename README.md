@@ -27,9 +27,9 @@ parser.parse(moreData);
 parser.flush();
 ```
 
-`parse()` hands an UTF8 string to the parser, encoded as JavaScript string (only using `\x00-\xff`). The parser properly reassembles partial data, even across line breaks.
+`parse` hands an UTF8 string to the parser, encoded as JavaScript string (only using `\x00-\xff`). The parser properly reassembles partial data, even across line breaks.
 
-`flush()` indicates that no more data is expected and will trigger 'onflush' (see below).
+`flush` indicates that no more data is expected and will trigger 'onflush' (see below).
 
 `onregion` is invoked for every region that was fully parsed.
 
