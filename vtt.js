@@ -11,6 +11,15 @@ function reportError(input, msg) {
   throw new ParseError(msg);
 }
 
+// Try to parse input as a time stamp.
+function parseTimeStamp(input) {
+  var m = input.match(/^(\d{2,}:)?([0-5][0-9]):([0-5][0-9])\.(\d{3})/);
+  if (!m)
+    return null;
+  // Hours are optional, and include a trailing ":", which we have to strip first.
+  return (m[1] ? m[1].replace(":", "") : "00") + m[2] + m[3] + m[4];
+}
+
 // A settings object holds key/value pairs and will ignore anything but the first
 // assignment to a specific key.
 function Settings() {
@@ -72,22 +81,17 @@ function parseOptions(input, callback, keyValueDelim, groupDelim) {
 
 function parseCue(input, cue) {
   // 4.1 WebVTT timestamp
-  function parseTimeStamp() {
-    var match = input.match(/^(\d{2,}:)?([0-5][0-9]):([0-5][0-9])\.(\d{3})/);
-    if (!match)
+  function consumeTimeStamp() {
+    var ts = parseTimeStamp(input);
+    if (ts === null)
       reportError(input, "invalid timestamp %");
     // Remove time stamp from input.
     input = input.replace(/^[^\s]+/, "");
-    // Hours are optional, and include a trailing ":", which we have to strip first.
-    var h = match[1] ? match[1].replace(":", "") | 0 : 0;
-    var m = match[2] | 0;
-    var s = match[3] | 0;
-    var f = match[4] | 0;
-    return h * 3600 + m * 60 + s + f * 0.001;
+    return ts;
   }
 
   // 4.4.2 WebVTT cue settings
-  function parseCueSettings(input) {
+  function consumeCueSettings(input) {
     var settings = new Settings();
 
     parseOptions(input, function (k, v) {
@@ -130,17 +134,132 @@ function parseCue(input, cue) {
 
   // 4.1 WebVTT cue timings.
   skipWhitespace();
-  cue.startTime = parseTimeStamp();     // (1) collect cue start time
+  cue.startTime = consumeTimeStamp();   // (1) collect cue start time
   skipWhitespace();
   if (input.substr(0, 3) !== "-->")     // (3) next characters must match "-->"
     reportError(input, "'-->' expected, got %");
   input = input.substr(3);
   skipWhitespace();
-  cue.endTime = parseTimeStamp();       // (5) collect cue end time
+  cue.endTime = consumeTimeStamp();     // (5) collect cue end time
 
   // 4.1 WebVTT cue settings list.
   skipWhitespace();
-  cue.settings = parseCueSettings(input);
+  cue.settings = consumeCueSettings(input);
+}
+
+const ESCAPE = {
+  "&amp;": "&",
+  "&lt;": "<",
+  "&gt;": ">",
+  "&lrm;": "\u200e",
+  "&rlm;": "\u200f",
+  "&nbsp;": "\u00a0"
+};
+
+const TAG_NAME = {
+  c: "c",
+  i: "i",
+  b: "b",
+  u: "u",
+  ruby: "ruby",
+  rt: "rt",
+  v: "span",
+  lang: "span"
+};
+
+const TAG_ANNOTATION = {
+  v: "title",
+  lang: "lang"
+};
+
+// Parse content into a document fragment.
+function parseContent(window, input) {
+  function nextToken() {
+    // Check for end-of-string.
+    if (!input)
+      return null;
+
+    // Consume 'n' characters from the input.
+    function consume(result) {
+      input = input.substr(result.length);
+      return result;
+    }
+
+    var m = input.match(/^([^<]*)(<[^>]+>)?/);
+    // If there is some text before the next tag, return it, otherwise return
+    // the tag.
+    return consume(m[1] ? m[1] : m[2]);
+  }
+
+  // Unescape a string 's'.
+  function unescape1(e) {
+    return ESCAPE[i];
+  }
+  function unescape(s) {
+    while ((m = s.match(/^[^<&]*(&(amp|lt|gt|lrm|rlm|nbsp);)/)) !== null)
+      s = s.replace(m[1], unescape1);
+    return s;
+  }
+
+  var fragment = new window.DocumentFragment();
+
+  // Create an element for this tag.
+  function createElement(type, annotation) {
+    var tagName = TAG_NAME[type];
+    if (!tagName)
+      return null;
+    var element = fragment.createElement(tagName);
+    element.localName = type;
+    var name = TAG_ANNOTATION[type];
+    if (name)
+      element[name] = annotation.trim();
+    return element;
+  }
+
+  var current = fragment;
+  var t;
+  while ((t = nextToken()) !== null) {
+    if (t[0] === '<') {
+      if (t[1] === "/") {
+        // If the closing tag matches, move back up to the parent node.
+        if (current.localName === t.substr(2).replace(">", ""))
+          current = current.parentNode;
+        // Otherwise just ignore the end tag.
+        continue;
+      }
+      var ts = parseTimeStamp(t.substr(1, t.length - 2));
+      var node;
+      if (ts) {
+        // Timestamps are lead nodes as well.
+        node = window.ProcessingInstruction();
+        node.target = "timestamp";
+        node.data = ts;
+        current.appendChild(node);
+        continue;
+      }
+      var m = t.match(/^<([^.\s/0-9>]+)(\.[^\s\\>]+)?([^>\\]+)?(\\?)>$/);
+      // If we can't parse the tag, skip to the next tag.
+      if (!m)
+        continue;
+      // Try to construct an element, and ignore the tag if we couldn't.
+      node = createElement(m[1], m[3]);
+      if (!node)
+        continue;
+      // Set the class list (as a list of classes, separated by space).
+      if (m[2])
+        node.className = m[2].substr(1).replace('.', '');
+      // Append the node to the current node, and enter the scope of the new
+      // node.
+      current.appendChild(node);
+      current = node;
+      continue;
+    }
+
+    // Text nodes are leaf nodes.
+    current.appendChild(fragment.createTextNode(unescape(t)));
+  }
+
+  return fragment;
 }
 
 const BOM = "\xEF\xBB\xBF";
@@ -150,6 +269,12 @@ function WebVTTParser() {
   this.state = "INITIAL";
   this.buffer = "";
 }
+
+WebVTTParser.convertCueToDOMTree = function(window, cue) {
+  if (!window || !cue || !cue.content)
+    return null;
+  return parseContent(window, cue.content);
+};
 
 WebVTTParser.prototype = {
   parse: function (data) {

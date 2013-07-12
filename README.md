@@ -8,7 +8,7 @@ WebVTT parser in JavaScript.
 API
 ===
 
-The parser has a simple request-like API:
+The parser has a simple API:
 
 ```javascript
 var parser = new WebVTTParser();
@@ -40,6 +40,12 @@ parser.flush();
 `onerror` is invoked when a parser error occurs. When parsing cues, oncue will be invoked if a partial cue was parsed successfully before 'onerror' is invoked.
 
 `onflush` is invoked in response to flush() and after the content was parsed completely.
+
+The content of individual cues can be converted into a `DocumentFragment` node using:
+
+```javascript
+var fragment = WebVTTParser.convertCueToDOMTree(window, cue);
+```
 
 Tests
 =====

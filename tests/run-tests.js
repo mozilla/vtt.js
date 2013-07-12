@@ -1,19 +1,13 @@
 /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
 
-if (typeof require !== "undefined") {
-  // node.js, emulate jsshell funcs, use node-tap
-  var WebVTTParser = require("../").WebVTTParser,
+var WebVTTParser = require("../").WebVTTParser,
     fs = require("fs"),
     tap = require('tape');
     snarf = function(file) {
       return fs.readFileSync(file, "utf8");
     },
-    print = function(){};
-} else {
-  // jsshell
-  load("vtt.js");
-}
+    print = console.log;
 
 const FAIL = -1;
 
@@ -46,7 +40,7 @@ function handle_error(error) {
 
 function expect_line_num(num) {
   return function (error, cue) {
-    return error ? handle_error(error) : (cue.content.split("\n").length === num);
+    return error ? handle_error(error) : (cue && cue.content && cue.content.split("\n").length === num);
   }
 }
 
