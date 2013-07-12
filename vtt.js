@@ -369,8 +369,8 @@ WebVTTParser.prototype = {
   },
   flush: function () {
     var self = this;
-    if (self.state !== "INITIAL" && self.state !== "ID") {
-      // Synthesize the end of the current block.
+    if (self.cue) {
+      // Synthesize the end of the current cue.
       self.buffer += "\n\n";
       self.parse();
       if (self.buffer) {
