@@ -38,11 +38,8 @@ function parse(callback, done) {
   parser.oncue = function (cue) {
     if (callback && !callback(null, cue))
       result = FAIL;
-    // Don't get tricked by a cue being reported multiple times for updates in
-    // case of streaming parsing.
-    if (!cue.seen && result >= 0)
+    if (result >= 0)
       ++result;
-    cue.seen = true;
   }
   parser.onerror = function (msg) {
     if (callback && !callback(msg, null))
