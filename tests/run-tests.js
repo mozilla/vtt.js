@@ -4,9 +4,6 @@
 var WebVTTParser = require("../").WebVTTParser,
     fs = require("fs"),
     tap = require('tape');
-    snarf = function(file) {
-      return fs.readFileSync(file, "utf8");
-    };
 
 // This implements a minimum fake window object constructor that is sufficient
 // to test constructing a DOM Tree for cue content.
@@ -99,6 +96,10 @@ function report(name, expected) {
     }
   };
 }
+
+function snarf(file) {
+  return fs.readFileSync(file, "utf8");
+};
 
 function checkAllAtOnce(file, expected, callback) {
   parse(callback, report(file, expected)).parse(snarf(file)).flush();
