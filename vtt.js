@@ -273,8 +273,8 @@ WebVTTParser.prototype = {
         if (!/[\r\n]/.test(self.buffer)) {
           // If we are in the midst of parsing a cue, report it early. We will report it
           // again when updates come in.
-          if (self.state === "CUETEXT" && self.cue && self.oncue)
-            self.oncue(self.cue);
+          if (self.state === "CUETEXT" && self.cue && self.onpartialcue)
+            self.onpartialcue(self.cue);
           return this;
         }
 
