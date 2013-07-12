@@ -78,6 +78,13 @@ function expect_fail(msg) {
   }
 }
 
+function expect_content(reference) {
+  return function (error, cue) {
+    var actual = JSON.stringify(WebVTTParser.convertCueToDOMTree(new FakeWindow(), cue));
+    return JSON.stringify(reference) == actual;
+  };
+}
+
 function report(name, expected) {
   return function (result) {
     // If we're node, format as TAP stream
@@ -150,3 +157,6 @@ check("tests/cue-settings-line-position.vtt", 15);
 // the expected value up.
 checkAllAtOnce("tests/garbage-signature.vtt", 0, expect_fail("invalid signature 'garbage vtt file'"));
 check("tests/regions.vtt", 6);
+check("tests/cue-content.vtt", 1, expect_content({
+  "childNodes":[{"tagName":"span","localName":"v","title":"Neil deGrasse Tyson","childNodes":[{"tagName":"i","localName":"i","childNodes":[{"textContent":"Laughs"}]}]}]
+}));
