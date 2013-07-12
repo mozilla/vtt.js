@@ -6,8 +6,7 @@ var WebVTTParser = require("../").WebVTTParser,
     tap = require('tape');
     snarf = function(file) {
       return fs.readFileSync(file, "utf8");
-    },
-    print = console.log;
+    };
 
 // This implements a minimum fake window object constructor that is sufficient
 // to test constructing a DOM Tree for cue content.
@@ -52,7 +51,7 @@ function parse(callback, done) {
 }
 
 function handle_error(error) {
-  print(error);
+  console.log(error);
   return false;
 }
 
@@ -95,8 +94,8 @@ function report(name, expected) {
       });
     } else {
       if (result !== expected)
-        print("expected: " + expected + ", got: " + result);
-      print(name + " " + ((result === expected) ? "PASS" : "FAIL"));
+        console.log("expected: " + expected + ", got: " + result);
+      console.log(name + " " + ((result === expected) ? "PASS" : "FAIL"));
     }
   };
 }
@@ -159,4 +158,7 @@ checkAllAtOnce("tests/garbage-signature.vtt", 0, expect_fail("invalid signature 
 check("tests/regions.vtt", 6);
 check("tests/cue-content.vtt", 1, expect_content({
   "childNodes":[{"tagName":"span","localName":"v","title":"Neil deGrasse Tyson","childNodes":[{"tagName":"i","localName":"i","childNodes":[{"textContent":"Laughs"}]}]}]
+}));
+check("tests/cue-content-class.vtt", 1, expect_content({
+ "childNodes":[{"tagName":"span","localName":"v","title":"Mary","className":"loud","childNodes":[{"textContent":"That's awesome!"}]}]
 }));
