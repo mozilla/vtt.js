@@ -1,0 +1,8 @@
+bogus-value.vtt bad-vertical.json
+capital-keyword.vtt bad-vertical.json
+incorrect-delimiter.vtt bad-vertical.json
+no-value.vtt bad-vertical.json
+space-after-delimiter.vtt bad-vertical.json
+space-before-delimiter.vtt bad-vertical.json
+correct-lr-keyword.vtt correct-lr-keyword.json
+correct-rl-keyword.vtt correct-rl-keyword.json

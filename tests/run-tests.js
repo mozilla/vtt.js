@@ -1,13 +1,13 @@
 /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
 
-var WebVTTParser = require("../").WebVTTParser,
+var path = require("path"),
     fs = require("fs"),
-    tap = require('tape');
+    util = require("./util"),
+    WebVTTParser = require("../").WebVTTParser;
 
 // This implements a minimum fake window object constructor that is sufficient
 // to test constructing a DOM Tree for cue content.
-
 function FakeWindow() {
   this.DocumentFragment = function () {
     function appendChild(node) {
@@ -26,142 +26,83 @@ function FakeWindow() {
   };
 };
 
-const FAIL = -1;
+function parseTestList(testListPath) {
+  var testArgs = fs.readFileSync(testListPath, "utf8").split("\n"),
+      dirPath = testListPath.substr(0, testListPath.indexOf("/test.list")),
+      testList = {
+        tests: [],
+        includes: []
+      };
 
-function parse(callback, done) {
-  var result = 0;
-  var parser = new WebVTTParser();
-  parser.oncue = function (cue) {
-    if (callback && !callback(null, cue))
-      result = FAIL;
-    if (result >= 0)
-      ++result;
-  }
-  parser.onerror = function (msg) {
-    if (callback && !callback(msg, null))
-      result = FAIL;
-  }
-  parser.onflush = function () {
-    done && done(result);
-  }
-  return parser;
-}
+  // Loop through the each line. If we successfully parse an argument line add
+  // the resulting test information to the list.
+  for (var i = 0; i < testArgs.length; i++) {
+    var argData = testArgs[i].split(" ");
 
-function handle_error(error) {
-  console.log(error);
-  return false;
-}
+    // We only know how to parse two argument instructions right now.
+    if (argData.length !== 2)
+      continue;
 
-function expect_line_num(num) {
-  return function (error, cue) {
-    return error ? handle_error(error) : (cue && cue.content && cue.content.split("\n").length === num);
-  }
-}
-
-function expect_field(field, value) {
-  return function (error, cue) {
-    return error ? handle_error(error) : (cue[field] === value);
-  }
-}
-
-function expect_fail(msg) {
-  return function (error, cue) {
-    if (!error)
-      return true;
-    if (error !== msg)
-      handle_error(error);
-    return error === msg;
-  }
-}
-
-function expect_content(reference) {
-  return function (error, cue) {
-    var actual = JSON.stringify(WebVTTParser.convertCueToDOMTree(new FakeWindow(), cue));
-    return JSON.stringify(reference) == actual;
-  };
-}
-
-function report(name, expected) {
-  return function (result) {
-    // If we're node, format as TAP stream
-    if (typeof require !== "undefined") {
-      tap.test(name, function(t) {
-        t.equal(result, expected);
-        t.end();
-      });
-    } else {
-      if (result !== expected)
-        console.log("expected: " + expected + ", got: " + result);
-      console.log(name + " " + ((result === expected) ? "PASS" : "FAIL"));
+    // Parse an include argument.
+    if (argData[0] === "include" && argData[1].match(/[a-zA-Z-]+\/test.list/)) {
+      testList.includes.push(path.join(dirPath, argData[1]));
+      continue;
     }
-  };
-}
 
-function snarf(file) {
-  return fs.readFileSync(file, "utf8");
-};
+    // All other arguments other than include must start with a .vtt file.
+    if (!argData[0].match(/[a-zA-Z-]+\.vtt/))
+      continue;
 
-function checkAllAtOnce(file, expected, callback) {
-  parse(callback, report(file, expected)).parse(snarf(file)).flush();
-}
+    // Currently we can only handle js or json files to test with.
+    if(argData[1].match(/[a-zA-Z-]+\.js$/))
+      var testInfo = {
+        vtt: path.join(dirPath, argData[0]),
+        expectedJs: path.join(dirPath, argData[1])
+      };
+    else if (argData[1].match(/[a-zA-Z-]+\.json$/))
+      var testInfo = {
+        vtt: path.join(dirPath, argData[0]),
+        expectedJson: path.join(dirPath, argData[1])
+      };
+    else
+      continue;
 
-function checkStreaming(file, expected, callback) {
-  var counter = 0;
-  var text = snarf(file);
-  for (var n = 0; n < text.length; ++n) {
-    var parser = parse(callback, function (result) {
-      if (result === expected)
-        ++counter;
-    });
-    parser.parse(text.substr(0, n));
-    parser.parse(text.substr(n));
-    parser.flush();
+    testList.tests.push(testInfo);
   }
-  report(file + " (streaming)", text.length)(counter);
+
+  return testList;
 }
 
-function check(file, expected, callback) {
-  checkAllAtOnce(file, expected, callback);
-  checkStreaming(file, expected, callback);
+function runTest(test) {
+  var assertions;
+
+  if (test.hasOwnProperty("expectedJson"))
+    assertions = function(vtt, t) {
+      var json = require(test.expectedJson);
+      t.deepEqual(vtt.cues[0], json.cue);
+      t.equal(JSON.stringify(json.domTree),
+              JSON.stringify(WebVTTParser.convertCueToDOMTree(new FakeWindow(), vtt.cues[0]),
+              "DOM tree should be equal."));
+      t.end();
+    };
+  else if (test.hasOwnProperty("expectedJs"))
+    assertions = require(test.expectedJs).test;
+  else
+    return false;
+
+  util.parseTest(test.vtt, assertions);
+  return true;
 }
 
-check("tests/no-newline-at-end.vtt", 1);
-check("tests/cue-identifier.vtt", 2);
-check("tests/fail-bad-utf8.vtt", 1, expect_fail("invalid UTF8 encoding in '<v Roger Bingham>When we e-mailed—'"));
-check("tests/many-comments.vtt", 2);
-check("tests/one-line-comment.vtt", 2);
-check("tests/example1.vtt", 13);
-check("tests/line-breaks.vtt", 3);
-check("tests/not-only-nested-cues.vtt", 2);
-check("tests/only-nested-cues.vtt", 6);
-check("tests/voice-spans.vtt", 4);
-check("tests/long-line.vtt", 1, expect_line_num(1));
-// We can't test streaming with this test since we get early callbacks with partial (single line) cue texts.
-checkAllAtOnce("tests/two-lines.vtt", 1, expect_line_num(2));
-check("tests/arrows.vtt", 1, expect_field("id", "- - > -- > - -> -- <--"));
-check("tests/bold-spans.vtt", 4);
-check("tests/underline-spans.vtt", 4);
-check("tests/italic-spans.vtt", 4);
-check("tests/class-spans.vtt", 4);
-check("tests/lang-spans.vtt", 3);
-check("tests/timestamp-spans.vtt", 4);
-check("tests/escape-characters.vtt", 8);
-check("tests/bad-tag-spans.vtt", 4);
-check("tests/ruby-spans.vtt", 5);
-check("tests/cue-settings-align.vtt", 13);
-check("tests/cue-settings-size.vtt", 11);
-check("tests/cue-settings-position.vtt", 11);
-check("tests/cue-settings-line-position.vtt", 15);
-// Can't check streaming as waiting for 7 characters before starting to process the file messes
-// the expected value up.
-checkAllAtOnce("tests/garbage-signature.vtt", 0, expect_fail("invalid signature 'garbage vtt file'"));
-check("tests/regions.vtt", 6);
-check("tests/cue-content.vtt", 1, expect_content({
-  "childNodes":[{"tagName":"span","localName":"v","title":"Neil deGrasse Tyson","childNodes":[{"tagName":"i","localName":"i","childNodes":[{"textContent":"Laughs"}]}]}]
-}));
-check("tests/cue-content-class.vtt", 1, expect_content({
- "childNodes":[{"tagName":"span","localName":"v","title":"Mary","className":"loud","childNodes":[{"textContent":"That's awesome!"}]}]
-}));
+function runTests(testListPath) {
+  var testList = parseTestList(testListPath);
 
-var vertical = require("./cue-settings/vertical/vertical.js");
-vertical.test();
+  for (var i = 0; i < testList.tests.length; i++)
+    runTest(testList.tests[i]);
+
+  if (testList.includes)
+    for (var i = 0; i < testList.includes.length; i++)
+      runTests(testList.includes[i]);
+}
+
+runTests(path.join(__dirname, "test.list"));

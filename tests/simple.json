@@ -1,9 +1,9 @@
 {
   "cue": {
-    "id": "",
+    "id": "ID",
     "settings": {
       "region": "",
-      "vertical": "lr",
+      "vertical": "",
       "line": "auto",
       "position": "50%",
       "size": "100%",
