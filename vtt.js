@@ -179,8 +179,6 @@ WebVTTParser.prototype = {
       return line;
     }
 
-    var regions = new Settings();
-
     // 3.4 WebVTT region and WebVTT region settings syntax
     function parseRegion(input) {
       var region = new Settings();
@@ -222,8 +220,9 @@ WebVTTParser.prototype = {
 
       // Register the region, using default values for any values that were not
       // specified.
-      if (region.has("id")) {
-        regions.set(region.get("id"), {
+      if (self.onregion && region.has("id")) {
+        self.onregion({
+          id: region.get("id"),
           width: region.get("width", "100%"),
           lines: region.get("lines", "3"),
           regionAnchorX: region.get("regionanchorX", "0%"),

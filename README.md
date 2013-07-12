@@ -12,6 +12,8 @@ The parser has a simple request-like API:
 
 ```javascript
 var parser = new WebVTTParser();
+parser.onregion = function (region) {
+}
 parser.oncue = function (cue) {
 }
 parser.onpartialcue = function (cue) {
@@ -28,6 +30,8 @@ parser.flush();
 `parse()` hands an UTF8 string to the parser, encoded as JavaScript string (only using `\x00-\xff`). The parser properly reassembles partial data, even across line breaks.
 
 `flush()` indicates that no more data is expected and will trigger 'onflush' (see below).
+
+`onregion` is invoked for every region that was fully parsed.
 
 `oncue` is invoked for every cue that was fully parsed. In case of streaming parsing oncue is delayed until the cue has been completely received.
 
