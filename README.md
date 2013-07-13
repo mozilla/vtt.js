@@ -12,22 +12,20 @@ The parser has a simple API:
 
 ```javascript
 var parser = new WebVTTParser();
-parser.onregion = function (region) {
-}
-parser.oncue = function (cue) {
-}
-parser.onpartialcue = function (cue) {
-}
-parser.onerror = function (msg) {
-}
-parser.onflush = function () {
-}
+parser.onregion = function (region) {}
+parser.oncue = function (cue) {}
+parser.onpartialcue = function (cue) {}
+parser.onerror = function (msg) {}
+parser.onflush = function () {}
 parser.parse(moreData);
 parser.parse(moreData);
 parser.flush();
+parser.convertCueToDOMTree(window, input);
 ```
 
 `parse` hands an UTF8 string to the parser, encoded as JavaScript string (only using `\x00-\xff`). The parser properly reassembles partial data, even across line breaks.
+
+'convertCueToDOMTree' parses the cuetext of the cue handed to it into a tree of DOM nodes that mirrors the internal WebVTT node structure of the cue's cuetext. Constructs a DocumentFragment with the window it is handed, adds the tree of DOM nodes as a child to the DocumentFragment, and returns it.
 
 `flush` indicates that no more data is expected and will trigger 'onflush' (see below).
 
@@ -75,18 +73,31 @@ Text
 If you choose to use JSON it might look like:
 ``` json
 {
-  "id": "ID",
-  "settings": {
-    "region": "",
-    "vertical": "",
-    "line": "auto",
-    "position": "50%",
-    "size": "100%",
-    "align": "middle"
+  "cue": {
+    "id": "",
+    "settings": {
+      "region": "",
+      "vertical": "",
+      "line": "auto",
+      "position": "50%",
+      "size": "100%",
+      "align": "middle"
+    },
+    "startTime": "000000000",
+    "endTime": "000002000",
+    "content": "Text"
   },
-  "startTime": 0,
-  "endTime": 2,
-  "content": "Text"
+  "domTree": {
+    "childNodes": [{
+      "tagName": "span",
+      "localName": "v",
+      "title": "Mary",
+      "className": "loud",
+      "childNodes": [{
+        "textContent": "Text"
+      }]
+    }]
+  }
 }
 ```
 If you use JSON you **must** define all the possible values even if they are
@@ -120,7 +131,7 @@ simple.vtt simple.json
 ```
 
 And the ```test``` directory's ```test.list``` file must have a new entry pointing to this
-new test.list file like:
+new ```test.list``` file like:
 
 ```
 include simple/test.file
