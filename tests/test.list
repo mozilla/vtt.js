@@ -1,0 +1,4 @@
+include cue-settings/test.list
+
+simple.vtt simple.json
+simple.vtt simple.js
