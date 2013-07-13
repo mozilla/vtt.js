@@ -56,3 +56,75 @@ To run tests locally, use node.js:
 $ npm install
 $ npm test
 ```
+
+###Writing Tests###
+
+Currently to write tests you need two things. A WebVTT file to parse and a JSON file representing
+the parsed data of the file or a Node.js file with custom asserts using [Tape asserts](https://npmjs.org/package/tape).
+
+For example your WebVTT file could look like:
+
+```
+WEBVTT
+
+ID
+00:00.000 --> 00:02.000
+Text
+```
+
+If you choose to use JSON it might look like:
+``` json
+{
+  "id": "ID",
+  "settings": {
+    "region": "",
+    "vertical": "",
+    "line": "auto",
+    "position": "50%",
+    "size": "100%",
+    "align": "middle"
+  },
+  "startTime": 0,
+  "endTime": 2,
+  "content": "Text"
+}
+```
+If you use JSON you **must** define all the possible values even if they are
+not being tested. Put the default values in this case.
+
+If you choose to use Node.js it might look like:
+
+``` js
+exports.test = function(vtt, t) {
+  t.equal(vtt.cues.length, 1);
+  t.equal(vtt.cues[0].id, "ID");
+  t.equal(vtt.cues[0].startTime, 0);
+  t.equal(vtt.cues[0].endTime, 2);
+  t.equal(vtt.cues[0].content, "Text");
+  t.end();
+}
+```
+Your Node.js file **must** export a test function with the signature ```function(vtt, t)```.
+
+Once you have these two things you will need to add an entry to a ```test.list``` file
+in the directory where the two files live. You will have to create this file if it
+does not exist yet. The directory above it must also have an include line pointing to
+the subdirectory's ```test.list``` file.
+
+For example if ```simple.vtt``` and ```simple.json``` live in the ```test/simple``` directory
+then your ```test.list``` file would be placed  in the ```test/simple/``` directory and the file would
+look like:
+
+```
+simple.vtt simple.json
+```
+
+And the ```test``` directory's ```test.list``` file must have a new entry pointing to this
+new test.list file like:
+
+```
+include simple/test.file
+```
+
+Your test is now good to go.
+
