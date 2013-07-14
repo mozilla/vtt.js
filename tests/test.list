@@ -1,3 +1,4 @@
+include cuetext/test.list
 include cue-settings/test.list
 
 simple.vtt simple.json
