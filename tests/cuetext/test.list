@@ -1,3 +1,4 @@
 include bold/test.list
 include class/test.list
+include italic/test.list
 include voice/test.list
