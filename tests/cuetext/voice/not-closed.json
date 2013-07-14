@@ -15,7 +15,7 @@
   },
   "domTree": {
     "childNodes": [{
-      "tagName": "v",
+      "tagName": "span",
       "localName": "v",
       "childNodes": [{
         "textContent": "It's a blue apple tree!"

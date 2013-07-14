@@ -211,7 +211,7 @@ function parseContent(window, input) {
     var element = fragment.createElement(tagName);
     element.localName = type;
     var name = TAG_ANNOTATION[type];
-    if (name)
+    if (name && annotation)
       element[name] = annotation.trim();
     return element;
   }
