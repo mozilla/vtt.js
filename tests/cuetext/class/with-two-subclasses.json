@@ -1,0 +1,26 @@
+{
+  "cue": {
+    "id": "",
+    "settings": {
+      "region": "",
+      "vertical": "",
+      "line": "auto",
+      "position": "50",
+      "size": "100",
+      "align": "middle"
+    },
+    "startTime": "000000000",
+    "endTime": "000002000",
+    "content": "<c.first.loud>That's awesome!</c>"
+  },
+  "domTree": {
+    "childNodes": [{
+      "tagName": "c",
+      "localName": "c",
+      "className": "first loud",
+      "childNodes": [{
+        "textContent": "That's awesome!"
+      }]
+    }]
+  }
+}
