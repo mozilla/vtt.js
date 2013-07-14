@@ -6,6 +6,6 @@ integer-value.vtt bad-position.json
 just-percent-value.vtt bad-position.json
 negative-percent-value.vtt bad-position.json
 percent-over.vtt bad-position.json
-// TODO: Should not have % in value percent-value.vtt percent-value.json
+percent-value.vtt percent-value.json
 space-after-delimiter.vtt bad-position.json
 space-before-delimiter.vtt bad-position.json

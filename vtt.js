@@ -60,7 +60,7 @@ Settings.prototype = {
       v = v.replace("%", "");
       v = frac ? (v * 1) : (v | 0);
       if (v >= 0 && v <= 100)
-        this.set(k, v + "%");
+        this.set(k, v);
     }
   }
 };
@@ -122,8 +122,8 @@ function parseCue(input, cue) {
       region: settings.get("region", ""),
       vertical: settings.get("vertical", ""),
       line: settings.get("line", "auto"),
-      position: settings.get("position", "50%"),
-      size: settings.get("size", "100%"),
+      position: settings.get("position", "50"),
+      size: settings.get("size", "100"),
       align: settings.get("align", "middle")
     };
   }
