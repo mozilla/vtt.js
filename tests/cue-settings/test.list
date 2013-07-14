@@ -1,2 +1,3 @@
 include align/test.list
+include line/test.list
 include vertical/test.list
