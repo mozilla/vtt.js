@@ -247,7 +247,7 @@ function parseContent(window, input) {
         continue;
       // Set the class list (as a list of classes, separated by space).
       if (m[2])
-        node.className = m[2].substr(1).replace('.', '');
+        node.className = m[2].substr(1).replace('.', ' ');
       // Append the node to the current node, and enter the scope of the new
       // node.
       current.appendChild(node);
