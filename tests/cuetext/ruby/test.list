@@ -1,0 +1,8 @@
+// Can't read localName of undefined ? basic.vtt basic.json
+rt-no-end-tag.vtt rt-no-end-tag.json
+// Shouldn't allow rt to add without ruby rt-no-ruby-tag.vtt rt-no-ruby-tag.json
+ruby-rt-no-end-tag.vtt ruby-rt-no-end-tag.json
+// Can't read localName of undefined ? with-annotation.vtt with-annotation.json
+// Can't read localName of undefined ? with-closing-span.vtt with-closing-span.json
+// Can't read localName of undefined ? with-subclass.vtt with-subclass.json
+// Can't read localName of undefined ? with-two-subclasses.vtt with-two-subclasses.json

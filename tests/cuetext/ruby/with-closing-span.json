@@ -1,0 +1,31 @@
+{
+  "cue": {
+    "id": "",
+    "settings": {
+      "region": "",
+      "vertical": "",
+      "line": "auto",
+      "position": "50",
+      "size": "100",
+      "align": "middle"
+    },
+    "startTime": "000000000",
+    "endTime": "000002000",
+    "content": "<ruby>That's <rt>awesome!</rt></ruby> Hee!"
+  },
+  "domTree": {
+    "childNodes": [{
+      "tagName": "ruby",
+      "localName": "ruby",
+      "childNodes": [{
+        "textContent": "That's "
+      }, {
+        "tagName": "rt",
+        "localName": "rt",
+        "childNodes": [{
+          "textContent": "awesome!"
+        }]
+      }]
+    }]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "cue": {
+    "id": "",
+    "settings": {
+      "region": "",
+      "vertical": "",
+      "line": "auto",
+      "position": "50",
+      "size": "100",
+      "align": "middle"
+    },
+    "startTime": "000000000",
+    "endTime": "000002000",
+    "content": "<ruby>It's a <rt>blue apple tree!</rt></ruby>"
+  },
+  "domTree": {
+    "childNodes": [{
+      "tagName": "span",
+      "localName": "lang",
+      "childNodes": [{
+        "textContent": "It's a blue apple tree!"
+      }]
+    }]
+  }
+}

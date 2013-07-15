@@ -1,0 +1,31 @@
+{
+  "cue": {
+    "id": "",
+    "settings": {
+      "region": "",
+      "vertical": "",
+      "line": "auto",
+      "position": "50",
+      "size": "100",
+      "align": "middle"
+    },
+    "startTime": "000000000",
+    "endTime": "000002000",
+    "content": "<ruby>No <rt>way!</ruby>"
+  },
+  "domTree": {
+    "childNodes": [{
+      "tagName": "ruby",
+      "localName": "ruby",
+      "childNodes": [{
+        "textContent": "No "
+      }, {
+        "tagName": "rt",
+        "localName": "rt",
+        "childNodes": [{
+          "textContent": "way!"
+        }]
+      }]
+    }]
+  }
+}
