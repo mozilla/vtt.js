@@ -1,0 +1,27 @@
+{
+  "cue": {
+    "id": "",
+    "settings": {
+      "region": "",
+      "vertical": "",
+      "line": "auto",
+      "position": "50",
+      "size": "100",
+      "align": "middle"
+    },
+    "startTime": "000000000",
+    "endTime": "000002000",
+    "content": "<lang.first en-Us>Hee!</lang>"
+  },
+  "domTree": {
+    "childNodes": [{
+      "tagName": "span",
+      "localName": "lang",
+      "lang": "en-Us",
+      "className": "first",
+      "childNodes": [{
+        "textContent": "Hee!"
+      }]
+    }]
+  }
+}

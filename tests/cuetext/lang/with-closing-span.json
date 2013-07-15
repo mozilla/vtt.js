@@ -1,0 +1,26 @@
+{
+  "cue": {
+    "id": "",
+    "settings": {
+      "region": "",
+      "vertical": "",
+      "line": "auto",
+      "position": "50",
+      "size": "100",
+      "align": "middle"
+    },
+    "startTime": "000000000",
+    "endTime": "000002000",
+    "content": "<lang en-Us>Hee!</lang> Hee!"
+  },
+  "domTree": {
+    "childNodes": [{
+      "tagName": "span",
+      "localName": "lang",
+      "lang": "en-Us",
+      "childNodes": [{
+        "textContent": "It's a blue apple tree!"
+      }]
+    }]
+  }
+}
