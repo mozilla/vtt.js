@@ -24,7 +24,7 @@ function parseWhole(filename, assertions) {
 
   var p = new WebVTTParser();
   p.oncue = function(cue)   { result.cues.push(cue); };
-  p.onerror = function(err) { result.cues.push(err); };
+  p.onerror = function(err) { result.errors.push(err); };
 
   p.parse(fs.readFileSync(filename, "utf8"));
   p.flush();
@@ -43,7 +43,7 @@ function parseStreaming(filename, assertions) {
 
     var p = new WebVTTParser();
     p.oncue = function(cue)   { result.cues.push(cue); };
-    p.onerror = function(err) { result.cues.push(err); };
+    p.onerror = function(err) { result.errors.push(err); };
 
     p.parse(vtt.substr(0, n));
     p.parse(vtt.substr(n));
