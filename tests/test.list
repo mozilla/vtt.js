@@ -1,6 +1,7 @@
 # Include other directories of tests using `include` lines like so
 include cuetext/test.list
 include cue-settings/test.list
+include cue-times/test.list
 
 # Specify a JSON comparison test with a *.json file
 simple.vtt simple.json
