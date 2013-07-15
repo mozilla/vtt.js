@@ -70,10 +70,10 @@ function runTest(test) {
     assertions = function(vtt, t) {
       var json = require(test.expectedJson);
       t.deepEqual(vtt.cues[0], json.cue);
-      t.equal(JSON.stringify(json.domTree),
-              JSON.stringify(WebVTTParser.convertCueToDOMTree(new FakeWindow(),
+      t.equal(JSON.stringify(WebVTTParser.convertCueToDOMTree(new FakeWindow(),
                                                               vtt.cues[0]),
-                             filterJson),
+                                                              filterJson),
+              JSON.stringify(json.domTree),
               "DOM tree should be equal.");
       t.end();
     };
