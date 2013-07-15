@@ -3,5 +3,6 @@ include class/test.list
 include italic/test.list
 include lang/test.list
 include ruby/test.list
+include tag-format/test.list
 include underline/test.list
 include voice/test.list

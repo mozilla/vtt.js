@@ -1,0 +1,27 @@
+{
+  "cue": {
+    "id": "",
+    "settings": {
+      "region": "",
+      "vertical": "",
+      "line": "auto",
+      "position": "50",
+      "size": "100",
+      "align": "middle"
+    },
+    "startTime": "000000000",
+    "endTime": "000002000",
+    "content": "<i>Hee!</b> Hee!"
+  },
+  "domTree": {
+    "childNodes": [{
+      "tagName": "i",
+      "localName": "i",
+      "childNodes": [{
+        "textContent": "Hee!"
+      }, {
+        "textContent": " Hee!"
+      }]
+    }]
+  }
+}
