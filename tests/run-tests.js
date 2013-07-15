@@ -24,6 +24,7 @@ function FakeWindow() {
     this.appendChild = appendChild;
   };
   this.ProcessingInstruction = function () {
+    return { };
   };
 };
 
