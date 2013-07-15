@@ -36,19 +36,15 @@ function parseTestList(testListPath) {
 
     // Currently we can only handle js or json files to test with.
     if(argData[1].match(/[a-zA-Z-]+\.js$/))
-      var testInfo = {
+      testList.tests.push({
         vtt: path.join(dirPath, argData[0]),
-        expectedJs: path.join(dirPath, argData[1])
-      };
+        assertions: require(path.join(dirPath, argData[1]))
+      });
     else if (argData[1].match(/[a-zA-Z-]+\.json$/))
-      var testInfo = {
+      testList.tests.push({
         vtt: path.join(dirPath, argData[0]),
-        expectedJson: path.join(dirPath, argData[1])
-      };
-    else
-      continue;
-
-    testList.tests.push(testInfo);
+        expectedJson: require(path.join(dirPath, argData[1]))
+      });
   }
 
   return testList;
@@ -66,9 +62,9 @@ function runTest(test) {
   }
 
   var assertions;
-  if (test.hasOwnProperty("expectedJson"))
-    assertions = function(vtt, t) {
-      var json = require(test.expectedJson);
+  if (test.expectedJson) {
+    util.parseTest(test.vtt, function(vtt, t) {
+      var json = test.expectedJson;
       t.deepEqual(vtt.cues[0], json.cue);
       t.equal(JSON.stringify(WebVTTParser.convertCueToDOMTree(new FakeWindow(),
                                                               vtt.cues[0]),
@@ -76,14 +72,14 @@ function runTest(test) {
               JSON.stringify(json.domTree),
               "DOM tree should be equal.");
       t.end();
-    };
-  else if (test.hasOwnProperty("expectedJs"))
-    assertions = require(test.expectedJs).test;
-  else
-    return false;
+    });
+    return true;
+  } else if (test.assertions) {
+    util.parseTest(test.vtt, test.assertions);
+    return true;
+  }
 
-  util.parseTest(test.vtt, assertions);
-  return true;
+  return false;
 }
 
 function runTests(testListPath) {
