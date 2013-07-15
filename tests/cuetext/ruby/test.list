@@ -1,8 +1,8 @@
-// Can't read localName of undefined ? basic.vtt basic.json
+basic.vtt basic.json
 rt-no-end-tag.vtt rt-no-end-tag.json
 rt-no-ruby-tag.vtt rt-no-ruby-tag.json
 ruby-rt-no-end-tag.vtt ruby-rt-no-end-tag.json
-// Can't read localName of undefined ? with-annotation.vtt with-annotation.json
-// Can't read localName of undefined ? with-closing-span.vtt with-closing-span.json
-// Can't read localName of undefined ? with-subclass.vtt with-subclass.json
-// Can't read localName of undefined ? with-two-subclasses.vtt with-two-subclasses.json
+with-annotation.vtt with-annotation.json
+with-closing-span.vtt with-closing-span.json
+with-subclass.vtt with-subclass.json
+with-two-subclasses.vtt with-two-subclasses.json

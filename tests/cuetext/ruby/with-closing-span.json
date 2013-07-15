@@ -25,7 +25,8 @@
         "childNodes": [{
           "textContent": "awesome!"
         }]
-      }]
+      }]}, {
+        "textContent": " Hee!"
     }]
   }
 }

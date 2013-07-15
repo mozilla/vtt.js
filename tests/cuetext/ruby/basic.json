@@ -15,10 +15,16 @@
   },
   "domTree": {
     "childNodes": [{
-      "tagName": "span",
-      "localName": "lang",
+      "tagName": "ruby",
+      "localName": "ruby",
       "childNodes": [{
-        "textContent": "It's a blue apple tree!"
+        "textContent": "It's a "
+      }, {
+        "tagName": "rt",
+        "localName": "rt",
+        "childNodes": [{
+          "textContent": "blue apple tree!"
+        }]
       }]
     }]
   }

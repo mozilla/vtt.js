@@ -17,10 +17,10 @@
     "childNodes": [{
       "tagName": "b",
       "localName": "b",
-      "className": "first",
       "childNodes": [{
         "textContent": "That's awesome!"
-      }]
+      }]}, {
+        "textContent": " Hee"
     }]
   }
 }

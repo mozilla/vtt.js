@@ -19,7 +19,8 @@
       "localName": "u",
       "childNodes": [{
         "textContent": "That's awesome!"
-      }]
+      }]}, {
+        "textContent": " Hee!"
     }]
   }
 }

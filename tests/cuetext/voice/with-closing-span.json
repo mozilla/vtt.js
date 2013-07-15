@@ -19,8 +19,9 @@
       "localName": "v",
       "title": "Joe",
       "childNodes": [{
-        "textContent": "No way!"
-      }]
+        "textContent": "Hee!"
+      }]}, {
+        "textContent": " Hee!"
     }]
   }
 }

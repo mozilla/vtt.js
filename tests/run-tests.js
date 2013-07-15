@@ -13,6 +13,7 @@ function FakeWindow() {
     function appendChild(node) {
       this.childNodes = this.childNodes || [];
       this.childNodes.push(node);
+      node.parentNode = this;
     }
     this.createElement = function(tagName) {
       return { tagName: tagName, appendChild: appendChild };
@@ -73,16 +74,30 @@ function parseTestList(testListPath) {
   return testList;
 }
 
-function runTest(test) {
-  var assertions;
+// Filter
 
+
+function runTest(test) {
+
+  // Set the parentNode value to unefined when trying to stringify the JSON.
+  // Without this we will get a circular data structure which stringify will
+  // not be able to handle.
+  function filterJson(key, value) {
+    if (key == "parentNode") 
+      return undefined;
+    return value;
+  }
+
+  var assertions;
   if (test.hasOwnProperty("expectedJson"))
     assertions = function(vtt, t) {
       var json = require(test.expectedJson);
       t.deepEqual(vtt.cues[0], json.cue);
       t.equal(JSON.stringify(json.domTree),
-              JSON.stringify(WebVTTParser.convertCueToDOMTree(new FakeWindow(), vtt.cues[0]),
-              "DOM tree should be equal."));
+              JSON.stringify(WebVTTParser.convertCueToDOMTree(new FakeWindow(),
+                                                              vtt.cues[0]),
+                            filterJson),
+              "DOM tree should be equal.");
       t.end();
     };
   else if (test.hasOwnProperty("expectedJs"))
