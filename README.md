@@ -48,17 +48,22 @@ var fragment = WebVTTParser.convertCueToDOMTree(window, cue);
 Tests
 =====
 
-To run tests locally, use node.js:
+To run tests locally, use node.js. Start by installing the necessary test dependencies:
 
 ```
 $ npm install
+```
+
+To actually run the tests, do the following:
+
+```
 $ npm test
 ```
 
 ###Writing Tests###
 
-Currently to write tests you need two things. A WebVTT file to parse and a JSON file representing
-the parsed data of the file or a Node.js file with custom asserts using [Tape asserts](https://npmjs.org/package/tape).
+Currently to write tests you need two things: 1) a WebVTT file to parse and 2) a JSON file representing
+the parsed data of the file, OR a node.js file with custom asserts using [Tape asserts](https://npmjs.org/package/tape).
 
 For example your WebVTT file could look like:
 
@@ -100,12 +105,23 @@ If you choose to use JSON it might look like:
   }
 }
 ```
+
 If you use JSON you **must** define all the possible values even if they are
 not being tested. Put the default values in this case.
 
-If you choose to use Node.js it might look like:
+**NOTE**: you can automatically generate a JSON file for a given `.vtt` file using `cue2json.js`.
+Given a file like `tests/foo/bar.vtt`, you can generate `tests/foo/bar.json` like this:
 
-``` js
+```
+$ ./tests/util/cue2json.js tests/foo/bar.vtt > tests/foo/bar.json
+```
+
+Assuming the parser is able to correctly parse `tests/foo/bar.vtt`, the file `tests/foo/bar.json`
+now contains the correct JSON for creating a cue test.
+
+If you choose to use node.js it might look like:
+
+```javascript
 exports.test = function(vtt, t) {
   t.equal(vtt.cues.length, 1);
   t.equal(vtt.cues[0].id, "ID");
@@ -115,7 +131,7 @@ exports.test = function(vtt, t) {
   t.end();
 }
 ```
-Your Node.js file **must** export a test function with the signature ```function(vtt, t)```.
+Your node.js file **must** export a test function with the signature ```function(vtt, t)```.
 
 Once you have these two things you will need to add an entry to a ```test.list``` file
 in the directory where the two files live. You will have to create this file if it
@@ -138,4 +154,3 @@ include simple/test.file
 ```
 
 Your test is now good to go.
-
