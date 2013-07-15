@@ -1,0 +1,24 @@
+{
+  "cue": {
+    "id": "",
+    "settings": {
+      "region": "",
+      "vertical": "",
+      "line": "auto",
+      "position": "50",
+      "size": "100",
+      "align": "middle"
+    },
+    "startTime": "000000000",
+    "endTime": "000002000",
+    "content": "<00:03.000>That's awesome!"
+  },
+  "domTree": {
+    "childNodes": [{
+      "target": "timestamp",
+      "data": "000003000"
+    }, {
+      "textContent": "That's awesome!"
+    }]
+  }
+}
