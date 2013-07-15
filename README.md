@@ -65,43 +65,47 @@ $ npm test
 Currently to write tests you need two things: 1) a WebVTT file to parse and 2) a JSON file representing
 the parsed data of the file, OR a node.js file with custom asserts using [Tape asserts](https://npmjs.org/package/tape).
 
+####JSON-based Tests####
+
 For example your WebVTT file could look like:
 
 ```
 WEBVTT
 
-ID
-00:00.000 --> 00:02.000
-Text
+00:32.500 --> 00:33.500 align:start size:50%
+<v.loud Mary>That's awesome!
 ```
 
 If you choose to use JSON it might look like:
+
 ``` json
 {
-  "cue": {
-    "id": "",
-    "settings": {
-      "region": "",
-      "vertical": "",
-      "line": "auto",
-      "position": "50%",
-      "size": "100%",
-      "align": "middle"
-    },
-    "startTime": "000000000",
-    "endTime": "000002000",
-    "content": "Text"
+  "id": "",
+  "settings": {
+    "region": "",
+    "vertical": "",
+    "line": "auto",
+    "position": "50",
+    "size": 50,
+    "align": "start"
   },
+  "startTime": "000032500",
+  "endTime": "000033500",
+  "content": "<v.loud Mary>That's awesome!",
   "domTree": {
-    "childNodes": [{
-      "tagName": "span",
-      "localName": "v",
-      "title": "Mary",
-      "className": "loud",
-      "childNodes": [{
-        "textContent": "Text"
-      }]
-    }]
+    "childNodes": [
+      {
+        "tagName": "span",
+        "localName": "v",
+        "title": "Mary",
+        "className": "loud",
+        "childNodes": [
+          {
+            "textContent": "That's awesome!"
+          }
+        ]
+      }
+    ]
   }
 }
 ```
@@ -119,21 +123,28 @@ $ ./tests/util/cue2json.js tests/foo/bar.vtt > tests/foo/bar.json
 Assuming the parser is able to correctly parse `tests/foo/bar.vtt`, the file `tests/foo/bar.json`
 now contains the correct JSON for creating a cue test.
 
-If you choose to use node.js it might look like:
+####JS-based Tests####
+
+Sometimes comparing the parsed cues to JSON isn't flexible enough. In such cases, you can use JavaScript
+assertions. To do so, write a JavaScript file that exports a single function of the form `function(vtt, t)`,
+where `vtt` is the fully parsed result (e.g., `{ cues: [...], errors: [...] }`) created by the parser,
+and `t` is a test object, with [Tape test assertion functions](https://github.com/substack/tape/blob/master/lib/test.js)
+available for you to use.
+
+For the file specified earlier, a set of JavaScript based assertions might look like this:
 
 ```javascript
-exports.test = function(vtt, t) {
+module.exports = function(vtt, t) {
   t.equal(vtt.cues.length, 1);
-  t.equal(vtt.cues[0].id, "ID");
-  t.equal(vtt.cues[0].startTime, 0);
-  t.equal(vtt.cues[0].endTime, 2);
-  t.equal(vtt.cues[0].content, "Text");
+  t.equal(vtt.cues[0].content, "<v.loud Mary>That's awesome!");
+  //...
   t.end();
 }
 ```
-Your node.js file **must** export a test function with the signature ```function(vtt, t)```.
 
-Once you have these two things you will need to add an entry to a ```test.list``` file
+####test.list manifests####
+
+Once you have a JSON or JavaScript based test, you will need to add an entry to a ```test.list``` file
 in the directory where the two files live. You will have to create this file if it
 does not exist yet. The directory above it must also have an include line pointing to
 the subdirectory's ```test.list``` file.
