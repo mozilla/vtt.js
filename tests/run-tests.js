@@ -4,29 +4,8 @@
 var path = require("path"),
     fs = require("fs"),
     util = require("./util"),
-    WebVTTParser = require("../").WebVTTParser;
-
-// This implements a minimum fake window object constructor that is sufficient
-// to test constructing a DOM Tree for cue content.
-function FakeWindow() {
-  this.DocumentFragment = function () {
-    function appendChild(node) {
-      this.childNodes = this.childNodes || [];
-      this.childNodes.push(node);
-      node.parentNode = this;
-    }
-    this.createElement = function(tagName) {
-      return { tagName: tagName, appendChild: appendChild };
-    };
-    this.createTextNode = function(text) {
-      return { textContent: text };
-    };
-    this.appendChild = appendChild;
-  };
-  this.ProcessingInstruction = function () {
-    return { };
-  };
-};
+    WebVTTParser = require("../").WebVTTParser,
+    FakeWindow = require("./util/fake-window.js");
 
 function parseTestList(testListPath) {
   var testArgs = fs.readFileSync(testListPath, "utf8").split("\n"),
@@ -75,16 +54,13 @@ function parseTestList(testListPath) {
   return testList;
 }
 
-// Filter
-
-
 function runTest(test) {
 
   // Set the parentNode value to unefined when trying to stringify the JSON.
   // Without this we will get a circular data structure which stringify will
   // not be able to handle.
   function filterJson(key, value) {
-    if (key == "parentNode") 
+    if (key == "parentNode")
       return undefined;
     return value;
   }
@@ -97,7 +73,7 @@ function runTest(test) {
       t.equal(JSON.stringify(json.domTree),
               JSON.stringify(WebVTTParser.convertCueToDOMTree(new FakeWindow(),
                                                               vtt.cues[0]),
-                            filterJson),
+                             filterJson),
               "DOM tree should be equal.");
       t.end();
     };
