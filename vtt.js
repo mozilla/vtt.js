@@ -172,6 +172,10 @@ const TAG_ANNOTATION = {
   lang: "lang"
 };
 
+const NEEDS_PARENT = {
+  rt: "ruby"
+};
+
 // Parse content into a document fragment.
 function parseContent(window, input) {
   function nextToken() {
@@ -199,6 +203,10 @@ function parseContent(window, input) {
     while ((m = s.match(/^[^<&]*(&(amp|lt|gt|lrm|rlm|nbsp);)/)) !== null)
       s = s.replace(m[1], unescape1);
     return s;
+  }
+
+  function shouldAdd(current, element) {
+    return NEEDS_PARENT[element.localName] == current.localName;
   }
 
   var fragment = new window.DocumentFragment();
@@ -244,6 +252,10 @@ function parseContent(window, input) {
       // Try to construct an element, and ignore the tag if we couldn't.
       node = createElement(m[1], m[3]);
       if (!node)
+        continue;
+      // Determine if the tag should be added based on the context of where it
+      // is placed in the cuetext.
+      if (!shouldAdd(current, node)) 
         continue;
       // Set the class list (as a list of classes, separated by space).
       if (m[2])
