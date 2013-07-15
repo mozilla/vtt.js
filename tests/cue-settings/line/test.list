@@ -6,7 +6,7 @@ integer-value.vtt integer-value.json
 large-integer-value.vtt large-integer-value.json
 negative-integer-value.vtt negative-integer-value.json
 negative-percent-value.vtt bad-line.json
-// TODO: No idea how this should work negative-zeros.vtt bad-line.json
+negative-zeros.vtt negative-zeros.json
 no-value.vtt bad-line.json
 percent-over.vtt bad-line.json
 percent-in-value.vtt bad-line.json
