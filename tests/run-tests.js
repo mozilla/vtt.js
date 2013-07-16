@@ -31,16 +31,16 @@ function parseTestList(testListPath) {
     }
 
     // All other arguments other than include must start with a .vtt file.
-    if (!argData[0].match(/[a-zA-Z-]+\.vtt/))
+    if (!argData[0].match(/[a-zA-Z-0-9]+\.vtt/))
       continue;
 
     // Currently we can only handle js or json files to test with.
-    if(argData[1].match(/[a-zA-Z-]+\.js$/))
+    if(argData[1].match(/[a-zA-Z-0-9]+\.js$/))
       testList.tests.push({
         vtt: path.join(dirPath, argData[0]),
         assertions: require(path.join(dirPath, argData[1]))
       });
-    else if (argData[1].match(/[a-zA-Z-]+\.json$/))
+    else if (argData[1].match(/[a-zA-Z-0-9]+\.json$/))
       testList.tests.push({
         vtt: path.join(dirPath, argData[0]),
         expectedJson: require(path.join(dirPath, argData[1]))
