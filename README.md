@@ -3,7 +3,7 @@ vtt.js
 
 [![Build Status](https://travis-ci.org/andreasgal/vtt.js.png?branch=master)](https://travis-ci.org/andreasgal/vtt.js)
 
-[https://developer.mozilla.org/en-US/docs/HTML/WebVTT](WebVTT) parser in JavaScript.
+[WebVTT](https://developer.mozilla.org/en-US/docs/HTML/WebVTT) parser in JavaScript.
 
 API
 ===
@@ -48,7 +48,7 @@ var fragment = WebVTTParser.convertCueToDOMTree(window, cue);
 Tests
 =====
 
-Tests are written and run using [http://visionmedia.github.io/mocha/](Mocha) on node.js.
+Tests are written and run using [Mocha](http://visionmedia.github.io/mocha/) on node.js.
 Before they can be run, you need to install various dependencies:
 
 ```
@@ -61,7 +61,7 @@ To run all the tests, do the following:
 $ npm test
 ```
 
-If you want to run individual tests, you can install the [http://visionmedia.github.io/mocha/](Mocha) command-line
+If you want to run individual tests, you can install the [Mocha](http://visionmedia.github.io/mocha/) command-line
 tool globally, and then run tests per-directory:
 
 ```
@@ -70,7 +70,7 @@ $ cd tests/some/sub/dir
 $ mocha .
 ```
 
-See the [http://visionmedia.github.io/mocha/#usage](docs) for further usage info.
+See the [usage docs](http://visionmedia.github.io/mocha/#usage) for further usage info.
 
 ###Writing Tests###
 
@@ -184,5 +184,5 @@ describe("Simple VTT Tests", function(){
 });
 ```
 
-The `util.assert` object is the standard [http://nodejs.org/api/assert.html](node.js assert module` with
+The `util.assert` object is the standard [node.js assert module](http://nodejs.org/api/assert.html) with
 the addition of `jsonEqual`. See `lib/util.js` for other testing API functions and objects.
