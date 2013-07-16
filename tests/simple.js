@@ -1,8 +1,21 @@
-module.exports = function(vtt, t) {
-  t.equal(vtt.cues.length, 1);
-  t.equal(vtt.cues[0].id, "ID");
-  t.equal(vtt.cues[0].startTime, "000000000");
-  t.equal(vtt.cues[0].endTime, "000002000");
-  t.equal(vtt.cues[0].content, "Text");
-  t.end();
-};
+var util = require("../lib/util.js"),
+    assert = util.assert;
+
+describe("Simple VTT Tests", function(){
+
+  it("should compare JSON to parsed result", function(){
+    assert.jsonEqual("simple.vtt", "simple.json");
+  });
+
+  it("should run JS assertions on parsed result", function(){
+    var vtt = util.parse("simple.vtt");
+    assert.equal(vtt.cues.length, 1);
+
+    var cue0 = vtt.cues[0];
+    assert.equal(cue0.id, "ID");
+    assert.equal(cue0.startTime, "000000000");
+    assert.equal(cue0.endTime, "000002000");
+    assert.equal(cue0.content, "Text");
+  });
+
+});
