@@ -1,6 +1,7 @@
 include bold/test.list
 include class/test.list
 include escape-characters/test.list
+include format/test.list
 include italic/test.list
 include lang/test.list
 include ruby/test.list
