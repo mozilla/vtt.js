@@ -197,7 +197,7 @@ function parseContent(window, input) {
 
   // Unescape a string 's'.
   function unescape1(e) {
-    return ESCAPE[i];
+    return ESCAPE[e];
   }
   function unescape(s) {
     while ((m = s.match(/^[^<&]*(&(amp|lt|gt|lrm|rlm|nbsp);)/)) !== null)
