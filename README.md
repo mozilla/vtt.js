@@ -3,7 +3,7 @@ vtt.js
 
 [![Build Status](https://travis-ci.org/andreasgal/vtt.js.png?branch=master)](https://travis-ci.org/andreasgal/vtt.js)
 
-WebVTT parser in JavaScript.
+[https://developer.mozilla.org/en-US/docs/HTML/WebVTT](WebVTT) parser in JavaScript.
 
 API
 ===
@@ -48,26 +48,41 @@ var fragment = WebVTTParser.convertCueToDOMTree(window, cue);
 Tests
 =====
 
-To run tests locally, use node.js. Start by installing the necessary test dependencies:
+Tests are written and run using [http://visionmedia.github.io/mocha/](Mocha) on node.js.
+Before they can be run, you need to install various dependencies:
 
 ```
 $ npm install
 ```
 
-To actually run the tests, do the following:
+To run all the tests, do the following:
 
 ```
 $ npm test
 ```
 
+If you want to run individual tests, you can install the [http://visionmedia.github.io/mocha/](Mocha) command-line
+tool globally, and then run tests per-directory:
+
+```
+$ npm install -g mocha
+$ cd tests/some/sub/dir
+$ mocha .
+```
+
+See the [http://visionmedia.github.io/mocha/#usage](docs) for further usage info.
+
 ###Writing Tests###
 
-Currently to write tests you need two things: 1) a WebVTT file to parse and 2) a JSON file representing
-the parsed data of the file, OR a node.js file with custom asserts using [Tape asserts](https://npmjs.org/package/tape).
+Tests take one of two forms. Either a last-known-good JSON file is compared against a parsed .vtt file,
+or custom JS assertions are run over a parsed .vtt file.
 
 ####JSON-based Tests####
 
-For example your WebVTT file could look like:
+JSON-based tests are useful for creating regression tests. The JSON files can be easily generated
+using the parser, so you don't need to write these by hand (see details below about `cue2json`).
+
+For example your WebVTT file could look like this:
 
 ```
 WEBVTT
@@ -76,7 +91,7 @@ WEBVTT
 <v.loud Mary>That's awesome!
 ```
 
-If you choose to use JSON it might look like:
+The associated JSON representation might look like this:
 
 ``` json
 {
@@ -119,58 +134,55 @@ dynamically with no defaults for values that aren't in the cue's cuetext.
 Given a file like `tests/foo/bar.vtt`, you can generate `tests/foo/bar.json` like this:
 
 ```
-$ ./tests/util/cue2json.js tests/foo/bar.vtt > tests/foo/bar.json
+$ ./bin/cue2json.js tests/foo/bar.vtt > tests/foo/bar.json
 ```
 
 Assuming the parser is able to correctly parse `tests/foo/bar.vtt`, the file `tests/foo/bar.json`
 now contains the correct JSON for creating a cue test.
 
+Writing the test to compare the live ouput to this JSON is done by creating a `.js` somewhere in `tests/`.
+It might look like this:
+
+```javascript
+var util = require("../lib/util.js"),
+    assert = util.assert;
+
+describe("foo/bar.vtt", function(){
+
+  it("should compare JSON to parsed result", function(){
+    assert.jsonEqual("foo/bar.vtt", "foo/bar.json");
+  });
+
+});
+```
+
+Such `.js` files can live anywhere in or below `tests/`, and the test runner will find and run them.
+
 ####JS-based Tests####
 
 Sometimes comparing the parsed cues to JSON isn't flexible enough. In such cases, you can use JavaScript
-assertions. To do so, write a JavaScript file that exports a single function of the form `function(vtt, t)`,
-where `vtt` is the fully parsed result (e.g., `{ cues: [...], errors: [...] }`) created by the parser,
-and `t` is a test object, with [Tape test assertion functions](https://github.com/substack/tape/blob/master/lib/test.js)
-available for you to use.
-
-For the file specified earlier, a set of JavaScript based assertions might look like this:
+assertions. The `lib/util.js` module provides many helper functions and objects to make this easier,
+for example, being able to `parse` a `.vtt` file and get back resulting cues.
 
 ```javascript
-var  WebVTTParser = require("../").WebVTTParser,
-     FakeWindow = require("./util/fake-window.js");
+var util = require("../lib/util.js"),
+    assert = util.assert;
 
-module.exports = function(vtt, t) {
-  t.equal(vtt.cues.length, 1);
-  t.equal(vtt.cues[0].content, "<v.loud Mary>That's awesome!");
-  // Test converting cuetext content to a DOM tree.
-  t.equal(JSON.stringify(WebVTTParser.convertCueToDOMTree(new FakeWindow(), vtt.cues[0])), 
-          JSON.stringify("childNodes":[{"tagName":"span","localName":"v","title":"Mary",
-                                      "childNodes":[{"textContent":"That's awesome!"}]}]))
-  //...
-  t.end();
-}
+describe("Simple VTT Tests", function(){
+
+  it("should run JS assertions on parsed result", function(){
+    var vtt = util.parse("simple.vtt");
+    assert.equal(vtt.cues.length, 1);
+
+    var cue0 = vtt.cues[0];
+    assert.equal(cue0.id, "ID");
+    assert.equal(cue0.startTime, "000000000");
+    assert.equal(cue0.endTime, "000002000");
+    assert.equal(cue0.content, "Text");
+  });
+
+});
 ```
 
-####test.list manifests####
-
-Once you have a JSON or JavaScript based test, you will need to add an entry to a ```test.list``` file
-in the directory where the two files live. You will have to create this file if it
-does not exist yet. The directory above it must also have an include line pointing to
-the subdirectory's ```test.list``` file.
-
-For example if ```simple.vtt``` and ```simple.json``` live in the ```test/simple``` directory
-then your ```test.list``` file would be placed  in the ```test/simple/``` directory and the file would
-look like:
-
-```
-simple.vtt simple.json
-```
-
-And the ```test``` directory's ```test.list``` file must have a new entry pointing to this
-new ```test.list``` file like:
-
-```
-include simple/test.file
-```
-
-Your test is now good to go.
+The `util.assert` object is the standard [http://nodejs.org/api/assert.html](node.js assert module` with
+the addition of `jsonEqual`. See `lib/util.js` for other testing API functions and objects.
