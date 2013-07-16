@@ -1,0 +1,45 @@
+[
+{
+  "id": "",
+  "settings": {
+    "region": "",
+    "vertical": "",
+    "line": "auto",
+    "position": "50",
+    "size": "100",
+    "align": "middle"
+  },
+  "startTime": "000001000",
+  "endTime": "000004000",
+  "content": "Never drink liquid nitrogen.",
+  "domTree": {
+    "childNodes": [
+      {
+        "textContent": "Never drink liquid nitrogen."
+      }
+    ]
+  }
+}
+,
+{
+  "id": "",
+  "settings": {
+    "region": "",
+    "vertical": "",
+    "line": "auto",
+    "position": "50",
+    "size": "100",
+    "align": "middle"
+  },
+  "startTime": "000005000",
+  "endTime": "000009000",
+  "content": "- It will perforate your stomach.\n- You could die.",
+  "domTree": {
+    "childNodes": [
+      {
+        "textContent": "- It will perforate your stomach.\n- You could die."
+      }
+    ]
+  }
+}
+]

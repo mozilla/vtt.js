@@ -1,18 +1,16 @@
 {
-  "cue": {
-    "id": "",
-    "settings": {
-      "region": "",
-      "vertical": "",
-      "line": "auto",
-      "position": "50",
-      "size": "100",
-      "align": "middle"
-    },
-    "startTime": "000000000",
-    "endTime": "000002000",
-    "content": "The Organisation for Sample Public Service Announcements accepts no liability for the content of this advertisement, or for the consequences of any actions taken on the basis of the information provided."
+  "id": "",
+  "settings": {
+    "region": "",
+    "vertical": "",
+    "line": "auto",
+    "position": "50",
+    "size": "100",
+    "align": "middle"
   },
+  "startTime": "000000000",
+  "endTime": "000002000",
+  "content": "The Organisation for Sample Public Service Announcements accepts no liability for the content of this advertisement, or for the consequences of any actions taken on the basis of the information provided.",
   "domTree": {
     "childNodes": [
       {

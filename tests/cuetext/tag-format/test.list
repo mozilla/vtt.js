@@ -1,6 +1,0 @@
-bogus-span-name.vtt bogus-span-name.json
-// TODO: cannot read length of undefined ? end-tag-no-gt.vtt end-tag-no-gt.json
-incorrect-close-tag-order.vtt incorrect-close-tag-order.json
-// TODO: cannot read length of undefined ?  no-closing-gt.vtt no-closing-gt.json
-no-start-tag.vtt no-start-tag.json
-start-tag-missing-gt.vtt start-tag-missing-gt.json

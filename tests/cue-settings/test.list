@@ -1,5 +1,0 @@
-include align/test.list
-include line/test.list
-include position/test.list
-include size/test.list
-include vertical/test.list
