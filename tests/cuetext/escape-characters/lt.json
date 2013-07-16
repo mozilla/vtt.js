@@ -1,0 +1,23 @@
+{
+  "cue": {
+    "id": "",
+    "settings": {
+      "region": "",
+      "vertical": "",
+      "line": "auto",
+      "position": "50",
+      "size": "100",
+      "align": "middle"
+    },
+    "startTime": "000000000",
+    "endTime": "000002000",
+    "content": "Not so much the '&lt;' sign though."
+  },
+  "domTree": {
+    "childNodes": [
+      {
+        "textContent": "Not so much the '<' sign though."
+      }
+    ]
+  }
+}
