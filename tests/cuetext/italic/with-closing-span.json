@@ -1,18 +1,16 @@
 {
-  "cue": {
-    "id": "",
-    "settings": {
-      "region": "",
-      "vertical": "",
-      "line": "auto",
-      "position": "50",
-      "size": "100",
-      "align": "middle"
-    },
-    "startTime": "000000000",
-    "endTime": "000002000",
-    "content": "<i>That's awesome!</i> Hee!"
+  "id": "",
+  "settings": {
+    "region": "",
+    "vertical": "",
+    "line": "auto",
+    "position": "50",
+    "size": "100",
+    "align": "middle"
   },
+  "startTime": "000000000",
+  "endTime": "000002000",
+  "content": "<i>That's awesome!</i> Hee!",
   "domTree": {
     "childNodes": [{
       "tagName": "i",

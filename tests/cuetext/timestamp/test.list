@@ -1,7 +1,0 @@
-basic.vtt basic.json
-nested.vtt nested.json
-// TODO: cannot read length of undefined ? no-end-gt.vtt no-end-gt.json
-non-digit.vtt non-digit.json
-out-of-cue-range.vtt out-of-cue-range.json
-space-after-lt.vtt space-after-lt.json
-space-before-gt.vtt space-before-gt.json
