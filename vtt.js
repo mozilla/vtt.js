@@ -1,16 +1,6 @@
 /* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
 /* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
 
-// We throw this exception if parsing fails.
-function ParseError(msg) {
-  this.msg = msg;
-}
-
-function reportError(input, msg) {
-  msg = msg.replace("%", "'" + input.replace(/^[^\s]+/, "") + "'");
-  throw new ParseError(msg);
-}
-
 // Try to parse input as a time stamp.
 function parseTimeStamp(input) {
   var m = input.match(/^(\d{2,}:)?([0-5][0-9]):([0-5][0-9])\.(\d{3})/);
@@ -84,7 +74,7 @@ function parseCue(input, cue) {
   function consumeTimeStamp() {
     var ts = parseTimeStamp(input);
     if (ts === null)
-      reportError(input, "invalid timestamp %");
+      throw "error";
     // Remove time stamp from input.
     input = input.replace(/^[^\s]+/, "");
     return ts;
@@ -137,7 +127,7 @@ function parseCue(input, cue) {
   cue.startTime = consumeTimeStamp();   // (1) collect cue start time
   skipWhitespace();
   if (input.substr(0, 3) !== "-->")     // (3) next characters must match "-->"
-    reportError(input, "'-->' expected, got %");
+    throw "error";
   input = input.substr(3);
   skipWhitespace();
   cue.endTime = consumeTimeStamp();     // (5) collect cue end time
@@ -311,7 +301,7 @@ WebVTTParser.prototype = {
       try {
         line = decodeURIComponent(escape(utf8));
       } catch (e) {
-        reportError(buffer, "invalid UTF8 encoding in '" + buffer.substr(0, pos).replace(/[\r\n]/g, "") + "'");
+        throw "error";
       }
       return line;
     }
@@ -398,8 +388,7 @@ WebVTTParser.prototype = {
         line = collectNextLine();
         if (line.substr(0, WEBVTT.length) !== WEBVTT ||
             line.length > WEBVTT.length && !/[ \t]/.test(line[WEBVTT.length])) {
-          reportError(line, "invalid signature '" + line + "'");
-          return this;
+          throw "error";
         }
         self.state = "HEADER";
       }
@@ -461,7 +450,6 @@ WebVTTParser.prototype = {
             parseCue(line, self.cue);
           } catch (e) {
             // In case of an error ignore rest of the cue.
-            self.onerror && self.onerror(e.msg);
             self.cue = null;
             self.state = "BADCUE";
             continue;
@@ -497,7 +485,6 @@ WebVTTParser.prototype = {
       self.cue = null;
       // Report the error and enter the BADCUE state, except if we haven't even made
       // it through the header yet.
-      self.onerror && self.onerror(e.msg);
       if (self.state !== "INITIAL")
         self.state = "BADCUE";
     }
@@ -509,10 +496,6 @@ WebVTTParser.prototype = {
       // Synthesize the end of the current cue.
       self.buffer += "\n\n";
       self.parse();
-      if (self.buffer) {
-        // Incompletely parsed file.
-        self.onerror && self.onerror("unparsed input");
-      }
     }
     self.onflush && self.onflush();
     return this;
