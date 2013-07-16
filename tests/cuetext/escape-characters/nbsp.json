@@ -1,18 +1,16 @@
 {
-  "cue": {
-    "id": "",
-    "settings": {
-      "region": "",
-      "vertical": "",
-      "line": "auto",
-      "position": "50",
-      "size": "100",
-      "align": "middle"
-    },
-    "startTime": "000000000",
-    "endTime": "000002000",
-    "content": "Did you know I didn't put a&nbsp;space here?"
+  "id": "",
+  "settings": {
+    "region": "",
+    "vertical": "",
+    "line": "auto",
+    "position": "50",
+    "size": "100",
+    "align": "middle"
   },
+  "startTime": "000000000",
+  "endTime": "000002000",
+  "content": "Did you know I didn't put a&nbsp;space here?",
   "domTree": {
     "childNodes": [
       {

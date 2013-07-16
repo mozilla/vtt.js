@@ -1,18 +1,16 @@
 {
-  "cue": {
-    "id": "",
-    "settings": {
-      "region": "",
-      "vertical": "",
-      "line": "auto",
-      "position": "50",
-      "size": "100",
-      "align": "middle"
-    },
-    "startTime": "000000000",
-    "endTime": "000002000",
-    "content": "<00:01.000>Hee!<00:01.500> Hee!"
+  "id": "",
+  "settings": {
+    "region": "",
+    "vertical": "",
+    "line": "auto",
+    "position": "50",
+    "size": "100",
+    "align": "middle"
   },
+  "startTime": "000000000",
+  "endTime": "000002000",
+  "content": "<00:01.000>Hee!<00:01.500> Hee!",
   "domTree": {
     "childNodes": [{
       "target": "timestamp",

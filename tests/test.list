@@ -1,9 +1,0 @@
-# Include other directories of tests using `include` lines like so
-include cue-settings/test.list
-include cue-times/test.list
-include cuetext/test.list
-
-# Specify a JSON comparison test with a *.json file
-simple.vtt simple.json
-# Specify a JavaScript function of assertions to run with a *.js file
-simple.vtt simple.js

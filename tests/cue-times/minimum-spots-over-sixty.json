@@ -1,0 +1,21 @@
+{
+  "id": "",
+  "settings": {
+    "region": "",
+    "vertical": "",
+    "line": "auto",
+    "position": "50",
+    "size": "100",
+    "align": "middle"
+  },
+  "startTime": "012000000",
+  "endTime": "012010000",
+  "content": "Text",
+  "domTree": {
+    "childNodes": [
+      {
+        "textContent": "Text"
+      }
+    ]
+  }
+}
