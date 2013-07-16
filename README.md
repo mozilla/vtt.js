@@ -136,9 +136,16 @@ available for you to use.
 For the file specified earlier, a set of JavaScript based assertions might look like this:
 
 ```javascript
+var  WebVTTParser = require("../").WebVTTParser,
+     FakeWindow = require("./util/fake-window.js");
+
 module.exports = function(vtt, t) {
   t.equal(vtt.cues.length, 1);
   t.equal(vtt.cues[0].content, "<v.loud Mary>That's awesome!");
+  // Test converting cuetext content to a DOM tree.
+  t.equal(JSON.stringify(WebVTTParser.convertCueToDOMTree(new FakeWindow(), vtt.cues[0])), 
+          JSON.stringify("childNodes":[{"tagName":"span","localName":"v","title":"Mary",
+                                      "childNodes":[{"textContent":"That's awesome!"}]}]))
   //...
   t.end();
 }
