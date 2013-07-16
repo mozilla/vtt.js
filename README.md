@@ -110,8 +110,10 @@ If you choose to use JSON it might look like:
 }
 ```
 
-If you use JSON you **must** define all the possible values even if they are
-not being tested. Put the default values in this case.
+If you use JSON you **must** define all the possible values for cue data even if they are
+not being tested. Put the default values in this case. Values that exist under the "domTree"
+of the parsed cue's cuetext can be left out if they are not there as the tree is generated
+dynamically with no defaults for values that aren't in the cue's cuetext.
 
 **NOTE**: you can automatically generate a JSON file for a given `.vtt` file using `cue2json.js`.
 Given a file like `tests/foo/bar.vtt`, you can generate `tests/foo/bar.json` like this:
