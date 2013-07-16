@@ -1,25 +1,27 @@
 {
-  "cue": {
-    "id": "",
-    "settings": {
-      "region": "",
-      "vertical": "",
-      "line": "auto",
-      "position": "50",
-      "size": "100",
-      "align": "middle"
-    },
-    "startTime": "000000000",
-    "endTime": "000002000",
-    "content": "<b>It's a blue apple tree!"
+  "id": "",
+  "settings": {
+    "region": "",
+    "vertical": "",
+    "line": "auto",
+    "position": "50",
+    "size": "100",
+    "align": "middle"
   },
+  "startTime": "000000000",
+  "endTime": "000002000",
+  "content": "<b>It's a blue apple tree!",
   "domTree": {
-    "childNodes": [{
-      "tagName": "b",
-      "localName": "b",
-      "childNodes": [{
-        "textContent": "It's a blue apple tree!"
-      }]
-    }]
+    "childNodes": [
+      {
+        "tagName": "b",
+        "localName": "b",
+        "childNodes": [
+          {
+            "textContent": "It's a blue apple tree!"
+          }
+        ]
+      }
+    ]
   }
 }
