@@ -20,7 +20,7 @@ parser.onflush = function () {}
 parser.parse(moreData);
 parser.parse(moreData);
 parser.flush();
-parser.convertCueToDOMTree(window, input);
+parser.convertCueToDOMTree(window, cue);
 ```
 
 `parse` hands an UTF8 string to the parser, encoded as JavaScript string (only using `\x00-\xff`). The parser properly reassembles partial data, even across line breaks.
