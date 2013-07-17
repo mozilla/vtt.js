@@ -118,8 +118,8 @@ function parseCue(input, cue) {
       region: settings.get("region", ""),
       vertical: settings.get("vertical", ""),
       line: settings.get("line", "auto"),
-      position: settings.get("position", "50"),
-      size: settings.get("size", "100"),
+      position: settings.get("position", 50),
+      size: settings.get("size", 100),
       align: settings.get("align", "middle")
     };
   }
