@@ -19,4 +19,8 @@ describe("cuetext/format tests", function(){
     assert.jsonEqual("cuetext/format/no-line-break.vtt", "cuetext/format/no-line-break.json");
   });
 
+  it("no-newline-at-end.vtt", function(){
+    assert.jsonEqual("cuetext/format/no-newline-at-end.vtt", "cuetext/format/no-newline-at-end.json");
+  });
+
 });
