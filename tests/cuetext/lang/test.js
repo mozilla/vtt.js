@@ -3,6 +3,10 @@ var util = require("../../../lib/util.js"),
 
 describe("cuetext/lang tests", function(){
 
+  it("no-end-gt.vtt", function(){
+    assert.jsonEqual("cuetext/lang/no-end-gt.vtt", "cuetext/lang/no-end-gt.json");
+  });
+
   it("not-closed.vtt", function(){
     assert.jsonEqual("cuetext/lang/not-closed.vtt", "cuetext/lang/not-closed.json");
   });
