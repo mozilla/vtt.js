@@ -4,8 +4,8 @@
     "region": "fred123a$@*&AS01a",
     "vertical": "",
     "line": "auto",
-    "position": "50",
-    "size": "100",
+    "position": 50,
+    "size": 100,
     "align": "middle"
   },
   "startTime": "000000000",
