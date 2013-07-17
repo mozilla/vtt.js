@@ -7,16 +7,16 @@ describe("cuetext/tag-format tests", function(){
     assert.jsonEqual("cuetext/tag-format/bogus-span-name.vtt", "cuetext/tag-format/bogus-span-name.json");
   });
 
-  it.skip("end-tag-no-gt.vtt", function(){
-    assert.jsonEqual("cuetext/tag-format/end-tag-no-gt.vtt");
+  it("end-tag-no-gt.vtt", function(){
+    assert.jsonEqual("cuetext/tag-format/end-tag-no-gt.vtt", "cuetext/tag-format/end-tag-no-gt.json");
   });
 
   it("incorrect-close-tag-order.vtt", function(){
     assert.jsonEqual("cuetext/tag-format/incorrect-close-tag-order.vtt", "cuetext/tag-format/incorrect-close-tag-order.json");
   });
 
-  it.skip("no-closing-gt", function(){
-    assert.jsonEqual("cuetext/tag-format/no-closing-gt");
+  it("no-closing-gt", function(){
+    assert.jsonEqual("cuetext/tag-format/no-closing-gt.vtt", "cuetext/tag-format/no-closing-gt.json");
   });
 
   it("no-start-tag.vtt", function(){
