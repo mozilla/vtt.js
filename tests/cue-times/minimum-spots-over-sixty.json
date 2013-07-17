@@ -4,8 +4,8 @@
     "region": "",
     "vertical": "",
     "line": "auto",
-    "position": "50",
-    "size": "100",
+    "position": 50,
+    "size": 100,
     "align": "middle"
   },
   "startTime": "012000000",

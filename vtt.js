@@ -50,7 +50,7 @@ Settings.prototype = {
       v = v.replace("%", "");
       v = frac ? (v * 1) : (v | 0);
       if (v >= 0 && v <= 100)
-        this.set(k, v);
+        this.set(k, parseInt(v, 10));
     }
   }
 };

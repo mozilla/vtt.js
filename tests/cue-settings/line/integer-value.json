@@ -3,9 +3,9 @@
   "settings": {
     "region": "",
     "vertical": "",
-    "line": "42",
-    "position": "50",
-    "size": "100",
+    "line": 42,
+    "position": 50,
+    "size": 100,
     "align": "middle"
   },
   "startTime": "000000000",

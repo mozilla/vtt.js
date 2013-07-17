@@ -97,7 +97,7 @@ The associated JSON representation might look like this:
     "region": "",
     "vertical": "",
     "line": "auto",
-    "position": "50",
+    "position": 50,
     "size": 50,
     "align": "start"
   },
