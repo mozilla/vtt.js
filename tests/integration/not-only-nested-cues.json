@@ -1,0 +1,45 @@
+[
+{
+  "id": "",
+  "settings": {
+    "region": "",
+    "vertical": "",
+    "line": "auto",
+    "position": "50",
+    "size": "100",
+    "align": "middle"
+  },
+  "startTime": "000000000",
+  "endTime": "000100000",
+  "content": "The First Minute",
+  "domTree": {
+    "childNodes": [
+      {
+        "textContent": "The First Minute"
+      }
+    ]
+  }
+}
+,
+{
+  "id": "",
+  "settings": {
+    "region": "",
+    "vertical": "",
+    "line": "auto",
+    "position": "50",
+    "size": "100",
+    "align": "middle"
+  },
+  "startTime": "000030000",
+  "endTime": "000130000",
+  "content": "The Final Minute",
+  "domTree": {
+    "childNodes": [
+      {
+        "textContent": "The Final Minute"
+      }
+    ]
+  }
+}
+]
