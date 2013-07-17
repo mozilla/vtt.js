@@ -179,7 +179,7 @@ function parseContent(window, input) {
       return result;
     }
 
-    var m = input.match(/^([^<]*)(<[^>]+>)?/);
+    var m = input.match(/^([^<]*)(<[^>]+>?)?/);
     // If there is some text before the next tag, return it, otherwise return
     // the tag.
     return consume(m[1] ? m[1] : m[2]);
@@ -235,7 +235,7 @@ function parseContent(window, input) {
         current.appendChild(node);
         continue;
       }
-      var m = t.match(/^<([^.\s/0-9>]+)(\.[^\s\\>]+)?([^>\\]+)?(\\?)>$/);
+      var m = t.match(/^<([^.\s/0-9>]+)(\.[^\s\\>]+)?([^>\\]+)?(\\?)>?$/);
       // If we can't parse the tag, skip to the next tag.
       if (!m)
         continue;

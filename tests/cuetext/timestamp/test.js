@@ -11,7 +11,7 @@ describe("cuetext/timestamp tests", function(){
     assert.jsonEqual("cuetext/timestamp/nested.vtt", "cuetext/timestamp/nested.json");
   });
 
-  it.skip("no-end-gt.vtt", function(){
+  it("no-end-gt.vtt", function(){
     assert.jsonEqual("cuetext/timestamp/no-end-gt.vtt", "cuetext/timestamp/no-end-gt.json");
   });
 

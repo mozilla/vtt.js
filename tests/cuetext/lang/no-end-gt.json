@@ -10,11 +10,14 @@
   },
   "startTime": "000000000",
   "endTime": "000002000",
-  "content": "<00:01.000 It's a blue apple tree!",
+  "content": "<lang en-Us It's a blue apple tree!",
   "domTree": {
-    "childNodes": [{
-      "target": "timestamp",
-      "data": "000001000"
-    }]
+    "childNodes": [
+      {
+        "tagName": "span",
+        "localName": "lang",
+        "lang": "en-Us It's a blue apple tree!"
+      }
+    ]
   }
 }

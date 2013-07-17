@@ -10,7 +10,7 @@
   },
   "startTime": "000000000",
   "endTime": "000002000",
-  "content": "<c It's a blue apple tree!"
+  "content": "<c It's a blue apple tree!",
   "domTree": {
     "childNodes": [{
       "tagName": "c",
