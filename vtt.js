@@ -39,6 +39,12 @@ Settings.prototype = {
       }
     }
   },
+  // Accept a region if it doesn't have the special string '-->'
+  region: function(k, v) {
+    if(!v.match(/-->/)) {
+      this.set(k, v);
+    }
+  },
   // Accept a setting if its a valid (signed) integer.
   integer: function(k, v) {
     if (/^-?\d+$/.test(v)) // integer
@@ -87,7 +93,7 @@ function parseCue(input, cue) {
     parseOptions(input, function (k, v) {
       switch (k) {
       case "region":
-        settings.set(k, v);
+        settings.region(k, v);
         break;
       case "vertical":
         settings.alt(k, v, ["rl", "lr"]);
