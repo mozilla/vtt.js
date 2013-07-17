@@ -17,7 +17,7 @@
   },
   "main": "vtt.js",
   "scripts": {
-    "test": "./node_modules/.bin/grunt && ./node_modules/.bin/mocha --recursive --reporter spec --slow 250 tests"
+    "test": "./node_modules/.bin/grunt && ./node_modules/.bin/mocha --recursive --reporter spec --timeout 60000 --slow 30000 tests"
   },
   "license": {
     "type": "Apache-2.0",
