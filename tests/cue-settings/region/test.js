@@ -15,7 +15,7 @@ describe("cue-settings/region tests", function(){
     assert.jsonEqual("cue-settings/region/no-value.vtt", "cue-settings/region/bad-region.json");
   });
 
-  it.skip("region-arrows.vtt", function(){
+  it("region-arrows.vtt", function(){
     assert.jsonEqual("cue-settings/region/region-arrows.vtt", "cue-settings/region/bad-region.json");
   });
 
