@@ -5,8 +5,8 @@
     "region": "",
     "vertical": "",
     "line": "auto",
-    "position": "50",
-    "size": "100",
+    "position": 50,
+    "size": 100,
     "align": "middle"
   },
   "startTime": "000000000",
@@ -27,8 +27,8 @@
     "region": "",
     "vertical": "",
     "line": "auto",
-    "position": "50",
-    "size": "100",
+    "position": 50,
+    "size": 100,
     "align": "middle"
   },
   "startTime": "000004000",
@@ -49,8 +49,8 @@
     "region": "",
     "vertical": "",
     "line": "auto",
-    "position": "50",
-    "size": "100",
+    "position": 50,
+    "size": 100,
     "align": "middle"
   },
   "startTime": "000006000",
