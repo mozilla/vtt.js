@@ -362,7 +362,7 @@ WebVTTParser.prototype = {
           regionAnchorY: region.get("regionanchorY", 100),
           viewportAnchorX: region.get("viewportanchorX", 0),
           viewportAnchorY: region.get("viewportanchorY", 100),
-          scroll: region.get("scroll", "")
+          scroll: region.get("scroll", "none")
         });
       }
     }
