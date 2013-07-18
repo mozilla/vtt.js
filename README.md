@@ -159,7 +159,7 @@ You have a number of options for running `cue2json.js`.
 
 `$ ./bin/cue2json.js tests/foo/bar.vtt` print JSON output to console.
 
-`$ ./bin/cue2json.js tests/foo/bar.vtt > tests/foo/bar-bad.vtt` print JSON output to a file called `tests/foo/bar-bad.vtt`.
+`$ ./bin/cue2json.js tests/foo/bar.vtt > tests/foo/bar-bad.json` print JSON output to a file called `tests/foo/bar-bad.json`.
 
 `$ ./bin/cue2json.js tests/foo/bar.vtt -j` print JSON output to a file called `tests/foo/bar.json`.
 
