@@ -1,21 +1,26 @@
 {
-  "id": "",
-  "settings": {
-    "region": "",
-    "vertical": "",
-    "line": "auto",
-    "position": 50,
-    "size": 100,
-    "align": "middle"
-  },
-  "startTime": "000000000",
-  "endTime": "000002000",
-  "content": "Everyone likes the '&gt;' sign right?",
-  "domTree": {
-    "childNodes": [
-      {
-        "textContent": "Everyone likes the '>' sign right?"
+  "regions": [],
+  "cues": [
+    {
+      "id": "",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000000000",
+      "endTime": "000002000",
+      "content": "Everyone likes the '&gt;' sign right?",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Everyone likes the '>' sign right?"
+          }
+        ]
       }
-    ]
-  }
+    }
+  ]
 }

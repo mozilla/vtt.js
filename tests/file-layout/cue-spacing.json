@@ -1,67 +1,68 @@
-[
 {
-  "id": "",
-  "settings": {
-    "region": "",
-    "vertical": "",
-    "line": "auto",
-    "position": 50,
-    "size": 100,
-    "align": "middle"
-  },
-  "startTime": "000000000",
-  "endTime": "000002000",
-  "content": "Text\n00:02.000 --> 00:04.000\nText",
-  "domTree": {
-    "childNodes": [
-      {
-        "textContent": "Text\n00:02.000 --> 00:04.000\nText"
+  "regions": [],
+  "cues": [
+    {
+      "id": "",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000000000",
+      "endTime": "000002000",
+      "content": "Text\n00:02.000 --> 00:04.000\nText",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Text\n00:02.000 --> 00:04.000\nText"
+          }
+        ]
       }
-    ]
-  }
-}
-,
-{
-  "id": "",
-  "settings": {
-    "region": "",
-    "vertical": "",
-    "line": "auto",
-    "position": 50,
-    "size": 100,
-    "align": "middle"
-  },
-  "startTime": "000004000",
-  "endTime": "000006000",
-  "content": "Text\n-->\nText",
-  "domTree": {
-    "childNodes": [
-      {
-        "textContent": "Text\n-->\nText"
+    },
+    {
+      "id": "",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000004000",
+      "endTime": "000006000",
+      "content": "Text\n-->\nText",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Text\n-->\nText"
+          }
+        ]
       }
-    ]
-  }
-}
-,
-{
-  "id": "",
-  "settings": {
-    "region": "",
-    "vertical": "",
-    "line": "auto",
-    "position": 50,
-    "size": 100,
-    "align": "middle"
-  },
-  "startTime": "000006000",
-  "endTime": "000008000",
-  "content": "00:06.000 --> 00:08.000\nText",
-  "domTree": {
-    "childNodes": [
-      {
-        "textContent": "00:06.000 --> 00:08.000\nText"
+    },
+    {
+      "id": "",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000006000",
+      "endTime": "000008000",
+      "content": "00:06.000 --> 00:08.000\nText",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "00:06.000 --> 00:08.000\nText"
+          }
+        ]
       }
-    ]
-  }
+    }
+  ]
 }
-]

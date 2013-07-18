@@ -92,50 +92,46 @@ The associated JSON representation might look like this:
 
 ``` json
 {
-  "id": "",
-  "settings": {
-    "region": "",
-    "vertical": "",
-    "line": "auto",
-    "position": 50,
-    "size": 50,
-    "align": "start"
-  },
-  "startTime": "000032500",
-  "endTime": "000033500",
-  "content": "<v.loud Mary>That's awesome!",
-  "domTree": {
-    "childNodes": [
-      {
-        "tagName": "span",
-        "localName": "v",
-        "title": "Mary",
-        "className": "loud",
+  "regions": [],
+  "cues": [
+    {
+      "id": "",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 50,
+        "align": "start"
+      },
+      "startTime": "000032500",
+      "endTime": "000033500",
+      "content": "<v.loud Mary>That's awesome!",
+      "domTree": {
         "childNodes": [
           {
-            "textContent": "That's awesome!"
+            "tagName": "span",
+            "localName": "v",
+            "title": "Mary",
+            "className": "loud",
+            "childNodes": [
+              {
+                "textContent": "That's awesome!"
+              }
+            ]
           }
         ]
       }
-    ]
-  }
+    }
+  ]
 }
+
 ```
 
 If you use JSON you **must** define all the possible values for cue data even if they are
 not being tested. Put the default values in this case. Values that exist under the "domTree"
 of the parsed cue's cuetext can be left out if they are not there as the tree is generated
 dynamically with no defaults for values that aren't in the cue's cuetext.
-
-**NOTE**: you can automatically generate a JSON file for a given `.vtt` file using `cue2json.js`.
-Given a file like `tests/foo/bar.vtt`, you can generate `tests/foo/bar.json` like this:
-
-```
-$ ./bin/cue2json.js tests/foo/bar.vtt > tests/foo/bar.json
-```
-
-Assuming the parser is able to correctly parse `tests/foo/bar.vtt`, the file `tests/foo/bar.json`
-now contains the correct JSON for creating a cue test.
 
 Writing the test to compare the live ouput to this JSON is done by creating a `.js` somewhere in `tests/`.
 It might look like this:
@@ -154,6 +150,27 @@ describe("foo/bar.vtt", function(){
 ```
 
 Such `.js` files can live anywhere in or below `tests/`, and the test runner will find and run them.
+
+####Cue2json####
+
+You can automatically generate a JSON file for a given `.vtt` file using `cue2json.js`.
+You have a number of options for running `cue2json.js`.
+
+
+`$ ./bin/cue2json.js tests/foo/bar.vtt` print JSON output to console.
+
+`$ ./bin/cue2json.js tests/foo/bar.vtt > tests/foo/bar-bad.vtt` print JSON output to a file called `tests/foo/bar-bad.vtt`.
+
+`$ ./bin/cue2json.js tests/foo/bar.vtt -j` print JSON output to a file called `tests/foo/bar.json`.
+
+`$ ./bin/cue2json.js ./tests` walk the `tests` directory and rewrite any JSON files whose vtt source files are known.
+
+Assuming the parser is able to correctly parse the vtt file(s), you now have the correct JSON to run
+a JSON test.
+
+**NOTE:** Since `cue2json` uses the actual parser to generate these JSON files there is the possibility that
+the generated JSON will contain bugs. Therefore, always check the generated JSON files to check that the
+parser actually parsed according to spec.
 
 ####JS-based Tests####
 

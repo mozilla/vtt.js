@@ -1,25 +1,34 @@
 {
-  "id": "",
-  "settings": {
-    "region": "",
-    "vertical": "",
-    "line": "auto",
-    "position": 50,
-    "size": 100,
-    "align": "middle"
-  },
-  "startTime": "000000000",
-  "endTime": "000002000",
-  "content": "<v.loud Joe>That's awesome!</v>",
-  "domTree": {
-    "childNodes": [{
-      "tagName": "span",
-      "localName": "v",
-      "title": "Joe",
-      "className": "loud",
-      "childNodes": [{
-        "textContent": "That's awesome!"
-      }]
-    }]
-  }
+  "regions": [],
+  "cues": [
+    {
+      "id": "",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000000000",
+      "endTime": "000002000",
+      "content": "<v.loud Joe>That's awesome!</v>",
+      "domTree": {
+        "childNodes": [
+          {
+            "tagName": "span",
+            "localName": "v",
+            "title": "Joe",
+            "className": "loud",
+            "childNodes": [
+              {
+                "textContent": "That's awesome!"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
 }
