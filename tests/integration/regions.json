@@ -7,7 +7,7 @@
       "regionAnchorX": 0,
       "regionAnchorY": 100,
       "viewportAnchorX": 10,
-      "viewportAnchorY": 100,
+      "viewportAnchorY": 90,
       "scroll": "up"
     },
     {
@@ -17,7 +17,7 @@
       "regionAnchorX": 100,
       "regionAnchorY": 100,
       "viewportAnchorX": 90,
-      "viewportAnchorY": 100,
+      "viewportAnchorY": 90,
       "scroll": "up"
     }
   ],

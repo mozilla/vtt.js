@@ -3,7 +3,7 @@ var util = require("../../../lib/util.js"),
 
 describe("regions/viewportanchor tests", function(){
 
-  it.skip("correct.vtt", function(){
+  it("correct.vtt", function(){
     assert.jsonEqual("regions/viewportanchor/correct.vtt", "regions/viewportanchor/correct.json");
   });
 

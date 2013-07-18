@@ -3,7 +3,7 @@ var util = require("../../../lib/util.js"),
 
 describe("regions/width tests", function(){
 
-  it.skip("correct.vtt", function(){
+  it("correct.vtt", function(){
     assert.jsonEqual("regions/width/correct.vtt", "regions/width/correct.json");
   });
 
