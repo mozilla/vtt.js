@@ -3,10 +3,10 @@ var util = require("../lib/util.js"),
     // http://www.fileformat.info/info/unicode/char/1f638/index.htm
     grinningCatFace = "\uD83D\uDE38";
     text = "Cats ♥ WebVTT " + grinningCatFace,
-    vtt = "WEBVTT\n\nID\n00:00.000 --> 00:02.000\n" + text,
+    vtt = "WEBVTT\n\nID\n00:00.000 --> 00:02.000\n" + text + "\n",
     buffer = TextEncoder("utf8").encode(vtt);
 
-describe("Simple VTT Tests", function(){
+describe("UTF8 Encoding Tests", function(){
 
   it("parse utf8 encoded bytes", function(){
     var WebVTTParser = util.WebVTTParser,
@@ -45,7 +45,6 @@ describe("Simple VTT Tests", function(){
     p.flush();
 
     assert.equal(cues.length, 1);
-
     var cue0 = cues[0];
     assert.equal(cue0.id, "ID");
     assert.equal(cue0.startTime, "000000000");
