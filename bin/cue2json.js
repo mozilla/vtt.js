@@ -1,33 +1,52 @@
 #!/usr/bin/env node
 
-if (process.argv.length !== 3) {
-  console.error("Error: missing .vtt filename to process");
-  console.error("Usage: cue2json <filename>");
+if (process.argv.length < 3) {
+  console.error("Error: missing path to process\n" +
+                "Usage: cue2json [filename|dirname] [options]\n" +
+                "Options:\n" +
+                "-j: will parse the vtt file passed in and save it in a corresponding .json file");
   process.exit(1);
 }
 
-var filename = process.argv[2],
+var path = require("path"),
+    fs = require("fs"),
     util = require("../lib/util.js"),
-    vtt = util.parse(filename, true),
-    cues = vtt.cues;
+    pathArg = process.argv[2],
+    options = process.argv.join();
 
-function printCue(cue) {
-  cue.domTree = util.WebVTTParser.convertCueToDOMTree(new util.FakeWindow(), cue);
-  console.log(JSON.stringify(cue, util.filterJson, 2));
+function getJson(vttFile) {
+  var vtt = util.parse(vttFile, true);
+  return JSON.stringify(vtt, util.filterJson, 2);
 }
 
-// Single cue
-if (cues.length === 1) {
-  printCue(cues[0]);
+function flipName(fileName) {
+  if (fileName.match(/\.vtt$/))
+    return fileName.replace(/\.vtt$/, ".json");
+  else
+    return fileName.replace(/\.json$/, ".vtt");
 }
-// Array of cues
-else {
-  console.log("[");
-  for (var i = 0; i < cues.length - 1; i++) {
-    printCue(cues[i]);
-    console.log(",");
+
+function rewriteJson(dirName) {
+  var files = fs.readdirSync(dirName);
+  for (var i = 0; i < files.length; i++) {
+    var nextPath = path.join(dirName, files[i]);
+    if (fs.lstatSync(nextPath).isDirectory())
+      rewriteJson(nextPath);
+    else {
+      if (nextPath.match(/\.json$/)) {
+        var vttPath = flipName(nextPath);
+        if (fs.existsSync(vttPath))
+          fs.writeFileSync(nextPath, getJson(vttPath) + "\n");
+      }
+    }
   }
+}
 
-  printCue(cues[cues.length-1]);
-  console.log("]");
+if (fs.lstatSync(pathArg).isDirectory()) {
+  rewriteJson(pathArg);
+} else {
+  if (options.match(/-j/))
+    fs.writeFileSync(flipName(pathArg), getJson(pathArg) + "\n");
+  else
+    console.log(getJson(pathArg));
 }
