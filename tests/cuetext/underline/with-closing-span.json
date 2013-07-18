@@ -1,24 +1,35 @@
 {
-  "id": "",
-  "settings": {
-    "region": "",
-    "vertical": "",
-    "line": "auto",
-    "position": 50,
-    "size": 100,
-    "align": "middle"
-  },
-  "startTime": "000000000",
-  "endTime": "000002000",
-  "content": "<u>That's awesome!</u> Hee!",
-  "domTree": {
-    "childNodes": [{
-      "tagName": "u",
-      "localName": "u",
-      "childNodes": [{
-        "textContent": "That's awesome!"
-      }]}, {
-        "textContent": " Hee!"
-    }]
-  }
+  "regions": [],
+  "cues": [
+    {
+      "id": "",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000000000",
+      "endTime": "000002000",
+      "content": "<u>That's awesome!</u> Hee!",
+      "domTree": {
+        "childNodes": [
+          {
+            "tagName": "u",
+            "localName": "u",
+            "childNodes": [
+              {
+                "textContent": "That's awesome!"
+              }
+            ]
+          },
+          {
+            "textContent": " Hee!"
+          }
+        ]
+      }
+    }
+  ]
 }

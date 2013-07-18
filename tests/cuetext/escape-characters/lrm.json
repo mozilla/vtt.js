@@ -1,21 +1,26 @@
 {
-  "id": "",
-  "settings": {
-    "region": "",
-    "vertical": "",
-    "line": "auto",
-    "position": 50,
-    "size": 100,
-    "align": "middle"
-  },
-  "startTime": "000000000",
-  "endTime": "000002000",
-  "content": "This should be &lrm;. Correct?",
-  "domTree": {
-    "childNodes": [
-      {
-        "textContent": "This should be \u200e. Correct?"
+  "regions": [],
+  "cues": [
+    {
+      "id": "",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000000000",
+      "endTime": "000002000",
+      "content": "This should be &lrm;. Correct?",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "This should be ‎. Correct?"
+          }
+        ]
       }
-    ]
-  }
+    }
+  ]
 }

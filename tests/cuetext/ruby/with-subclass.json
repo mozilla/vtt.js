@@ -1,31 +1,43 @@
 {
-  "id": "",
-  "settings": {
-    "region": "",
-    "vertical": "",
-    "line": "auto",
-    "position": 50,
-    "size": 100,
-    "align": "middle"
-  },
-  "startTime": "000000000",
-  "endTime": "000002000",
-  "content": "<ruby.first>That's <rt.first>awesome!</rt></ruby>",
-  "domTree": {
-    "childNodes": [{
-      "tagName": "ruby",
-      "localName": "ruby",
-      "className": "first",
-      "childNodes": [{
-        "textContent": "That's "
-      }, {
-        "tagName": "rt",
-        "localName": "rt",
-        "className": "first",
-        "childNodes": [{
-          "textContent": "awesome!"
-        }]
-      }]
-    }]
-  }
+  "regions": [],
+  "cues": [
+    {
+      "id": "",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000000000",
+      "endTime": "000002000",
+      "content": "<ruby.first>That's <rt.first>awesome!</rt></ruby>",
+      "domTree": {
+        "childNodes": [
+          {
+            "tagName": "ruby",
+            "localName": "ruby",
+            "className": "first",
+            "childNodes": [
+              {
+                "textContent": "That's "
+              },
+              {
+                "tagName": "rt",
+                "localName": "rt",
+                "className": "first",
+                "childNodes": [
+                  {
+                    "textContent": "awesome!"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
 }

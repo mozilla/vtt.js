@@ -1,23 +1,28 @@
 {
-  "id": "",
-  "settings": {
-    "region": "",
-    "vertical": "",
-    "line": "auto",
-    "position": 50,
-    "size": 100,
-    "align": "middle"
-  },
-  "startTime": "000000000",
-  "endTime": "000002000",
-  "content": "<lang en-Us It's a blue apple tree!",
-  "domTree": {
-    "childNodes": [
-      {
-        "tagName": "span",
-        "localName": "lang",
-        "lang": "en-Us It's a blue apple tree!"
+  "regions": [],
+  "cues": [
+    {
+      "id": "",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000000000",
+      "endTime": "000002000",
+      "content": "<lang en-Us It's a blue apple tree!",
+      "domTree": {
+        "childNodes": [
+          {
+            "tagName": "span",
+            "localName": "lang",
+            "lang": "en-Us It's a blue apple tree!"
+          }
+        ]
       }
-    ]
-  }
+    }
+  ]
 }

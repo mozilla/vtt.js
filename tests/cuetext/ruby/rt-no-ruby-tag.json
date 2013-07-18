@@ -1,19 +1,26 @@
 {
-  "id": "",
-  "settings": {
-    "region": "",
-    "vertical": "",
-    "line": "auto",
-    "position": 50,
-    "size": 100,
-    "align": "middle"
-  },
-  "startTime": "000000000",
-  "endTime": "000002000",
-  "content": "<rt>Hee!</rt>",
-  "domTree": {
-    "childNodes": [{
-      "textContent": "Hee!"
-    }]
-  }
+  "regions": [],
+  "cues": [
+    {
+      "id": "",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000000000",
+      "endTime": "000002000",
+      "content": "<rt>Hee!</rt>",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Hee!"
+          }
+        ]
+      }
+    }
+  ]
 }

@@ -1,29 +1,41 @@
 {
-  "id": "",
-  "settings": {
-    "region": "",
-    "vertical": "",
-    "line": "auto",
-    "position": 50,
-    "size": 100,
-    "align": "middle"
-  },
-  "startTime": "000000000",
-  "endTime": "000002000",
-  "content": "<ruby>It's a <rt>blue apple tree!</rt></ruby>",
-  "domTree": {
-    "childNodes": [{
-      "tagName": "ruby",
-      "localName": "ruby",
-      "childNodes": [{
-        "textContent": "It's a "
-      }, {
-        "tagName": "rt",
-        "localName": "rt",
-        "childNodes": [{
-          "textContent": "blue apple tree!"
-        }]
-      }]
-    }]
-  }
+  "regions": [],
+  "cues": [
+    {
+      "id": "",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000000000",
+      "endTime": "000002000",
+      "content": "<ruby>It's a <rt>blue apple tree!</rt></ruby>",
+      "domTree": {
+        "childNodes": [
+          {
+            "tagName": "ruby",
+            "localName": "ruby",
+            "childNodes": [
+              {
+                "textContent": "It's a "
+              },
+              {
+                "tagName": "rt",
+                "localName": "rt",
+                "childNodes": [
+                  {
+                    "textContent": "blue apple tree!"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
 }

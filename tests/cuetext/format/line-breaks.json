@@ -1,21 +1,26 @@
 {
-  "id": "",
-  "settings": {
-    "region": "",
-    "vertical": "",
-    "line": "auto",
-    "position": 50,
-    "size": 100,
-    "align": "middle"
-  },
-  "startTime": "000000000",
-  "endTime": "000002000",
-  "content": "- It will perforate your stomach.\n- You could die.",
-  "domTree": {
-    "childNodes": [
-      {
-        "textContent": "- It will perforate your stomach.\n- You could die."
+  "regions": [],
+  "cues": [
+    {
+      "id": "",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000000000",
+      "endTime": "000002000",
+      "content": "- It will perforate your stomach.\n- You could die.",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "- It will perforate your stomach.\n- You could die."
+          }
+        ]
       }
-    ]
-  }
+    }
+  ]
 }

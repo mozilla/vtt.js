@@ -1,21 +1,26 @@
 {
-  "id": "",
-  "settings": {
-    "region": "",
-    "vertical": "",
-    "line": "auto",
-    "position": 50,
-    "size": 100,
-    "align": "middle"
-  },
-  "startTime": "000000000",
-  "endTime": "000002000",
-  "content": "&l &g; &nbsp &am; &lt &gt &nbs &nbs; &g; &lr;",
-  "domTree": {
-    "childNodes": [
-      {
-        "textContent": "&l &g; &nbsp &am; &lt &gt &nbs &nbs; &g; &lr;"
+  "regions": [],
+  "cues": [
+    {
+      "id": "",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000000000",
+      "endTime": "000002000",
+      "content": "&l &g; &nbsp &am; &lt &gt &nbs &nbs; &g; &lr;",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "&l &g; &nbsp &am; &lt &gt &nbs &nbs; &g; &lr;"
+          }
+        ]
       }
-    ]
-  }
+    }
+  ]
 }
