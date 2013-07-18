@@ -356,12 +356,12 @@ WebVTTParser.prototype = {
       if (self.onregion && region.has("id")) {
         self.onregion({
           id: region.get("id"),
-          width: region.get("width", "100%"),
-          lines: region.get("lines", "3"),
-          regionAnchorX: region.get("regionanchorX", "0%"),
-          regionAnchorY: region.get("regionanchorY", "100%"),
-          viewportAnchorX: region.get("viewportanchorX", "0%"),
-          viewportAnchorY: region.get("viewportanchorY", "100%"),
+          width: region.get("width", 100),
+          lines: region.get("lines", 3),
+          regionAnchorX: region.get("regionanchorX", 0),
+          regionAnchorY: region.get("regionanchorY", 100),
+          viewportAnchorX: region.get("viewportanchorX", 0),
+          viewportAnchorY: region.get("viewportanchorY", 100),
           scroll: region.get("scroll", "")
         });
       }
