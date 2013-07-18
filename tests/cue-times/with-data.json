@@ -1,0 +1,26 @@
+{
+  "regions": [],
+  "cues": [
+    {
+      "id": "",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000025000",
+      "endTime": "000027000",
+      "content": "Payload",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Payload"
+          }
+        ]
+      }
+    }
+  ]
+}
