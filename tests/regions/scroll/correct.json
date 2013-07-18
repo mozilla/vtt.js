@@ -8,7 +8,7 @@
       "regionAnchorY": 100,
       "viewportAnchorX": 0,
       "viewportAnchorY": 100,
-      "scroll": "none"
+      "scroll": "up"
     }
   ],
   "cues": []

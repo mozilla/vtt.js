@@ -8,7 +8,7 @@
       "regionAnchorY": 100,
       "viewportAnchorX": 10,
       "viewportAnchorY": 100,
-      "scroll": "none"
+      "scroll": "up"
     },
     {
       "id": "bill",
@@ -18,7 +18,7 @@
       "regionAnchorY": 100,
       "viewportAnchorX": 90,
       "viewportAnchorY": 100,
-      "scroll": "none"
+      "scroll": "up"
     }
   ],
   "cues": [
