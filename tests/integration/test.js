@@ -23,6 +23,10 @@ describe("integration tests", function(){
     assert.jsonEqual("integration/only-nested-cues.vtt", "integration/only-nested-cues.json");
   });
 
+  it("regions.vtt", function(){
+    assert.jsonEqual("integration/regions.vtt", "integration/regions.json");
+  });
+
   it("spec-example.vtt", function(){
     assert.jsonEqual("integration/spec-example.vtt", "integration/spec-example.json");
   });

@@ -1,0 +1,152 @@
+{
+  "regions": [
+    {
+      "id": "fred",
+      "width": 50,
+      "lines": 3,
+      "regionAnchorX": 0,
+      "regionAnchorY": 100,
+      "viewportAnchorX": 10,
+      "viewportAnchorY": 100,
+      "scroll": ""
+    },
+    {
+      "id": "bill",
+      "width": 50,
+      "lines": 3,
+      "regionAnchorX": 100,
+      "regionAnchorY": 100,
+      "viewportAnchorX": 90,
+      "viewportAnchorY": 100,
+      "scroll": ""
+    }
+  ],
+  "cues": [
+    {
+      "id": "",
+      "settings": {
+        "region": "fred",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "left"
+      },
+      "startTime": "000000000",
+      "endTime": "000020000",
+      "content": "Hi, my name is Fred",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Hi, my name is Fred"
+          }
+        ]
+      }
+    },
+    {
+      "id": "",
+      "settings": {
+        "region": "bill",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "right"
+      },
+      "startTime": "000002500",
+      "endTime": "000022500",
+      "content": "Hi, I'm Bill",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Hi, I'm Bill"
+          }
+        ]
+      }
+    },
+    {
+      "id": "",
+      "settings": {
+        "region": "fred",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "left"
+      },
+      "startTime": "000005000",
+      "endTime": "000025000",
+      "content": "Would you like to get a coffee?",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Would you like to get a coffee?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "",
+      "settings": {
+        "region": "bill",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "right"
+      },
+      "startTime": "000007500",
+      "endTime": "000027500",
+      "content": "Sure! I've only had one today.",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Sure! I've only had one today."
+          }
+        ]
+      }
+    },
+    {
+      "id": "",
+      "settings": {
+        "region": "fred",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "left"
+      },
+      "startTime": "000010000",
+      "endTime": "000030000",
+      "content": "This is my fourth!",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "This is my fourth!"
+          }
+        ]
+      }
+    },
+    {
+      "id": "",
+      "settings": {
+        "region": "fred",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "left"
+      },
+      "startTime": "000012500",
+      "endTime": "000032500",
+      "content": "OK, let's go.",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "OK, let's go."
+          }
+        ]
+      }
+    }
+  ]
+}
