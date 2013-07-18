@@ -17,9 +17,8 @@ describe("cue-times tests", function(){
     assert.equal(vtt.cues.length, 0);
   });
 
-  it.skip("max-spot-digits.vtt", function(){
-    var vtt = util.parse("cue-times/max-spot-digits.vtt");
-    assert.equal(vtt.cues.length, 0);
+  it("max-spot-digits.vtt", function(){
+    assert.jsonEqual("cue-times/max-spot-digits.vtt", "cue-times/max-spot-digits.json");
   });
 
   it("max-spots-over-sixty.vtt", function(){
