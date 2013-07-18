@@ -17,6 +17,10 @@ describe("cue-times tests", function(){
     assert.equal(vtt.cues.length, 0);
   });
 
+  it("left-tab.vtt", function(){
+    assert.jsonEqual("cue-times/left-tab.vtt", "cue-times/with-data.json");
+  });
+
   it("max-spot-digits.vtt", function(){
     assert.jsonEqual("cue-times/max-spot-digits.vtt", "cue-times/max-spot-digits.json");
   });
@@ -49,6 +53,38 @@ describe("cue-times tests", function(){
 
   it("mismatched-time-spots.vtt", function(){
     assert.jsonEqual("cue-times/mismatched-time-spots.vtt", "cue-times/mismatched-time-spots.json");
+  });
+
+  it("missing-separator.vtt", function(){
+    assert.jsonEqual("cue-times/missing-separator.vtt", "cue-times/bad-data.json");
+  });
+
+  it.skip("missing-spaces-between-separator.vtt", function(){
+    assert.jsonEqual("cue-times/missing-spaces-between-separator.vtt", "cue-times/with-data.json");
+  });
+
+  it("separator-extra-space.vtt", function(){
+    assert.jsonEqual("cue-times/separator-extra-space.vtt", "cue-times/with-data.json");
+  });
+
+  it("separator-tab.vtt", function(){
+    assert.jsonEqual("cue-times/separator-tab.vtt", "cue-times/with-data.json");
+  });
+
+  it("space-left-tab-right.vtt", function(){
+    assert.jsonEqual("cue-times/space-left-tab-right.vtt", "cue-times/with-data.json");
+  });
+
+  it("space-right-tab-left.vtt", function(){
+    assert.jsonEqual("cue-times/space-right-tab-left.vtt", "cue-times/with-data.json");
+  });
+
+  it("spaces-tabs-on-both-sides.vtt", function(){
+    assert.jsonEqual("cue-times/spaces-tabs-on-both-sides.vtt", "cue-times/with-data.json");
+  });
+
+  it("tab-right.vtt", function(){
+    assert.jsonEqual("cue-times/tab-right.vtt", "cue-times/with-data.json");
   });
 
 });
