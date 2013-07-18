@@ -7,7 +7,7 @@ describe("regions/scroll tests", function(){
     assert.jsonEqual("regions/scroll/bogus-value.vtt", "regions/scroll/bad-scroll.json");
   });
 
-  it.skip("correct.vtt", function(){
+  it("correct.vtt", function(){
     assert.jsonEqual("regions/scroll/correct.vtt", "regions/scroll/correct.json");
   });
 

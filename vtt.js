@@ -346,7 +346,7 @@ WebVTTParser.prototype = {
           region.get(k + "Y", anchor.get("y"));
           break;
         case "scroll":
-          region.alt(k, v, "up");
+          region.alt(k, v, ["up"]);
           break;
         }
       }, /=/, /\s/);
