@@ -288,6 +288,22 @@ WebVTTParser.prototype = {
   parse: function (data) {
     var self = this;
 
+    // Deal with utf8 binary data if we don't get a string
+    if (data && typeof data !== "string") {
+      self.decoder = self.decoder || TextDecoder("utf8");
+      self.partial = self.partial || "";
+      self.partial += self.decoder.decode(data, {stream: true});
+      if (self.partial) {
+        self.partial += self.decoder.decode();
+        data = self.partial;
+        delete self.partial;
+        delete self.decoder;
+      } else {
+        // Need more data before we have a full string
+        return;
+      }
+    }
+
     if (data)
       self.buffer += data;
 
