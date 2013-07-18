@@ -354,7 +354,7 @@ WebVTTParser.prototype = {
           if (!anchor.has("x") || !anchor.has("y"))
             break;
           region.set(k + "X", anchor.get("x"));
-          region.get(k + "Y", anchor.get("y"));
+          region.set(k + "Y", anchor.get("y"));
           break;
         case "scroll":
           region.alt(k, v, ["up"]);
