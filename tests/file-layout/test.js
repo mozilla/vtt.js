@@ -40,7 +40,7 @@ describe("file-layout tests", function(){
     assert.jsonEqual("file-layout/many-comments.vtt", "file-layout/many-comments.json");
   });  
 
-  it.skip("newline-before-webvtt.vtt", function(){
+  it("newline-before-webvtt.vtt", function(){
     assert.jsonEqual("file-layout/newline-before-webvtt.vtt", "file-layout/no-output.json");
   });
 

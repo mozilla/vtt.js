@@ -291,9 +291,12 @@ WebVTTParser.prototype = {
     if (data)
       self.buffer += data;
 
-    function collectNextLine() {
+    // Advance tells whether or not to remove the collected line from the buffer
+    // after it is read.
+    function collectNextLine(advance) {
       var buffer = self.buffer;
       var pos = 0;
+      advance = typeof advance === "undefined" ? true : advance;      
       while (pos < buffer.length && buffer[pos] != '\r' && buffer[pos] != '\n')
         ++pos;
       var utf8 = buffer.substr(0, pos);
@@ -302,7 +305,8 @@ WebVTTParser.prototype = {
         ++pos;
       if (buffer[pos] === '\n')
         ++pos;
-      self.buffer = buffer.substr(pos);
+      if (advance)
+        self.buffer = buffer.substr(pos);
       var line;
       try {
         line = decodeURIComponent(escape(utf8));
@@ -389,13 +393,20 @@ WebVTTParser.prototype = {
         // Skip the optional BOM.
         if (self.buffer.substr(0, BOM.length) === BOM)
           self.buffer = self.buffer.substr(BOM.length);
+
+        // Collect the next line, but do not remove the collected line from the
+        // buffer as we may not have the full WEBVTT signature yet when
+        // incrementally parsing.
+        line = collectNextLine(false);
         // (4-12) - Check for the "WEBVTT" identifier followed by an optional space or tab,
         // and ignore the rest of the line.
-        line = collectNextLine();
         if (line.substr(0, WEBVTT.length) !== WEBVTT ||
             line.length > WEBVTT.length && !/[ \t]/.test(line[WEBVTT.length])) {
           throw "error";
         }
+        // Now that we've read the WEBVTT signature we can remove it from
+        // the buffer.
+        collectNextLine(true);
         self.state = "HEADER";
       }
 
