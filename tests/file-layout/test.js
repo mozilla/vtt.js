@@ -7,7 +7,7 @@ describe("file-layout tests", function(){
     assert.jsonEqual("file-layout/blank-file-with-bom.vtt", "file-layout/no-output.json");
   });
 
-  it.skip("blank-file.vtt", function(){
+  it("blank-file.vtt", function(){
     assert.jsonEqual("file-layout/blank-file.vtt", "file-layout/no-output.json");
   });
 
