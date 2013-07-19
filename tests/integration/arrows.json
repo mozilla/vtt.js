@@ -1,0 +1,20 @@
+{
+  "regions": [],
+  "cues": [
+    {
+      "id": "- - > -- > - -> -- <--",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000000000",
+      "endTime": "000000000",
+      "content": "",
+      "domTree": null
+    }
+  ]
+}

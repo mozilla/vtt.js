@@ -3,12 +3,20 @@ var util = require("../../lib/util.js"),
 
 describe("integration tests", function(){
 
+  it("arrows.vtt", function(){
+    assert.jsonEqual("integration/arrows.vtt", "integration/arrows.json");
+  });
+
   it("cue-content-class.vtt", function(){
     assert.jsonEqual("integration/cue-content-class.vtt", "integration/cue-content-class.json");
   });
 
   it("cue-content.vtt", function(){
     assert.jsonEqual("integration/cue-content.vtt", "integration/cue-content.json");
+  });
+
+  it("cue-identifier.vtt", function(){
+    assert.jsonEqual("integration/cue-identifier.vtt", "integration/cue-identifier.json");
   });
 
   it("not-only-nested-cues.vtt", function(){
