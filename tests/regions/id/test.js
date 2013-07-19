@@ -7,6 +7,10 @@ describe("regions/id tests", function(){
     assert.jsonEqual("regions/id/arrows.vtt", "regions/id/arrows.json");
   });
 
+  it("bad-delimiter.vtt", function(){
+    assert.jsonEqual("regions/id/bad-delimiter.vtt", "regions/id/bad-id.json");
+  });
+
   it("correct.vtt", function(){
     assert.jsonEqual("regions/id/correct.vtt", "regions/id/correct.json");
   });
@@ -19,7 +23,7 @@ describe("regions/id tests", function(){
     assert.jsonEqual("regions/id/space-after-delimiter.vtt", "regions/id/bad-id.json");
   });
 
-  it.skip("space-before-delimiter.vtt", function(){
+  it("space-before-delimiter.vtt", function(){
     assert.jsonEqual("regions/id/space-before-delimiter.vtt", "regions/id/bad-id.json");
   });
 

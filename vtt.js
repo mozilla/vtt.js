@@ -19,7 +19,7 @@ function Settings() {
 Settings.prototype = {
   // Only accept the first assignment to any key.
   set: function(k, v) {
-    if (!this.get(k))
+    if (!this.get(k) && v !== "")
       this.values[k] = v;
   },
   // Return the value for a key, or a default value.
@@ -69,8 +69,8 @@ function parseOptions(input, callback, keyValueDelim, groupDelim) {
     var kv = groups[i].split(keyValueDelim);
     if (kv.length !== 2)
       continue;
-    var k = kv[0].trim();
-    var v = kv[1].trim();
+    var k = kv[0];
+    var v = kv[1];
     callback(k, v);
   }
 }
