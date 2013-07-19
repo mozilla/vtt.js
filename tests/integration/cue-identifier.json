@@ -1,0 +1,47 @@
+{
+  "regions": [],
+  "cues": [
+    {
+      "id": "",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000000000",
+      "endTime": "000002000",
+      "content": "That's an, an, that's an L!",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "That's an, an, that's an L!"
+          }
+        ]
+      }
+    },
+    {
+      "id": "transcription-credit",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000004000",
+      "endTime": "000005000",
+      "content": "Transcribed by Celestials",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Transcribed by Celestials"
+          }
+        ]
+      }
+    }
+  ]
+}
