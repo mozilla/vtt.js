@@ -69,8 +69,8 @@ function parseOptions(input, callback, keyValueDelim, groupDelim) {
     var kv = groups[i].split(keyValueDelim);
     if (kv.length !== 2)
       continue;
-    var k = kv[0].trim();
-    var v = kv[1].trim();
+    var k = kv[0];
+    var v = kv[1];
     callback(k, v);
   }
 }

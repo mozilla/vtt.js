@@ -24,7 +24,7 @@ describe("region tests", function(){
   });
 
   it("space-before-delimiter.vtt", function(){
-    assert.jsonEqual("regions/space-before-delimiter.vtt", "regions/space-before-delimiter.json");
+    assert.jsonEqual("regions/space-before-delimiter.vtt", "regions/bad-region.json");
   });
 
 });
