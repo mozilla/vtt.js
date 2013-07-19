@@ -82,7 +82,7 @@ function parseCue(input, cue) {
     if (ts === null)
       throw "error";
     // Remove time stamp from input.
-    input = input.replace(/^[^\s]+/, "");
+    input = input.replace(/^[^\s-]+/, "");
     return ts;
   }
 

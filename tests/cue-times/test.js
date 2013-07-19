@@ -59,7 +59,7 @@ describe("cue-times tests", function(){
     assert.jsonEqual("cue-times/missing-separator.vtt", "cue-times/bad-data.json");
   });
 
-  it.skip("missing-spaces-between-separator.vtt", function(){
+  it("missing-spaces-between-separator.vtt", function(){
     assert.jsonEqual("cue-times/missing-spaces-between-separator.vtt", "cue-times/with-data.json");
   });
 
