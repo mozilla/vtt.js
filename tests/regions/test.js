@@ -16,11 +16,11 @@ describe("region tests", function(){
   });
 
   it("no-line-break.vtt", function(){
-    assert.jsonEqual("regions/no-line-break.vtt", "regions/no-line-break.json");
+    assert.jsonEqual("regions/no-line-break.vtt", "regions/good-region.json");
   });
 
   it("no-space-after-delimiter.vtt", function(){
-    assert.jsonEqual("regions/no-space-after-delimiter.vtt", "regions/no-space-after-delimiter.json");
+    assert.jsonEqual("regions/no-space-after-delimiter.vtt", "regions/good-region.json");
   });
 
   it("space-before-delimiter.vtt", function(){
