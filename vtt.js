@@ -498,8 +498,8 @@ WebVTTParser.prototype = {
   },
   flush: function () {
     var self = this;
-    if (self.cue) {
-      // Synthesize the end of the current cue.
+    if (self.cue || self.state === "HEADER") {
+      // Synthesize the end of the current cue or region.
       self.buffer += "\n\n";
       self.parse();
     }
