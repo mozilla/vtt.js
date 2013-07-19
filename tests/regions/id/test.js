@@ -7,6 +7,10 @@ describe("regions/id tests", function(){
     assert.jsonEqual("regions/id/arrows.vtt", "regions/id/arrows.json");
   });
 
+  it("bad-delimiter.vtt", function(){
+    assert.jsonEqual("regions/id/bad-delimiter.vtt", "regions/id/bad-id.json");
+  });
+
   it("correct.vtt", function(){
     assert.jsonEqual("regions/id/correct.vtt", "regions/id/correct.json");
   });
