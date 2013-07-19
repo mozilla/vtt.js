@@ -60,7 +60,7 @@ describe("file-layout tests", function(){
     assert.jsonEqual("file-layout/webvtt-tab.vtt", "file-layout/with-data.json");
   });
 
-  it.skip("webvtt-with-bom.vtt", function(){
+  it("webvtt-with-bom.vtt", function(){
     assert.jsonEqual("file-layout/webvtt-with-bom.vtt", "file-layout/with-data.json");
   });
 
