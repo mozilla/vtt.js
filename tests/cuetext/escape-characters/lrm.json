@@ -17,7 +17,7 @@
       "domTree": {
         "childNodes": [
           {
-            "textContent": "This should be ‎. Correct?"
+            "textContent": "This should be \u200e. Correct?"
           }
         ]
       }

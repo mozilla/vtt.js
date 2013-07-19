@@ -17,7 +17,7 @@
       "domTree": {
         "childNodes": [
           {
-            "textContent": "Did you know I didn't put a space here?"
+            "textContent": "Did you know I didn't put a\u00a0space here?"
           }
         ]
       }
