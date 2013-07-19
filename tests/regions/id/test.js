@@ -19,7 +19,7 @@ describe("regions/id tests", function(){
     assert.jsonEqual("regions/id/space-after-delimiter.vtt", "regions/id/bad-id.json");
   });
 
-  it.skip("space-before-delimiter.vtt", function(){
+  it("space-before-delimiter.vtt", function(){
     assert.jsonEqual("regions/id/space-before-delimiter.vtt", "regions/id/bad-id.json");
   });
 

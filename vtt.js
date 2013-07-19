@@ -19,7 +19,7 @@ function Settings() {
 Settings.prototype = {
   // Only accept the first assignment to any key.
   set: function(k, v) {
-    if (!this.get(k))
+    if (!this.get(k) && v !== "")
       this.values[k] = v;
   },
   // Return the value for a key, or a default value.
