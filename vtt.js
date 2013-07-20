@@ -55,9 +55,12 @@ Settings.prototype = {
     if (/^\d+%$/.test(v)) {
       v = v.replace("%", "");
       v = frac ? (v * 1) : (v | 0);
-      if (v >= 0 && v <= 100)
+      if (v >= 0 && v <= 100) {
         this.set(k, parseInt(v, 10));
+        return true;
+      }
     }
+    return false;
   }
 };
 
@@ -100,7 +103,7 @@ function parseCue(input, cue) {
         break;
       case "line":
         settings.integer(k, v);
-        settings.percent(k, v);
+        settings.percent(k, v) ? settings.set("snapToLines", false) : null;
         settings.alt(k, v, ["auto"]);
         break;
       case "position":
@@ -118,6 +121,7 @@ function parseCue(input, cue) {
       region: settings.get("region", ""),
       vertical: settings.get("vertical", ""),
       line: settings.get("line", "auto"),
+      snapToLines: settings.get("snapToLines", true),
       position: settings.get("position", 50),
       size: settings.get("size", 100),
       align: settings.get("align", "middle")
