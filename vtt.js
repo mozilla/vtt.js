@@ -270,7 +270,7 @@ function parseContent(window, input) {
   return fragment;
 }
 
-const BOM = "\xEF\xBB\xBF";
+const BOM = "\uFEFF";
 const WEBVTT = "WEBVTT";
 
 function WebVTTParser() {
