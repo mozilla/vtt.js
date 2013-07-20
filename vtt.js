@@ -288,6 +288,22 @@ WebVTTParser.prototype = {
   parse: function (data) {
     var self = this;
 
+    // Deal with utf8 binary data if we don't get a string. We may or may
+    // not get enough bytes to build a character/string (e.g., multi-byte).
+    if (data && typeof data !== "string") {
+      var decoder = self.decoder = self.decoder || TextDecoder("utf8"),
+          decoded = decoder.decode(data, {stream: true});
+      if (decoded) {
+        data = decoded;
+        data += decoder.decode();
+        delete self.decoder;
+      } else {
+        // Need more bytes before we have a full character/string,
+        // clear data and let parse() complete without updating buffer.
+        data = null;
+      }
+    }
+
     if (data)
       self.buffer += data;
 
@@ -309,7 +325,7 @@ WebVTTParser.prototype = {
         self.buffer = buffer.substr(pos);
       var line;
       try {
-        line = decodeURIComponent(escape(utf8));
+        line = utf8; // TODO: what about the parse(string) case? --> decodeURIComponent(escape(utf8));
       } catch (e) {
         throw "error";
       }
