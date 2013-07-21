@@ -3,8 +3,8 @@ var util = require("../../../lib/util.js"),
 
 describe("regions/id tests", function(){
 
-  it.skip("arrows.vtt", function(){
-    assert.jsonEqual("regions/id/arrows.vtt", "regions/id/arrows.json");
+  it("arrows.vtt", function(){
+    assert.jsonEqual("regions/id/arrows.vtt", "regions/id/bad-id.json");
   });
 
   it("bad-delimiter.vtt", function(){
