@@ -28,6 +28,7 @@
         "region": "fred",
         "vertical": "",
         "line": "auto",
+        "snapToLines": true,
         "position": 50,
         "size": 100,
         "align": "left"
@@ -49,6 +50,7 @@
         "region": "bill",
         "vertical": "",
         "line": "auto",
+        "snapToLines": true,
         "position": 50,
         "size": 100,
         "align": "right"
@@ -70,6 +72,7 @@
         "region": "fred",
         "vertical": "",
         "line": "auto",
+        "snapToLines": true,
         "position": 50,
         "size": 100,
         "align": "left"
@@ -91,6 +94,7 @@
         "region": "bill",
         "vertical": "",
         "line": "auto",
+        "snapToLines": true,
         "position": 50,
         "size": 100,
         "align": "right"
@@ -112,6 +116,7 @@
         "region": "fred",
         "vertical": "",
         "line": "auto",
+        "snapToLines": true,
         "position": 50,
         "size": 100,
         "align": "left"
@@ -133,6 +138,7 @@
         "region": "fred",
         "vertical": "",
         "line": "auto",
+        "snapToLines": true,
         "position": 50,
         "size": 100,
         "align": "left"

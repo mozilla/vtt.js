@@ -7,6 +7,7 @@
         "region": "",
         "vertical": "",
         "line": "auto",
+        "snapToLines": true,
         "position": 42,
         "size": 100,
         "align": "middle"
