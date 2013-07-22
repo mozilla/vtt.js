@@ -50,6 +50,7 @@ Before they can be run, you need to install various dependencies:
 
 ```
 $ npm install
+$ git submodule update --init --recursive
 ```
 
 To run all the tests, do the following:
