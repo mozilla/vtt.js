@@ -22,7 +22,7 @@ parser.flush();
 parser.convertCueToDOMTree(window, cue);
 ```
 
-`parse` hands an UTF8 string to the parser, encoded as JavaScript string (only using `\x00-\xff`). The parser properly reassembles partial data, even across line breaks.
+`parse` hands an Uint8Array containing UTF-8 byte sequences to the parser. The parser decodes the data and reassembles partial data (streaming), even across line breaks.
 
 ```convertCueToDOMTree``` parses the cuetext of the cue handed to it into a tree of DOM nodes that mirrors the internal WebVTT node structure of the cue's cuetext. Constructs a DocumentFragment with the window it is handed, adds the tree of DOM nodes as a child to the DocumentFragment, and returns it.
 

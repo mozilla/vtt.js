@@ -1,0 +1,3 @@
+[submodule "lib/stringencoding"]
+	path = lib/stringencoding
+	url = https://code.google.com/p/stringencoding/

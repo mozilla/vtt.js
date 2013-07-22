@@ -277,12 +277,12 @@ function parseContent(window, input) {
   return fragment;
 }
 
-const BOM = "\uFEFF";
 const WEBVTT = "WEBVTT";
 
-function WebVTTParser() {
+function WebVTTParser(decoder) {
   this.state = "INITIAL";
   this.buffer = "";
+  this.decoder = decoder || TextDecoder("utf8");
 }
 
 WebVTTParser.convertCueToDOMTree = function(window, cue) {
@@ -295,8 +295,8 @@ WebVTTParser.prototype = {
   parse: function (data) {
     var self = this;
 
-    if (data)
-      self.buffer += data;
+    // Try to decode the data that we received.
+    self.buffer += self.decoder.decode(data, {stream: true});
 
     // Advance tells whether or not to remove the collected line from the buffer
     // after it is read.
@@ -306,7 +306,7 @@ WebVTTParser.prototype = {
       advance = typeof advance === "undefined" ? true : advance;      
       while (pos < buffer.length && buffer[pos] != '\r' && buffer[pos] != '\n')
         ++pos;
-      var utf8 = buffer.substr(0, pos);
+      var line = buffer.substr(0, pos);
       // Advance the buffer early in case we fail below.
       if (buffer[pos] === '\r')
         ++pos;
@@ -314,12 +314,6 @@ WebVTTParser.prototype = {
         ++pos;
       if (advance)
         self.buffer = buffer.substr(pos);
-      var line;
-      try {
-        line = decodeURIComponent(escape(utf8));
-      } catch (e) {
-        throw "error";
-      }
       return line;
     }
 
@@ -395,11 +389,8 @@ WebVTTParser.prototype = {
       var line;
       if (self.state === "INITIAL") {
         // Wait until we have enough data to parse the header.
-        if (self.buffer.length < BOM.length + WEBVTT.length)
+        if (self.buffer.length <= WEBVTT.length)
           return this;
-        // Skip the optional BOM.
-        if (self.buffer.substr(0, BOM.length) === BOM)
-          self.buffer = self.buffer.substr(BOM.length);
 
         // Collect the next line, but do not remove the collected line from the
         // buffer as we may not have the full WEBVTT signature yet when
@@ -516,8 +507,10 @@ WebVTTParser.prototype = {
   },
   flush: function () {
     var self = this;
+    // Finish decoding the stream.
+    self.buffer += self.decoder.decode();
+    // Synthesize the end of the current cue or region.
     if (self.cue || self.state === "HEADER") {
-      // Synthesize the end of the current cue or region.
       self.buffer += "\n\n";
       self.parse();
     }
