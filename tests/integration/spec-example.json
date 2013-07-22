@@ -246,7 +246,7 @@
       },
       "startTime": "000030000",
       "endTime": "000031500",
-      "content": "<v Roger Bingham>When we e-mailed—",
+      "content": "<v Roger Bingham>When we e-mailedâ",
       "domTree": {
         "childNodes": [
           {
@@ -255,7 +255,7 @@
             "title": "Roger Bingham",
             "childNodes": [
               {
-                "textContent": "When we e-mailed—"
+                "textContent": "When we e-mailedâ"
               }
             ]
           }
