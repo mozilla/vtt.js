@@ -31,4 +31,8 @@ describe("cuetext/escape-characters tests", function(){
     assert.jsonEqual("cuetext/escape-characters/rlm.vtt", "cuetext/escape-characters/rlm.json");
   });
 
+  it("together.vtt", function(){
+    assert.jsonEqual("cuetext/escape-characters/together.vtt", "cuetext/escape-characters/together.json");
+  });
+
 });
