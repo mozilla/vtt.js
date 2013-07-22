@@ -29,6 +29,40 @@
           }
         ]
       }
+    },
+    {
+      "id": "",
+      "settings": {
+        "region": "escapes",
+        "vertical": "",
+        "line": 40,
+        "snapToLines": false,
+        "position": 50,
+        "size": 50,
+        "align": "start"
+      },
+      "startTime": "000034500",
+      "endTime": "000036500",
+      "content": "Random escapes &am&amp; other <i> stuff &gt; &l&lt;&rl&rlm;&lrm; </i>\nOh my! &gt;",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Random escapes &am& other "
+          },
+          {
+            "tagName": "i",
+            "localName": "i",
+            "childNodes": [
+              {
+                "textContent": " stuff > &l<&rl\u200f\u200e "
+              }
+            ]
+          },
+          {
+            "textContent": "\nOh my! >"
+          }
+        ]
+      }
     }
   ]
 }

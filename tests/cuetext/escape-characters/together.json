@@ -1,0 +1,27 @@
+{
+  "regions": [],
+  "cues": [
+    {
+      "id": "",
+      "settings": {
+        "region": "",
+        "vertical": "",
+        "line": "auto",
+        "snapToLines": true,
+        "position": 50,
+        "size": 100,
+        "align": "middle"
+      },
+      "startTime": "000000000",
+      "endTime": "000002000",
+      "content": "Some text &lt; &amp;&gt; &lt; &nb&nbsp; &am&lt; &rlm;&lr&lrm; other stuff.",
+      "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Some text < &> < &nb\u00a0 &am< \u200f&lr\u200e other stuff."
+          }
+        ]
+      }
+    }
+  ]
+}
