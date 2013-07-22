@@ -4,10 +4,10 @@
       "id": "fred",
       "width": 100,
       "lines": 3,
-      "regionAnchorX": 21.12,
-      "regionAnchorY": 89.56,
-      "viewportAnchorX": 0,
-      "viewportAnchorY": 100,
+      "regionAnchorX": 0,
+      "regionAnchorY": 100,
+      "viewportAnchorX": 21.12,
+      "viewportAnchorY": 89.56,
       "scroll": "none"
     }
   ],

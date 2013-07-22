@@ -3,7 +3,7 @@ var util = require("../../../lib/util.js"),
 
 describe("regions/regionanchor tests", function(){
 
-  it.skip("correct.vtt", function(){
+  it("correct.vtt", function(){
     assert.jsonEqual("regions/regionanchor/correct.vtt", "regions/regionanchor/correct.json");
   });
 

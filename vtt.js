@@ -52,12 +52,15 @@ Settings.prototype = {
   },
   // Accept a setting if its a valid percentage.
   percent: function(k, v, frac) {
-    if (/^\d+%$/.test(v)) {
+    var m;
+    if ((m = v.match(/^([\d]{1,3})(\.[\d]*)?%$/))) {
       v = v.replace("%", "");
-      v = frac ? (v * 1) : (v | 0);
-      if (v >= 0 && v <= 100) {
-        this.set(k, parseInt(v, 10));
-        return true;
+      if (!m[2] || (m[2] && frac)) {
+        v = parseFloat(v);
+        if (v >= 0 && v <= 100) {
+          this.set(k, v);
+          return true;
+        }
       }
     }
     return false;
@@ -346,12 +349,12 @@ WebVTTParser.prototype = {
           // We have to make sure both x and y parse, so use a temporary
           // settings object here.
           var anchor = new Settings();
-          anchor.percent("x", xy[0]);
-          anchor.percent("y", xy[1]);
+          anchor.percent("x", xy[0], true);
+          anchor.percent("y", xy[1], true);
           if (!anchor.has("x") || !anchor.has("y"))
             break;
           region.set(k + "X", anchor.get("x"));
-          region.get(k + "Y", anchor.get("y"));
+          region.set(k + "Y", anchor.get("y"));
           break;
         case "scroll":
           region.alt(k, v, ["up"]);
