@@ -200,8 +200,8 @@ function parseContent(window, input) {
     return ESCAPE[e];
   }
   function unescape(s) {
-    while ((m = s.match(/^[^<&]*(&(amp|lt|gt|lrm|rlm|nbsp);)/)) !== null)
-      s = s.replace(m[1], unescape1);
+    while ((m = s.match(/&(amp|lt|gt|lrm|rlm|nbsp);/)))
+      s = s.replace(m[0], unescape1);
     return s;
   }
 
