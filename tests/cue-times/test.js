@@ -39,11 +39,10 @@ describe("cue-times tests", function(){
   });
 
   it("min-top-digits.vtt", function(){
-    var vtt = util.parse("cue-times/min-top-digits.vtt");
-    assert.equal(vtt.cues.length, 0);
+    assert.jsonEqual("cue-times/min-top-digits.vtt", "cue-times/min-top-digits.json");
   });
 
-  it.skip("minimum-spots-over-sixty.vtt", function(){
+  it("minimum-spots-over-sixty.vtt", function(){
     assert.jsonEqual("cue-times/minimum-spots-over-sixty.vtt", "cue-times/minimum-spots-over-sixty.json");
   });
 

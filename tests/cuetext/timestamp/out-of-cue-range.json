@@ -12,14 +12,14 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000000000",
-      "endTime": "000002000",
+      "startTime": 0,
+      "endTime": 2,
       "content": "<00:03.000>That's awesome!",
       "domTree": {
         "childNodes": [
           {
             "target": "timestamp",
-            "data": "000003000"
+            "data": 3
           },
           {
             "textContent": "That's awesome!"

@@ -12,8 +12,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000000000",
-      "endTime": "000002000",
+      "startTime": 0,
+      "endTime": 2,
       "content": "That's an, an, that's an L!",
       "domTree": {
         "childNodes": [
@@ -34,8 +34,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000004000",
-      "endTime": "000005000",
+      "startTime": 4,
+      "endTime": 5,
       "content": "Transcribed by Celestials",
       "domTree": {
         "childNodes": [

@@ -12,8 +12,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000001000",
-      "endTime": "000004000",
+      "startTime": 1,
+      "endTime": 4,
       "content": "Never drink liquid nitrogen.",
       "domTree": {
         "childNodes": [
@@ -34,8 +34,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000005000",
-      "endTime": "000009000",
+      "startTime": 5,
+      "endTime": 9,
       "content": "- It will perforate your stomach.\n- You could die.",
       "domTree": {
         "childNodes": [

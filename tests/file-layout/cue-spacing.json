@@ -12,8 +12,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000000000",
-      "endTime": "000002000",
+      "startTime": 0,
+      "endTime": 2,
       "content": "Text\n00:02.000 --> 00:04.000\nText",
       "domTree": {
         "childNodes": [
@@ -34,8 +34,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000004000",
-      "endTime": "000006000",
+      "startTime": 4,
+      "endTime": 6,
       "content": "Text\n-->\nText",
       "domTree": {
         "childNodes": [
@@ -56,8 +56,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000006000",
-      "endTime": "000008000",
+      "startTime": 6,
+      "endTime": 8,
       "content": "00:06.000 --> 00:08.000\nText",
       "domTree": {
         "childNodes": [

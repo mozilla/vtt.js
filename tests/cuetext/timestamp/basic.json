@@ -12,14 +12,14 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000000000",
-      "endTime": "000002000",
+      "startTime": 0,
+      "endTime": 2,
       "content": "<00:01.000>It's a blue apple tree!",
       "domTree": {
         "childNodes": [
           {
             "target": "timestamp",
-            "data": "000001000"
+            "data": 1
           },
           {
             "textContent": "It's a blue apple tree!"
