@@ -12,8 +12,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000000000",
-      "endTime": "000100000",
+      "startTime": 0,
+      "endTime": 60,
       "content": "The First Minute",
       "domTree": {
         "childNodes": [
@@ -34,8 +34,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000030000",
-      "endTime": "000130000",
+      "startTime": 30,
+      "endTime": 90,
       "content": "The Final Minute",
       "domTree": {
         "childNodes": [

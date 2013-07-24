@@ -25,8 +25,8 @@ describe("UTF8 Encoding Tests", function(){
 
     var cue0 = cues[0];
     assert.equal(cue0.id, "ID");
-    assert.equal(cue0.startTime, "000000000");
-    assert.equal(cue0.endTime, "000002000");
+    assert.equal(cue0.startTime, 0);
+    assert.equal(cue0.endTime, 2);
     assert.equal(cue0.content, text);
   });
 
@@ -48,8 +48,8 @@ describe("UTF8 Encoding Tests", function(){
     assert.equal(cues.length, 1);
     var cue0 = cues[0];
     assert.equal(cue0.id, "ID");
-    assert.equal(cue0.startTime, "000000000");
-    assert.equal(cue0.endTime, "000002000");
+    assert.equal(cue0.startTime, 0);
+    assert.equal(cue0.endTime, 2);
     assert.equal(cue0.content, text);
   });
 
@@ -78,8 +78,8 @@ describe("UTF8 Encoding Tests", function(){
 
     var cue0 = cues[0];
     assert.equal(cue0.id, "ID");
-    assert.equal(cue0.startTime, "000000000");
-    assert.equal(cue0.endTime, "000002000");
+    assert.equal(cue0.startTime, 0);
+    assert.equal(cue0.endTime, 2);
     assert.equal(cue0.content, badText);
   });
 
@@ -101,8 +101,8 @@ describe("UTF8 Encoding Tests", function(){
     assert.equal(cues.length, 1);
     var cue0 = cues[0];
     assert.equal(cue0.id, "ID");
-    assert.equal(cue0.startTime, "000000000");
-    assert.equal(cue0.endTime, "000002000");
+    assert.equal(cue0.startTime, 0);
+    assert.equal(cue0.endTime, 2);
     assert.equal(cue0.content, badText);
   });
 

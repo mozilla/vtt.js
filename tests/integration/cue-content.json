@@ -12,8 +12,8 @@
         "size": 50,
         "align": "start"
       },
-      "startTime": "000032500",
-      "endTime": "000033500",
+      "startTime": 32.5,
+      "endTime": 33.5,
       "content": "<v Neil deGrasse Tyson><i>Laughs</i>",
       "domTree": {
         "childNodes": [
@@ -41,8 +41,8 @@
         "size": 50,
         "align": "start"
       },
-      "startTime": "000034500",
-      "endTime": "000036500",
+      "startTime": 34.5,
+      "endTime": 36.5,
       "content": "Random escapes &am&amp; other <i> stuff &gt; &l&lt;&rl&rlm;&lrm; </i>\nOh my! &gt;",
       "domTree": {
         "childNodes": [

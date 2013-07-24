@@ -12,8 +12,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000011000",
-      "endTime": "000013000",
+      "startTime": 11,
+      "endTime": 13,
       "content": "<v Roger Bingham>We are in New York City",
       "domTree": {
         "childNodes": [
@@ -41,8 +41,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000013000",
-      "endTime": "000016000",
+      "startTime": 13,
+      "endTime": 16,
       "content": "<v Roger Bingham>We're actually at the Lucern Hotel, just down the street",
       "domTree": {
         "childNodes": [
@@ -70,8 +70,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000016000",
-      "endTime": "000018000",
+      "startTime": 16,
+      "endTime": 18,
       "content": "<v Roger Bingham>from the American Museum of Natural History",
       "domTree": {
         "childNodes": [
@@ -99,8 +99,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000018000",
-      "endTime": "000020000",
+      "startTime": 18,
+      "endTime": 20,
       "content": "<v Roger Bingham>And with me is Neil deGrasse Tyson",
       "domTree": {
         "childNodes": [
@@ -128,8 +128,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000020000",
-      "endTime": "000022000",
+      "startTime": 20,
+      "endTime": 22,
       "content": "<v Roger Bingham>Astrophysicist, Director of the Hayden Planetarium",
       "domTree": {
         "childNodes": [
@@ -157,8 +157,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000022000",
-      "endTime": "000024000",
+      "startTime": 22,
+      "endTime": 24,
       "content": "<v Roger Bingham>at the AMNH.",
       "domTree": {
         "childNodes": [
@@ -186,8 +186,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000024000",
-      "endTime": "000026000",
+      "startTime": 24,
+      "endTime": 26,
       "content": "<v Roger Bingham>Thank you for walking down here.",
       "domTree": {
         "childNodes": [
@@ -215,8 +215,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000027000",
-      "endTime": "000030000",
+      "startTime": 27,
+      "endTime": 30,
       "content": "<v Roger Bingham>And I want to do a follow-up on the last conversation we did.",
       "domTree": {
         "childNodes": [
@@ -244,8 +244,8 @@
         "size": 50,
         "align": "end"
       },
-      "startTime": "000030000",
-      "endTime": "000031500",
+      "startTime": 30,
+      "endTime": 31.5,
       "content": "<v Roger Bingham>When we e-mailedâ",
       "domTree": {
         "childNodes": [
@@ -273,8 +273,8 @@
         "size": 50,
         "align": "start"
       },
-      "startTime": "000030500",
-      "endTime": "000032500",
+      "startTime": 30.5,
+      "endTime": 32.5,
       "content": "<v Neil deGrasse Tyson>Didn't we talk about enough in that conversation?",
       "domTree": {
         "childNodes": [
@@ -302,8 +302,8 @@
         "size": 50,
         "align": "end"
       },
-      "startTime": "000032000",
-      "endTime": "000035500",
+      "startTime": 32,
+      "endTime": 35.5,
       "content": "<v Roger Bingham>No! No no no no; 'cos 'cos obviously 'cos",
       "domTree": {
         "childNodes": [
@@ -331,8 +331,8 @@
         "size": 50,
         "align": "start"
       },
-      "startTime": "000032500",
-      "endTime": "000033500",
+      "startTime": 32.5,
+      "endTime": 33.5,
       "content": "<v Neil deGrasse Tyson><i>Laughs</i>",
       "domTree": {
         "childNodes": [
@@ -360,8 +360,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000035500",
-      "endTime": "000038000",
+      "startTime": 35.5,
+      "endTime": 38,
       "content": "<v Roger Bingham>You know I'm so excited my glasses are falling off here.",
       "domTree": {
         "childNodes": [
