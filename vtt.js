@@ -285,10 +285,10 @@ function WebVTTParser(decoder) {
   this.decoder = decoder || TextDecoder("utf8");
 }
 
-WebVTTParser.convertCueToDOMTree = function(window, cue) {
-  if (!window || !cue || !cue.content)
+WebVTTParser.convertCueToDOMTree = function(window, cuetext) {
+  if (!window || !cuetext)
     return null;
-  return parseContent(window, cue.content);
+  return parseContent(window, cuetext);
 };
 
 WebVTTParser.prototype = {
