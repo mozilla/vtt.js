@@ -12,8 +12,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "012000000",
-      "endTime": "012010000",
+      "startTime": 432000,
+      "endTime": 432600,
       "content": "Text",
       "domTree": {
         "childNodes": [

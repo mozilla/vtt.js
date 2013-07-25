@@ -12,8 +12,8 @@
         "size": 100,
         "align": "middle"
       },
-      "startTime": "000025000",
-      "endTime": "000027000",
+      "startTime": 25,
+      "endTime": 27,
       "content": "Payload",
       "domTree": {
         "childNodes": [

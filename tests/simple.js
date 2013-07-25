@@ -13,8 +13,8 @@ describe("Simple VTT Tests", function(){
 
     var cue0 = vtt.cues[0];
     assert.equal(cue0.id, "ID");
-    assert.equal(cue0.startTime, "000000000");
-    assert.equal(cue0.endTime, "000002000");
+    assert.equal(cue0.startTime, 0);
+    assert.equal(cue0.endTime, 2);
     assert.equal(cue0.content, "Text");
   });
 
