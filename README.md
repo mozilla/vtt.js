@@ -19,12 +19,12 @@ parser.onflush = function () {}
 parser.parse(moreData);
 parser.parse(moreData);
 parser.flush();
-parser.convertCueToDOMTree(window, cue);
+parser.convertCueToDOMTree(window, cuetext);
 ```
 
 `parse` hands an Uint8Array containing UTF-8 byte sequences to the parser. The parser decodes the data and reassembles partial data (streaming), even across line breaks.
 
-```convertCueToDOMTree``` parses the cuetext of the cue handed to it into a tree of DOM nodes that mirrors the internal WebVTT node structure of the cue's cuetext. Constructs a DocumentFragment with the window it is handed, adds the tree of DOM nodes as a child to the DocumentFragment, and returns it.
+```convertCueToDOMTree``` parses the cue text handed to it into a tree of DOM nodes that mirrors the internal WebVTT node structure of the cue text. Constructs a DocumentFragment with the window it is handed, adds the tree of DOM nodes as a child to the DocumentFragment, and returns it.
 
 `flush` indicates that no more data is expected and will trigger 'onflush' (see below).
 
@@ -36,10 +36,10 @@ parser.convertCueToDOMTree(window, cue);
 
 `onflush` is invoked in response to flush() and after the content was parsed completely.
 
-The content of individual cues can be converted into a `DocumentFragment` node using:
+Cue text can be converted into a `DocumentFragment` node using:
 
 ```javascript
-var fragment = WebVTTParser.convertCueToDOMTree(window, cue);
+var fragment = WebVTTParser.convertCueToDOMTree(window, cuetext);
 ```
 
 Tests
