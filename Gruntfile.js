@@ -9,9 +9,23 @@ module.exports = function( grunt ) {
         expr: true
       },
       files: [ "vtt.js" ]
+    },
+
+    uglify: {
+      options: {
+        banner: "/*! vtt.js - https://github.com/andreasgal/vtt.js (built on <%= grunt.template.today('dd-mm-yyyy') %>) */\n"
+      },
+      dist: {
+        files: {
+          "dist/vtt.min.js": [ "lib/stringencoding/encoding.js", "vtt.js" ]
+        }
+      }
     }
   });
 
   grunt.loadNpmTasks( "grunt-contrib-jshint" );
+  grunt.loadNpmTasks( "grunt-contrib-uglify" );
+
+  grunt.registerTask( "build", [ "uglify" ] );
   grunt.registerTask( "default", [ "jshint" ]);
 };
