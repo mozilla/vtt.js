@@ -36,7 +36,7 @@ describe("integration tests", function(){
   });
 
   it("spec-example.vtt", function(){
-    assert.jsonEqual("integration/spec-example.vtt", "integration/spec-example.json");
+    assert.jsonEqualUTF8("integration/spec-example.vtt", "integration/spec-example.json");
   });
 
 });

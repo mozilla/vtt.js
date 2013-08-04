@@ -4,7 +4,7 @@ var util = require("../../lib/util.js"),
 describe("file-layout tests", function(){
 
   it("blank-file-with-bom.vtt", function(){
-    assert.jsonEqual("file-layout/blank-file-with-bom.vtt", "file-layout/no-output.json");
+    assert.jsonEqualUTF8("file-layout/blank-file-with-bom.vtt", "file-layout/no-output.json");
   });
 
   it("blank-file.vtt", function(){
@@ -41,7 +41,7 @@ describe("file-layout tests", function(){
   });
 
   it("tab-after-bom-before-header.vtt", function(){
-    assert.jsonEqual("file-layout/tab-after-bom-before-header.vtt", "file-layout/no-output.json");
+    assert.jsonEqualUTF8("file-layout/tab-after-bom-before-header.vtt", "file-layout/no-output.json");
   });
 
   it("webvtt-no-bom.vtt", function(){
@@ -57,7 +57,7 @@ describe("file-layout tests", function(){
   });
 
   it("webvtt-with-bom.vtt", function(){
-    assert.jsonEqual("file-layout/webvtt-with-bom.vtt", "file-layout/with-data.json");
+    assert.jsonEqualUTF8("file-layout/webvtt-with-bom.vtt", "file-layout/with-data.json");
   });
 
 });
