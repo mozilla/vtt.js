@@ -233,7 +233,7 @@ function parseContent(window, input) {
     var tagName = TAG_NAME[type];
     if (!tagName)
       return null;
-    var element = fragment.createElement(tagName);
+    var element = window.document.createElement(tagName);
     element.localName = type;
     var name = TAG_ANNOTATION[type];
     if (name && annotation)
@@ -285,7 +285,7 @@ function parseContent(window, input) {
     }
 
     // Text nodes are leaf nodes.
-    current.appendChild(fragment.createTextNode(unescape(t)));
+    current.appendChild(window.document.createTextNode(unescape(t)));
   }
 
   return fragment;
