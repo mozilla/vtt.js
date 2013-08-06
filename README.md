@@ -22,7 +22,18 @@ parser.flush();
 parser.convertCueToDOMTree(window, cuetext);
 ```
 
-`parse` hands an Uint8Array containing UTF-8 byte sequences to the parser. The parser decodes the data and reassembles partial data (streaming), even across line breaks.
+`parse` hands an Uint8Array containing UTF-8 byte sequences to the parser. The parser decodes the
+data and reassembles partial data (streaming), even across line breaks. It's also possible to pass
+string (or other) data to `parse` by specifying a different decoder. For ease of use, a StringDecoder
+is provided via `WebVTTParser.StringDecoder()`:
+
+```javascript
+var parser = new WebVTTParser(WebVTTParser.StringDecoder());
+parser.parse("WEBVTT\n\n");
+parser.parse("00:32.500 --> 00:33.500 align:start size:50%\n");
+parser.parse("<v.loud Mary>That's awesome!");
+parser.flush();
+```
 
 ```convertCueToDOMTree``` parses the cue text handed to it into a tree of DOM nodes that mirrors the internal WebVTT node structure of the cue text. Constructs a DocumentFragment with the window it is handed, adds the tree of DOM nodes as a child to the DocumentFragment, and returns it.
 
@@ -40,6 +51,45 @@ Cue text can be converted into a `DocumentFragment` node using:
 
 ```javascript
 var fragment = WebVTTParser.convertCueToDOMTree(window, cuetext);
+```
+
+Browser
+=======
+
+In order to use the parser in a browser, you can build a minified version that also bundles a polyfill of
+[TextDecoder](http://encoding.spec.whatwg.org/), since not all browsers currently support it. Building a
+browser-ready version of the library is done using `grunt` (if you haven't installed `grunt` globally, you
+can run it from `./node_modules/.bin/grunt` after running `npm install`):
+
+```
+$ grunt build
+Running "uglify:dist" (uglify) task
+File "dist/vtt.min.js" created.
+
+Done, without errors.
+```
+
+The file is now built in `dist/vtt.min.js` and can be used like so:
+
+```html
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>vtt.js in the browser</title>
+  <script src="dist/vtt.min.js"></script>
+</head>
+<body>
+  <script>
+    var vtt = "WEBVTT\n\nID\n00:00.000 --> 00:02.000\nText",
+        parser = new WebVTTParser(WebVTTParser.StringDecoder());
+    parser.oncue = function(cue) {
+      console.log(cue);
+    };
+    parser.parse(vtt);
+    parser.flush();
+  </script>
+</body>
+</html>
 ```
 
 Tests
@@ -150,7 +200,16 @@ describe("foo/bar.vtt", function(){
 });
 ```
 
-Such `.js` files can live anywhere in or below `tests/`, and the test runner will find and run them.
+The `jsonEqual` assertion does 3 kinds of checks, including:
+
+* Parsing the specified file as UTF8 binary data without streaming (i.e., single call to `parse)
+* Parsing the specified file as UTF8 binary data with streaming at every possible chunk size
+* Parsing the specified file as String data without streaming (i.e., single call to `parse)
+
+In some test situations (e.g., testing UTF8 sequences) it is impossible to parse the file as a String.
+In these cases you can use `jsonEqualUTF8` instead, which does the first two checks above, but not the third.
+
+JSON based test `.js` files can live anywhere in or below `tests/`, and the test runner will find and run them.
 
 ####Cue2json####
 
@@ -200,4 +259,4 @@ describe("Simple VTT Tests", function(){
 ```
 
 The `util.assert` object is the standard [node.js assert module](http://nodejs.org/api/assert.html) with
-the addition of `jsonEqual`. See `lib/util.js` for other testing API functions and objects.
+the addition of `jsonEqual` and `jsonEqualUTF8`. See `lib/util.js` for other testing API functions and objects.

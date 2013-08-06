@@ -299,6 +299,18 @@ function WebVTTParser(decoder) {
   this.decoder = decoder || TextDecoder("utf8");
 }
 
+// Helper to allow strings to be decoded instead of the default binary utf8 data.
+WebVTTParser.StringDecoder = function() {
+  return {
+    decode: function(data) {
+      if (!data) return "";
+      if (typeof data !== "string") throw "[StringDecoder] Error - expected string data";
+
+      return decodeURIComponent(escape(data));
+    }
+  };
+};
+
 WebVTTParser.convertCueToDOMTree = function(window, cuetext) {
   if (!window || !cuetext)
     return null;
