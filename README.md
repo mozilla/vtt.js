@@ -155,8 +155,8 @@ The associated JSON representation might look like this:
         "size": 50,
         "align": "start"
       },
-      "startTime": "000032500",
-      "endTime": "000033500",
+      "startTime": 32.5,
+      "endTime": 33.5,
       "content": "<v.loud Mary>That's awesome!",
       "domTree": {
         "childNodes": [
