@@ -272,7 +272,7 @@ function parseContent(window, input) {
         continue;
       // Determine if the tag should be added based on the context of where it
       // is placed in the cuetext.
-      if (!shouldAdd(current, node)) 
+      if (!shouldAdd(current, node))
         continue;
       // Set the class list (as a list of classes, separated by space).
       if (m[2])
@@ -329,7 +329,7 @@ WebVTTParser.prototype = {
     function collectNextLine(advance) {
       var buffer = self.buffer;
       var pos = 0;
-      advance = typeof advance === "undefined" ? true : advance;      
+      advance = typeof advance === "undefined" ? true : advance;
       while (pos < buffer.length && buffer[pos] != '\r' && buffer[pos] != '\n')
         ++pos;
       var line = buffer.substr(0, pos);
