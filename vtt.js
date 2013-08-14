@@ -514,7 +514,6 @@ WebVTTParser.prototype = {
           // 54-62 - Collect and discard the remaining cue.
           if (!line) {
             self.state = "ID";
-            continue;
           }
           continue;
         }
