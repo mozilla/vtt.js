@@ -12,16 +12,17 @@ function parseTimeStamp(input) {
   if (!m)
     return null;
 
-  if (m[3])
+  if (m[3]) {
     // Timestamp takes the form of [hours]:[minutes]:[seconds].[milliseconds]
     return computeSeconds(m[1], m[2], m[3].replace(":", ""), m[4]);
-  else if (m[1] > 59)
+  } else if (m[1] > 59) {
     // Timestamp takes the form of [hours]:[minutes].[milliseconds]
     // First position is hours as it's over 59.
     return computeSeconds(m[1], m[2], 0,  m[4]);
-  else
+  } else {
     // Timestamp takes the form of [minutes]:[seconds].[milliseconds]
     return computeSeconds(0, m[1], m[2], m[4]);
+  }
 }
 
 // A settings object holds key/value pairs and will ignore anything but the first
