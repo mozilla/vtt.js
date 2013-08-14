@@ -55,7 +55,7 @@ Settings.prototype = {
   },
   // Accept a region if it doesn't have the special string '-->'
   region: function(k, v) {
-    if(!v.match(/-->/)) {
+    if (!v.match(/-->/)) {
       this.set(k, v);
     }
   },
