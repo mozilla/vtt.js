@@ -1,0 +1,26 @@
+{
+  "regions": [],
+  "cues": [
+    {
+      "id": "ประถมดาวจอนนี่ลีมิลเลอร์เป็นนักสืบเชอร์ล็อกโฮล์มส์และลูซี่หลิวเป็น ดร. ",
+      "startTime": 11,
+      "endTime": 13,
+      "text": "Payload",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
+      "domTree": {
+        "tagName": "div",
+        "childNodes": [
+          {
+            "textContent": "Payload"
+          }
+        ]
+      }
+    }
+  ]
+}

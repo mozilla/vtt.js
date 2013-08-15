@@ -1,0 +1,26 @@
+{
+  "regions": [],
+  "cues": [
+    {
+      "id": "바다에서 바다",
+      "startTime": 11,
+      "endTime": 13,
+      "text": "Payload",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
+      "domTree": {
+        "tagName": "div",
+        "childNodes": [
+          {
+            "textContent": "Payload"
+          }
+        ]
+      }
+    }
+  ]
+}
