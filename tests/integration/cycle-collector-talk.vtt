@@ -1,0 +1,48 @@
+WEBVTT
+
+00:00.000 --> 00:03.000
+<v Kyle Huey> Not ready yet? Alright, I'll wait until the camera man tells me we're good.
+
+00:04.000 --> 00:05.000
+<v Chris Pearce> Okay, we're good now.</v>
+<v Kyle Huey> Oh, now we're good?</v>
+<i>Laughter</i>
+
+00:06.000 --> 00:15.000
+<v Kyle Huey> So thanks again for <u>coming</u>. I'm going to talk a bit about the cycle collector and what it does and how we manage memory in Gecko.
+
+00:16.000 --> 00:19.000
+<v Kyle Huey> And hopefully, answer questions that you all have about that.
+
+00:20.000 --> 00:24.000
+<v Kyle Huey> And hopefully people leave here with a better understanding about how it works and how to use it.
+
+00:25.000 --> 00:33.000
+<v Kyle Huey> So the <b>cyle collector</b> does three main things.
+
+00:34.000 --> 00:43.000
+<v Kyle Huey> So the first thing it does... no it probably doesn't do that.
+
+00:44.000 --> 00:48.000
+<v Kyle Huey> So the first thing that the <b>cycle collector</b> does is that it collects garbage C++ cycles.
+
+00:56.000 --> 01:00.000
+<v Kyle Huey> Hopefully, you can read my terrible hand writing, and hopefully, this doesn't fall down half way through.
+
+01:02.000 --> 01:08.000
+<v Kyle Huey> So as most of you probably know, for most objects in Gecko we use <u>reference counting</u>.
+
+01:09.000 --> 01:15.000
+<v Kyle Huey> To keep track of lifetimes and what not, and so, one situation you could end up with in reference counting is something like
+
+01:18.000 --> 01:23.000
+<v Kyle Huey> A owns a reference to B and B owns a reference to A.
+
+01:25.000 --> 01:31.000
+<v Kyle Huey> And so if you never do anything else, both of these will always have a reference count of 1, and you will leak memory... and that's bad.
+
+01:32.000 --> 01:35.000
+<v Kyle Huey> So that's the first thing the <b>cycle collector</b> gives us.
+
+01:36.000 --> 01:48.000
+<v Kyle Huey> The second thing the cycle collector deals with is cycles between C++ and Javascript.
