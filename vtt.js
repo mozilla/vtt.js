@@ -224,7 +224,8 @@ function parseContent(window, input) {
   }
 
   function shouldAdd(current, element) {
-    return NEEDS_PARENT[element.localName] == current.localName;
+    return !NEEDS_PARENT[element.localName] ||
+           NEEDS_PARENT[element.localName] === current.localName;
   }
 
   var fragment = new window.DocumentFragment();
