@@ -175,7 +175,7 @@ const ESCAPE = {
 };
 
 const TAG_NAME = {
-  c: "c",
+  c: "span",
   i: "i",
   b: "b",
   u: "u",
