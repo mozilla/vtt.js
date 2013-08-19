@@ -23,7 +23,13 @@
             "title": "Neil deGrasse Tyson",
             "childNodes": [
               {
-                "textContent": "Laughs"
+                "tagName" : "i",
+                "localName" : "i",
+                "childNodes" : [
+                  {
+                    "textContent": "Laughs"
+                  }
+                ]
               }
             ]
           }
