@@ -19,7 +19,7 @@
         "childNodes": [
           {
             "tagName": "span",
-            "localName": "c",
+            "localName": "span",
             "childNodes": [
               {
                 "textContent": "This is "
