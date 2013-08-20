@@ -19,7 +19,7 @@
         "childNodes": [
           {
             "tagName": "span",
-            "localName": "v",
+            "localName": "span",
             "title": "Mary",
             "className": "loud",
             "childNodes": [

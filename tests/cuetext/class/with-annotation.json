@@ -18,8 +18,8 @@
       "domTree": {
         "childNodes": [
           {
-            "tagName": "c",
-            "localName": "c",
+            "tagName": "span",
+            "localName": "span",
             "childNodes": [
               {
                 "textContent": "No way!"
