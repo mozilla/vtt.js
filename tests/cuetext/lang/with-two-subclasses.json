@@ -19,7 +19,7 @@
         "childNodes": [
           {
             "tagName": "span",
-            "localName": "lang",
+            "localName": "span",
             "lang": "en-Us",
             "className": "first loud",
             "childNodes": [

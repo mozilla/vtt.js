@@ -19,7 +19,7 @@
         "childNodes": [
           {
             "tagName": "span",
-            "localName": "lang",
+            "localName": "span",
             "childNodes": [
               {
                 "textContent": "Hee!"

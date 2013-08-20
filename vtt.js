@@ -175,7 +175,7 @@ const ESCAPE = {
 };
 
 const TAG_NAME = {
-  c: "c",
+  c: "span",
   i: "i",
   b: "b",
   u: "u",
@@ -236,7 +236,7 @@ function parseContent(window, input) {
     if (!tagName)
       return null;
     var element = window.document.createElement(tagName);
-    element.localName = type;
+    element.localName = tagName;
     var name = TAG_ANNOTATION[type];
     if (name && annotation)
       element[name] = annotation.trim();
@@ -245,12 +245,16 @@ function parseContent(window, input) {
 
   var current = fragment;
   var t;
+  var tagStack = [];
   while ((t = nextToken()) !== null) {
     if (t[0] === '<') {
       if (t[1] === "/") {
         // If the closing tag matches, move back up to the parent node.
-        if (current.localName === t.substr(2).replace(">", ""))
+        if (tagStack.length &&
+            tagStack[tagStack.length - 1] === t.substr(2).replace(">", "")) {
+          tagStack.pop();
           current = current.parentNode;
+        }
         // Otherwise just ignore the end tag.
         continue;
       }
@@ -281,6 +285,7 @@ function parseContent(window, input) {
         node.className = m[2].substr(1).replace('.', ' ');
       // Append the node to the current node, and enter the scope of the new
       // node.
+      tagStack.push(m[1]);
       current.appendChild(node);
       current = node;
       continue;
