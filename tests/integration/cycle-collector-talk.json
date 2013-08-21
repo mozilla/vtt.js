@@ -3,18 +3,16 @@
   "cues": [
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 0,
       "endTime": 3,
       "text": "<v Kyle Huey> Not ready yet? Alright, I'll wait until the camera man tells me we're good.",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {
@@ -32,18 +30,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 4,
       "endTime": 5,
       "text": "<v Chris Pearce> Okay, we're good now.</v>\n<v Kyle Huey> Oh, now we're good?</v>\n<i>Laughter</i>",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {
@@ -86,18 +82,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 6,
       "endTime": 15,
       "text": "<v Kyle Huey> So thanks again for <u>coming</u>. I'm going to talk a bit about the cycle collector and what it does and how we manage memory in Gecko.",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {
@@ -127,18 +121,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 16,
       "endTime": 19,
       "text": "<v Kyle Huey> And hopefully, answer questions that you all have about that.",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {
@@ -156,18 +148,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 20,
       "endTime": 24,
       "text": "<v Kyle Huey> And hopefully people leave here with a better understanding about how it works and how to use it.",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {
@@ -185,18 +175,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 25,
       "endTime": 33,
       "text": "<v Kyle Huey> So the <b>cyle collector</b> does three main things.",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {
@@ -226,18 +214,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 34,
       "endTime": 43,
       "text": "<v Kyle Huey> So the first thing it does... no it probably doesn't do that.",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {
@@ -255,18 +241,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 44,
       "endTime": 48,
       "text": "<v Kyle Huey> So the first thing that the <b>cycle collector</b> does is that it collects garbage C++ cycles.",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {
@@ -296,18 +280,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 56,
       "endTime": 60,
       "text": "<v Kyle Huey> Hopefully, you can read my terrible hand writing, and hopefully, this doesn't fall down half way through.",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {
@@ -325,18 +307,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 62,
       "endTime": 68,
       "text": "<v Kyle Huey> So as most of you probably know, for most objects in Gecko we use <u>reference counting</u>.",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {
@@ -366,18 +346,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 69,
       "endTime": 75,
       "text": "<v Kyle Huey> To keep track of lifetimes and what not, and so, one situation you could end up with in reference counting is something like",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {
@@ -395,18 +373,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 78,
       "endTime": 83,
       "text": "<v Kyle Huey> A owns a reference to B and B owns a reference to A.",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {
@@ -424,18 +400,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 85,
       "endTime": 91,
       "text": "<v Kyle Huey> And so if you never do anything else, both of these will always have a reference count of 1, and you will leak memory... and that's bad.",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {
@@ -453,18 +427,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 92,
       "endTime": 95,
       "text": "<v Kyle Huey> So that's the first thing the <b>cycle collector</b> gives us.",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {
@@ -494,18 +466,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 96,
       "endTime": 108,
       "text": "<v Kyle Huey> The second thing the cycle collector deals with is cycles between C++ and Javascript.",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {

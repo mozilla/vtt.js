@@ -108,7 +108,7 @@ function parseCue(input, cue) {
   }
 
   // 4.4.2 WebVTT cue settings
-  function consumeCueSettings(input) {
+  function consumeCueSettings(input, cue) {
     var settings = new Settings();
 
     parseOptions(input, function (k, v) {
@@ -135,15 +135,13 @@ function parseCue(input, cue) {
     }, /:/, /\s/);
 
     // Apply default values for any missing fields.
-    return {
-      regionId: settings.get("region", ""),
-      vertical: settings.get("vertical", ""),
-      line: settings.get("line", "auto"),
-      snapToLines: settings.get("snapToLines", true),
-      position: settings.get("position", 50),
-      size: settings.get("size", 100),
-      align: settings.get("align", "middle")
-    };
+    cue.regionId = settings.get("region", "");
+    cue.vertical = settings.get("vertical", "");
+    cue.line = settings.get("line", "auto");
+    cue.snapToLines = settings.get("snapToLines", true);
+    cue.position = settings.get("position", 50);
+    cue.size = settings.get("size", 100);
+    cue.align = settings.get("align", "middle");
   }
 
   function skipWhitespace() {
@@ -162,7 +160,7 @@ function parseCue(input, cue) {
 
   // 4.1 WebVTT cue settings list.
   skipWhitespace();
-  cue.settings = consumeCueSettings(input);
+  consumeCueSettings(input, cue);
 }
 
 const ESCAPE = {
@@ -476,7 +474,6 @@ WebVTTParser.prototype = {
             continue;
           self.cue = {
             id: "",
-            settings: "",
             startTime: 0,
             endTime: 0,
             text: ""

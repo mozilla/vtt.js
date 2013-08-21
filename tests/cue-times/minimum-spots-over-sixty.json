@@ -3,18 +3,16 @@
   "cues": [
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 432000,
       "endTime": 432600,
       "text": "Text",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {

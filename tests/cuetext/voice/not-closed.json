@@ -3,18 +3,16 @@
   "cues": [
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 0,
       "endTime": 2,
       "text": "<v>It's a blue apple tree!",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {

@@ -3,18 +3,16 @@
   "cues": [
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 0,
       "endTime": 2,
       "text": "<lang.first.loud en-Us>Hee!</lang>",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {

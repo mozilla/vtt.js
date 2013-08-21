@@ -3,18 +3,16 @@
   "cues": [
     {
       "id": "",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 0,
       "endTime": 2,
       "text": "That's an, an, that's an L!",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {
@@ -25,18 +23,16 @@
     },
     {
       "id": "transcription-credit",
-      "settings": {
-        "regionId": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 4,
       "endTime": 5,
       "text": "Transcribed by Celestials",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "childNodes": [
           {
