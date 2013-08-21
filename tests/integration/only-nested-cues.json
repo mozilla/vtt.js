@@ -16,6 +16,7 @@
       "endTime": 84,
       "content": "Introduction",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Introduction"
@@ -38,6 +39,7 @@
       "endTime": 44,
       "content": "Topics",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Topics"
@@ -60,6 +62,7 @@
       "endTime": 79,
       "content": "Presenters",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Presenters"
@@ -82,6 +85,7 @@
       "endTime": 300,
       "content": "Scrolling Effects",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Scrolling Effects"
@@ -104,6 +108,7 @@
       "endTime": 180,
       "content": "Achim's Demo",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Achim's Demo"
@@ -126,6 +131,7 @@
       "endTime": 300,
       "content": "Timeline Panel",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Timeline Panel"

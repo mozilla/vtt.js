@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "&l &g; &nbsp &am; &lt &gt &nbs &nbs; &g; &lr;",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "&l &g; &nbsp &am; &lt &gt &nbs &nbs; &g; &lr;"

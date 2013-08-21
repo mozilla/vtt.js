@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "<ruby Annotation>That's <rt Annotation>awesome!</rt></ruby>",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "ruby",

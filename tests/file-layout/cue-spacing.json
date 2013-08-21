@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "Text\n00:02.000 --> 00:04.000\nText",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Text\n00:02.000 --> 00:04.000\nText"
@@ -38,6 +39,7 @@
       "endTime": 6,
       "content": "Text\n-->\nText",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Text\n-->\nText"
@@ -60,6 +62,7 @@
       "endTime": 8,
       "content": "00:06.000 --> 00:08.000\nText",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "00:06.000 --> 00:08.000\nText"

@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "Not so much the '&lt;' sign though.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Not so much the '<' sign though."
