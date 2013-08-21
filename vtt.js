@@ -357,10 +357,7 @@ WebVTTParser.prototype = {
       parseOptions(input, function (k, v) {
         switch (k) {
         case "id":
-          // The string must not contain the substring "-->".
-          if (v.indexOf("-->") !== -1)
-            return;
-          region.set(k, v);
+          region.region(k, v);
           break;
         case "width":
           region.percent(k, v, true);
