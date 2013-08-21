@@ -4,7 +4,7 @@
     {
       "id": "",
       "settings": {
-        "region": "",
+        "regionId": "",
         "vertical": "",
         "line": "auto",
         "snapToLines": true,
@@ -39,7 +39,7 @@
     {
       "id": "",
       "settings": {
-        "region": "escapes",
+        "regionId": "escapes",
         "vertical": "",
         "line": 40,
         "snapToLines": false,

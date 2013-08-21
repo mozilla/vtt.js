@@ -4,7 +4,7 @@
     {
       "id": "",
       "settings": {
-        "region": "fred123a$@*&AS01a",
+        "regionId": "fred123a$@*&AS01a",
         "vertical": "",
         "line": "auto",
         "snapToLines": true,

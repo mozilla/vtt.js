@@ -136,7 +136,7 @@ function parseCue(input, cue) {
 
     // Apply default values for any missing fields.
     return {
-      region: settings.get("region", ""),
+      regionId: settings.get("region", ""),
       vertical: settings.get("vertical", ""),
       line: settings.get("line", "auto"),
       snapToLines: settings.get("snapToLines", true),

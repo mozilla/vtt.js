@@ -4,7 +4,7 @@
     {
       "id": "",
       "settings": {
-        "region": "",
+        "regionId": "",
         "vertical": "",
         "line": "auto",
         "snapToLines": true,
@@ -33,7 +33,7 @@
     {
       "id": "",
       "settings": {
-        "region": "",
+        "regionId": "",
         "vertical": "",
         "line": "auto",
         "snapToLines": true,
@@ -62,7 +62,7 @@
     {
       "id": "",
       "settings": {
-        "region": "",
+        "regionId": "",
         "vertical": "",
         "line": "auto",
         "snapToLines": true,
@@ -91,7 +91,7 @@
     {
       "id": "",
       "settings": {
-        "region": "",
+        "regionId": "",
         "vertical": "",
         "line": "auto",
         "snapToLines": true,
@@ -120,7 +120,7 @@
     {
       "id": "",
       "settings": {
-        "region": "",
+        "regionId": "",
         "vertical": "",
         "line": "auto",
         "snapToLines": true,
@@ -149,7 +149,7 @@
     {
       "id": "",
       "settings": {
-        "region": "",
+        "regionId": "",
         "vertical": "",
         "line": "auto",
         "snapToLines": true,
@@ -178,7 +178,7 @@
     {
       "id": "",
       "settings": {
-        "region": "",
+        "regionId": "",
         "vertical": "",
         "line": "auto",
         "snapToLines": true,
@@ -207,7 +207,7 @@
     {
       "id": "",
       "settings": {
-        "region": "",
+        "regionId": "",
         "vertical": "",
         "line": "auto",
         "snapToLines": true,
@@ -236,7 +236,7 @@
     {
       "id": "",
       "settings": {
-        "region": "",
+        "regionId": "",
         "vertical": "",
         "line": "auto",
         "snapToLines": true,
@@ -265,7 +265,7 @@
     {
       "id": "",
       "settings": {
-        "region": "",
+        "regionId": "",
         "vertical": "",
         "line": "auto",
         "snapToLines": true,
@@ -294,7 +294,7 @@
     {
       "id": "",
       "settings": {
-        "region": "",
+        "regionId": "",
         "vertical": "",
         "line": "auto",
         "snapToLines": true,
@@ -323,7 +323,7 @@
     {
       "id": "",
       "settings": {
-        "region": "",
+        "regionId": "",
         "vertical": "",
         "line": "auto",
         "snapToLines": true,
@@ -358,7 +358,7 @@
     {
       "id": "",
       "settings": {
-        "region": "",
+        "regionId": "",
         "vertical": "",
         "line": "auto",
         "snapToLines": true,
