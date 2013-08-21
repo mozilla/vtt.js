@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "Never drink liquid nitrogen.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Never drink liquid nitrogen."

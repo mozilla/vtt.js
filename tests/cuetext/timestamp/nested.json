@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "<00:01.000>Hee!<00:01.500> Hee!",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "target": "timestamp",

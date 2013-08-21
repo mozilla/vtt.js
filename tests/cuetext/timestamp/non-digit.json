@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "<a0:01.000>It's a blue apple tree!",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "It's a blue apple tree!"

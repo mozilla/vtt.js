@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "<b.first.loud>That's awesome!</b>",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "b",

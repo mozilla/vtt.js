@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "<i Mary>No way!",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "i",

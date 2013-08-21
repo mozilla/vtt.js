@@ -228,8 +228,6 @@ function parseContent(window, input) {
            NEEDS_PARENT[element.localName] === current.localName;
   }
 
-  var fragment = new window.DocumentFragment();
-
   // Create an element for this tag.
   function createElement(type, annotation) {
     var tagName = TAG_NAME[type];
@@ -243,9 +241,11 @@ function parseContent(window, input) {
     return element;
   }
 
-  var current = fragment;
-  var t;
-  var tagStack = [];
+  var rootDiv = window.document.createElement("div"),
+      current = rootDiv,
+      t,
+      tagStack = [];
+
   while ((t = nextToken()) !== null) {
     if (t[0] === '<') {
       if (t[1] === "/") {
@@ -295,7 +295,7 @@ function parseContent(window, input) {
     current.appendChild(window.document.createTextNode(unescape(t)));
   }
 
-  return fragment;
+  return rootDiv;
 }
 
 const WEBVTT = "WEBVTT";

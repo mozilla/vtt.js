@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "No </b> way!",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "No "

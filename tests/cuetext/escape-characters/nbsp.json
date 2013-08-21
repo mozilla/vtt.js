@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "Did you know I didn't put a&nbsp;space here?",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Did you know I didn't put a\u00a0space here?"
