@@ -14,7 +14,7 @@
       },
       "startTime": 0,
       "endTime": 2,
-      "content": "<ruby>It's a <rt>blue apple tree!</rt></ruby>",
+      "text": "<ruby>It's a <rt>blue apple tree!</rt></ruby>",
       "domTree": {
         "childNodes": [
           {

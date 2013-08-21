@@ -14,7 +14,7 @@
       },
       "startTime": 0,
       "endTime": 2,
-      "content": "<ruby.first.loud>That's <rt.first.loud>awesome!</rt></ruby>",
+      "text": "<ruby.first.loud>That's <rt.first.loud>awesome!</rt></ruby>",
       "domTree": {
         "childNodes": [
           {

@@ -14,7 +14,7 @@
       },
       "startTime": 0,
       "endTime": 2,
-      "content": "<u Mary>No way!</u>",
+      "text": "<u Mary>No way!</u>",
       "domTree": {
         "childNodes": [
           {

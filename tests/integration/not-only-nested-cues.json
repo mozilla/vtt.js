@@ -14,7 +14,7 @@
       },
       "startTime": 0,
       "endTime": 60,
-      "content": "The First Minute",
+      "text": "The First Minute",
       "domTree": {
         "childNodes": [
           {
@@ -36,7 +36,7 @@
       },
       "startTime": 30,
       "endTime": 90,
-      "content": "The Final Minute",
+      "text": "The Final Minute",
       "domTree": {
         "childNodes": [
           {

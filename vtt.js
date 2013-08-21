@@ -479,7 +479,7 @@ WebVTTParser.prototype = {
             settings: "",
             startTime: 0,
             endTime: 0,
-            content: ""
+            text: ""
           };
           self.state = "CUE";
           // 30-39 - Check if self line contains an optional identifier or timing data.
@@ -510,9 +510,9 @@ WebVTTParser.prototype = {
             self.state = "ID";
             continue;
           }
-          if (self.cue.content)
-            self.cue.content += "\n";
-          self.cue.content += line;
+          if (self.cue.text)
+            self.cue.text += "\n";
+          self.cue.text += line;
           continue;
         default: // BADCUE
           // 54-62 - Collect and discard the remaining cue.

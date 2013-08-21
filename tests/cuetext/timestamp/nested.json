@@ -14,7 +14,7 @@
       },
       "startTime": 0,
       "endTime": 2,
-      "content": "<00:01.000>Hee!<00:01.500> Hee!",
+      "text": "<00:01.000>Hee!<00:01.500> Hee!",
       "domTree": {
         "childNodes": [
           {

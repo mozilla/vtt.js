@@ -35,7 +35,7 @@
       },
       "startTime": 0,
       "endTime": 20,
-      "content": "Hi, my name is Fred",
+      "text": "Hi, my name is Fred",
       "domTree": {
         "childNodes": [
           {
@@ -57,7 +57,7 @@
       },
       "startTime": 2.5,
       "endTime": 22.5,
-      "content": "Hi, I'm Bill",
+      "text": "Hi, I'm Bill",
       "domTree": {
         "childNodes": [
           {
@@ -79,7 +79,7 @@
       },
       "startTime": 5,
       "endTime": 25,
-      "content": "Would you like to get a coffee?",
+      "text": "Would you like to get a coffee?",
       "domTree": {
         "childNodes": [
           {
@@ -101,7 +101,7 @@
       },
       "startTime": 7.5,
       "endTime": 27.5,
-      "content": "Sure! I've only had one today.",
+      "text": "Sure! I've only had one today.",
       "domTree": {
         "childNodes": [
           {
@@ -123,7 +123,7 @@
       },
       "startTime": 10,
       "endTime": 30,
-      "content": "This is my fourth!",
+      "text": "This is my fourth!",
       "domTree": {
         "childNodes": [
           {
@@ -145,7 +145,7 @@
       },
       "startTime": 12.5,
       "endTime": 32.5,
-      "content": "OK, let's go.",
+      "text": "OK, let's go.",
       "domTree": {
         "childNodes": [
           {

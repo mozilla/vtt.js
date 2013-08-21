@@ -14,7 +14,7 @@
       },
       "startTime": 0,
       "endTime": 2,
-      "content": "Text\n00:02.000 --> 00:04.000\nText",
+      "text": "Text\n00:02.000 --> 00:04.000\nText",
       "domTree": {
         "childNodes": [
           {
@@ -36,7 +36,7 @@
       },
       "startTime": 4,
       "endTime": 6,
-      "content": "Text\n-->\nText",
+      "text": "Text\n-->\nText",
       "domTree": {
         "childNodes": [
           {
@@ -58,7 +58,7 @@
       },
       "startTime": 6,
       "endTime": 8,
-      "content": "00:06.000 --> 00:08.000\nText",
+      "text": "00:06.000 --> 00:08.000\nText",
       "domTree": {
         "childNodes": [
           {

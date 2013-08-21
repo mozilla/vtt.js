@@ -14,7 +14,7 @@
       },
       "startTime": 0,
       "endTime": 2,
-      "content": "- It will perforate your stomach.\n- You could die.",
+      "text": "- It will perforate your stomach.\n- You could die.",
       "domTree": {
         "childNodes": [
           {

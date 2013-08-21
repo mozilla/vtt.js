@@ -14,7 +14,7 @@
       },
       "startTime": 0,
       "endTime": 2,
-      "content": "That's an, an, that's an L!",
+      "text": "That's an, an, that's an L!",
       "domTree": {
         "childNodes": [
           {
@@ -36,7 +36,7 @@
       },
       "startTime": 4,
       "endTime": 5,
-      "content": "Transcribed by Celestials",
+      "text": "Transcribed by Celestials",
       "domTree": {
         "childNodes": [
           {

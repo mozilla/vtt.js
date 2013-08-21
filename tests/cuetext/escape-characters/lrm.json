@@ -14,7 +14,7 @@
       },
       "startTime": 0,
       "endTime": 2,
-      "content": "This should be &lrm;. Correct?",
+      "text": "This should be &lrm;. Correct?",
       "domTree": {
         "childNodes": [
           {

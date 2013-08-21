@@ -14,7 +14,7 @@
       },
       "startTime": 1,
       "endTime": 4,
-      "content": "Never drink liquid nitrogen.",
+      "text": "Never drink liquid nitrogen.",
       "domTree": {
         "childNodes": [
           {
@@ -36,7 +36,7 @@
       },
       "startTime": 5,
       "endTime": 9,
-      "content": "- It will perforate your stomach.\n- You could die.",
+      "text": "- It will perforate your stomach.\n- You could die.",
       "domTree": {
         "childNodes": [
           {

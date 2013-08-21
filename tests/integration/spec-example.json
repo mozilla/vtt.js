@@ -14,7 +14,7 @@
       },
       "startTime": 11,
       "endTime": 13,
-      "content": "<v Roger Bingham>We are in New York City",
+      "text": "<v Roger Bingham>We are in New York City",
       "domTree": {
         "childNodes": [
           {
@@ -43,7 +43,7 @@
       },
       "startTime": 13,
       "endTime": 16,
-      "content": "<v Roger Bingham>We're actually at the Lucern Hotel, just down the street",
+      "text": "<v Roger Bingham>We're actually at the Lucern Hotel, just down the street",
       "domTree": {
         "childNodes": [
           {
@@ -72,7 +72,7 @@
       },
       "startTime": 16,
       "endTime": 18,
-      "content": "<v Roger Bingham>from the American Museum of Natural History",
+      "text": "<v Roger Bingham>from the American Museum of Natural History",
       "domTree": {
         "childNodes": [
           {
@@ -101,7 +101,7 @@
       },
       "startTime": 18,
       "endTime": 20,
-      "content": "<v Roger Bingham>And with me is Neil deGrasse Tyson",
+      "text": "<v Roger Bingham>And with me is Neil deGrasse Tyson",
       "domTree": {
         "childNodes": [
           {
@@ -130,7 +130,7 @@
       },
       "startTime": 20,
       "endTime": 22,
-      "content": "<v Roger Bingham>Astrophysicist, Director of the Hayden Planetarium",
+      "text": "<v Roger Bingham>Astrophysicist, Director of the Hayden Planetarium",
       "domTree": {
         "childNodes": [
           {
@@ -159,7 +159,7 @@
       },
       "startTime": 22,
       "endTime": 24,
-      "content": "<v Roger Bingham>at the AMNH.",
+      "text": "<v Roger Bingham>at the AMNH.",
       "domTree": {
         "childNodes": [
           {
@@ -188,7 +188,7 @@
       },
       "startTime": 24,
       "endTime": 26,
-      "content": "<v Roger Bingham>Thank you for walking down here.",
+      "text": "<v Roger Bingham>Thank you for walking down here.",
       "domTree": {
         "childNodes": [
           {
@@ -217,7 +217,7 @@
       },
       "startTime": 27,
       "endTime": 30,
-      "content": "<v Roger Bingham>And I want to do a follow-up on the last conversation we did.",
+      "text": "<v Roger Bingham>And I want to do a follow-up on the last conversation we did.",
       "domTree": {
         "childNodes": [
           {
@@ -246,7 +246,7 @@
       },
       "startTime": 30,
       "endTime": 31.5,
-      "content": "<v Roger Bingham>When we e-mailedâ",
+      "text": "<v Roger Bingham>When we e-mailedâ",
       "domTree": {
         "childNodes": [
           {
@@ -275,7 +275,7 @@
       },
       "startTime": 30.5,
       "endTime": 32.5,
-      "content": "<v Neil deGrasse Tyson>Didn't we talk about enough in that conversation?",
+      "text": "<v Neil deGrasse Tyson>Didn't we talk about enough in that conversation?",
       "domTree": {
         "childNodes": [
           {
@@ -304,7 +304,7 @@
       },
       "startTime": 32,
       "endTime": 35.5,
-      "content": "<v Roger Bingham>No! No no no no; 'cos 'cos obviously 'cos",
+      "text": "<v Roger Bingham>No! No no no no; 'cos 'cos obviously 'cos",
       "domTree": {
         "childNodes": [
           {
@@ -333,7 +333,7 @@
       },
       "startTime": 32.5,
       "endTime": 33.5,
-      "content": "<v Neil deGrasse Tyson><i>Laughs</i>",
+      "text": "<v Neil deGrasse Tyson><i>Laughs</i>",
       "domTree": {
         "childNodes": [
           {
@@ -368,7 +368,7 @@
       },
       "startTime": 35.5,
       "endTime": 38,
-      "content": "<v Roger Bingham>You know I'm so excited my glasses are falling off here.",
+      "text": "<v Roger Bingham>You know I'm so excited my glasses are falling off here.",
       "domTree": {
         "childNodes": [
           {

@@ -14,7 +14,7 @@
       },
       "startTime": 32.5,
       "endTime": 33.5,
-      "content": "<v.loud Mary>That's awesome!",
+      "text": "<v.loud Mary>That's awesome!",
       "domTree": {
         "childNodes": [
           {

@@ -15,7 +15,7 @@ describe("Simple VTT Tests", function(){
     assert.equal(cue0.id, "ID");
     assert.equal(cue0.startTime, 0);
     assert.equal(cue0.endTime, 2);
-    assert.equal(cue0.content, "Text");
+    assert.equal(cue0.text, "Text");
   });
 
 });

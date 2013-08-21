@@ -14,7 +14,7 @@
       },
       "startTime": 432000,
       "endTime": 432600,
-      "content": "Text",
+      "text": "Text",
       "domTree": {
         "childNodes": [
           {

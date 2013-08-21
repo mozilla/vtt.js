@@ -14,7 +14,7 @@
       },
       "startTime": 0,
       "endTime": 2,
-      "content": "<bad>That's awesome!</bad>",
+      "text": "<bad>That's awesome!</bad>",
       "domTree": {
         "childNodes": [
           {

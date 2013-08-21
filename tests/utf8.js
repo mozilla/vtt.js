@@ -27,7 +27,7 @@ describe("UTF8 Encoding Tests", function(){
     assert.equal(cue0.id, "ID");
     assert.equal(cue0.startTime, 0);
     assert.equal(cue0.endTime, 2);
-    assert.equal(cue0.content, text);
+    assert.equal(cue0.text, text);
   });
 
 
@@ -50,7 +50,7 @@ describe("UTF8 Encoding Tests", function(){
     assert.equal(cue0.id, "ID");
     assert.equal(cue0.startTime, 0);
     assert.equal(cue0.endTime, 2);
-    assert.equal(cue0.content, text);
+    assert.equal(cue0.text, text);
   });
 
   function createBadBuffer() {
@@ -80,7 +80,7 @@ describe("UTF8 Encoding Tests", function(){
     assert.equal(cue0.id, "ID");
     assert.equal(cue0.startTime, 0);
     assert.equal(cue0.endTime, 2);
-    assert.equal(cue0.content, badText);
+    assert.equal(cue0.text, badText);
   });
 
   it("parse bad utf8 encoded bytes in pieces", function(){
@@ -103,7 +103,7 @@ describe("UTF8 Encoding Tests", function(){
     assert.equal(cue0.id, "ID");
     assert.equal(cue0.startTime, 0);
     assert.equal(cue0.endTime, 2);
-    assert.equal(cue0.content, badText);
+    assert.equal(cue0.text, badText);
   });
 
 });

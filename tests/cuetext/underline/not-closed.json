@@ -14,7 +14,7 @@
       },
       "startTime": 0,
       "endTime": 2,
-      "content": "<u>It's a blue apple tree!",
+      "text": "<u>It's a blue apple tree!",
       "domTree": {
         "childNodes": [
           {

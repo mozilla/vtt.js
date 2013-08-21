@@ -14,7 +14,7 @@
       },
       "startTime": 0,
       "endTime": 2,
-      "content": "<i.first.loud>That's awesome!</i>",
+      "text": "<i.first.loud>That's awesome!</i>",
       "domTree": {
         "childNodes": [
           {

@@ -14,7 +14,7 @@
       },
       "startTime": 0,
       "endTime": 2,
-      "content": "<ruby>That's <rt>awesome!</rt></ruby> Hee!",
+      "text": "<ruby>That's <rt>awesome!</rt></ruby> Hee!",
       "domTree": {
         "childNodes": [
           {
