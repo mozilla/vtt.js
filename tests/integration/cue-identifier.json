@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "That's an, an, that's an L!",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "That's an, an, that's an L!"
@@ -38,6 +39,7 @@
       "endTime": 5,
       "content": "Transcribed by Celestials",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Transcribed by Celestials"

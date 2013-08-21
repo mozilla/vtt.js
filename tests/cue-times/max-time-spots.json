@@ -16,6 +16,7 @@
       "endTime": 600,
       "content": "Text",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Text"

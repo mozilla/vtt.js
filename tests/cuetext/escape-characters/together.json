@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "Some text &lt; &amp;&gt; &lt; &nb&nbsp; &am&lt; &rlm;&lr&lrm; other stuff.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Some text < &> < &nb\u00a0 &am< \u200f&lr\u200e other stuff."

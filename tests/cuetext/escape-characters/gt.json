@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "Everyone likes the '&gt;' sign right?",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Everyone likes the '>' sign right?"

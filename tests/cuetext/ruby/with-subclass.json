@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "<ruby.first>That's <rt.first>awesome!</rt></ruby>",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "ruby",

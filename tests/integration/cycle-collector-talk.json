@@ -16,6 +16,7 @@
       "endTime": 3,
       "content": "<v Kyle Huey> Not ready yet? Alright, I'll wait until the camera man tells me we're good.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "span",
@@ -45,6 +46,7 @@
       "endTime": 5,
       "content": "<v Chris Pearce> Okay, we're good now.</v>\n<v Kyle Huey> Oh, now we're good?</v>\n<i>Laughter</i>",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "span",
@@ -99,6 +101,7 @@
       "endTime": 15,
       "content": "<v Kyle Huey> So thanks again for <u>coming</u>. I'm going to talk a bit about the cycle collector and what it does and how we manage memory in Gecko.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "span",
@@ -140,6 +143,7 @@
       "endTime": 19,
       "content": "<v Kyle Huey> And hopefully, answer questions that you all have about that.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "span",
@@ -169,6 +173,7 @@
       "endTime": 24,
       "content": "<v Kyle Huey> And hopefully people leave here with a better understanding about how it works and how to use it.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "span",
@@ -198,6 +203,7 @@
       "endTime": 33,
       "content": "<v Kyle Huey> So the <b>cyle collector</b> does three main things.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "span",
@@ -239,6 +245,7 @@
       "endTime": 43,
       "content": "<v Kyle Huey> So the first thing it does... no it probably doesn't do that.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "span",
@@ -268,6 +275,7 @@
       "endTime": 48,
       "content": "<v Kyle Huey> So the first thing that the <b>cycle collector</b> does is that it collects garbage C++ cycles.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "span",
@@ -309,6 +317,7 @@
       "endTime": 60,
       "content": "<v Kyle Huey> Hopefully, you can read my terrible hand writing, and hopefully, this doesn't fall down half way through.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "span",
@@ -338,6 +347,7 @@
       "endTime": 68,
       "content": "<v Kyle Huey> So as most of you probably know, for most objects in Gecko we use <u>reference counting</u>.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "span",
@@ -379,6 +389,7 @@
       "endTime": 75,
       "content": "<v Kyle Huey> To keep track of lifetimes and what not, and so, one situation you could end up with in reference counting is something like",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "span",
@@ -408,6 +419,7 @@
       "endTime": 83,
       "content": "<v Kyle Huey> A owns a reference to B and B owns a reference to A.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "span",
@@ -437,6 +449,7 @@
       "endTime": 91,
       "content": "<v Kyle Huey> And so if you never do anything else, both of these will always have a reference count of 1, and you will leak memory... and that's bad.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "span",
@@ -466,6 +479,7 @@
       "endTime": 95,
       "content": "<v Kyle Huey> So that's the first thing the <b>cycle collector</b> gives us.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "span",
@@ -507,6 +521,7 @@
       "endTime": 108,
       "content": "<v Kyle Huey> The second thing the cycle collector deals with is cycles between C++ and Javascript.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "span",

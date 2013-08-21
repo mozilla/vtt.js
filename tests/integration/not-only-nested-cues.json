@@ -16,6 +16,7 @@
       "endTime": 60,
       "content": "The First Minute",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "The First Minute"
@@ -38,6 +39,7 @@
       "endTime": 90,
       "content": "The Final Minute",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "The Final Minute"

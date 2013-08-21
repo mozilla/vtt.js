@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "<u>That's awesome!</u> Hee!",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "u",

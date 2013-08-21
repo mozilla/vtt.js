@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "<c.first That's awesome!</c>",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "span",

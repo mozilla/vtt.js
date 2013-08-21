@@ -37,6 +37,7 @@
       "endTime": 20,
       "content": "Hi, my name is Fred",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Hi, my name is Fred"
@@ -59,6 +60,7 @@
       "endTime": 22.5,
       "content": "Hi, I'm Bill",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Hi, I'm Bill"
@@ -81,6 +83,7 @@
       "endTime": 25,
       "content": "Would you like to get a coffee?",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Would you like to get a coffee?"
@@ -103,6 +106,7 @@
       "endTime": 27.5,
       "content": "Sure! I've only had one today.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "Sure! I've only had one today."
@@ -125,6 +129,7 @@
       "endTime": 30,
       "content": "This is my fourth!",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "This is my fourth!"
@@ -147,6 +152,7 @@
       "endTime": 32.5,
       "content": "OK, let's go.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "OK, let's go."

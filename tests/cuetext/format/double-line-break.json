@@ -16,6 +16,7 @@
       "endTime": 2,
       "content": "- Some line stuff.\n- Another line break.",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "textContent": "- Some line stuff.\n- Another line break."
