@@ -3,18 +3,16 @@
   "cues": [
     {
       "id": "",
-      "settings": {
-        "region": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 50,
-        "align": "start"
-      },
       "startTime": 32.5,
       "endTime": 33.5,
-      "content": "<v.loud Mary>That's awesome!",
+      "text": "<v.loud Mary>That's awesome!",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 50,
+      "align": "start",
       "domTree": {
         "tagName": "div",
         "childNodes": [

@@ -3,18 +3,16 @@
   "cues": [
     {
       "id": "",
-      "settings": {
-        "region": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 50,
-        "align": "start"
-      },
       "startTime": 32.5,
       "endTime": 33.5,
-      "content": "<v Neil deGrasse Tyson><i>Laughs</i>",
+      "text": "<v Neil deGrasse Tyson><i>Laughs</i>",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 50,
+      "align": "start",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -39,18 +37,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "escapes",
-        "vertical": "",
-        "line": 40,
-        "snapToLines": false,
-        "position": 50,
-        "size": 50,
-        "align": "start"
-      },
       "startTime": 34.5,
       "endTime": 36.5,
-      "content": "Random escapes &am&amp; other <i> stuff &gt; &l&lt;&rl&rlm;&lrm; </i>\nOh my! &gt;",
+      "text": "Random escapes &am&amp; other <i> stuff &gt; &l&lt;&rl&rlm;&lrm; </i>\nOh my! &gt;",
+      "regionId": "escapes",
+      "vertical": "",
+      "line": 40,
+      "snapToLines": false,
+      "position": 50,
+      "size": 50,
+      "align": "start",
       "domTree": {
         "tagName": "div",
         "childNodes": [

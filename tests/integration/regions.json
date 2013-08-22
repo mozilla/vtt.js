@@ -24,18 +24,16 @@
   "cues": [
     {
       "id": "",
-      "settings": {
-        "region": "fred",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "left"
-      },
       "startTime": 0,
       "endTime": 20,
-      "content": "Hi, my name is Fred",
+      "text": "Hi, my name is Fred",
+      "regionId": "fred",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "left",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -47,18 +45,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "bill",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "right"
-      },
       "startTime": 2.5,
       "endTime": 22.5,
-      "content": "Hi, I'm Bill",
+      "text": "Hi, I'm Bill",
+      "regionId": "bill",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "right",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -70,18 +66,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "fred",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "left"
-      },
       "startTime": 5,
       "endTime": 25,
-      "content": "Would you like to get a coffee?",
+      "text": "Would you like to get a coffee?",
+      "regionId": "fred",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "left",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -93,18 +87,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "bill",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "right"
-      },
       "startTime": 7.5,
       "endTime": 27.5,
-      "content": "Sure! I've only had one today.",
+      "text": "Sure! I've only had one today.",
+      "regionId": "bill",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "right",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -116,18 +108,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "fred",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "left"
-      },
       "startTime": 10,
       "endTime": 30,
-      "content": "This is my fourth!",
+      "text": "This is my fourth!",
+      "regionId": "fred",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "left",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -139,18 +129,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "fred",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "left"
-      },
       "startTime": 12.5,
       "endTime": 32.5,
-      "content": "OK, let's go.",
+      "text": "OK, let's go.",
+      "regionId": "fred",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "left",
       "domTree": {
         "tagName": "div",
         "childNodes": [
