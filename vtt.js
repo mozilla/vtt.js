@@ -323,7 +323,7 @@ WebVTTParser.convertCueToDOMTree = function(window, cuetext) {
 };
 
 WebVTTParser.prototype = {
-  parse: function (data) {
+  parse: function (window, data) {
     var self = this;
 
     // Try to decode the data that we received.
@@ -472,12 +472,7 @@ WebVTTParser.prototype = {
           // 19-29 - Allow any number of line terminators, then initialize new cue values.
           if (!line)
             continue;
-          self.cue = {
-            id: "",
-            startTime: 0,
-            endTime: 0,
-            text: ""
-          };
+          self.cue = new window.VTTCue(0, 0, "");
           self.state = "CUE";
           // 30-39 - Check if self line contains an optional identifier or timing data.
           if (line.indexOf("-->") == -1) {
