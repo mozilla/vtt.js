@@ -3,18 +3,16 @@
   "cues": [
     {
       "id": "",
-      "settings": {
-        "region": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 11,
       "endTime": 13,
-      "content": "<v Roger Bingham>We are in New York City",
+      "text": "<v Roger Bingham>We are in New York City",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -33,18 +31,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 13,
       "endTime": 16,
-      "content": "<v Roger Bingham>We're actually at the Lucern Hotel, just down the street",
+      "text": "<v Roger Bingham>We're actually at the Lucern Hotel, just down the street",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -63,18 +59,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 16,
       "endTime": 18,
-      "content": "<v Roger Bingham>from the American Museum of Natural History",
+      "text": "<v Roger Bingham>from the American Museum of Natural History",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -93,18 +87,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 18,
       "endTime": 20,
-      "content": "<v Roger Bingham>And with me is Neil deGrasse Tyson",
+      "text": "<v Roger Bingham>And with me is Neil deGrasse Tyson",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -123,18 +115,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 20,
       "endTime": 22,
-      "content": "<v Roger Bingham>Astrophysicist, Director of the Hayden Planetarium",
+      "text": "<v Roger Bingham>Astrophysicist, Director of the Hayden Planetarium",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -153,18 +143,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 22,
       "endTime": 24,
-      "content": "<v Roger Bingham>at the AMNH.",
+      "text": "<v Roger Bingham>at the AMNH.",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -183,18 +171,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 24,
       "endTime": 26,
-      "content": "<v Roger Bingham>Thank you for walking down here.",
+      "text": "<v Roger Bingham>Thank you for walking down here.",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -213,18 +199,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 27,
       "endTime": 30,
-      "content": "<v Roger Bingham>And I want to do a follow-up on the last conversation we did.",
+      "text": "<v Roger Bingham>And I want to do a follow-up on the last conversation we did.",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -243,18 +227,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 50,
-        "align": "end"
-      },
       "startTime": 30,
       "endTime": 31.5,
-      "content": "<v Roger Bingham>When we e-mailedâ",
+      "text": "<v Roger Bingham>When we e-mailedâ",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 50,
+      "align": "end",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -273,18 +255,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 50,
-        "align": "start"
-      },
       "startTime": 30.5,
       "endTime": 32.5,
-      "content": "<v Neil deGrasse Tyson>Didn't we talk about enough in that conversation?",
+      "text": "<v Neil deGrasse Tyson>Didn't we talk about enough in that conversation?",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 50,
+      "align": "start",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -303,18 +283,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 50,
-        "align": "end"
-      },
       "startTime": 32,
       "endTime": 35.5,
-      "content": "<v Roger Bingham>No! No no no no; 'cos 'cos obviously 'cos",
+      "text": "<v Roger Bingham>No! No no no no; 'cos 'cos obviously 'cos",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 50,
+      "align": "end",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -333,18 +311,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 50,
-        "align": "start"
-      },
       "startTime": 32.5,
       "endTime": 33.5,
-      "content": "<v Neil deGrasse Tyson><i>Laughs</i>",
+      "text": "<v Neil deGrasse Tyson><i>Laughs</i>",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 50,
+      "align": "start",
       "domTree": {
         "tagName": "div",
         "childNodes": [
@@ -369,18 +345,16 @@
     },
     {
       "id": "",
-      "settings": {
-        "region": "",
-        "vertical": "",
-        "line": "auto",
-        "snapToLines": true,
-        "position": 50,
-        "size": 100,
-        "align": "middle"
-      },
       "startTime": 35.5,
       "endTime": 38,
-      "content": "<v Roger Bingham>You know I'm so excited my glasses are falling off here.",
+      "text": "<v Roger Bingham>You know I'm so excited my glasses are falling off here.",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
       "domTree": {
         "tagName": "div",
         "childNodes": [

@@ -16,22 +16,23 @@ parser.onregion = function (region) {}
 parser.oncue = function (cue) {}
 parser.onpartialcue = function (cue) {}
 parser.onflush = function () {}
-parser.parse(moreData);
-parser.parse(moreData);
+parser.parse(window, moreData);
+parser.parse(window, moreData);
 parser.flush();
 parser.convertCueToDOMTree(window, cuetext);
 ```
 
-`parse` hands an Uint8Array containing UTF-8 byte sequences to the parser. The parser decodes the
+`parse` hands an Uint8Array containing UTF-8 byte sequences to the parser and a window
+DOM object which it will use to create new VTTCue objects. The parser decodes the
 data and reassembles partial data (streaming), even across line breaks. It's also possible to pass
 string (or other) data to `parse` by specifying a different decoder. For ease of use, a StringDecoder
 is provided via `WebVTTParser.StringDecoder()`:
 
 ```javascript
 var parser = new WebVTTParser(WebVTTParser.StringDecoder());
-parser.parse("WEBVTT\n\n");
-parser.parse("00:32.500 --> 00:33.500 align:start size:50%\n");
-parser.parse("<v.loud Mary>That's awesome!");
+parser.parse(window, "WEBVTT\n\n");
+parser.parse(window, "00:32.500 --> 00:33.500 align:start size:50%\n");
+parser.parse(window, "<v.loud Mary>That's awesome!");
 parser.flush();
 ```
 
@@ -57,9 +58,10 @@ Browser
 =======
 
 In order to use the parser in a browser, you can build a minified version that also bundles a polyfill of
-[TextDecoder](http://encoding.spec.whatwg.org/), since not all browsers currently support it. Building a
-browser-ready version of the library is done using `grunt` (if you haven't installed `grunt` globally, you
-can run it from `./node_modules/.bin/grunt` after running `npm install`):
+[TextDecoder](http://encoding.spec.whatwg.org/) and [VTTCue](http://dev.w3.org/html5/webvtt/#vttcue-interface),
+since not all browsers currently support them. Building a browser-ready version of the library is done
+using `grunt` (if you haven't installed `grunt` globally, you can run it from
+`./node_modules/.bin/grunt` after running `npm install`):
 
 ```
 $ grunt build
@@ -85,7 +87,7 @@ The file is now built in `dist/vtt.min.js` and can be used like so:
     parser.oncue = function(cue) {
       console.log(cue);
     };
-    parser.parse(vtt);
+    parser.parse(window, vtt);
     parser.flush();
   </script>
 </body>
@@ -245,7 +247,7 @@ var util = require("../lib/util.js"),
 describe("Simple VTT Tests", function(){
 
   it("should run JS assertions on parsed result", function(){
-    var vtt = util.parse("simple.vtt");
+    var vtt = util.parse(window, "simple.vtt");
     assert.equal(vtt.cues.length, 1);
 
     var cue0 = vtt.cues[0];

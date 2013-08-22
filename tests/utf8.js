@@ -1,5 +1,6 @@
 var util = require("../lib/util.js"),
     assert = util.assert,
+    FakeWindow = util.FakeWindow,
     // http://www.fileformat.info/info/unicode/char/1f638/index.htm
     grinningCatFace = "\uD83D\uDE38";
     text = "Cats ♥ WebVTT " + grinningCatFace,
@@ -18,7 +19,7 @@ describe("UTF8 Encoding Tests", function(){
     };
 
     // Parse utf8 encoded string
-    p.parse(buffer);
+    p.parse(FakeWindow, buffer);
     p.flush();
 
     assert.equal(cues.length, 1);
@@ -27,7 +28,7 @@ describe("UTF8 Encoding Tests", function(){
     assert.equal(cue0.id, "ID");
     assert.equal(cue0.startTime, 0);
     assert.equal(cue0.endTime, 2);
-    assert.equal(cue0.content, text);
+    assert.equal(cue0.text, text);
   });
 
 
@@ -41,7 +42,7 @@ describe("UTF8 Encoding Tests", function(){
 
     // Parse utf8 encoded string
     for (var i = 0; i < buffer.length; i++) {
-      p.parse(buffer.subarray(i, i+1));
+      p.parse(FakeWindow, buffer.subarray(i, i+1));
     }
     p.flush();
 
@@ -50,7 +51,7 @@ describe("UTF8 Encoding Tests", function(){
     assert.equal(cue0.id, "ID");
     assert.equal(cue0.startTime, 0);
     assert.equal(cue0.endTime, 2);
-    assert.equal(cue0.content, text);
+    assert.equal(cue0.text, text);
   });
 
   function createBadBuffer() {
@@ -71,7 +72,7 @@ describe("UTF8 Encoding Tests", function(){
     };
 
     // Parse utf8 encoded string
-    p.parse(createBadBuffer());
+    p.parse(FakeWindow, createBadBuffer());
     p.flush();
 
     assert.equal(cues.length, 1);
@@ -80,7 +81,7 @@ describe("UTF8 Encoding Tests", function(){
     assert.equal(cue0.id, "ID");
     assert.equal(cue0.startTime, 0);
     assert.equal(cue0.endTime, 2);
-    assert.equal(cue0.content, badText);
+    assert.equal(cue0.text, badText);
   });
 
   it("parse bad utf8 encoded bytes in pieces", function(){
@@ -94,7 +95,7 @@ describe("UTF8 Encoding Tests", function(){
     var badBuffer = createBadBuffer();
     // Parse utf8 encoded string
     for (var i = 0; i < badBuffer.length; i++) {
-      p.parse(badBuffer.subarray(i, i+1));
+      p.parse(FakeWindow, badBuffer.subarray(i, i+1));
     }
     p.flush();
 
@@ -103,7 +104,7 @@ describe("UTF8 Encoding Tests", function(){
     assert.equal(cue0.id, "ID");
     assert.equal(cue0.startTime, 0);
     assert.equal(cue0.endTime, 2);
-    assert.equal(cue0.content, badText);
+    assert.equal(cue0.text, badText);
   });
 
 });

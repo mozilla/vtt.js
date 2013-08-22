@@ -108,7 +108,7 @@ function parseCue(input, cue) {
   }
 
   // 4.4.2 WebVTT cue settings
-  function consumeCueSettings(input) {
+  function consumeCueSettings(input, cue) {
     var settings = new Settings();
 
     parseOptions(input, function (k, v) {
@@ -135,15 +135,13 @@ function parseCue(input, cue) {
     }, /:/, /\s/);
 
     // Apply default values for any missing fields.
-    return {
-      region: settings.get("region", ""),
-      vertical: settings.get("vertical", ""),
-      line: settings.get("line", "auto"),
-      snapToLines: settings.get("snapToLines", true),
-      position: settings.get("position", 50),
-      size: settings.get("size", 100),
-      align: settings.get("align", "middle")
-    };
+    cue.regionId = settings.get("region", "");
+    cue.vertical = settings.get("vertical", "");
+    cue.line = settings.get("line", "auto");
+    cue.snapToLines = settings.get("snapToLines", true);
+    cue.position = settings.get("position", 50);
+    cue.size = settings.get("size", 100);
+    cue.align = settings.get("align", "middle");
   }
 
   function skipWhitespace() {
@@ -162,7 +160,7 @@ function parseCue(input, cue) {
 
   // 4.1 WebVTT cue settings list.
   skipWhitespace();
-  cue.settings = consumeCueSettings(input);
+  consumeCueSettings(input, cue);
 }
 
 const ESCAPE = {
@@ -325,7 +323,7 @@ WebVTTParser.convertCueToDOMTree = function(window, cuetext) {
 };
 
 WebVTTParser.prototype = {
-  parse: function (data) {
+  parse: function (window, data) {
     var self = this;
 
     // Try to decode the data that we received.
@@ -357,10 +355,7 @@ WebVTTParser.prototype = {
       parseOptions(input, function (k, v) {
         switch (k) {
         case "id":
-          // The string must not contain the substring "-->".
-          if (v.indexOf("-->") !== -1)
-            return;
-          region.set(k, v);
+          region.region(k, v);
           break;
         case "width":
           region.percent(k, v, true);
@@ -477,13 +472,7 @@ WebVTTParser.prototype = {
           // 19-29 - Allow any number of line terminators, then initialize new cue values.
           if (!line)
             continue;
-          self.cue = {
-            id: "",
-            settings: "",
-            startTime: 0,
-            endTime: 0,
-            content: ""
-          };
+          self.cue = new window.VTTCue(0, 0, "");
           self.state = "CUE";
           // 30-39 - Check if self line contains an optional identifier or timing data.
           if (line.indexOf("-->") == -1) {
@@ -513,9 +502,9 @@ WebVTTParser.prototype = {
             self.state = "ID";
             continue;
           }
-          if (self.cue.content)
-            self.cue.content += "\n";
-          self.cue.content += line;
+          if (self.cue.text)
+            self.cue.text += "\n";
+          self.cue.text += line;
           continue;
         default: // BADCUE
           // 54-62 - Collect and discard the remaining cue.
