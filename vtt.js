@@ -298,7 +298,8 @@ function parseContent(window, input) {
 
 const WEBVTT = "WEBVTT";
 
-function WebVTTParser(decoder) {
+function WebVTTParser(window, decoder) {
+  this.window = window;
   this.state = "INITIAL";
   this.buffer = "";
   this.decoder = decoder || TextDecoder("utf8");
@@ -323,7 +324,7 @@ WebVTTParser.convertCueToDOMTree = function(window, cuetext) {
 };
 
 WebVTTParser.prototype = {
-  parse: function (window, data) {
+  parse: function (data) {
     var self = this;
 
     // Try to decode the data that we received.
@@ -472,7 +473,7 @@ WebVTTParser.prototype = {
           // 19-29 - Allow any number of line terminators, then initialize new cue values.
           if (!line)
             continue;
-          self.cue = new window.VTTCue(0, 0, "");
+          self.cue = new self.window.VTTCue(0, 0, "");
           self.state = "CUE";
           // 30-39 - Check if self line contains an optional identifier or timing data.
           if (line.indexOf("-->") == -1) {
