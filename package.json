@@ -2,7 +2,7 @@
   "author": "Andreas Gal <gal@mozilla.com>",
   "name": "vtt",
   "description": "WebVTT parser in JavaScript.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/andreasgal/vtt.js.git"
