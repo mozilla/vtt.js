@@ -12,14 +12,14 @@ describe("UTF8 Encoding Tests", function(){
 
   it("parse utf8 encoded bytes", function(){
     var WebVTTParser = util.WebVTTParser,
-        p = new WebVTTParser(),
+        p = new WebVTTParser(FakeWindow),
         cues = [];
     p.oncue = function(cue) {
       cues.push(cue);
     };
 
     // Parse utf8 encoded string
-    p.parse(FakeWindow, buffer);
+    p.parse(buffer);
     p.flush();
 
     assert.equal(cues.length, 1);
@@ -34,7 +34,7 @@ describe("UTF8 Encoding Tests", function(){
 
   it("parse utf8 encoded bytes in pieces", function(){
     var WebVTTParser = util.WebVTTParser,
-        p = new WebVTTParser(),
+        p = new WebVTTParser(FakeWindow),
         cues = [];
     p.oncue = function(cue) {
       cues.push(cue);
@@ -42,7 +42,7 @@ describe("UTF8 Encoding Tests", function(){
 
     // Parse utf8 encoded string
     for (var i = 0; i < buffer.length; i++) {
-      p.parse(FakeWindow, buffer.subarray(i, i+1));
+      p.parse(buffer.subarray(i, i+1));
     }
     p.flush();
 
@@ -65,14 +65,14 @@ describe("UTF8 Encoding Tests", function(){
 
   it("parse bad utf8 encoded bytes", function(){
     var WebVTTParser = util.WebVTTParser,
-        p = new WebVTTParser(),
+        p = new WebVTTParser(FakeWindow),
         cues = [];
     p.oncue = function(cue) {
       cues.push(cue);
     };
 
     // Parse utf8 encoded string
-    p.parse(FakeWindow, createBadBuffer());
+    p.parse(createBadBuffer());
     p.flush();
 
     assert.equal(cues.length, 1);
@@ -86,7 +86,7 @@ describe("UTF8 Encoding Tests", function(){
 
   it("parse bad utf8 encoded bytes in pieces", function(){
     var WebVTTParser = util.WebVTTParser,
-        p = new WebVTTParser(),
+        p = new WebVTTParser(FakeWindow),
         cues = [];
     p.oncue = function(cue) {
       cues.push(cue);
@@ -95,7 +95,7 @@ describe("UTF8 Encoding Tests", function(){
     var badBuffer = createBadBuffer();
     // Parse utf8 encoded string
     for (var i = 0; i < badBuffer.length; i++) {
-      p.parse(FakeWindow, badBuffer.subarray(i, i+1));
+      p.parse(badBuffer.subarray(i, i+1));
     }
     p.flush();
 
