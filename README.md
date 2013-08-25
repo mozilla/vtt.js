@@ -168,7 +168,7 @@ The associated JSON representation might look like this:
         "childNodes": [
           {
             "tagName": "span",
-            "localName": "v",
+            "localName": "span",
             "title": "Mary",
             "className": "loud",
             "childNodes": [
