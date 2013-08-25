@@ -11,32 +11,42 @@ API
 The parser has a simple API:
 
 ```javascript
-var parser = new WebVTTParser();
+var parser = new WebVTTParser(window, stringDecoder);
 parser.onregion = function (region) {}
 parser.oncue = function (cue) {}
 parser.onpartialcue = function (cue) {}
 parser.onflush = function () {}
-parser.parse(window, moreData);
-parser.parse(window, moreData);
+parser.parse(moreData);
+parser.parse(moreData);
 parser.flush();
 parser.convertCueToDOMTree(window, cuetext);
 ```
 
-`parse` hands an Uint8Array containing UTF-8 byte sequences to the parser and a window
-DOM object which it will use to create new VTTCue objects. The parser decodes the
-data and reassembles partial data (streaming), even across line breaks. It's also possible to pass
-string (or other) data to `parse` by specifying a different decoder. For ease of use, a StringDecoder
-is provided via `WebVTTParser.StringDecoder()`:
+The WebVTT constructor is passed a window object with which it will create new
+VTTCues and VTTRegions as well as an optional StringDecoder object which
+it will use to decode the data that the `parse()` function receives. For ease of
+use, a StringDecoder is provided via `WebVTTParser.StringDecoder()`. If a custom
+StringDecoder object is passed in it must support the API specified by the
+[#whatwg string encoding](http://encoding.spec.whatwg.org/#api) spec.
+
+`parse` hands data in some format to the parser for parsing. The passed data format
+is expected to be decodable by the StringDecoder object that it has. The parser
+decodes the data and reassembles partial data (streaming), even across line breaks.
 
 ```javascript
-var parser = new WebVTTParser(WebVTTParser.StringDecoder());
-parser.parse(window, "WEBVTT\n\n");
-parser.parse(window, "00:32.500 --> 00:33.500 align:start size:50%\n");
-parser.parse(window, "<v.loud Mary>That's awesome!");
+var parser = new WebVTTParser(window, WebVTTParser.StringDecoder());
+parser.parse("WEBVTT\n\n");
+parser.parse("00:32.500 --> 00:33.500 align:start size:50%\n");
+parser.parse("<v.loud Mary>That's awesome!");
 parser.flush();
 ```
 
-```convertCueToDOMTree``` parses the cue text handed to it into a tree of DOM nodes that mirrors the internal WebVTT node structure of the cue text. Constructs a DocumentFragment with the window it is handed, adds the tree of DOM nodes as a child to the DocumentFragment, and returns it.
+```convertCueToDOMTree``` parses the cue text handed to it into a tree of DOM nodes that mirrors the internal WebVTT node structure of the cue text.
+It uses the window object handed to it to construct new HTMLElements and returns a tree of DOM nodes attached to a top level div.
+
+```javascript
+var div = WebVTTParser.convertCueToDOMTree(window, cuetext);
+```
 
 `flush` indicates that no more data is expected and will trigger 'onflush' (see below).
 
@@ -47,12 +57,6 @@ parser.flush();
 `onpartialcue` is invoked as a cue is received, and might be invoked with a cue object that only contains partial content, and might be invoked repeatedly with the same cue object in case additional streaming updates are received. After the cue was fully parsed, `oncue` will be triggered on the same cue object.
 
 `onflush` is invoked in response to flush() and after the content was parsed completely.
-
-Cue text can be converted into a `DocumentFragment` node using:
-
-```javascript
-var fragment = WebVTTParser.convertCueToDOMTree(window, cuetext);
-```
 
 Browser
 =======
@@ -83,11 +87,11 @@ The file is now built in `dist/vtt.min.js` and can be used like so:
 <body>
   <script>
     var vtt = "WEBVTT\n\nID\n00:00.000 --> 00:02.000\nText",
-        parser = new WebVTTParser(WebVTTParser.StringDecoder());
+        parser = new WebVTTParser(window, WebVTTParser.StringDecoder());
     parser.oncue = function(cue) {
       console.log(cue);
     };
-    parser.parse(window, vtt);
+    parser.parse(vtt);
     parser.flush();
   </script>
 </body>
@@ -148,19 +152,19 @@ The associated JSON representation might look like this:
   "regions": [],
   "cues": [
     {
-      "id": "",
-      "settings": {
-        "region": "",
-        "vertical": "",
-        "line": "auto",
-        "position": 50,
-        "size": 50,
-        "align": "start"
-      },
+      "id": "ID",
       "startTime": 32.5,
       "endTime": 33.5,
-      "content": "<v.loud Mary>That's awesome!",
+      "text": "<v.loud Mary>That's awesome!",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 50,
+      "align": "start",
       "domTree": {
+        "tagName": "div",
         "childNodes": [
           {
             "tagName": "span",
@@ -247,14 +251,14 @@ var util = require("../lib/util.js"),
 describe("Simple VTT Tests", function(){
 
   it("should run JS assertions on parsed result", function(){
-    var vtt = util.parse(window, "simple.vtt");
+    var vtt = util.parse("simple.vtt");
     assert.equal(vtt.cues.length, 1);
 
     var cue0 = vtt.cues[0];
     assert.equal(cue0.id, "ID");
     assert.equal(cue0.startTime, 0);
     assert.equal(cue0.endTime, 2);
-    assert.equal(cue0.content, "Text");
+    assert.equal(cue0.text, "Text");
   });
 
 });

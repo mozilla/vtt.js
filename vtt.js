@@ -298,7 +298,8 @@ function parseContent(window, input) {
 
 const WEBVTT = "WEBVTT";
 
-function WebVTTParser(decoder) {
+function WebVTTParser(window, decoder) {
+  this.window = window;
   this.state = "INITIAL";
   this.buffer = "";
   this.decoder = decoder || TextDecoder("utf8");
@@ -323,7 +324,7 @@ WebVTTParser.convertCueToDOMTree = function(window, cuetext) {
 };
 
 WebVTTParser.prototype = {
-  parse: function (window, data) {
+  parse: function (data) {
     var self = this;
 
     // Try to decode the data that we received.
@@ -350,18 +351,18 @@ WebVTTParser.prototype = {
 
     // 3.4 WebVTT region and WebVTT region settings syntax
     function parseRegion(input) {
-      var region = new Settings();
+      var settings = new Settings();
 
       parseOptions(input, function (k, v) {
         switch (k) {
         case "id":
-          region.region(k, v);
+          settings.region(k, v);
           break;
         case "width":
-          region.percent(k, v, true);
+          settings.percent(k, v, true);
           break;
         case "lines":
-          region.integer(k, v);
+          settings.integer(k, v);
           break;
         case "regionanchor":
         case "viewportanchor":
@@ -375,28 +376,28 @@ WebVTTParser.prototype = {
           anchor.percent("y", xy[1], true);
           if (!anchor.has("x") || !anchor.has("y"))
             break;
-          region.set(k + "X", anchor.get("x"));
-          region.set(k + "Y", anchor.get("y"));
+          settings.set(k + "X", anchor.get("x"));
+          settings.set(k + "Y", anchor.get("y"));
           break;
         case "scroll":
-          region.alt(k, v, ["up"]);
+          settings.alt(k, v, ["up"]);
           break;
         }
       }, /=/, /\s/);
 
       // Register the region, using default values for any values that were not
       // specified.
-      if (self.onregion && region.has("id")) {
-        self.onregion({
-          id: region.get("id"),
-          width: region.get("width", 100),
-          lines: region.get("lines", 3),
-          regionAnchorX: region.get("regionanchorX", 0),
-          regionAnchorY: region.get("regionanchorY", 100),
-          viewportAnchorX: region.get("viewportanchorX", 0),
-          viewportAnchorY: region.get("viewportanchorY", 100),
-          scroll: region.get("scroll", "none")
-        });
+      if (self.onregion && settings.has("id")) {
+        var region = new self.window.VTTRegion();
+        region.id = settings.get("id");
+        region.width = settings.get("width", 100);
+        region.lines = settings.get("lines", 3);
+        region.regionAnchorX = settings.get("regionanchorX", 0);
+        region.regionAnchorY = settings.get("regionanchorY", 100);
+        region.viewportAnchorX = settings.get("viewportanchorX", 0);
+        region.viewportAnchorY = settings.get("viewportanchorY", 100);
+        region.scroll = settings.get("scroll", "none");
+        self.onregion(region);
       }
     }
 
@@ -472,7 +473,7 @@ WebVTTParser.prototype = {
           // 19-29 - Allow any number of line terminators, then initialize new cue values.
           if (!line)
             continue;
-          self.cue = new window.VTTCue(0, 0, "");
+          self.cue = new self.window.VTTCue(0, 0, "");
           self.state = "CUE";
           // 30-39 - Check if self line contains an optional identifier or timing data.
           if (line.indexOf("-->") == -1) {
