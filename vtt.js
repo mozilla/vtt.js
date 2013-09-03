@@ -327,8 +327,13 @@ WebVTTParser.prototype = {
   parse: function (data) {
     var self = this;
 
-    // Try to decode the data that we received.
-    self.buffer += self.decoder.decode(data, {stream: true});
+    // If there is no data then we won't decode it, but will just try to parse
+    // whatever is in buffer already. This may occur in circumstances, for
+    // example when flush() is called.
+    if (data) {
+      // Try to decode the data that we received.
+      self.buffer += self.decoder.decode(data, {stream: true});
+    }
 
     // Advance tells whether or not to remove the collected line from the buffer
     // after it is read.
