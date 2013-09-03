@@ -1,0 +1,26 @@
+{
+  "regions": [],
+  "cues": [
+    {
+      "id": " Ì̚аð̳ÉÂįăËՅÌˊԭàѩßçêªÊÊĘ³êÄ¢é?Z߬<߼?ā?|񟺚ߺľ.9ѷѩʹЁE?vȁE?Q߬<ߨ<сEҟ,<߼??񙟺߼?ÿֿ?Zﾟ,<ﾟ<?γ?|:Zﾟ:ﾃ~.9ﾐwﾑ)ﾊ9ﾐ・?vﾈ・?Qﾟ,<ﾟ(<ﾑ・・ﾑﾟ,<ﾟ<?・?ﾟ:ﾟ<?ﾃ?ｶ?",
+      "startTime": 16,
+      "endTime": 18,
+      "text": "Payload",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
+      "domTree": {
+        "tagName": "div",
+        "childNodes": [
+          {
+            "textContent": "Payload"
+          }
+        ]
+      }
+    }
+  ]
+}
