@@ -1,0 +1,26 @@
+{
+  "regions": [],
+  "cues": [
+    {
+      "id": "またの技術を元にモバイル版の開発も進められがリリースされている。",
+      "startTime": 16,
+      "endTime": 18,
+      "text": "Payload",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
+      "domTree": {
+        "tagName": "div",
+        "childNodes": [
+          {
+            "textContent": "Payload"
+          }
+        ]
+      }
+    }
+  ]
+}
