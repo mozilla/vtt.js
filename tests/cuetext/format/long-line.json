@@ -19,7 +19,21 @@
           {
             "textContent": "The Organisation for Sample Public Service Announcements accepts no liability for the content of this advertisement, or for the consequences of any actions taken on the basis of the information provided."
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 10,
+          "top": 0,
+          "height": "auto",
+          "width": 80,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "center",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     }
   ]

@@ -40,7 +40,21 @@
           {
             "textContent": "Hi, my name is Fred"
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 50,
+          "top": 0,
+          "height": "auto",
+          "width": 40,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "left",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     },
     {
@@ -61,7 +75,21 @@
           {
             "textContent": "Hi, I'm Bill"
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 10,
+          "top": 0,
+          "height": "auto",
+          "width": 40,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "right",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     },
     {
@@ -82,7 +110,21 @@
           {
             "textContent": "Would you like to get a coffee?"
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 50,
+          "top": 0,
+          "height": "auto",
+          "width": 40,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "left",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     },
     {
@@ -103,7 +145,21 @@
           {
             "textContent": "Sure! I've only had one today."
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 10,
+          "top": 0,
+          "height": "auto",
+          "width": 40,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "right",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     },
     {
@@ -124,7 +180,21 @@
           {
             "textContent": "This is my fourth!"
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 50,
+          "top": 0,
+          "height": "auto",
+          "width": 40,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "left",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     },
     {
@@ -145,7 +215,21 @@
           {
             "textContent": "OK, let's go."
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 50,
+          "top": 0,
+          "height": "auto",
+          "width": 40,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "left",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     }
   ]

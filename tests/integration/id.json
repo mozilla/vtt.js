@@ -19,7 +19,21 @@
           {
             "textContent": "This"
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 10,
+          "top": 0,
+          "height": "auto",
+          "width": 80,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "center",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     },
     {
@@ -40,7 +54,21 @@
           {
             "textContent": "Is"
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 10,
+          "top": 0,
+          "height": "auto",
+          "width": 80,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "center",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     },
     {
@@ -61,7 +89,21 @@
           {
             "textContent": "A"
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 10,
+          "top": 0,
+          "height": "auto",
+          "width": 80,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "center",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     },
     {
@@ -82,7 +124,21 @@
           {
             "textContent": "And stuff?"
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 10,
+          "top": 0,
+          "height": "auto",
+          "width": 80,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "center",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     }
   ]

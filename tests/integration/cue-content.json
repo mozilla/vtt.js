@@ -32,7 +32,21 @@
               }
             ]
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 50,
+          "top": 0,
+          "height": "auto",
+          "width": 40,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "start",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     },
     {
@@ -65,7 +79,21 @@
           {
             "textContent": "\nOh my! >"
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 50,
+          "top": 40,
+          "height": "auto",
+          "width": 50,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "start",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     }
   ]
