@@ -296,6 +296,118 @@ function parseContent(window, input) {
   return rootDiv;
 }
 
+function computeLinePos(cue) {
+  if (typeof cue.line === "number" &&
+      (cue.snapToLines || (cue.line >= 0 && cue.line <= 100)))
+    return cue.line;
+  if (!cue.track)
+    return -1;
+  // TODO: Have to figure out a way to determine what the position of the
+  // Track is in the Media element's list of TextTracks and return that + 1,
+  // negated.
+  return 100;
+}
+
+function CueBoundingBox(cue) {
+
+  // TODO: Apply unicode bidi algorithm and assign the result to 'direction'
+  this.direction = "ltr";
+
+  var boxLen = (function(direction){
+    var maxLen;
+    if ((cue.vertical === "" &&
+        (cue.align === "left" ||
+         (cue.align === "start" && direction === "ltr") ||
+         (cue.align === "end" && direction === "rtl"))) ||
+       ((cue.vertical === "rl" || cue.vertical === "lr") &&
+        (cue.align === "start" || cue.align === "left")))
+      maxLen = 100 - cue.position;
+    else if ((cue.vertical === "" &&
+              (cue.align === "right" ||
+               (cue.align === "end" && direction === "ltr") ||
+               (cue.align === "start" && direction === "rtl"))) ||
+             ((cue.vertical === "rl" || cue.vertical === "lr") &&
+               (cue.align === "end" || cue.align === "right")))
+      maxLen = cue.position;
+    else if (cue.align === "middle") {
+      if (cue.position <= 50)
+        maxLen = cue.position * 2;
+      else
+        maxLen = (100 - cue.position) * 2;
+    }
+    return cue.size < maxLen ? cue.size : maxLen;
+  }(this.direction));
+
+  this.left = (function(direction) {
+    if (cue.vertical === "") {
+      if (direction === "ltr") {
+        if (cue.align === "start" || cue.align === "left")
+          return cue.position;
+        else if (cue.align === "end" || cue.align === "right")
+          return cue.position - boxLen;
+        else if (cue.align === "middle")
+          return cue.position - (boxLen / 2);
+      } else if (direction === "rtl") {
+        if (cue.align === "end" || cue.align === "left")
+          return 100 - cue.position;
+        else if (cue.align === "start" || cue.align === "right")
+          return 100 - cue.position - boxLen;
+        else if (cue.align === "middle")
+          return 100 - cue.position - (boxLen / 2);
+      }
+    }
+    return cue.snapToLines ? 0 : computeLinePos(cue);
+  }(this.direction));
+
+  this.top = (function() {
+    if (cue.vertical === "rl" || cue.vertical === "lr") {
+      if (cue.align === "start" || cue.align === "left")
+        return cue.position;
+      else if (cue.align === "end" || cue.align === "right")
+        return cue.position - boxLen;
+      else if (cue.align === "middle")
+        return cue.position - (boxLen / 2);
+    }
+    return cue.snapToLines ? 0 : computeLinePos(cue);
+  }());
+
+  // Apply a margin to the edges of the bounding box. The margin is user agent
+  // defined and is expressed as a percentage of the containing box's width.
+  var edgeMargin = 10;
+  if (cue.snapToLines) {
+    if (cue.vertical === "") {
+      if (this.left < edgeMargin && this.left + boxLen > edgeMargin) {
+        this.left += edgeMargin;
+        boxLen -= edgeMargin;
+      }
+      var rightMargin = 100 - edgeMargin;
+      if (this.left < rightMargin && this.left + boxLen > rightMargin)
+        boxLen -= edgeMargin;
+    } else if (cue.vertical === "lr" || cue.vertical === "rl") {
+      if (this.top < edgeMargin && this.top + boxLen > edgeMargin) {
+        this.top += edgeMargin;
+        boxLen -= edgeMargin;
+      }
+      var bottomMargin = 100 - edgeMargin;
+      if (this.top < bottomMargin && this.top + boxLen > bottomMargin)
+        boxLen -= edgeMargin;
+    }
+  }
+
+  this.height = cue.vertical === "" ? "auto" : boxLen;
+  this.width = cue.vertical === "" ? boxLen : "auto";
+
+  this.writingMode = cue.vertical === "" ?
+                     "horizontal-tb" :
+                     cue.vertical === "lr" ? "vertical-lr" : "vertical-rl";
+  this.position = "absolute";
+  this.unicodeBidi = "plaintext";
+  this.textAlign = cue.align === "middle" ? "center" : cue.align;
+  this.font = "5vh sans-serif";
+  this.color = "rgba(255,255,255,1)";
+  this.whiteSpace = "pre-line";
+}
+
 const WEBVTT = "WEBVTT";
 
 function WebVTTParser(window, decoder) {
@@ -321,6 +433,19 @@ WebVTTParser.convertCueToDOMTree = function(window, cuetext) {
   if (!window || !cuetext)
     return null;
   return parseContent(window, cuetext);
+};
+
+WebVTTParser.processCues = function(window, cues) {
+  if (!window || !cues)
+    return null;
+
+  return cues.map(function(cue) {
+    var div = parseContent(window, cue.text);
+    div.style = new CueBoundingBox(cue);
+    // TODO: Adjust divs based on other cues already processed.
+    // TODO: Account for regions.
+    return div;
+  });
 };
 
 WebVTTParser.prototype = {

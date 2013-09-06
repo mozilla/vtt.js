@@ -19,7 +19,21 @@
           {
             "textContent": "Text"
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 0,
+          "top": 42,
+          "height": "auto",
+          "width": 100,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "center",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     }
   ]

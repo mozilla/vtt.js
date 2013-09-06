@@ -19,7 +19,21 @@
           {
             "textContent": "Introduction"
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 10,
+          "top": 0,
+          "height": "auto",
+          "width": 80,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "center",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     },
     {
@@ -40,7 +54,21 @@
           {
             "textContent": "Topics"
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 10,
+          "top": 0,
+          "height": "auto",
+          "width": 80,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "center",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     },
     {
@@ -61,7 +89,21 @@
           {
             "textContent": "Presenters"
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 10,
+          "top": 0,
+          "height": "auto",
+          "width": 80,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "center",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     },
     {
@@ -82,7 +124,21 @@
           {
             "textContent": "Scrolling Effects"
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 10,
+          "top": 0,
+          "height": "auto",
+          "width": 80,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "center",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     },
     {
@@ -103,7 +159,21 @@
           {
             "textContent": "Achim's Demo"
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 10,
+          "top": 0,
+          "height": "auto",
+          "width": 80,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "center",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     },
     {
@@ -124,7 +194,21 @@
           {
             "textContent": "Timeline Panel"
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 10,
+          "top": 0,
+          "height": "auto",
+          "width": 80,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "center",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     }
   ]
