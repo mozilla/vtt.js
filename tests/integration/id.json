@@ -1,0 +1,89 @@
+{
+  "regions": [],
+  "cues": [
+    {
+      "id": "1",
+      "startTime": 1,
+      "endTime": 2,
+      "text": "This",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
+      "domTree": {
+        "tagName": "div",
+        "childNodes": [
+          {
+            "textContent": "This"
+          }
+        ]
+      }
+    },
+    {
+      "id": "Random",
+      "startTime": 2,
+      "endTime": 3,
+      "text": "Is",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
+      "domTree": {
+        "tagName": "div",
+        "childNodes": [
+          {
+            "textContent": "Is"
+          }
+        ]
+      }
+    },
+    {
+      "id": "12*AS& Over ...",
+      "startTime": 3,
+      "endTime": 4,
+      "text": "A",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
+      "domTree": {
+        "tagName": "div",
+        "childNodes": [
+          {
+            "textContent": "A"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ja88120 aa",
+      "startTime": 6,
+      "endTime": 7,
+      "text": "And stuff?",
+      "regionId": "",
+      "vertical": "",
+      "line": "auto",
+      "snapToLines": true,
+      "position": 50,
+      "size": 100,
+      "align": "middle",
+      "domTree": {
+        "tagName": "div",
+        "childNodes": [
+          {
+            "textContent": "And stuff?"
+          }
+        ]
+      }
+    }
+  ]
+}

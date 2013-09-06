@@ -23,6 +23,10 @@ describe("integration tests", function(){
     assert.jsonEqual("integration/cycle-collector-talk.vtt", "integration/cycle-collector-talk.json");
   });
 
+  it("id.vtt", function(){
+    assert.jsonEqual("integration/id.vtt", "integration/id.json");
+  });
+
   it("not-only-nested-cues.vtt", function(){
     assert.jsonEqual("integration/not-only-nested-cues.vtt", "integration/not-only-nested-cues.json");
   });
