@@ -19,7 +19,8 @@ parser.onflush = function () {}
 parser.parse(moreData);
 parser.parse(moreData);
 parser.flush();
-parser.convertCueToDOMTree(window, cuetext);
+WebVTTParser.convertCueToDOMTree(window, cuetext);
+WebVTTParser.processCues(window, cues);
 ```
 
 The WebVTT constructor is passed a window object with which it will create new
@@ -41,13 +42,6 @@ parser.parse("<v.loud Mary>That's awesome!");
 parser.flush();
 ```
 
-```convertCueToDOMTree``` parses the cue text handed to it into a tree of DOM nodes that mirrors the internal WebVTT node structure of the cue text.
-It uses the window object handed to it to construct new HTMLElements and returns a tree of DOM nodes attached to a top level div.
-
-```javascript
-var div = WebVTTParser.convertCueToDOMTree(window, cuetext);
-```
-
 `flush` indicates that no more data is expected and will trigger 'onflush' (see below).
 
 `onregion` is invoked for every region that was fully parsed.
@@ -58,14 +52,26 @@ var div = WebVTTParser.convertCueToDOMTree(window, cuetext);
 
 `onflush` is invoked in response to flush() and after the content was parsed completely.
 
+`convertCueToDOMTree` parses the cue text handed to it into a tree of DOM nodes that mirrors the internal WebVTT node structure of the cue text. It uses the window object handed to it to construct new HTMLElements and returns a tree of DOM nodes attached to a top level div.
+
+```javascript
+var div = WebVTTParser.convertCueToDOMTree(window, cuetext);
+```
+
+`processCues`  converts the cuetext of the cues passed to it to DOM trees--by calling convertCueToDOMTree--and then runs the processing model steps of the WebVTT specification on the divs. The processing model applies the necessary CSS styles to the cue divs to prepare them for display on the web page.
+
+```javascript
+var divs = WebVTTParser.processCues(window, cues);
+```
+
 Browser
 =======
 
 In order to use the parser in a browser, you can build a minified version that also bundles a polyfill of
-[TextDecoder](http://encoding.spec.whatwg.org/) and [VTTCue](http://dev.w3.org/html5/webvtt/#vttcue-interface),
-since not all browsers currently support them. Building a browser-ready version of the library is done
-using `grunt` (if you haven't installed `grunt` globally, you can run it from
-`./node_modules/.bin/grunt` after running `npm install`):
+[TextDecoder](http://encoding.spec.whatwg.org/), [VTTCue](http://dev.w3.org/html5/webvtt/#vttcue-interface),
+and [VTTRegion](http://dev.w3.org/html5/webvtt/#vttregion-interface) since not all browsers currently
+support them. Building a browser-ready version of the library is done using `grunt` (if you haven't installed
+`grunt` globally, you can run it from `./node_modules/.bin/grunt` after running `npm install`):
 
 ```
 $ grunt build
@@ -91,6 +97,9 @@ The file is now built in `dist/vtt.min.js` and can be used like so:
     parser.oncue = function(cue) {
       console.log(cue);
     };
+    parser.onregion = function(region) {
+      console.log(region);
+    }
     parser.parse(vtt);
     parser.flush();
   </script>
@@ -152,7 +161,7 @@ The associated JSON representation might look like this:
   "regions": [],
   "cues": [
     {
-      "id": "ID",
+      "id": "",
       "startTime": 32.5,
       "endTime": 33.5,
       "text": "<v.loud Mary>That's awesome!",
@@ -177,12 +186,25 @@ The associated JSON representation might look like this:
               }
             ]
           }
-        ]
+        ],
+        "style": {
+          "direction": "ltr",
+          "left": 50,
+          "top": 0,
+          "height": "auto",
+          "width": 40,
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "textAlign": "start",
+          "font": "5vh sans-serif",
+          "color": "rgba(255,255,255,1)",
+          "whiteSpace": "pre-line"
+        }
       }
     }
   ]
 }
-
 ```
 
 If you use JSON you **must** define all the possible values for cue data even if they are
