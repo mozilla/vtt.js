@@ -412,7 +412,52 @@
     this.whiteSpace = "pre-line";
   }
 
-  const WEBVTT = "WEBVTT";
+  function RegionBoundingBox(region) {
+    this.position = "absolute";
+    this.writingMode = "horizontal-tb";
+    this.background = "rgba(0,0,0,0.8)";
+    this.wordWrap = "break-word";
+    this.overflowWrap = "break-word";
+    this.font = "(0.0533/1.3)vh sans-serif";
+    this.lineHeight = "0.0533vh";
+    this.color = "rgba(255,255,255,1)";
+    this.overflow = "hidden";
+    this.width = region.width + "vw";
+    this.minHeight = "0px";
+    // TODO: This value is undefined in the spec, but I am assuming that they
+    // refer to lines * line height to get the max height See issue #107.
+    this.maxHeight = (region.lines * 0.0533) + "px";
+    this.left = (region.viewportAnchorX -
+                (region.regionAnchorX * region.width / 100)) + "vw";
+    this.top = (region.viewportAnchorX -
+               (region.regionAnchorY * region.lines * 0.0533 / 100)) + "vh";
+    this.display = "inline-flex";
+    this.flexFlow = "column";
+    this.justifyContent = "flex-end";
+  }
+
+  function RegionCueBoundingBox(cue, region) {
+    // TODO: Run bidirectional algorithm
+    var direction = "ltr",
+        offset = cue.position * region.width / 100;
+
+    this.position = "relative";
+    this.unicodeBidi = "plaintext";
+    this.width = "auto";
+    this.textAlign = cue.align === "middle" ? "center" : cue.align;
+
+    if (cue.align === "middle")
+      return;
+
+    this.left = (direction === "ltr" &&
+                 (cue.align === "start" || cue.align === "left")) ||
+                (direction === "rtl" &&
+                  cue.align === "end" || cue.align === "left") ? offset : "auto";
+    this.right = (direction === "ltr" &&
+                  (cue.align === "end" || cue.align === "right")) ||
+                 (direction === "rtl" &&
+                  (cue.align === "start" || cue.align === "right")) ? offset : "auto";
+  }
 
   function WebVTTParser(window, decoder) {
     this.window = window;
@@ -439,18 +484,56 @@
     return parseContent(window, cuetext);
   };
 
-  WebVTTParser.processCues = function(window, cues) {
+  WebVTTParser.processCues = function(window, cues, regions) {
     if (!window || !cues)
       return null;
 
-    return cues.map(function(cue) {
-      var div = parseContent(window, cue.text);
-      div.style = new CueBoundingBox(cue);
-      // TODO: Adjust divs based on other cues already processed.
-      // TODO: Account for regions.
-      return div;
-    });
+    var regionMaps = regions ? regions.map(function(region) {
+      var regionDiv = window.document.createElement("div");
+      regionDiv.style = new RegionBoundingBox(region);
+      return {
+        regionDiv: regionDiv,
+        region: region
+      };
+    }) : null;
+
+    function mapCueToRegion(cue) {
+      for (var i = 0; i < regionMaps.length; i++) {
+        var regionMap = regionMaps[i];
+        if (cue.regionId === regionMap.region.id) {
+          var cueDiv = parseContent(window, cue.text);
+          cueDiv.style = new RegionCueBoundingBox(cue, regionMap.region);
+
+          regionMap.regionDiv.appendChild(cueDiv);
+          if (regionMap.regionDiv.length > 1 && regionMap.region.scroll === "up") {
+            regionMap.regionDiv.style.transitionProperty = "top";
+            regionMap.regionDiv.style.transitionDuration = "0.433s";
+          }
+
+          return true;
+        }
+      }
+      return false;
+    }
+
+    var cueDivs = [];
+    for (var i = 0; i < cues.length; i++) {
+      if (!regionMaps || !mapCueToRegion(cues[i])) {
+        var cueDiv = parseContent(window, cues[i].text);
+        cueDiv.style = new CueBoundingBox(cues[i]);
+        cueDivs.push(cueDiv);
+      }
+    }
+
+    // TODO: Adjust cue divs see issue https://github.com/andreasgal/vtt.js/issues/112
+
+    return regionMaps ? 
+            regionMaps.map(function(regionMap){
+              return regionMap.regionDiv;
+            }).concat(cueDivs) : cueDivs;
   };
+
+  const WEBVTT = "WEBVTT";
 
   WebVTTParser.prototype = {
     parse: function (data) {
