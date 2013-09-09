@@ -22,9 +22,9 @@
         ],
         "style": {
           "direction": "ltr",
-          "left": 0,
-          "top": 10,
-          "height": 80,
+          "left": "0vw",
+          "top": "10vh",
+          "height": "80vh",
           "width": "auto",
           "writingMode": "vertical-rl",
           "position": "absolute",

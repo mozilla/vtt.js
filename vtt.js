@@ -396,8 +396,10 @@
       }
     }
 
-    this.height = cue.vertical === "" ? "auto" : boxLen;
-    this.width = cue.vertical === "" ? boxLen : "auto";
+    this.left += "vw";
+    this.top += "vh";
+    this.height = cue.vertical === "" ? "auto" : boxLen + "vh";
+    this.width = cue.vertical === "" ? boxLen + "vw" : "auto";
 
     this.writingMode = cue.vertical === "" ?
                        "horizontal-tb" :

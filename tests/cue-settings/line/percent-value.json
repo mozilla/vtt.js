@@ -22,10 +22,10 @@
         ],
         "style": {
           "direction": "ltr",
-          "left": 0,
-          "top": 42,
+          "left": "0vw",
+          "top": "42vh",
           "height": "auto",
-          "width": 100,
+          "width": "100vw",
           "writingMode": "horizontal-tb",
           "position": "absolute",
           "unicodeBidi": "plaintext",
