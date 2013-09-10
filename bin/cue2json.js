@@ -1,52 +1,86 @@
 #!/usr/bin/env node
-
-if (process.argv.length < 3) {
-  console.error("Error: missing path to process\n" +
-                "Usage: cue2json [filename|dirname] [options]\n" +
-                "Options:\n" +
-                "-j: will parse the vtt file passed in and save it in a corresponding .json file");
-  process.exit(1);
-}
-
-var path = require("path"),
-    fs = require("fs"),
-    util = require("../lib/util.js"),
-    pathArg = process.argv[2],
-    options = process.argv.join();
-
-function getJson(vttFile) {
-  var vtt = util.parse(vttFile, true);
-  return JSON.stringify(vtt, util.filterJson, 2);
-}
+var opt = require("optimist")
+    .usage("Generate JSON test files from a reference VTT file.\nUsage:" +
+           " $0 [options]")
+    .options("v", {
+      alias: "vtt",
+      describe: "Path to VTT file."
+    })
+    .options("d", {
+      alias: "dir",
+      describe: "Path to test directory. Will recursively find all JSON " + 
+                "files with matching VTT files and rewrite them."
+    })
+    .options("c", {
+      alias: "copy",
+      describe: "Copies the VTT file to a JSON file with the same name."
+    })
+    .options("p", {
+      alias: "process",
+      describe: "Generate a JSON file of the output returned from the processing model."
+    }),
+  argv = opt.argv,
+  path = require("path"),
+  fs = require("fs"),
+  util = require("../lib/util.js");
 
 function flipName(fileName) {
   if (fileName.match(/\.vtt$/))
     return fileName.replace(/\.vtt$/, ".json");
-  else
-    return fileName.replace(/\.json$/, ".vtt");
+  return fileName.replace(/\.json$/, ".vtt");
 }
 
-function rewriteJson(dirName) {
+function getJSON(fileName) {
+  if (argv.p)
+    return JSON.stringify(util.runProcessingModel(fileName), util.filterJson, 2);
+  return JSON.stringify(util.parse(fileName, true), util.filterJson, 2);
+}
+
+function writeJSON(fileName) {
+  if (argv.c || argv.d)
+    fs.writeFileSync(flipName(fileName), getJSON(fileName) + "\n");
+  else
+    console.log(getJSON(fileName));
+}
+
+function rewriteJSON(dirName) {
   var files = fs.readdirSync(dirName);
   for (var i = 0; i < files.length; i++) {
     var nextPath = path.join(dirName, files[i]);
     if (fs.lstatSync(nextPath).isDirectory())
-      rewriteJson(nextPath);
+      rewriteJSON(nextPath);
     else {
       if (nextPath.match(/\.json$/)) {
         var vttPath = flipName(nextPath);
         if (fs.existsSync(vttPath))
-          fs.writeFileSync(nextPath, getJson(vttPath) + "\n");
+          writeJSON(vttPath);
       }
     }
   }
 }
 
-if (fs.lstatSync(pathArg).isDirectory()) {
-  rewriteJson(pathArg);
-} else {
-  if (options.match(/-j/))
-    fs.writeFileSync(flipName(pathArg), getJson(pathArg) + "\n");
+function fail(message) {
+  if (message)
+    console.log("Error: " + message + "\n");
+  console.log(opt.help());
+  process.exit(1);
+}
+
+try {
+  if (argv.v && typeof argv.v === "string") {
+    if (!fs.lstatSync(argv.v).isFile())
+      fail("No such file.");
+    if (!argv.v.match(/.vtt$/))
+      fail("Must pass a WebVTT file.");
+    writeJSON(argv.v);
+  }
+  else if (argv.d && typeof argv.d === "string") {
+    if (!fs.lstatSync(argv.d).isDirectory())
+      fail("No such directory.");
+    rewriteJSON(argv.d);
+  }
   else
-    console.log(getJson(pathArg));
+    fail();
+} catch(err) {
+  fail(err.message);
 }
