@@ -1,0 +1,18 @@
+WEBVTT
+Region: id=fred width=50% lines=3 regionanchor=0%,100% viewportanchor=10%,90% scroll=up
+Region: id=bill width=20% lines=5 regionanchor=100%,100% viewportanchor=90%,90% scroll=up
+
+00:01.000 --> 00:02.000 region:fred
+This
+
+00:01.000 --> 00:02.000 region:bill
+Is
+
+00:01.000 --> 00:02.000 region:fred align:end
+A
+
+00:01.000 --> 00:02.000 region:bill align:start
+Processing
+
+00:01.000 --> 00:02.000
+model Test!
