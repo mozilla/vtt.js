@@ -30,10 +30,10 @@
         ],
         "style": {
           "direction": "ltr",
-          "left": 50,
-          "top": 0,
+          "left": "50vw",
+          "top": "0vh",
           "height": "auto",
-          "width": 40,
+          "width": "40vw",
           "writingMode": "horizontal-tb",
           "position": "absolute",
           "unicodeBidi": "plaintext",
