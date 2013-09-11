@@ -20,7 +20,7 @@ parser.parse(moreData);
 parser.parse(moreData);
 parser.flush();
 WebVTTParser.convertCueToDOMTree(window, cuetext);
-WebVTTParser.processCues(window, cues);
+WebVTTParser.processCues(window, cues, regions);
 ```
 
 The WebVTT constructor is passed a window object with which it will create new
@@ -58,10 +58,10 @@ parser.flush();
 var div = WebVTTParser.convertCueToDOMTree(window, cuetext);
 ```
 
-`processCues`  converts the cuetext of the cues passed to it to DOM trees--by calling convertCueToDOMTree--and then runs the processing model steps of the WebVTT specification on the divs. The processing model applies the necessary CSS styles to the cue divs to prepare them for display on the web page.
+`processCues`  converts the cuetext of the cues passed to it to DOM trees--by calling convertCueToDOMTree--and then runs the processing model steps of the WebVTT specification on the divs. The processing model applies the necessary CSS styles to the cue divs to prepare them for display on the web page. It also converts the regions to divs, applies CSS, and adds any of the cue divs which are attached to that region as children of the region divs.
 
 ```javascript
-var divs = WebVTTParser.processCues(window, cues);
+var divs = WebVTTParser.processCues(window, cues, regions);
 ```
 
 Browser
@@ -145,7 +145,9 @@ or custom JS assertions are run over a parsed .vtt file.
 JSON-based tests are useful for creating regression tests. The JSON files can be easily generated
 using the parser, so you don't need to write these by hand (see details below about `cue2json`).
 
-For example your WebVTT file could look like this:
+The first flavour of JSON based tests are tests that compare the parsed result of
+a WebVTT file to a JSON representation of it. For example your WebVTT file could
+look like this:
 
 ```
 WEBVTT
@@ -154,7 +156,7 @@ WEBVTT
 <v.loud Mary>That's awesome!
 ```
 
-The associated JSON representation might look like this:
+The associated JSON representation of the parsed file might look like this:
 
 ``` json
 {
@@ -207,7 +209,7 @@ The associated JSON representation might look like this:
 }
 ```
 
-If you use JSON you **must** define all the possible values for cue data even if they are
+**NOTE:** If you use this style of JSON test you **must** define all the possible values for cue data even if they are
 not being tested. Put the default values in this case. Values that exist under the "domTree"
 of the parsed cue's cuetext can be left out if they are not there as the tree is generated
 dynamically with no defaults for values that aren't in the cue's cuetext.
@@ -237,6 +239,115 @@ The `jsonEqual` assertion does 3 kinds of checks, including:
 In some test situations (e.g., testing UTF8 sequences) it is impossible to parse the file as a String.
 In these cases you can use `jsonEqualUTF8` instead, which does the first two checks above, but not the third.
 
+The other style of JSON based tests are tests that check the processing model implementation rather then
+the parser implementation. The processing model is the part of the WebVTT spec that prepares a number of
+cues and regions to be displayed on the web page by converting their content to DOM trees and applying
+CSS styling to them.
+
+For example your WebVTT file could look like:
+
+```
+WEBVTT
+Region: id=fred width=50% lines=3 regionanchor=0%,100% viewportanchor=10%,90% scroll=up
+
+00:01.000 --> 00:02.000 region:bill
+Is
+
+00:01.000 --> 00:02.000
+A
+```
+
+And the associated JSON representation of running the processing model over the cues and regions
+contained within the WebVTT file could look like:
+
+```json
+[
+  {
+    "tagName": "div",
+    "style": {
+      "position": "absolute",
+      "writingMode": "horizontal-tb",
+      "background": "rgba(0,0,0,0.8)",
+      "wordWrap": "break-word",
+      "overflowWrap": "break-word",
+      "font": "(0.0533/1.3)vh sans-serif",
+      "lineHeight": "0.0533vh",
+      "color": "rgba(255,255,255,1)",
+      "overflow": "hidden",
+      "width": "50vw",
+      "minHeight": "0px",
+      "maxHeight": "0.1599px",
+      "left": "10vw",
+      "top": "9.8401vh",
+      "display": "inline-flex",
+      "flexFlow": "column",
+      "justifyContent": "flex-end"
+    }
+  },
+  {
+    "tagName": "div",
+    "childNodes": [
+      {
+        "textContent": "Is"
+      }
+    ],
+    "style": {
+      "direction": "ltr",
+      "left": 10,
+      "top": 0,
+      "height": "auto",
+      "width": 80,
+      "writingMode": "horizontal-tb",
+      "position": "absolute",
+      "unicodeBidi": "plaintext",
+      "textAlign": "center",
+      "font": "5vh sans-serif",
+      "color": "rgba(255,255,255,1)",
+      "whiteSpace": "pre-line"
+    }
+  },
+  {
+    "tagName": "div",
+    "childNodes": [
+      {
+        "textContent": "A"
+      }
+    ],
+    "style": {
+      "direction": "ltr",
+      "left": 10,
+      "top": 0,
+      "height": "auto",
+      "width": 80,
+      "writingMode": "horizontal-tb",
+      "position": "absolute",
+      "unicodeBidi": "plaintext",
+      "textAlign": "center",
+      "font": "5vh sans-serif",
+      "color": "rgba(255,255,255,1)",
+      "whiteSpace": "pre-line"
+    }
+  }
+]
+```
+
+Writing a test for this is similar to the JSON based tests that test the parser. You
+would include a `.js` file somewhere in the `/tests` directory and use the
+`assert.checkProcessingModel` function instead of `jsonEqual`.
+
+```javascript
+var util = require("../lib/util.js"),
+    assert = util.assert;
+
+describe("foo/bar.vtt", function(){
+
+  it("should compare JSON to processed result", function(){
+    assert.checkProcessingModel("foo/bar.vtt", "foo/bar.json");
+  });
+
+});
+```
+
 JSON based test `.js` files can live anywhere in or below `tests/`, and the test runner will find and run them.
 
 ####Cue2json####
@@ -244,14 +355,32 @@ JSON based test `.js` files can live anywhere in or below `tests/`, and the test
 You can automatically generate a JSON file for a given `.vtt` file using `cue2json.js`.
 You have a number of options for running `cue2json.js`.
 
+```
+$ ./bin/cue2json.js 
+$ Generate JSON test files from a reference VTT file.
+$ Usage: node ./bin/cue2json.js [options]
+$ 
+$ Options:
+$   -v, --vtt      Path to VTT file.                                                                                     
+$   -d, --dir      Path to test directory. Will recursively find all JSON files with matching VTT files and rewrite them.
+$   -c, --copy     Copies the VTT file to a JSON file with the same name.                                                
+$   -p, --process  Generate a JSON file of the output returned from the processing model. 
+```
 
-`$ ./bin/cue2json.js tests/foo/bar.vtt` print JSON output to console.
+`$ ./bin/cue2json.js -v tests/foo/bar.vtt` print the JSON representation of the parsed output of the WebVTT file to console.
 
-`$ ./bin/cue2json.js tests/foo/bar.vtt > tests/foo/bar-bad.json` print JSON output to a file called `tests/foo/bar-bad.json`.
+`$ ./bin/cue2json.js -v tests/foo/bar.vtt -c` Same as above, but print the output to a JSON file with the name `tests/foo/bar.json`.
 
-`$ ./bin/cue2json.js tests/foo/bar.vtt -j` print JSON output to a file called `tests/foo/bar.json`.
+`$ ./bin/cue2json.js -v tests/foo/bar.vtt > tests/foo/bar-bad.json` print JSON output to a file called `tests/foo/bar-bad.json`.
 
-`$ ./bin/cue2json.js ./tests` walk the `tests` directory and rewrite any JSON files whose vtt source files are known.
+`$ ./bin/cue2json.js -v tests/foo/bar.vtt -p` print JSON representation of running the processing model on the WebVTT file to console.
+
+`$ ./bin/cue2json.js -v tests/foo/bar.vtt -cp` Same as above, but print it to a file named `tests/foo/bar.json`.
+
+`$ ./bin/cue2json.js -d ./tests` walk the `tests` directory and rewrite any JSON files whose WebVTT source files are known i.e. there
+is a corresponding WebVTT file with the same name as the JSON file found.
+
+`$ ./bin/cue2json.js -d ./tests -p` Same as above, but print the JSON generated from running the processing model.
 
 Assuming the parser is able to correctly parse the vtt file(s), you now have the correct JSON to run
 a JSON test.
