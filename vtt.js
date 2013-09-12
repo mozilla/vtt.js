@@ -310,12 +310,13 @@
     return 100;
   }
 
-  function CueBoundingBox(cue) {
+  function CueBoundingBox(window, cue) {
+    this.div = parseContent(window, cue.text);
 
     // TODO: Apply unicode bidi algorithm and assign the result to 'direction'
-    this.direction = "ltr";
+    var direction = "ltr";
 
-    var boxLen = (function(direction){
+    var boxLen = (function(){
       var maxLen;
       if ((cue.vertical === "" &&
           (cue.align === "left" ||
@@ -338,9 +339,9 @@
           maxLen = (100 - cue.position) * 2;
       }
       return cue.size < maxLen ? cue.size : maxLen;
-    }(this.direction));
+    }());
 
-    this.left = (function(direction) {
+    var left = (function() {
       if (cue.vertical === "") {
         if (direction === "ltr") {
           if (cue.align === "start" || cue.align === "left")
@@ -359,9 +360,9 @@
         }
       }
       return cue.snapToLines ? 0 : computeLinePos(cue);
-    }(this.direction));
+    }());
 
-    this.top = (function() {
+    var top = (function() {
       if (cue.vertical === "rl" || cue.vertical === "lr") {
         if (cue.align === "start" || cue.align === "left")
           return cue.position;
@@ -378,85 +379,105 @@
     var edgeMargin = 10;
     if (cue.snapToLines) {
       if (cue.vertical === "") {
-        if (this.left < edgeMargin && this.left + boxLen > edgeMargin) {
-          this.left += edgeMargin;
+        if (left < edgeMargin && left + boxLen > edgeMargin) {
+          left += edgeMargin;
           boxLen -= edgeMargin;
         }
         var rightMargin = 100 - edgeMargin;
-        if (this.left < rightMargin && this.left + boxLen > rightMargin)
+        if (left < rightMargin && left + boxLen > rightMargin)
           boxLen -= edgeMargin;
       } else if (cue.vertical === "lr" || cue.vertical === "rl") {
-        if (this.top < edgeMargin && this.top + boxLen > edgeMargin) {
-          this.top += edgeMargin;
+        if (top < edgeMargin && top + boxLen > edgeMargin) {
+          top += edgeMargin;
           boxLen -= edgeMargin;
         }
         var bottomMargin = 100 - edgeMargin;
-        if (this.top < bottomMargin && this.top + boxLen > bottomMargin)
+        if (top < bottomMargin && top + boxLen > bottomMargin)
           boxLen -= edgeMargin;
       }
     }
 
-    this.left += "vw";
-    this.top += "vh";
-    this.height = cue.vertical === "" ? "auto" : boxLen + "vh";
-    this.width = cue.vertical === "" ? boxLen + "vw" : "auto";
-
-    this.writingMode = cue.vertical === "" ?
-                       "horizontal-tb" :
-                       cue.vertical === "lr" ? "vertical-lr" : "vertical-rl";
-    this.position = "absolute";
-    this.unicodeBidi = "plaintext";
-    this.textAlign = cue.align === "middle" ? "center" : cue.align;
-    this.font = "5vh sans-serif";
-    this.color = "rgba(255,255,255,1)";
-    this.whiteSpace = "pre-line";
+    this.div.style = {
+      direction: direction,
+      left: left + "vw",
+      top: top + "vh",
+      height: cue.vertical === "" ? "auto" : boxLen + "vh",
+      width: cue.vertical === "" ? boxLen + "vw" : "auto",
+      writingMode: cue.vertical === "" ?
+                    "horizontal-tb" :
+                    cue.vertical === "lr" ? "vertical-lr" : "vertical-rl",
+      position: "absolute",
+      unicodeBidi: "plaintext",
+      textAlign: cue.align === "middle" ? "center" : cue.align,
+      font: "5vh sans-serif",
+      color: "rgba(255,255,255,1)",
+      whiteSpace: "pre-line"
+    };
   }
 
-  function RegionBoundingBox(region) {
-    this.position = "absolute";
-    this.writingMode = "horizontal-tb";
-    this.background = "rgba(0,0,0,0.8)";
-    this.wordWrap = "break-word";
-    this.overflowWrap = "break-word";
-    this.font = "(0.0533/1.3)vh sans-serif";
-    this.lineHeight = "0.0533vh";
-    this.color = "rgba(255,255,255,1)";
-    this.overflow = "hidden";
-    this.width = region.width + "vw";
-    this.minHeight = "0px";
-    // TODO: This value is undefined in the spec, but I am assuming that they
-    // refer to lines * line height to get the max height See issue #107.
-    this.maxHeight = (region.lines * 0.0533) + "px";
-    this.left = (region.viewportAnchorX -
-                (region.regionAnchorX * region.width / 100)) + "vw";
-    this.top = (region.viewportAnchorX -
-               (region.regionAnchorY * region.lines * 0.0533 / 100)) + "vh";
-    this.display = "inline-flex";
-    this.flexFlow = "column";
-    this.justifyContent = "flex-end";
-  }
+  function RegionBoundingBox(window, region) {
+    this.region = region;
+    this.div = window.document.createElement("div");
+    this.div.style = {
+      position: "absolute",
+      writingMode: "horizontal-tb",
+      background: "rgba(0,0,0,0.8)",
+      wordWrap: "break-word",
+      overflowWrap: "break-word",
+      font: "(0.0533/1.3)vh sans-serif",
+      lineHeight: "0.0533vh",
+      color: "rgba(255,255,255,1)",
+      overflow: "hidden",
+      width: region.width + "vw",
+      minHeight: "0px",
+      // TODO: This value is undefined in the spec, but I am assuming that they
+      // refer to lines * line height to get the max height See issue #107.
+      maxHeight: (region.lines * 0.0533) + "px",
+      left: (region.viewportAnchorX -
+             (region.regionAnchorX * region.width / 100)) + "vw",
+      top: (region.viewportAnchorX -
+            (region.regionAnchorY * region.lines * 0.0533 / 100)) + "vh",
+      display: "inline-flex",
+      flexFlow: "column",
+      justifyContent: "flex-end"
+    };
 
-  function RegionCueBoundingBox(cue, region) {
-    // TODO: Run bidirectional algorithm
-    var direction = "ltr",
-        offset = cue.position * region.width / 100;
+    this.addCue = function(cue) {
+      var cueDiv = parseContent(window, cue.text);
 
-    this.position = "relative";
-    this.unicodeBidi = "plaintext";
-    this.width = "auto";
-    this.textAlign = cue.align === "middle" ? "center" : cue.align;
+      cueDiv.style = {
+        position: "relative",
+        unicodeBidi: "plaintext",
+        width: "auto",
+        textAlign: cue.align === "middle" ? "center" : cue.align
+      };
 
-    if (cue.align === "middle")
-      return;
+      if (this.div.length > 1 && region.scroll === "up") {
+        this.div.style.transitionProperty = "top";
+        this.div.style.transitionDuration = "0.433s";
+      }
 
-    this.left = (direction === "ltr" &&
-                 (cue.align === "start" || cue.align === "left")) ||
-                (direction === "rtl" &&
-                  cue.align === "end" || cue.align === "left") ? offset : "auto";
-    this.right = (direction === "ltr" &&
-                  (cue.align === "end" || cue.align === "right")) ||
-                 (direction === "rtl" &&
-                  (cue.align === "start" || cue.align === "right")) ? offset : "auto";
+      if (cue.align === "middle") {
+        this.div.appendChild(cueDiv);
+        return;
+      }
+
+      var direction = "ltr",
+          offset = cue.position * region.width / 100;
+
+      cueDiv.style.left = (direction === "ltr" &&
+                           (cue.align === "start" || cue.align === "left")) ||
+                          (direction === "rtl" &&
+                           (cue.align === "end" || cue.align === "left")) ?
+                            offset : "auto";
+      cueDiv.style.right = (direction === "ltr" &&
+                            (cue.align === "end" || cue.align === "right")) ||
+                           (direction === "rtl" &&
+                            (cue.align === "start" || cue.align === "right")) ?
+                           offset : "auto";
+
+      this.div.appendChild(cueDiv);
+    };
   }
 
   function WebVTTParser(window, decoder) {
@@ -488,28 +509,14 @@
     if (!window || !cues)
       return null;
 
-    var regionMaps = regions ? regions.map(function(region) {
-      var regionDiv = window.document.createElement("div");
-      regionDiv.style = new RegionBoundingBox(region);
-      return {
-        regionDiv: regionDiv,
-        region: region
-      };
+    var regionBoxes = regions ? regions.map(function(region) {
+      return new RegionBoundingBox(window, region);
     }) : null;
 
     function mapCueToRegion(cue) {
-      for (var i = 0; i < regionMaps.length; i++) {
-        var regionMap = regionMaps[i];
-        if (cue.regionId === regionMap.region.id) {
-          var cueDiv = parseContent(window, cue.text);
-          cueDiv.style = new RegionCueBoundingBox(cue, regionMap.region);
-
-          regionMap.regionDiv.appendChild(cueDiv);
-          if (regionMap.regionDiv.length > 1 && regionMap.region.scroll === "up") {
-            regionMap.regionDiv.style.transitionProperty = "top";
-            regionMap.regionDiv.style.transitionDuration = "0.433s";
-          }
-
+      for (var i = 0; i < regionBoxes.length; i++) {
+        if (regionBoxes[i].region.id === cue.regionId) {
+          regionBoxes[i].addCue(cue);
           return true;
         }
       }
@@ -518,19 +525,16 @@
 
     var cueDivs = [];
     for (var i = 0; i < cues.length; i++) {
-      if (!regionMaps || !mapCueToRegion(cues[i])) {
-        var cueDiv = parseContent(window, cues[i].text);
-        cueDiv.style = new CueBoundingBox(cues[i]);
-        cueDivs.push(cueDiv);
+      if (!regionBoxes || !mapCueToRegion(cues[i])) {
+        var cueBox = new CueBoundingBox(window, cues[i]);
+        // TODO: Adjust cue divs see issue https://github.com/andreasgal/vtt.js/issues/112
+        cueDivs.push(cueBox.div);
       }
     }
 
-    // TODO: Adjust cue divs see issue https://github.com/andreasgal/vtt.js/issues/112
-
-    return regionMaps ? 
-            regionMaps.map(function(regionMap){
-              return regionMap.regionDiv;
-            }).concat(cueDivs) : cueDivs;
+    return regionBoxes ? regionBoxes.map(function(regionBox) {
+      return regionBox.div;
+    }).concat(cueDivs) : cueDivs;
   };
 
   const WEBVTT = "WEBVTT";
