@@ -81,8 +81,8 @@
           }
         ],
         "style": {
-          "direction": "ltr",
-          "left": "50vw",
+          "direction": "rtl",
+          "left": "0vw",
           "top": "40vh",
           "height": "auto",
           "width": "50vw",
