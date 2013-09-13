@@ -21,7 +21,7 @@
           }
         ],
         "style": {
-          "direction": "ltr",
+          "direction": "rtl",
           "left": "10vw",
           "top": "0vh",
           "height": "auto",
