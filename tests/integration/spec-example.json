@@ -10,37 +10,38 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 100,
       "align": "middle",
+      "position": 50,
       "domTree": {
+        "style": {
+          "left": 0,
+          "width": "100%",
+          "textAlign": "center",
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "tagName": "span",
             "localName": "span",
             "title": "Roger Bingham",
             "childNodes": [
               {
+                "style": {},
                 "textContent": "We are in New York City"
               }
             ]
           }
-        ],
-        "style": {
-          "direction": "ltr",
-          "left": "10vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "80vw",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "center",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     },
     {
@@ -52,37 +53,38 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 100,
       "align": "middle",
+      "position": 50,
       "domTree": {
+        "style": {
+          "left": 0,
+          "width": "100%",
+          "textAlign": "center",
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "tagName": "span",
             "localName": "span",
             "title": "Roger Bingham",
             "childNodes": [
               {
+                "style": {},
                 "textContent": "We're actually at the Lucern Hotel, just down the street"
               }
             ]
           }
-        ],
-        "style": {
-          "direction": "ltr",
-          "left": "10vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "80vw",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "center",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     },
     {
@@ -94,37 +96,38 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 100,
       "align": "middle",
+      "position": 50,
       "domTree": {
+        "style": {
+          "left": 0,
+          "width": "100%",
+          "textAlign": "center",
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "tagName": "span",
             "localName": "span",
             "title": "Roger Bingham",
             "childNodes": [
               {
+                "style": {},
                 "textContent": "from the American Museum of Natural History"
               }
             ]
           }
-        ],
-        "style": {
-          "direction": "ltr",
-          "left": "10vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "80vw",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "center",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     },
     {
@@ -136,37 +139,38 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 100,
       "align": "middle",
+      "position": 50,
       "domTree": {
+        "style": {
+          "left": 0,
+          "width": "100%",
+          "textAlign": "center",
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "tagName": "span",
             "localName": "span",
             "title": "Roger Bingham",
             "childNodes": [
               {
+                "style": {},
                 "textContent": "And with me is Neil deGrasse Tyson"
               }
             ]
           }
-        ],
-        "style": {
-          "direction": "ltr",
-          "left": "10vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "80vw",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "center",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     },
     {
@@ -178,37 +182,38 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 100,
       "align": "middle",
+      "position": 50,
       "domTree": {
+        "style": {
+          "left": 0,
+          "width": "100%",
+          "textAlign": "center",
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "tagName": "span",
             "localName": "span",
             "title": "Roger Bingham",
             "childNodes": [
               {
+                "style": {},
                 "textContent": "Astrophysicist, Director of the Hayden Planetarium"
               }
             ]
           }
-        ],
-        "style": {
-          "direction": "ltr",
-          "left": "10vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "80vw",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "center",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     },
     {
@@ -220,37 +225,38 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 100,
       "align": "middle",
+      "position": 50,
       "domTree": {
+        "style": {
+          "left": 0,
+          "width": "100%",
+          "textAlign": "center",
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "tagName": "span",
             "localName": "span",
             "title": "Roger Bingham",
             "childNodes": [
               {
+                "style": {},
                 "textContent": "at the AMNH."
               }
             ]
           }
-        ],
-        "style": {
-          "direction": "ltr",
-          "left": "10vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "80vw",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "center",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     },
     {
@@ -262,37 +268,38 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 100,
       "align": "middle",
+      "position": 50,
       "domTree": {
+        "style": {
+          "left": 0,
+          "width": "100%",
+          "textAlign": "center",
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "tagName": "span",
             "localName": "span",
             "title": "Roger Bingham",
             "childNodes": [
               {
+                "style": {},
                 "textContent": "Thank you for walking down here."
               }
             ]
           }
-        ],
-        "style": {
-          "direction": "ltr",
-          "left": "10vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "80vw",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "center",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     },
     {
@@ -304,37 +311,38 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 100,
       "align": "middle",
+      "position": 50,
       "domTree": {
+        "style": {
+          "left": 0,
+          "width": "100%",
+          "textAlign": "center",
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "tagName": "span",
             "localName": "span",
             "title": "Roger Bingham",
             "childNodes": [
               {
+                "style": {},
                 "textContent": "And I want to do a follow-up on the last conversation we did."
               }
             ]
           }
-        ],
-        "style": {
-          "direction": "ltr",
-          "left": "10vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "80vw",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "center",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     },
     {
@@ -346,37 +354,38 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 50,
       "align": "end",
+      "position": 100,
       "domTree": {
+        "style": {
+          "left": "50%",
+          "width": "50%",
+          "textAlign": "end",
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "tagName": "span",
             "localName": "span",
             "title": "Roger Bingham",
             "childNodes": [
               {
+                "style": {},
                 "textContent": "When we e-mailedâ"
               }
             ]
           }
-        ],
-        "style": {
-          "direction": "ltr",
-          "left": "10vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "40vw",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "end",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     },
     {
@@ -388,37 +397,38 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 50,
       "align": "start",
+      "position": 0,
       "domTree": {
+        "style": {
+          "left": 0,
+          "width": "50%",
+          "textAlign": "start",
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "tagName": "span",
             "localName": "span",
             "title": "Neil deGrasse Tyson",
             "childNodes": [
               {
+                "style": {},
                 "textContent": "Didn't we talk about enough in that conversation?"
               }
             ]
           }
-        ],
-        "style": {
-          "direction": "ltr",
-          "left": "50vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "40vw",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "start",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     },
     {
@@ -430,37 +440,38 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 50,
       "align": "end",
+      "position": 100,
       "domTree": {
+        "style": {
+          "left": "50%",
+          "width": "50%",
+          "textAlign": "end",
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "tagName": "span",
             "localName": "span",
             "title": "Roger Bingham",
             "childNodes": [
               {
+                "style": {},
                 "textContent": "No! No no no no; 'cos 'cos obviously 'cos"
               }
             ]
           }
-        ],
-        "style": {
-          "direction": "ltr",
-          "left": "10vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "40vw",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "end",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     },
     {
@@ -472,43 +483,45 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 50,
       "align": "start",
+      "position": 0,
       "domTree": {
+        "style": {
+          "left": 0,
+          "width": "50%",
+          "textAlign": "start",
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "tagName": "span",
             "localName": "span",
             "title": "Neil deGrasse Tyson",
             "childNodes": [
               {
+                "style": {},
                 "tagName": "i",
                 "localName": "i",
                 "childNodes": [
                   {
+                    "style": {},
                     "textContent": "Laughs"
                   }
                 ]
               }
             ]
           }
-        ],
-        "style": {
-          "direction": "ltr",
-          "left": "50vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "40vw",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "start",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     },
     {
@@ -520,37 +533,38 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 100,
       "align": "middle",
+      "position": 50,
       "domTree": {
+        "style": {
+          "left": 0,
+          "width": "100%",
+          "textAlign": "center",
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "tagName": "span",
             "localName": "span",
             "title": "Roger Bingham",
             "childNodes": [
               {
+                "style": {},
                 "textContent": "You know I'm so excited my glasses are falling off here."
               }
             ]
           }
-        ],
-        "style": {
-          "direction": "ltr",
-          "left": "10vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "80vw",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "center",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     }
   ]
