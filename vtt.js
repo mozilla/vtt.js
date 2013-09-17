@@ -311,12 +311,11 @@
   }
 
   function CueBoundingBox(cue) {
-
     // TODO: Apply unicode bidi algorithm and assign the result to 'direction'
     this.direction = "ltr";
 
     var boxLen = (function(direction){
-      var maxLen;
+      var maxLen = 0;
       if ((cue.vertical === "" &&
           (cue.align === "left" ||
            (cue.align === "start" && direction === "ltr") ||
