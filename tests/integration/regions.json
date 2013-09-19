@@ -31,30 +31,30 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 100,
       "align": "left",
+      "position": 0,
       "domTree": {
-        "tagName": "div",
-        "childNodes": [
-          {
-            "textContent": "Hi, my name is Fred"
-          }
-        ],
         "style": {
+          "left": 0,
+          "width": "100%",
+          "textAlign": "left",
           "direction": "ltr",
-          "left": "50vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "40vw",
           "writingMode": "horizontal-tb",
           "position": "absolute",
           "unicodeBidi": "plaintext",
-          "textAlign": "left",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
-        }
+        },
+        "tagName": "div",
+        "childNodes": [
+          {
+            "style": {},
+            "textContent": "Hi, my name is Fred"
+          }
+        ]
       }
     },
     {
@@ -66,30 +66,30 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 100,
       "align": "right",
+      "position": 100,
       "domTree": {
-        "tagName": "div",
-        "childNodes": [
-          {
-            "textContent": "Hi, I'm Bill"
-          }
-        ],
         "style": {
+          "left": 0,
+          "width": "100%",
+          "textAlign": "right",
           "direction": "ltr",
-          "left": "10vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "40vw",
           "writingMode": "horizontal-tb",
           "position": "absolute",
           "unicodeBidi": "plaintext",
-          "textAlign": "right",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
-        }
+        },
+        "tagName": "div",
+        "childNodes": [
+          {
+            "style": {},
+            "textContent": "Hi, I'm Bill"
+          }
+        ]
       }
     },
     {
@@ -101,30 +101,30 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 100,
       "align": "left",
+      "position": 0,
       "domTree": {
-        "tagName": "div",
-        "childNodes": [
-          {
-            "textContent": "Would you like to get a coffee?"
-          }
-        ],
         "style": {
+          "left": 0,
+          "width": "100%",
+          "textAlign": "left",
           "direction": "ltr",
-          "left": "50vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "40vw",
           "writingMode": "horizontal-tb",
           "position": "absolute",
           "unicodeBidi": "plaintext",
-          "textAlign": "left",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
-        }
+        },
+        "tagName": "div",
+        "childNodes": [
+          {
+            "style": {},
+            "textContent": "Would you like to get a coffee?"
+          }
+        ]
       }
     },
     {
@@ -136,30 +136,30 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 100,
       "align": "right",
+      "position": 100,
       "domTree": {
-        "tagName": "div",
-        "childNodes": [
-          {
-            "textContent": "Sure! I've only had one today."
-          }
-        ],
         "style": {
+          "left": 0,
+          "width": "100%",
+          "textAlign": "right",
           "direction": "ltr",
-          "left": "10vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "40vw",
           "writingMode": "horizontal-tb",
           "position": "absolute",
           "unicodeBidi": "plaintext",
-          "textAlign": "right",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
-        }
+        },
+        "tagName": "div",
+        "childNodes": [
+          {
+            "style": {},
+            "textContent": "Sure! I've only had one today."
+          }
+        ]
       }
     },
     {
@@ -171,30 +171,30 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 100,
       "align": "left",
+      "position": 0,
       "domTree": {
-        "tagName": "div",
-        "childNodes": [
-          {
-            "textContent": "This is my fourth!"
-          }
-        ],
         "style": {
+          "left": 0,
+          "width": "100%",
+          "textAlign": "left",
           "direction": "ltr",
-          "left": "50vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "40vw",
           "writingMode": "horizontal-tb",
           "position": "absolute",
           "unicodeBidi": "plaintext",
-          "textAlign": "left",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
-        }
+        },
+        "tagName": "div",
+        "childNodes": [
+          {
+            "style": {},
+            "textContent": "This is my fourth!"
+          }
+        ]
       }
     },
     {
@@ -206,30 +206,30 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 100,
       "align": "left",
+      "position": 0,
       "domTree": {
-        "tagName": "div",
-        "childNodes": [
-          {
-            "textContent": "OK, let's go."
-          }
-        ],
         "style": {
+          "left": 0,
+          "width": "100%",
+          "textAlign": "left",
           "direction": "ltr",
-          "left": "50vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "40vw",
           "writingMode": "horizontal-tb",
           "position": "absolute",
           "unicodeBidi": "plaintext",
-          "textAlign": "left",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
-        }
+        },
+        "tagName": "div",
+        "childNodes": [
+          {
+            "style": {},
+            "textContent": "OK, let's go."
+          }
+        ]
       }
     }
   ]

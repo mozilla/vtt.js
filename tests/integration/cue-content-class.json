@@ -10,38 +10,39 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 50,
       "align": "start",
+      "position": 0,
       "domTree": {
+        "style": {
+          "left": 0,
+          "width": "50%",
+          "textAlign": "start",
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "tagName": "span",
             "localName": "span",
             "title": "Mary",
             "className": "loud",
             "childNodes": [
               {
+                "style": {},
                 "textContent": "That's awesome!"
               }
             ]
           }
-        ],
-        "style": {
-          "direction": "ltr",
-          "left": "50vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "40vw",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "start",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     }
   ]

@@ -10,30 +10,30 @@
       "vertical": "",
       "line": 42,
       "snapToLines": false,
-      "position": 50,
       "size": 100,
       "align": "middle",
+      "position": 50,
       "domTree": {
-        "tagName": "div",
-        "childNodes": [
-          {
-            "textContent": "Text"
-          }
-        ],
         "style": {
+          "left": 0,
+          "width": "100%",
+          "textAlign": "center",
           "direction": "ltr",
-          "left": "0vw",
-          "top": "42vh",
-          "height": "auto",
-          "width": "100vw",
           "writingMode": "horizontal-tb",
           "position": "absolute",
           "unicodeBidi": "plaintext",
-          "textAlign": "center",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
-        }
+        },
+        "tagName": "div",
+        "childNodes": [
+          {
+            "style": {},
+            "textContent": "Text"
+          }
+        ]
       }
     }
   ]

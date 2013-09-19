@@ -10,43 +10,45 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 50,
       "align": "start",
+      "position": 0,
       "domTree": {
+        "style": {
+          "left": 0,
+          "width": "50%",
+          "textAlign": "start",
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "tagName": "span",
             "localName": "span",
             "title": "Neil deGrasse Tyson",
             "childNodes": [
               {
+                "style": {},
                 "tagName": "i",
                 "localName": "i",
                 "childNodes": [
                   {
+                    "style": {},
                     "textContent": "Laughs"
                   }
                 ]
               }
             ]
           }
-        ],
-        "style": {
-          "direction": "ltr",
-          "left": "50vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "40vw",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "start",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     },
     {
@@ -58,42 +60,45 @@
       "vertical": "",
       "line": 40,
       "snapToLines": false,
-      "position": 50,
       "size": 50,
       "align": "start",
+      "position": 0,
       "domTree": {
+        "style": {
+          "left": 0,
+          "width": "50%",
+          "textAlign": "start",
+          "direction": "rtl",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "textContent": "Random escapes &am& other "
           },
           {
+            "style": {},
             "tagName": "i",
             "localName": "i",
             "childNodes": [
               {
+                "style": {},
                 "textContent": " stuff > &l<&rl\u200f\u200e "
               }
             ]
           },
           {
+            "style": {},
             "textContent": "\nOh my! >"
           }
-        ],
-        "style": {
-          "direction": "rtl",
-          "left": "0vw",
-          "top": "40vh",
-          "height": "auto",
-          "width": "50vw",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "start",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     }
   ]

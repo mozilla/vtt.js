@@ -10,36 +10,37 @@
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 100,
       "align": "middle",
+      "position": 50,
       "domTree": {
+        "style": {
+          "left": 0,
+          "width": "100%",
+          "textAlign": "center",
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "tagName": "span",
             "localName": "span",
             "childNodes": [
               {
+                "style": {},
                 "textContent": "It's a blue apple tree!"
               }
             ]
           }
-        ],
-        "style": {
-          "direction": "ltr",
-          "left": "10vw",
-          "top": "0vh",
-          "height": "auto",
-          "width": "80vw",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "center",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     }
   ]
