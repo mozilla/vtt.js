@@ -720,7 +720,7 @@
         });
       }
 
-      this.div.appendChild(basicBox);
+      this.div.appendChild(basicBox.div);
     };
   }
   RegionBoundingBox.prototype = Object.create(BoundingBox.prototype);
