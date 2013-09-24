@@ -22,40 +22,36 @@
     "tagName": "div",
     "childNodes": [
       {
-        "div": {
-          "style": {
-            "left": 0,
-            "width": "auto",
-            "textAlign": "center",
-            "position": "relative",
-            "unicodeBidi": "plaintext"
-          },
-          "tagName": "div",
-          "childNodes": [
-            {
-              "style": {},
-              "textContent": "This"
-            }
-          ]
-        }
+        "style": {
+          "left": 0,
+          "width": "auto",
+          "textAlign": "center",
+          "position": "relative",
+          "unicodeBidi": "plaintext"
+        },
+        "tagName": "div",
+        "childNodes": [
+          {
+            "style": {},
+            "textContent": "This"
+          }
+        ]
       },
       {
-        "div": {
-          "style": {
-            "left": 0,
-            "width": "auto",
-            "textAlign": "end",
-            "position": "relative",
-            "unicodeBidi": "plaintext"
-          },
-          "tagName": "div",
-          "childNodes": [
-            {
-              "style": {},
-              "textContent": "A"
-            }
-          ]
-        }
+        "style": {
+          "left": 0,
+          "width": "auto",
+          "textAlign": "end",
+          "position": "relative",
+          "unicodeBidi": "plaintext"
+        },
+        "tagName": "div",
+        "childNodes": [
+          {
+            "style": {},
+            "textContent": "A"
+          }
+        ]
       }
     ]
   },
@@ -82,40 +78,36 @@
     "tagName": "div",
     "childNodes": [
       {
-        "div": {
-          "style": {
-            "left": 0,
-            "width": "auto",
-            "textAlign": "center",
-            "position": "relative",
-            "unicodeBidi": "plaintext"
-          },
-          "tagName": "div",
-          "childNodes": [
-            {
-              "style": {},
-              "textContent": "Is"
-            }
-          ]
-        }
+        "style": {
+          "left": 0,
+          "width": "auto",
+          "textAlign": "center",
+          "position": "relative",
+          "unicodeBidi": "plaintext"
+        },
+        "tagName": "div",
+        "childNodes": [
+          {
+            "style": {},
+            "textContent": "Is"
+          }
+        ]
       },
       {
-        "div": {
-          "style": {
-            "left": 0,
-            "width": "auto",
-            "textAlign": "start",
-            "position": "relative",
-            "unicodeBidi": "plaintext"
-          },
-          "tagName": "div",
-          "childNodes": [
-            {
-              "style": {},
-              "textContent": "Processing"
-            }
-          ]
-        }
+        "style": {
+          "left": 0,
+          "width": "auto",
+          "textAlign": "start",
+          "position": "relative",
+          "unicodeBidi": "plaintext"
+        },
+        "tagName": "div",
+        "childNodes": [
+          {
+            "style": {},
+            "textContent": "Processing"
+          }
+        ]
       }
     ]
   },
