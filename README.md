@@ -171,38 +171,39 @@ The associated JSON representation of the parsed file might look like this:
       "vertical": "",
       "line": "auto",
       "snapToLines": true,
-      "position": 50,
       "size": 50,
       "align": "start",
+      "position": 0,
       "domTree": {
+        "style": {
+          "left": 0,
+          "width": "50%",
+          "textAlign": "start",
+          "direction": "ltr",
+          "writingMode": "horizontal-tb",
+          "position": "absolute",
+          "unicodeBidi": "plaintext",
+          "font": "2.5vh sans-serif",
+          "color": "rgba(255, 255, 255, 1)",
+          "backgroundColor": "rgba(0, 0, 0, 0.8)",
+          "whiteSpace": "pre-line"
+        },
         "tagName": "div",
         "childNodes": [
           {
+            "style": {},
             "tagName": "span",
             "localName": "span",
             "title": "Mary",
             "className": "loud",
             "childNodes": [
               {
+                "style": {},
                 "textContent": "That's awesome!"
               }
             ]
           }
-        ],
-        "style": {
-          "direction": "ltr",
-          "left": 50,
-          "top": 0,
-          "height": "auto",
-          "width": 40,
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "textAlign": "start",
-          "font": "5vh sans-serif",
-          "color": "rgba(255,255,255,1)",
-          "whiteSpace": "pre-line"
-        }
+        ]
       }
     }
   ]
@@ -250,7 +251,7 @@ For example your WebVTT file could look like:
 WEBVTT
 Region: id=fred width=50% lines=3 regionanchor=0%,100% viewportanchor=10%,90% scroll=up
 
-00:01.000 --> 00:02.000 region:bill
+00:01.000 --> 00:02.000 region:fred
 Is
 
 00:01.000 --> 00:02.000
@@ -263,70 +264,66 @@ contained within the WebVTT file could look like:
 ```json
 [
   {
-    "tagName": "div",
     "style": {
       "position": "absolute",
       "writingMode": "horizontal-tb",
-      "background": "rgba(0,0,0,0.8)",
+      "backgroundColor": "rgba(0, 0, 0, 0.8)",
       "wordWrap": "break-word",
       "overflowWrap": "break-word",
-      "font": "(0.0533/1.3)vh sans-serif",
+      "font": "1.3vh/0.0533vh sans-serif",
       "lineHeight": "0.0533vh",
-      "color": "rgba(255,255,255,1)",
+      "color": "rgba(255, 255, 255, 1)",
       "overflow": "hidden",
-      "width": "50vw",
-      "minHeight": "0px",
+      "width": "50%",
+      "minHeight": "0",
       "maxHeight": "0.1599px",
-      "left": "10vw",
-      "top": "9.8401vh",
+      "left": "10%",
+      "top": "9.8401%",
       "display": "inline-flex",
       "flexFlow": "column",
       "justifyContent": "flex-end"
-    }
-  },
-  {
+    },
     "tagName": "div",
     "childNodes": [
       {
-        "textContent": "Is"
+        "style": {
+          "left": 0,
+          "width": "auto",
+          "textAlign": "center",
+          "position": "relative",
+          "unicodeBidi": "plaintext"
+        },
+        "tagName": "div",
+        "childNodes": [
+          {
+            "style": {},
+            "textContent": "Is"
+          }
+        ]
       }
-    ],
+    ]
+  },
+  {
     "style": {
+      "left": 0,
+      "width": "100%",
+      "textAlign": "center",
       "direction": "ltr",
-      "left": 10,
-      "top": 0,
-      "height": "auto",
-      "width": 80,
       "writingMode": "horizontal-tb",
       "position": "absolute",
       "unicodeBidi": "plaintext",
-      "textAlign": "center",
-      "font": "5vh sans-serif",
-      "color": "rgba(255,255,255,1)",
+      "font": "2.5vh sans-serif",
+      "color": "rgba(255, 255, 255, 1)",
+      "backgroundColor": "rgba(0, 0, 0, 0.8)",
       "whiteSpace": "pre-line"
-    }
-  },
-  {
+    },
     "tagName": "div",
     "childNodes": [
       {
+        "style": {},
         "textContent": "A"
       }
-    ],
-    "style": {
-      "direction": "ltr",
-      "left": 10,
-      "top": 0,
-      "height": "auto",
-      "width": 80,
-      "writingMode": "horizontal-tb",
-      "position": "absolute",
-      "unicodeBidi": "plaintext",
-      "textAlign": "center",
-      "font": "5vh sans-serif",
-      "color": "rgba(255,255,255,1)",
-      "whiteSpace": "pre-line"
-    }
+    ]
   }
 ]
 ```
