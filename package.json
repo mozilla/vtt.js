@@ -14,11 +14,14 @@
     "grunt-contrib-uglify": "~0.2.2",
     "mocha": "~1.12.0",
     "difflet": "git://github.com/humphd/difflet.git#714b82706ad39d75275a886aeff637df5097626f",
-    "underscore": "~1.5.1"
+    "underscore": "~1.5.1",
+    "phantomjs": "~1.9.1",
+    "mocha-phantomjs":"~3.1.3",
+    "chai":"~1.8.0"
   },
   "main": "vtt.js",
   "scripts": {
-    "test": "./node_modules/.bin/grunt && ./node_modules/.bin/mocha --recursive --reporter spec --timeout 60000 --slow 40000 tests"
+    "test": "./node_modules/.bin/grunt && ./node_modules/.bin/mocha --recursive --reporter spec --timeout 60000 --slow 40000 tests && ./node_modules/.bin/mocha-phantomjs tests/phantomjs/simple.html"
   },
   "license": {
     "type": "Apache-2.0",
