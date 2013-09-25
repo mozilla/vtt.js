@@ -680,7 +680,7 @@
 
     var left = region.viewportAnchorX - 
                region.regionAnchorX * region.width / 100,
-        top = region.viewportAnchorX -
+        top = region.viewportAnchorY -
               region.regionAnchorY * region.lines * LINE_HEIGHT / 100;
 
     this.applyStyles({
