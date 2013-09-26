@@ -1,0 +1,24 @@
+[
+  {
+    "style": {
+      "top": 0,
+      "height": "100%",
+      "textAlign": "center",
+      "direction": "ltr",
+      "writingMode": "vertical-rl",
+      "position": "absolute",
+      "unicodeBidi": "plaintext",
+      "font": "2.5vh sans-serif",
+      "color": "rgba(255, 255, 255, 1)",
+      "backgroundColor": "rgba(0, 0, 0, 0.8)",
+      "whiteSpace": "pre-line"
+    },
+    "tagName": "div",
+    "childNodes": [
+      {
+        "style": {},
+        "textContent": "Text"
+      }
+    ]
+  }
+]
