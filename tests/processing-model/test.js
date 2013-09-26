@@ -12,7 +12,7 @@ describe("processing-model tests", function(){
   });
 
   it("basic.vtt", function(){
-    assert.checkProcessingModel("processing-model/writing-mode-lr.vtt", "processing-model/writing-mode-vertical-lr.json");
+    assert.checkProcessingModel("processing-model/writing-mode-vertical-lr.vtt", "processing-model/writing-mode-vertical-lr.json");
   });
 
   it("basic.vtt", function(){
