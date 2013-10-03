@@ -782,9 +782,7 @@
       return regionBox.div;
     }).concat(cueDivs) : cueDivs;
   };
-
-  const WEBVTT = "WEBVTT";
-
+  
   WebVTTParser.prototype = {
     parse: function (data) {
       var self = this;
@@ -797,12 +795,9 @@
         self.buffer += self.decoder.decode(data, {stream: true});
       }
 
-      // Advance tells whether or not to remove the collected line from the buffer
-      // after it is read.
-      function collectNextLine(advance) {
+      function collectNextLine() {
         var buffer = self.buffer;
         var pos = 0;
-        advance = typeof advance === "undefined" ? true : advance;
         while (pos < buffer.length && buffer[pos] != '\r' && buffer[pos] != '\n')
           ++pos;
         var line = buffer.substr(0, pos);
@@ -811,8 +806,7 @@
           ++pos;
         if (buffer[pos] === '\n')
           ++pos;
-        if (advance)
-          self.buffer = buffer.substr(pos);
+        self.buffer = buffer.substr(pos);
         return line;
       }
 
@@ -884,29 +878,23 @@
       try {
         var line;
         if (self.state === "INITIAL") {
-          // Wait until we have enough data to parse the header.
-          if (self.buffer.length <= WEBVTT.length)
+          // We can't start parsing until we have the first line.
+          if (!/\r\n|\n/.test(self.buffer)) 
             return this;
-
-          // Collect the next line, but do not remove the collected line from the
-          // buffer as we may not have the full WEBVTT signature yet when
-          // incrementally parsing.
-          line = collectNextLine(false);
-          // (4-12) - Check for the "WEBVTT" identifier followed by an optional space or tab,
-          // and ignore the rest of the line.
-          if (line.substr(0, WEBVTT.length) !== WEBVTT ||
-              line.length > WEBVTT.length && !/[ \t]/.test(line[WEBVTT.length])) {
+          
+          line = collectNextLine();
+          
+          var m = line.match(/^WEBVTT([ \t].*)?$/);
+          if (!m || !m[0]) {
             throw "error";
           }
-          // Now that we've read the WEBVTT signature we can remove it from
-          // the buffer.
-          collectNextLine(true);
+          
           self.state = "HEADER";
         }
 
         while (self.buffer) {
           // We can't parse a line until we have the full line.
-          if (!/[\r\n]/.test(self.buffer)) {
+          if (!/\r\n|\n/.test(self.buffer)) {
             // If we are in the midst of parsing a cue, report it early. We will report it
             // again when updates come in.
             if (self.state === "CUETEXT" && self.cue && self.onpartialcue)
@@ -974,7 +962,7 @@
               self.cue.text += "\n";
             self.cue.text += line;
             continue;
-          default: // BADCUE
+          case "BADCUE": // BADCUE
             // 54-62 - Collect and discard the remaining cue.
             if (!line) {
               self.state = "ID";
@@ -987,10 +975,9 @@
         if (self.state === "CUETEXT" && self.cue && self.oncue)
           self.oncue(self.cue);
         self.cue = null;
-        // Report the error and enter the BADCUE state, except if we haven't even made
-        // it through the header yet.
-        if (self.state !== "INITIAL")
-          self.state = "BADCUE";
+        // Enter BADWEBVTT state if header was not parsed correctly otherwise
+        // another exception occurred so enter BADCUE state.
+        self.state = self.state === "INITIAL" ? "BADWEBVTT" : "BADCUE";
       }
       return this;
     },

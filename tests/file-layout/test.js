@@ -59,5 +59,9 @@ describe("file-layout tests", function(){
   it("webvtt-with-bom.vtt", function(){
     assert.jsonEqualUTF8("file-layout/webvtt-with-bom.vtt", "file-layout/with-data.json");
   });
+  
+  it("bad-double-webvtt.vtt", function(){
+    assert.jsonEqualUTF8("file-layout/bad-double-webvtt.vtt", "file-layout/no-output.json");
+  });
 
 });
