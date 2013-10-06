@@ -27,31 +27,33 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
-            "tagName": "ruby",
-            "localName": "ruby",
             "childNodes": [
               {
                 "style": {},
+                "childNodes": [],
                 "textContent": "No "
               },
               {
                 "style": {},
-                "tagName": "rt",
-                "localName": "rt",
                 "childNodes": [
                   {
                     "style": {},
+                    "childNodes": [],
                     "textContent": "way!"
                   }
-                ]
+                ],
+                "tagName": "rt",
+                "localName": "rt"
               }
-            ]
+            ],
+            "tagName": "ruby",
+            "localName": "ruby"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     }
   ]

@@ -1,4 +1,4 @@
-{
+﻿{
   "regions": [],
   "cues": [
     {
@@ -27,28 +27,29 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Neil deGrasse Tyson",
             "childNodes": [
               {
                 "style": {},
-                "tagName": "i",
-                "localName": "i",
                 "childNodes": [
                   {
                     "style": {},
+                    "childNodes": [],
                     "textContent": "Laughs"
                   }
-                ]
+                ],
+                "tagName": "i",
+                "localName": "i"
               }
-            ]
+            ],
+            "tagName": "span",
+            "localName": "span",
+            "title": "Neil deGrasse Tyson"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     },
     {
@@ -77,28 +78,31 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "textContent": "Random escapes &am& other "
           },
           {
             "style": {},
-            "tagName": "i",
-            "localName": "i",
             "childNodes": [
               {
                 "style": {},
+                "childNodes": [],
                 "textContent": " stuff > &l<&rl\u200f\u200e "
               }
-            ]
+            ],
+            "tagName": "i",
+            "localName": "i"
           },
           {
             "style": {},
+            "childNodes": [],
             "textContent": "\nOh my! >"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     }
   ]

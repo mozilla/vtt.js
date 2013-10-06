@@ -48,13 +48,14 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "textContent": "Hi, my name is Fred"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     },
     {
@@ -83,13 +84,14 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "textContent": "Hi, I'm Bill"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     },
     {
@@ -118,13 +120,14 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "textContent": "Would you like to get a coffee?"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     },
     {
@@ -153,13 +156,14 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "textContent": "Sure! I've only had one today."
           }
-        ]
+        ],
+        "tagName": "div"
       }
     },
     {
@@ -188,13 +192,14 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "textContent": "This is my fourth!"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     },
     {
@@ -223,13 +228,14 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "textContent": "OK, let's go."
           }
-        ]
+        ],
+        "tagName": "div"
       }
     }
   ]

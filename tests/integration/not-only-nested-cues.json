@@ -27,13 +27,14 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "textContent": "The First Minute"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     },
     {
@@ -62,13 +63,14 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "textContent": "The Final Minute"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     }
   ]

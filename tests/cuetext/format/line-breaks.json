@@ -27,13 +27,14 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "textContent": "- It will perforate your stomach.\n- You could die."
           }
-        ]
+        ],
+        "tagName": "div"
       }
     }
   ]

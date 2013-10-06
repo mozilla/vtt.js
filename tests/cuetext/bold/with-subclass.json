@@ -27,21 +27,22 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
-            "tagName": "b",
-            "localName": "b",
-            "className": "first",
             "childNodes": [
               {
                 "style": {},
+                "childNodes": [],
                 "textContent": "Hee!"
               }
-            ]
+            ],
+            "tagName": "b",
+            "localName": "b",
+            "className": "first"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     }
   ]

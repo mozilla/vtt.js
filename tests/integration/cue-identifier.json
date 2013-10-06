@@ -27,13 +27,14 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "textContent": "That's an, an, that's an L!"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     },
     {
@@ -62,13 +63,14 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "textContent": "Transcribed by Celestials"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     }
   ]
