@@ -27,24 +27,26 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
-            "tagName": "i",
-            "localName": "i",
             "childNodes": [
               {
                 "style": {},
+                "childNodes": [],
                 "textContent": "That's awesome!"
               }
-            ]
+            ],
+            "tagName": "i",
+            "localName": "i"
           },
           {
             "style": {},
+            "childNodes": [],
             "textContent": " Hee!"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     }
   ]

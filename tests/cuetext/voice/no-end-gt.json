@@ -27,15 +27,16 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "tagName": "span",
             "localName": "span",
             "title": "It's a blue apple tree!"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     }
   ]

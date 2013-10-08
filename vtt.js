@@ -713,7 +713,7 @@
         width: "auto"
       });
 
-      if (this.div.length > 1 && region.scroll === "up") {
+      if (this.div.childNodes.length == 1 && region.scroll === "up") {
         this.applyStyles({
           transitionProperty: "top",
           transitionDuration: SCROLL_DURATION + "s"
