@@ -792,7 +792,6 @@
   function RegionBoundingBox(window, region, overlay) {
     BoundingBox.call(this);
     this.div = window.document.createElement("div");
-    this.region = region;
 
     var left = region.viewportAnchorX - 
                region.regionAnchorX * region.width / 100,
@@ -824,7 +823,10 @@
     overlay.appendChild(this.div);
     region.displayState = this.div;
 
-    this.addCue = function(cue) {
+    this.maybeAddCue = function(cue) {
+      if (region.id !== cue.regionId)
+        return false;
+
       var basicBox = new BasicBoundingBox(window, cue);
       basicBox.applyStyles({
         position: "relative",
@@ -840,6 +842,7 @@
       }
 
       this.div.appendChild(basicBox.div);
+      return true;
     };
   }
   RegionBoundingBox.prototype = Object.create(BoundingBox.prototype);
@@ -880,10 +883,8 @@
 
     function mapCueToRegion(cue) {
       for (var i = 0; i < regionBoxes.length; i++) {
-        if (regionBoxes[i].region.id === cue.regionId) {
-          regionBoxes[i].addCue(cue);
+        if (regionBoxes[i].maybeAddCue(cue))
           return true;
-        }
       }
       return false;
     }
