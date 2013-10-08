@@ -27,27 +27,31 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "target": "timestamp",
             "data": 1
           },
           {
             "style": {},
+            "childNodes": [],
             "textContent": "Hee!"
           },
           {
             "style": {},
+            "childNodes": [],
             "target": "timestamp",
             "data": 1.5
           },
           {
             "style": {},
+            "childNodes": [],
             "textContent": " Hee!"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     }
   ]

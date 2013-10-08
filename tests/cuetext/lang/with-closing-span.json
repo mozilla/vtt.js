@@ -27,25 +27,27 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "lang": "en-Us",
             "childNodes": [
               {
                 "style": {},
+                "childNodes": [],
                 "textContent": "Hee!"
               }
-            ]
+            ],
+            "tagName": "span",
+            "localName": "span",
+            "lang": "en-Us"
           },
           {
             "style": {},
+            "childNodes": [],
             "textContent": " Hee!"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     }
   ]
