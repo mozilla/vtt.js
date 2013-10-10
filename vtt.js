@@ -712,22 +712,22 @@
       var move;
       switch(axis) {
       case "+x":
-        move = abs(avoidBox.right - box.left);
+        move = Math.abs(avoidBox.right - box.left);
         box.left += move;
         box.right += move;
         break;
       case "-x":
-        move = abs(avoidBox.left - box.right);
+        move = Math.abs(avoidBox.left - box.right);
         box.left -= move;
         box.right -= move;
         break;
       case "+y":
-        move = abs(avoidBox.top - box.bottom);
+        move = Math.abs(avoidBox.top - box.bottom);
         box.bottom += move;
         box.top += move;
         break;
       case "-y":
-        move = abs(avoidBox.bottom - box.top);
+        move = Math.abs(avoidBox.bottom - box.top);
         box.bottom -= move;
         box.top -= move;
         break;
