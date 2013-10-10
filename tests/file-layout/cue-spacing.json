@@ -27,13 +27,14 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "textContent": "Text\n00:02.000 --> 00:04.000\nText"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     },
     {
@@ -62,13 +63,14 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "textContent": "Text\n-->\nText"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     },
     {
@@ -97,13 +99,14 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "textContent": "00:06.000 --> 00:08.000\nText"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     }
   ]

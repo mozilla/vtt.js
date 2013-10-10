@@ -17,47 +17,47 @@
       "top": "89.8401%",
       "display": "inline-flex",
       "flexFlow": "column",
-      "justifyContent": "flex-end"
+      "justifyContent": "flex-end",
+      "transitionProperty": "top",
+      "transitionDuration": "0.433s"
     },
-    "tagName": "div",
     "childNodes": [
       {
-        "div": {
-          "style": {
-            "left": 0,
-            "width": "auto",
-            "textAlign": "center",
-            "position": "relative",
-            "unicodeBidi": "plaintext"
-          },
-          "tagName": "div",
-          "childNodes": [
-            {
-              "style": {},
-              "textContent": "This"
-            }
-          ]
-        }
+        "style": {
+          "left": 0,
+          "width": "auto",
+          "textAlign": "center",
+          "position": "relative",
+          "unicodeBidi": "plaintext"
+        },
+        "childNodes": [
+          {
+            "style": {},
+            "childNodes": [],
+            "textContent": "This"
+          }
+        ],
+        "tagName": "div"
       },
       {
-        "div": {
-          "style": {
-            "left": 0,
-            "width": "auto",
-            "textAlign": "end",
-            "position": "relative",
-            "unicodeBidi": "plaintext"
-          },
-          "tagName": "div",
-          "childNodes": [
-            {
-              "style": {},
-              "textContent": "A"
-            }
-          ]
-        }
+        "style": {
+          "left": 0,
+          "width": "auto",
+          "textAlign": "end",
+          "position": "relative",
+          "unicodeBidi": "plaintext"
+        },
+        "childNodes": [
+          {
+            "style": {},
+            "childNodes": [],
+            "textContent": "A"
+          }
+        ],
+        "tagName": "div"
       }
-    ]
+    ],
+    "tagName": "div"
   },
   {
     "style": {
@@ -77,47 +77,47 @@
       "top": "89.7335%",
       "display": "inline-flex",
       "flexFlow": "column",
-      "justifyContent": "flex-end"
+      "justifyContent": "flex-end",
+      "transitionProperty": "top",
+      "transitionDuration": "0.433s"
     },
-    "tagName": "div",
     "childNodes": [
       {
-        "div": {
-          "style": {
-            "left": 0,
-            "width": "auto",
-            "textAlign": "center",
-            "position": "relative",
-            "unicodeBidi": "plaintext"
-          },
-          "tagName": "div",
-          "childNodes": [
-            {
-              "style": {},
-              "textContent": "Is"
-            }
-          ]
-        }
+        "style": {
+          "left": 0,
+          "width": "auto",
+          "textAlign": "center",
+          "position": "relative",
+          "unicodeBidi": "plaintext"
+        },
+        "childNodes": [
+          {
+            "style": {},
+            "childNodes": [],
+            "textContent": "Is"
+          }
+        ],
+        "tagName": "div"
       },
       {
-        "div": {
-          "style": {
-            "left": 0,
-            "width": "auto",
-            "textAlign": "start",
-            "position": "relative",
-            "unicodeBidi": "plaintext"
-          },
-          "tagName": "div",
-          "childNodes": [
-            {
-              "style": {},
-              "textContent": "Processing"
-            }
-          ]
-        }
+        "style": {
+          "left": 0,
+          "width": "auto",
+          "textAlign": "start",
+          "position": "relative",
+          "unicodeBidi": "plaintext"
+        },
+        "childNodes": [
+          {
+            "style": {},
+            "childNodes": [],
+            "textContent": "Processing"
+          }
+        ],
+        "tagName": "div"
       }
-    ]
+    ],
+    "tagName": "div"
   },
   {
     "style": {
@@ -133,12 +133,13 @@
       "backgroundColor": "rgba(0, 0, 0, 0.8)",
       "whiteSpace": "pre-line"
     },
-    "tagName": "div",
     "childNodes": [
       {
         "style": {},
+        "childNodes": [],
         "textContent": "model Test!"
       }
-    ]
+    ],
+    "tagName": "div"
   }
 ]

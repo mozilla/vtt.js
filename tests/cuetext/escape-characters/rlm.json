@@ -1,4 +1,4 @@
-{
+﻿{
   "regions": [],
   "cues": [
     {
@@ -27,13 +27,14 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "tagName": "div",
         "childNodes": [
           {
             "style": {},
+            "childNodes": [],
             "textContent": "This should be \u200f. Correct?"
           }
-        ]
+        ],
+        "tagName": "div"
       }
     }
   ]
