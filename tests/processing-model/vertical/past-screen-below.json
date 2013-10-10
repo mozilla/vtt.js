@@ -1,0 +1,32 @@
+{
+  "style": {},
+  "childNodes": [
+    {
+      "style": {
+        "left": "-20px",
+        "width": "80%",
+        "textAlign": "center",
+        "direction": "ltr",
+        "writingMode": "horizontal-tb",
+        "position": "absolute",
+        "unicodeBidi": "plaintext",
+        "font": "2.5vh sans-serif",
+        "color": "rgba(255, 255, 255, 1)",
+        "backgroundColor": "rgba(0, 0, 0, 0.8)",
+        "whiteSpace": "pre-line",
+        "top": "90px",
+        "right": "40px",
+        "bottom": "-90px"
+      },
+      "childNodes": [
+        {
+          "style": {},
+          "childNodes": [],
+          "textContent": "There will be enough text\nin this cue that overflows\npast the bottom of the video\nrendering area - or at least I\nhope. I guess it wouldn't hurt\nto add more lines of text.\nOkay, great, now we have a total\nof 8 lines to test for."
+        }
+      ],
+      "tagName": "div"
+    }
+  ],
+  "tagName": "div"
+}

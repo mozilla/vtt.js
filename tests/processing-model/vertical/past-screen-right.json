@@ -1,0 +1,32 @@
+{
+  "style": {},
+  "childNodes": [
+    {
+      "style": {
+        "left": "40px",
+        "width": "80%",
+        "textAlign": "center",
+        "direction": "ltr",
+        "writingMode": "horizontal-tb",
+        "position": "absolute",
+        "unicodeBidi": "plaintext",
+        "font": "2.5vh sans-serif",
+        "color": "rgba(255, 255, 255, 1)",
+        "backgroundColor": "rgba(0, 0, 0, 0.8)",
+        "whiteSpace": "pre-line",
+        "top": "90px",
+        "right": "-20px",
+        "bottom": "-90px"
+      },
+      "childNodes": [
+        {
+          "style": {},
+          "childNodes": [],
+          "textContent": "WebVTT Processing Model Tests (This text should appear off the video)"
+        }
+      ],
+      "tagName": "div"
+    }
+  ],
+  "tagName": "div"
+}

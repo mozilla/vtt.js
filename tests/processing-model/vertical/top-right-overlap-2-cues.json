@@ -1,0 +1,56 @@
+{
+  "style": {},
+  "childNodes": [
+    {
+      "style": {
+        "left": "-5px",
+        "width": "50%",
+        "textAlign": "center",
+        "direction": "ltr",
+        "writingMode": "horizontal-tb",
+        "position": "absolute",
+        "unicodeBidi": "plaintext",
+        "font": "2.5vh sans-serif",
+        "color": "rgba(255, 255, 255, 1)",
+        "backgroundColor": "rgba(0, 0, 0, 0.8)",
+        "whiteSpace": "pre-line",
+        "top": "90px",
+        "right": "55px",
+        "bottom": "-90px"
+      },
+      "childNodes": [
+        {
+          "style": {},
+          "childNodes": [],
+          "textContent": "The processing model attempts to place multiple cues\nin their best position without overlapping one another."
+        }
+      ],
+      "tagName": "div"
+    },
+    {
+      "style": {
+        "left": "15%",
+        "width": "50%",
+        "textAlign": "center",
+        "direction": "ltr",
+        "writingMode": "horizontal-tb",
+        "position": "absolute",
+        "unicodeBidi": "plaintext",
+        "font": "2.5vh sans-serif",
+        "color": "rgba(255, 255, 255, 1)",
+        "backgroundColor": "rgba(0, 0, 0, 0.8)",
+        "whiteSpace": "pre-line",
+        "top": "30%"
+      },
+      "childNodes": [
+        {
+          "style": {},
+          "childNodes": [],
+          "textContent": "The processing model attempts to place multiple cues\nin their best position without overlapping one another."
+        }
+      ],
+      "tagName": "div"
+    }
+  ],
+  "tagName": "div"
+}
