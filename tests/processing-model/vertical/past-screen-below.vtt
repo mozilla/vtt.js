@@ -1,0 +1,11 @@
+WEBVTT
+
+00:01.000 --> 00:02.000 line:90% position:20% size:80%
+There will be enough text
+in this cue that overflows
+past the bottom of the video
+rendering area - or at least I
+hope. I guess it wouldn't hurt
+to add more lines of text.
+Okay, great, now we have a total
+of 8 lines to test for.
