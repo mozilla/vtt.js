@@ -70,7 +70,7 @@ try {
   if (argv.v && typeof argv.v === "string") {
     if (!fs.lstatSync(argv.v).isFile())
       fail("No such file.");
-    if (!argv.v.match(/.vtt$/))
+    if (!argv.v.match(/\.vtt$/))
       fail("Must pass a WebVTT file.");
     writeJSON(argv.v);
   }
