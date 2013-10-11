@@ -18,6 +18,11 @@ var opt = require("optimist")
     .options("p", {
       alias: "process",
       describe: "Generate a JSON file of the output returned from the processing model."
+    })
+    .options("n", {
+      alias: "new",
+      describe: "Creates a new JSON file for any VTT file that does not have one. " +
+                "Works recursively in a directory."
     }),
   argv = opt.argv,
   path = require("path"),
@@ -54,6 +59,11 @@ function rewriteJSON(dirName) {
         var vttPath = flipName(nextPath);
         if (fs.existsSync(vttPath))
           writeJSON(vttPath);
+      } else if (argv.n && nextPath.match(/\.vtt$/)) {
+        // Generate a json if one doesn't exist.
+        var jsonPath = flipName(nextPath);
+        if (!fs.existsSync(jsonPath))
+          writeJSON(nextPath);
       }
     }
   }
