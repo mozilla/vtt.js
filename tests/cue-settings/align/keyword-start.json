@@ -17,6 +17,7 @@
         "style": {
           "left": 0,
           "width": "100%",
+          "bottom": 0,
           "textAlign": "start",
           "direction": "ltr",
           "writingMode": "horizontal-tb",

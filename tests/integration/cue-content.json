@@ -1,4 +1,4 @@
-﻿{
+{
   "regions": [],
   "cues": [
     {
@@ -17,6 +17,7 @@
         "style": {
           "left": 0,
           "width": "50%",
+          "bottom": 0,
           "textAlign": "start",
           "direction": "ltr",
           "writingMode": "horizontal-tb",
@@ -68,6 +69,7 @@
         "style": {
           "left": 0,
           "width": "50%",
+          "bottom": 0,
           "textAlign": "start",
           "direction": "rtl",
           "writingMode": "horizontal-tb",

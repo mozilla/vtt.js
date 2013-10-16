@@ -17,6 +17,7 @@
         "style": {
           "left": 0,
           "width": "100%",
+          "bottom": 0,
           "textAlign": "center",
           "direction": "ltr",
           "writingMode": "horizontal-tb",
@@ -53,6 +54,7 @@
         "style": {
           "left": 0,
           "width": "100%",
+          "bottom": 0,
           "textAlign": "center",
           "direction": "ltr",
           "writingMode": "horizontal-tb",
@@ -89,6 +91,7 @@
         "style": {
           "left": 0,
           "width": "100%",
+          "bottom": 0,
           "textAlign": "center",
           "direction": "ltr",
           "writingMode": "horizontal-tb",
@@ -125,6 +128,7 @@
         "style": {
           "left": 0,
           "width": "100%",
+          "bottom": 0,
           "textAlign": "center",
           "direction": "ltr",
           "writingMode": "horizontal-tb",

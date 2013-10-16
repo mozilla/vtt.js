@@ -623,11 +623,12 @@
 
     // Horizontal box orientation; pos is the distance from the left edge of the
     // area to the left edge of the box and boxLen is the distance extending to
-    // the right from there.
+    // the right from there. Anchor to the bottom of the screen.
     if (cue.vertical === "") {
       this.applyStyles({
         left:  this.formatStyle(pos, "%"),
-        width: this.formatStyle(cue.size, "%")
+        width: this.formatStyle(cue.size, "%"),
+        bottom: 0
       });
     // Vertical box orientation; pos is the distance from the top edge of the
     // area to the top edge of the box and boxLen is the height extending
@@ -637,6 +638,17 @@
         top: this.formatStyle(pos, "%"),
         height: this.formatStyle(cue.size, "%")
       });
+      // Anchor to the left of the screen for vertical growing right text.
+      if (cue.vertical === "lr") {
+        this.applyStyles({
+          left: 0
+        });
+      // Anchor to the right of the screen for vertical growing left text.
+      } else if (cue.vertical === "rl") {
+        this.applyStyles({
+          right: 0
+        });
+      }
     }
 
     // All WebVTT cue-setting alignments are equivalent to the CSS mirrors of
