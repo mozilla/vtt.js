@@ -669,6 +669,12 @@
       backgroundColor: "rgba(0, 0, 0, 0.8)",
       whiteSpace: "pre-line"
     });
+
+    if (cue.vertical === "lr") {
+      this.applyStyles({
+        right: 0
+      });
+    }
   }
   CueBoundingBox.prototype = Object.create(BasicBoundingBox.prototype);
   CueBoundingBox.prototype.constuctor = CueBoundingBox;
