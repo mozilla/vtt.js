@@ -14,33 +14,32 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
             "target": "timestamp",
-            "data": 1
+            "data": 1,
+            "childNodes": []
           },
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "It's a blue apple tree!"
+            "data": "It's a blue apple tree!",
+            "textContent": "It's a blue apple tree!",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
     }
   ]

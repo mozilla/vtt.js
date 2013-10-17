@@ -14,35 +14,34 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
+            "tagName": "SPAN",
+            "lang": "en-Us",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": "No way!"
+                "data": "No way!",
+                "textContent": "No way!",
+                "childNodes": []
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "lang": "en-Us"
+            ]
           }
-        ],
-        "tagName": "div"
+        ]
       }
     }
   ]

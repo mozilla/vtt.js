@@ -14,7 +14,8 @@
     "grunt-contrib-uglify": "~0.2.2",
     "mocha": "~1.12.0",
     "difflet": "git://github.com/humphd/difflet.git#714b82706ad39d75275a886aeff637df5097626f",
-    "underscore": "~1.5.1"
+    "underscore": "~1.5.1",
+    "jsdom": "0.8.6"
   },
   "main": "vtt.js",
   "scripts": {

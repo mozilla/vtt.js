@@ -35,27 +35,27 @@
       "align": "left",
       "position": 0,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "left",
+          "text-align": "left",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Hi, my name is Fred"
+            "data": "Hi, my name is Fred",
+            "textContent": "Hi, my name is Fred",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -71,27 +71,27 @@
       "align": "right",
       "position": 100,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "right",
+          "text-align": "right",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Hi, I'm Bill"
+            "data": "Hi, I'm Bill",
+            "textContent": "Hi, I'm Bill",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -107,27 +107,27 @@
       "align": "left",
       "position": 0,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "left",
+          "text-align": "left",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Would you like to get a coffee?"
+            "data": "Would you like to get a coffee?",
+            "textContent": "Would you like to get a coffee?",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -143,27 +143,27 @@
       "align": "right",
       "position": 100,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "right",
+          "text-align": "right",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Sure! I've only had one today."
+            "data": "Sure! I've only had one today.",
+            "textContent": "Sure! I've only had one today.",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -179,27 +179,27 @@
       "align": "left",
       "position": 0,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "left",
+          "text-align": "left",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "This is my fourth!"
+            "data": "This is my fourth!",
+            "textContent": "This is my fourth!",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -215,27 +215,27 @@
       "align": "left",
       "position": 0,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "left",
+          "text-align": "left",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "OK, let's go."
+            "data": "OK, let's go.",
+            "textContent": "OK, let's go.",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
     }
   ]

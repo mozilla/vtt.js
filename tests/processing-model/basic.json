@@ -1,145 +1,135 @@
 [
   {
+    "tagName": "DIV",
     "style": {
       "position": "absolute",
-      "writingMode": "horizontal-tb",
-      "backgroundColor": "rgba(0, 0, 0, 0.8)",
-      "wordWrap": "break-word",
-      "overflowWrap": "break-word",
+      "writing-mode": "horizontal-tb",
+      "background-color": "rgba(0, 0, 0, 0.8)",
+      "word-wrap": "break-word",
       "font": "1.3vh/0.0533vh sans-serif",
-      "lineHeight": "0.0533vh",
+      "line-height": "0.0533vh",
       "color": "rgba(255, 255, 255, 1)",
       "overflow": "hidden",
       "width": "50%",
-      "minHeight": "0",
-      "maxHeight": "0.1599px",
+      "min-height": "0",
+      "max-height": "0.1599px",
       "left": "10%",
       "top": "89.8401%",
-      "display": "inline-flex",
-      "flexFlow": "column",
-      "justifyContent": "flex-end",
-      "transitionProperty": "top",
-      "transitionDuration": "0.433s"
+      "display": "inline-flex"
     },
     "childNodes": [
       {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "auto",
-          "textAlign": "center",
+          "text-align": "center",
           "position": "relative",
-          "unicodeBidi": "plaintext"
+          "unicode-bidi": "plaintext"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "This"
+            "data": "This",
+            "textContent": "This",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       },
       {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "auto",
-          "textAlign": "end",
+          "text-align": "end",
           "position": "relative",
-          "unicodeBidi": "plaintext"
+          "unicode-bidi": "plaintext"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "A"
+            "data": "A",
+            "textContent": "A",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
-    ],
-    "tagName": "div"
+    ]
   },
   {
+    "tagName": "DIV",
     "style": {
       "position": "absolute",
-      "writingMode": "horizontal-tb",
-      "backgroundColor": "rgba(0, 0, 0, 0.8)",
-      "wordWrap": "break-word",
-      "overflowWrap": "break-word",
+      "writing-mode": "horizontal-tb",
+      "background-color": "rgba(0, 0, 0, 0.8)",
+      "word-wrap": "break-word",
       "font": "1.3vh/0.0533vh sans-serif",
-      "lineHeight": "0.0533vh",
+      "line-height": "0.0533vh",
       "color": "rgba(255, 255, 255, 1)",
       "overflow": "hidden",
       "width": "20%",
-      "minHeight": "0",
-      "maxHeight": "0.2665px",
+      "min-height": "0",
+      "max-height": "0.2665px",
       "left": "70%",
       "top": "89.7335%",
-      "display": "inline-flex",
-      "flexFlow": "column",
-      "justifyContent": "flex-end",
-      "transitionProperty": "top",
-      "transitionDuration": "0.433s"
+      "display": "inline-flex"
     },
     "childNodes": [
       {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "auto",
-          "textAlign": "center",
+          "text-align": "center",
           "position": "relative",
-          "unicodeBidi": "plaintext"
+          "unicode-bidi": "plaintext"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Is"
+            "data": "Is",
+            "textContent": "Is",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       },
       {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "auto",
-          "textAlign": "start",
+          "text-align": "start",
           "position": "relative",
-          "unicodeBidi": "plaintext"
+          "unicode-bidi": "plaintext"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Processing"
+            "data": "Processing",
+            "textContent": "Processing",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
-    ],
-    "tagName": "div"
+    ]
   },
   {
+    "tagName": "DIV",
     "style": {
       "left": 0,
       "width": "100%",
-      "textAlign": "center",
+      "text-align": "center",
       "direction": "ltr",
-      "writingMode": "horizontal-tb",
+      "writing-mode": "horizontal-tb",
       "position": "absolute",
-      "unicodeBidi": "plaintext",
+      "unicode-bidi": "plaintext",
       "font": "2.5vh sans-serif",
       "color": "rgba(255, 255, 255, 1)",
-      "backgroundColor": "rgba(0, 0, 0, 0.8)",
-      "whiteSpace": "pre-line"
+      "background-color": "rgba(0, 0, 0, 0.8)",
+      "white-space": "pre-line"
     },
     "childNodes": [
       {
-        "style": {},
-        "childNodes": [],
-        "textContent": "model Test!"
+        "data": "model Test!",
+        "textContent": "model Test!",
+        "childNodes": []
       }
-    ],
-    "tagName": "div"
+    ]
   }
 ]

@@ -14,27 +14,27 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Text\n00:02.000 --> 00:04.000\nText"
+            "data": "Text\n00:02.000 --> 00:04.000\nText",
+            "textContent": "Text\n00:02.000 --> 00:04.000\nText",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -50,27 +50,27 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Text\n-->\nText"
+            "data": "Text\n-->\nText",
+            "textContent": "Text\n-->\nText",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -86,27 +86,27 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "00:06.000 --> 00:08.000\nText"
+            "data": "00:06.000 --> 00:08.000\nText",
+            "textContent": "00:06.000 --> 00:08.000\nText",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
     }
   ]
