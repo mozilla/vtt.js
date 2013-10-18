@@ -1,5 +1,39 @@
 [
   {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "textContent": "This"
+          }
+        ],
+        "style": {
+          "left": 0,
+          "width": "auto",
+          "bottom": 0,
+          "textAlign": "center",
+          "position": "relative",
+          "unicodeBidi": "plaintext"
+        },
+        "tagName": "div"
+      },
+      {
+        "childNodes": [
+          {
+            "textContent": "A"
+          }
+        ],
+        "style": {
+          "left": 0,
+          "width": "auto",
+          "bottom": 0,
+          "textAlign": "end",
+          "position": "relative",
+          "unicodeBidi": "plaintext"
+        },
+        "tagName": "div"
+      }
+    ],
     "style": {
       "position": "absolute",
       "writingMode": "horizontal-tb",
@@ -21,8 +55,16 @@
       "transitionProperty": "top",
       "transitionDuration": "0.433s"
     },
+    "tagName": "div"
+  },
+  {
     "childNodes": [
       {
+        "childNodes": [
+          {
+            "textContent": "Is"
+          }
+        ],
         "style": {
           "left": 0,
           "width": "auto",
@@ -31,37 +73,25 @@
           "position": "relative",
           "unicodeBidi": "plaintext"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": "This"
-          }
-        ],
         "tagName": "div"
       },
       {
+        "childNodes": [
+          {
+            "textContent": "Processing"
+          }
+        ],
         "style": {
           "left": 0,
           "width": "auto",
           "bottom": 0,
-          "textAlign": "end",
+          "textAlign": "start",
           "position": "relative",
           "unicodeBidi": "plaintext"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": "A"
-          }
-        ],
         "tagName": "div"
       }
     ],
-    "tagName": "div"
-  },
-  {
     "style": {
       "position": "absolute",
       "writingMode": "horizontal-tb",
@@ -83,47 +113,14 @@
       "transitionProperty": "top",
       "transitionDuration": "0.433s"
     },
-    "childNodes": [
-      {
-        "style": {
-          "left": 0,
-          "width": "auto",
-          "bottom": 0,
-          "textAlign": "center",
-          "position": "relative",
-          "unicodeBidi": "plaintext"
-        },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Is"
-          }
-        ],
-        "tagName": "div"
-      },
-      {
-        "style": {
-          "left": 0,
-          "width": "auto",
-          "bottom": 0,
-          "textAlign": "start",
-          "position": "relative",
-          "unicodeBidi": "plaintext"
-        },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Processing"
-          }
-        ],
-        "tagName": "div"
-      }
-    ],
     "tagName": "div"
   },
   {
+    "childNodes": [
+      {
+        "textContent": "model Test!"
+      }
+    ],
     "style": {
       "left": 0,
       "width": "100%",
@@ -138,13 +135,6 @@
       "backgroundColor": "rgba(0, 0, 0, 0.8)",
       "whiteSpace": "pre-line"
     },
-    "childNodes": [
-      {
-        "style": {},
-        "childNodes": [],
-        "textContent": "model Test!"
-      }
-    ],
     "tagName": "div"
   }
 ]

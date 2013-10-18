@@ -35,6 +35,11 @@
       "align": "left",
       "position": 0,
       "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Hi, my name is Fred"
+          }
+        ],
         "style": {
           "left": 0,
           "width": "100%",
@@ -49,13 +54,6 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Hi, my name is Fred"
-          }
-        ],
         "tagName": "div"
       }
     },
@@ -72,6 +70,11 @@
       "align": "right",
       "position": 100,
       "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Hi, I'm Bill"
+          }
+        ],
         "style": {
           "left": 0,
           "width": "100%",
@@ -86,13 +89,6 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Hi, I'm Bill"
-          }
-        ],
         "tagName": "div"
       }
     },
@@ -109,6 +105,11 @@
       "align": "left",
       "position": 0,
       "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Would you like to get a coffee?"
+          }
+        ],
         "style": {
           "left": 0,
           "width": "100%",
@@ -123,13 +124,6 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Would you like to get a coffee?"
-          }
-        ],
         "tagName": "div"
       }
     },
@@ -146,6 +140,11 @@
       "align": "right",
       "position": 100,
       "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Sure! I've only had one today."
+          }
+        ],
         "style": {
           "left": 0,
           "width": "100%",
@@ -160,13 +159,6 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Sure! I've only had one today."
-          }
-        ],
         "tagName": "div"
       }
     },
@@ -183,6 +175,11 @@
       "align": "left",
       "position": 0,
       "domTree": {
+        "childNodes": [
+          {
+            "textContent": "This is my fourth!"
+          }
+        ],
         "style": {
           "left": 0,
           "width": "100%",
@@ -197,13 +194,6 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": "This is my fourth!"
-          }
-        ],
         "tagName": "div"
       }
     },
@@ -220,6 +210,11 @@
       "align": "left",
       "position": 0,
       "domTree": {
+        "childNodes": [
+          {
+            "textContent": "OK, let's go."
+          }
+        ],
         "style": {
           "left": 0,
           "width": "100%",
@@ -234,13 +229,6 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": "OK, let's go."
-          }
-        ],
         "tagName": "div"
       }
     }

@@ -14,6 +14,24 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "target": "timestamp",
+            "data": 1
+          },
+          {
+            "textContent": "Hee!"
+          },
+          {
+            "childNodes": [],
+            "target": "timestamp",
+            "data": 1.5
+          },
+          {
+            "textContent": " Hee!"
+          }
+        ],
         "style": {
           "left": 0,
           "width": "100%",
@@ -28,30 +46,6 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [],
-            "target": "timestamp",
-            "data": 1
-          },
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Hee!"
-          },
-          {
-            "style": {},
-            "childNodes": [],
-            "target": "timestamp",
-            "data": 1.5
-          },
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": " Hee!"
-          }
-        ],
         "tagName": "div"
       }
     }

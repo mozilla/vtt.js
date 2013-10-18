@@ -14,6 +14,11 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "childNodes": [
+          {
+            "textContent": "This"
+          }
+        ],
         "style": {
           "left": 0,
           "width": "100%",
@@ -28,13 +33,6 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": "This"
-          }
-        ],
         "tagName": "div"
       }
     },
@@ -51,6 +49,11 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Is"
+          }
+        ],
         "style": {
           "left": 0,
           "width": "100%",
@@ -65,13 +68,6 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Is"
-          }
-        ],
         "tagName": "div"
       }
     },
@@ -88,6 +84,11 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "childNodes": [
+          {
+            "textContent": "A"
+          }
+        ],
         "style": {
           "left": 0,
           "width": "100%",
@@ -102,13 +103,6 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": "A"
-          }
-        ],
         "tagName": "div"
       }
     },
@@ -125,6 +119,11 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "childNodes": [
+          {
+            "textContent": "And stuff?"
+          }
+        ],
         "style": {
           "left": 0,
           "width": "100%",
@@ -139,13 +138,6 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": "And stuff?"
-          }
-        ],
         "tagName": "div"
       }
     }

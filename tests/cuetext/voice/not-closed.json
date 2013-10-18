@@ -14,6 +14,18 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "childNodes": [
+          {
+            "childNodes": [
+              {
+                "textContent": "It's a blue apple tree!"
+              }
+            ],
+            "style": {},
+            "tagName": "span",
+            "localName": "span"
+          }
+        ],
         "style": {
           "left": 0,
           "width": "100%",
@@ -28,20 +40,6 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [
-              {
-                "style": {},
-                "childNodes": [],
-                "textContent": "It's a blue apple tree!"
-              }
-            ],
-            "tagName": "span",
-            "localName": "span"
-          }
-        ],
         "tagName": "div"
       }
     }

@@ -14,6 +14,21 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "childNodes": [
+          {
+            "childNodes": [
+              {
+                "textContent": "Hee!"
+              },
+              {
+                "textContent": " Hee!"
+              }
+            ],
+            "style": {},
+            "tagName": "i",
+            "localName": "i"
+          }
+        ],
         "style": {
           "left": 0,
           "width": "100%",
@@ -28,25 +43,6 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [
-              {
-                "style": {},
-                "childNodes": [],
-                "textContent": "Hee!"
-              },
-              {
-                "style": {},
-                "childNodes": [],
-                "textContent": " Hee!"
-              }
-            ],
-            "tagName": "i",
-            "localName": "i"
-          }
-        ],
         "tagName": "div"
       }
     }
