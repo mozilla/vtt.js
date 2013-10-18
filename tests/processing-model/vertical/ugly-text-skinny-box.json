@@ -1,0 +1,32 @@
+{
+  "style": {},
+  "childNodes": [
+    {
+      "style": {
+        "left": "17.5px",
+        "width": "5%",
+        "textAlign": "center",
+        "direction": "ltr",
+        "writingMode": "horizontal-tb",
+        "position": "absolute",
+        "unicodeBidi": "plaintext",
+        "font": "2.5vh sans-serif",
+        "color": "rgba(255, 255, 255, 1)",
+        "backgroundColor": "rgba(0, 0, 0, 0.8)",
+        "whiteSpace": "pre-line",
+        "top": "90px",
+        "right": "77.5px",
+        "bottom": "-90px"
+      },
+      "childNodes": [
+        {
+          "style": {},
+          "childNodes": [],
+          "textContent": "Here we have a very skinny box.\nWhat does the final result look like?\nLet's find out."
+        }
+      ],
+      "tagName": "div"
+    }
+  ],
+  "tagName": "div"
+}

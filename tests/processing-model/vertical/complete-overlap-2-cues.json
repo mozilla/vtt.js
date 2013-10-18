@@ -1,0 +1,56 @@
+{
+  "style": {},
+  "childNodes": [
+    {
+      "style": {
+        "left": "-15px",
+        "width": "70%",
+        "textAlign": "center",
+        "direction": "ltr",
+        "writingMode": "horizontal-tb",
+        "position": "absolute",
+        "unicodeBidi": "plaintext",
+        "font": "2.5vh sans-serif",
+        "color": "rgba(255, 255, 255, 1)",
+        "backgroundColor": "rgba(0, 0, 0, 0.8)",
+        "whiteSpace": "pre-line",
+        "top": "90px",
+        "right": "45px",
+        "bottom": "-90px"
+      },
+      "childNodes": [
+        {
+          "style": {},
+          "childNodes": [],
+          "textContent": "What happens if we have two cues directly on top of each other?"
+        }
+      ],
+      "tagName": "div"
+    },
+    {
+      "style": {
+        "left": "-15%",
+        "width": "70%",
+        "textAlign": "center",
+        "direction": "ltr",
+        "writingMode": "horizontal-tb",
+        "position": "absolute",
+        "unicodeBidi": "plaintext",
+        "font": "2.5vh sans-serif",
+        "color": "rgba(255, 255, 255, 1)",
+        "backgroundColor": "rgba(0, 0, 0, 0.8)",
+        "whiteSpace": "pre-line",
+        "top": "40%"
+      },
+      "childNodes": [
+        {
+          "style": {},
+          "childNodes": [],
+          "textContent": "What happens if we have two cues directly on top of each other?"
+        }
+      ],
+      "tagName": "div"
+    }
+  ],
+  "tagName": "div"
+}
