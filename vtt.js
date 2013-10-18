@@ -270,9 +270,7 @@
         var node;
         if (ts) {
           // Timestamps are lead nodes as well.
-          node = window.ProcessingInstruction();
-          node.target = "timestamp";
-          node.data = ts;
+          node = window.document.createProcessingInstruction("timestamp", ts);
           current.appendChild(node);
           continue;
         }
