@@ -37,8 +37,8 @@ function flipName(fileName) {
 
 function getJSON(fileName) {
   if (argv.p)
-    return JSON.stringify(util.runProcessingModel(fileName), util.filterJson, 2);
-  return JSON.stringify(util.parse(fileName, true), util.filterJson, 2);
+    return JSON.stringify(util.runProcessingModel(fileName), null, 2);
+  return JSON.stringify(util.parse(fileName, true), null, 2);
 }
 
 function writeJSON(fileName) {

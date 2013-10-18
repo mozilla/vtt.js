@@ -14,27 +14,27 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Introduction"
+            "data": "Introduction",
+            "textContent": "Introduction",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -50,27 +50,27 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Topics"
+            "data": "Topics",
+            "textContent": "Topics",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -86,27 +86,27 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Presenters"
+            "data": "Presenters",
+            "textContent": "Presenters",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -122,27 +122,27 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Scrolling Effects"
+            "data": "Scrolling Effects",
+            "textContent": "Scrolling Effects",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -158,27 +158,27 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Achim's Demo"
+            "data": "Achim's Demo",
+            "textContent": "Achim's Demo",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -194,27 +194,27 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Timeline Panel"
+            "data": "Timeline Panel",
+            "textContent": "Timeline Panel",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
     }
   ]

@@ -1,6 +1,6 @@
 var util = require("../lib/util.js"),
     assert = util.assert,
-    FakeWindow = util.FakeWindow,
+    window = util.window,
     // http://www.fileformat.info/info/unicode/char/1f638/index.htm
     grinningCatFace = "\uD83D\uDE38";
     text = "Cats ♥ WebVTT " + grinningCatFace,
@@ -12,7 +12,7 @@ describe("UTF8 Encoding Tests", function(){
 
   it("parse utf8 encoded bytes", function(){
     var WebVTTParser = util.WebVTTParser,
-        p = new WebVTTParser(FakeWindow),
+        p = new WebVTTParser(window),
         cues = [];
     p.oncue = function(cue) {
       cues.push(cue);
@@ -34,7 +34,7 @@ describe("UTF8 Encoding Tests", function(){
 
   it("parse utf8 encoded bytes in pieces", function(){
     var WebVTTParser = util.WebVTTParser,
-        p = new WebVTTParser(FakeWindow),
+        p = new WebVTTParser(window),
         cues = [];
     p.oncue = function(cue) {
       cues.push(cue);
@@ -65,7 +65,7 @@ describe("UTF8 Encoding Tests", function(){
 
   it("parse bad utf8 encoded bytes", function(){
     var WebVTTParser = util.WebVTTParser,
-        p = new WebVTTParser(FakeWindow),
+        p = new WebVTTParser(window),
         cues = [];
     p.oncue = function(cue) {
       cues.push(cue);
@@ -86,7 +86,7 @@ describe("UTF8 Encoding Tests", function(){
 
   it("parse bad utf8 encoded bytes in pieces", function(){
     var WebVTTParser = util.WebVTTParser,
-        p = new WebVTTParser(FakeWindow),
+        p = new WebVTTParser(window),
         cues = [];
     p.oncue = function(cue) {
       cues.push(cue);

@@ -1,4 +1,4 @@
-﻿{
+{
   "regions": [],
   "cues": [
     {
@@ -14,42 +14,40 @@
       "align": "start",
       "position": 0,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "50%",
-          "textAlign": "start",
+          "text-align": "start",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
+            "tagName": "SPAN",
+            "title": "Neil deGrasse Tyson",
             "style": {},
             "childNodes": [
               {
+                "tagName": "I",
                 "style": {},
                 "childNodes": [
                   {
-                    "style": {},
-                    "childNodes": [],
-                    "textContent": "Laughs"
+                    "data": "Laughs",
+                    "textContent": "Laughs",
+                    "childNodes": []
                   }
-                ],
-                "tagName": "i",
-                "localName": "i"
+                ]
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Neil deGrasse Tyson"
+            ]
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -65,44 +63,43 @@
       "align": "start",
       "position": 0,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "50%",
-          "textAlign": "start",
+          "text-align": "start",
           "direction": "rtl",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Random escapes &am& other "
+            "data": "Random escapes &am& other ",
+            "textContent": "Random escapes &am& other ",
+            "childNodes": []
           },
           {
+            "tagName": "I",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " stuff > &l<&rl\u200f\u200e "
+                "data": " stuff > &l<&rl\u200f\u200e ",
+                "textContent": " stuff > &l<&rl\u200f\u200e ",
+                "childNodes": []
               }
-            ],
-            "tagName": "i",
-            "localName": "i"
+            ]
           },
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "\nOh my! >"
+            "data": "\nOh my! >",
+            "textContent": "\nOh my! >",
+            "childNodes": []
           }
-        ],
-        "tagName": "div"
+        ]
       }
     }
   ]

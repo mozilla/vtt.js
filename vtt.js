@@ -270,9 +270,7 @@
         var node;
         if (ts) {
           // Timestamps are lead nodes as well.
-          node = window.ProcessingInstruction();
-          node.target = "timestamp";
-          node.data = ts;
+          node = window.document.createProcessingInstruction("timestamp", ts);
           current.appendChild(node);
           continue;
         }
@@ -545,7 +543,7 @@
         return null;
 
       var node = nodeStack.pop();
-      if (node.textContent) {
+      if (node.nodeType === 3) {
         // TODO: This should match all unicode type B characters (paragraph
         // separator characters). See issue #115.
         var m = node.textContent.match(/^.*(\n|\r)/);
@@ -669,6 +667,12 @@
       backgroundColor: "rgba(0, 0, 0, 0.8)",
       whiteSpace: "pre-line"
     });
+
+    if (cue.vertical === "lr") {
+      this.applyStyles({
+        right: 0
+      });
+    }
   }
   CueBoundingBox.prototype = Object.create(BasicBoundingBox.prototype);
   CueBoundingBox.prototype.constuctor = CueBoundingBox;
@@ -883,7 +887,6 @@
             return this;
           
           line = collectNextLine();
-          
           var m = line.match(/^WEBVTT([ \t].*)?$/);
           if (!m || !m[0]) {
             throw "error";

@@ -14,35 +14,34 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
+            "tagName": "SPAN",
+            "title": "Kyle Huey",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " Not ready yet? Alright, I'll wait until the camera man tells me we're good."
+                "data": " Not ready yet? Alright, I'll wait until the camera man tells me we're good.",
+                "textContent": " Not ready yet? Alright, I'll wait until the camera man tells me we're good.",
+                "childNodes": []
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
+            ]
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -58,70 +57,67 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
+            "tagName": "SPAN",
+            "title": "Chris Pearce",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " Okay, we're good now."
+                "data": " Okay, we're good now.",
+                "textContent": " Okay, we're good now.",
+                "childNodes": []
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Chris Pearce"
+            ]
           },
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "\n"
+            "data": "\n",
+            "textContent": "\n",
+            "childNodes": []
           },
           {
+            "tagName": "SPAN",
+            "title": "Kyle Huey",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " Oh, now we're good?"
+                "data": " Oh, now we're good?",
+                "textContent": " Oh, now we're good?",
+                "childNodes": []
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
+            ]
           },
           {
-            "style": {},
-            "childNodes": [],
-            "textContent": "\n"
+            "data": "\n",
+            "textContent": "\n",
+            "childNodes": []
           },
           {
+            "tagName": "I",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": "Laughter"
+                "data": "Laughter",
+                "textContent": "Laughter",
+                "childNodes": []
               }
-            ],
-            "tagName": "i",
-            "localName": "i"
+            ]
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -137,52 +133,50 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
+            "tagName": "SPAN",
+            "title": "Kyle Huey",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " So thanks again for "
+                "data": " So thanks again for ",
+                "textContent": " So thanks again for ",
+                "childNodes": []
               },
               {
+                "tagName": "U",
                 "style": {},
                 "childNodes": [
                   {
-                    "style": {},
-                    "childNodes": [],
-                    "textContent": "coming"
+                    "data": "coming",
+                    "textContent": "coming",
+                    "childNodes": []
                   }
-                ],
-                "tagName": "u",
-                "localName": "u"
+                ]
               },
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": ". I'm going to talk a bit about the cycle collector and what it does and how we manage memory in Gecko."
+                "data": ". I'm going to talk a bit about the cycle collector and what it does and how we manage memory in Gecko.",
+                "textContent": ". I'm going to talk a bit about the cycle collector and what it does and how we manage memory in Gecko.",
+                "childNodes": []
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
+            ]
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -198,35 +192,34 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
+            "tagName": "SPAN",
+            "title": "Kyle Huey",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " And hopefully, answer questions that you all have about that."
+                "data": " And hopefully, answer questions that you all have about that.",
+                "textContent": " And hopefully, answer questions that you all have about that.",
+                "childNodes": []
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
+            ]
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -242,35 +235,34 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
+            "tagName": "SPAN",
+            "title": "Kyle Huey",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " And hopefully people leave here with a better understanding about how it works and how to use it."
+                "data": " And hopefully people leave here with a better understanding about how it works and how to use it.",
+                "textContent": " And hopefully people leave here with a better understanding about how it works and how to use it.",
+                "childNodes": []
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
+            ]
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -286,52 +278,50 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
+            "tagName": "SPAN",
+            "title": "Kyle Huey",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " So the "
+                "data": " So the ",
+                "textContent": " So the ",
+                "childNodes": []
               },
               {
+                "tagName": "B",
                 "style": {},
                 "childNodes": [
                   {
-                    "style": {},
-                    "childNodes": [],
-                    "textContent": "cyle collector"
+                    "data": "cyle collector",
+                    "textContent": "cyle collector",
+                    "childNodes": []
                   }
-                ],
-                "tagName": "b",
-                "localName": "b"
+                ]
               },
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " does three main things."
+                "data": " does three main things.",
+                "textContent": " does three main things.",
+                "childNodes": []
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
+            ]
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -347,35 +337,34 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
+            "tagName": "SPAN",
+            "title": "Kyle Huey",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " So the first thing it does... no it probably doesn't do that."
+                "data": " So the first thing it does... no it probably doesn't do that.",
+                "textContent": " So the first thing it does... no it probably doesn't do that.",
+                "childNodes": []
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
+            ]
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -391,52 +380,50 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
+            "tagName": "SPAN",
+            "title": "Kyle Huey",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " So the first thing that the "
+                "data": " So the first thing that the ",
+                "textContent": " So the first thing that the ",
+                "childNodes": []
               },
               {
+                "tagName": "B",
                 "style": {},
                 "childNodes": [
                   {
-                    "style": {},
-                    "childNodes": [],
-                    "textContent": "cycle collector"
+                    "data": "cycle collector",
+                    "textContent": "cycle collector",
+                    "childNodes": []
                   }
-                ],
-                "tagName": "b",
-                "localName": "b"
+                ]
               },
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " does is that it collects garbage C++ cycles."
+                "data": " does is that it collects garbage C++ cycles.",
+                "textContent": " does is that it collects garbage C++ cycles.",
+                "childNodes": []
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
+            ]
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -452,35 +439,34 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
+            "tagName": "SPAN",
+            "title": "Kyle Huey",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " Hopefully, you can read my terrible hand writing, and hopefully, this doesn't fall down half way through."
+                "data": " Hopefully, you can read my terrible hand writing, and hopefully, this doesn't fall down half way through.",
+                "textContent": " Hopefully, you can read my terrible hand writing, and hopefully, this doesn't fall down half way through.",
+                "childNodes": []
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
+            ]
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -496,52 +482,50 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
+            "tagName": "SPAN",
+            "title": "Kyle Huey",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " So as most of you probably know, for most objects in Gecko we use "
+                "data": " So as most of you probably know, for most objects in Gecko we use ",
+                "textContent": " So as most of you probably know, for most objects in Gecko we use ",
+                "childNodes": []
               },
               {
+                "tagName": "U",
                 "style": {},
                 "childNodes": [
                   {
-                    "style": {},
-                    "childNodes": [],
-                    "textContent": "reference counting"
+                    "data": "reference counting",
+                    "textContent": "reference counting",
+                    "childNodes": []
                   }
-                ],
-                "tagName": "u",
-                "localName": "u"
+                ]
               },
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": "."
+                "data": ".",
+                "textContent": ".",
+                "childNodes": []
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
+            ]
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -557,35 +541,34 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
+            "tagName": "SPAN",
+            "title": "Kyle Huey",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " To keep track of lifetimes and what not, and so, one situation you could end up with in reference counting is something like"
+                "data": " To keep track of lifetimes and what not, and so, one situation you could end up with in reference counting is something like",
+                "textContent": " To keep track of lifetimes and what not, and so, one situation you could end up with in reference counting is something like",
+                "childNodes": []
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
+            ]
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -601,35 +584,34 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
+            "tagName": "SPAN",
+            "title": "Kyle Huey",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " A owns a reference to B and B owns a reference to A."
+                "data": " A owns a reference to B and B owns a reference to A.",
+                "textContent": " A owns a reference to B and B owns a reference to A.",
+                "childNodes": []
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
+            ]
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -645,35 +627,34 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
+            "tagName": "SPAN",
+            "title": "Kyle Huey",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " And so if you never do anything else, both of these will always have a reference count of 1, and you will leak memory... and that's bad."
+                "data": " And so if you never do anything else, both of these will always have a reference count of 1, and you will leak memory... and that's bad.",
+                "textContent": " And so if you never do anything else, both of these will always have a reference count of 1, and you will leak memory... and that's bad.",
+                "childNodes": []
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
+            ]
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -689,52 +670,50 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
+            "tagName": "SPAN",
+            "title": "Kyle Huey",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " So that's the first thing the "
+                "data": " So that's the first thing the ",
+                "textContent": " So that's the first thing the ",
+                "childNodes": []
               },
               {
+                "tagName": "B",
                 "style": {},
                 "childNodes": [
                   {
-                    "style": {},
-                    "childNodes": [],
-                    "textContent": "cycle collector"
+                    "data": "cycle collector",
+                    "textContent": "cycle collector",
+                    "childNodes": []
                   }
-                ],
-                "tagName": "b",
-                "localName": "b"
+                ]
               },
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " gives us."
+                "data": " gives us.",
+                "textContent": " gives us.",
+                "childNodes": []
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
+            ]
           }
-        ],
-        "tagName": "div"
+        ]
       }
     },
     {
@@ -750,35 +729,34 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "tagName": "DIV",
         "style": {
           "left": 0,
           "width": "100%",
-          "textAlign": "center",
+          "text-align": "center",
           "direction": "ltr",
-          "writingMode": "horizontal-tb",
+          "writing-mode": "horizontal-tb",
           "position": "absolute",
-          "unicodeBidi": "plaintext",
+          "unicode-bidi": "plaintext",
           "font": "2.5vh sans-serif",
           "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
+          "background-color": "rgba(0, 0, 0, 0.8)",
+          "white-space": "pre-line"
         },
         "childNodes": [
           {
+            "tagName": "SPAN",
+            "title": "Kyle Huey",
             "style": {},
             "childNodes": [
               {
-                "style": {},
-                "childNodes": [],
-                "textContent": " The second thing the cycle collector deals with is cycles between C++ and Javascript."
+                "data": " The second thing the cycle collector deals with is cycles between C++ and Javascript.",
+                "textContent": " The second thing the cycle collector deals with is cycles between C++ and Javascript.",
+                "childNodes": []
               }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
+            ]
           }
-        ],
-        "tagName": "div"
+        ]
       }
     }
   ]
