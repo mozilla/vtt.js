@@ -665,8 +665,11 @@
   const LINE_HEIGHT = 0.0533;
   const REGION_FONT_SIZE = 1.3;
 
-  function CueBoundingBox(window, cue) {
+  function CueBoundingBox(window, cue, computedCueBoxes, overlay,
+                          computedOverlayBox) {
     BasicBoundingBox.call(this, window, cue);
+    var self = this;
+
     this.applyStyles({
       direction: determineBidi(this.div),
       writingMode: cue.vertical === "" ? "horizontal-tb"
@@ -679,14 +682,126 @@
       backgroundColor: "rgba(0, 0, 0, 0.8)",
       whiteSpace: "pre-line"
     });
+
+    // Append to the overlay now as we need to be able to get the computed
+    // position of the div.
+    overlay.appendChild(this.div);
+
+    this.computedBox = function() {
+      var box = this.div.getBoundingClientRect();
+      // The object returned by getBoundingClientRect() is read-only, but we
+      // need to be able to write to its properties so instead we'll create a
+      // shallow copy of the object.
+      return {
+        left: box.left,
+        right: box.right,
+        top: box.top,
+        bottom: box.bottom,
+        width: box.width,
+        height: box.height
+      };
+    };
+
+    function moveToPosition(box) {
+      self.applyStyles({
+        left: self.formatStyle(box.left, "px"),
+        right: self.formatStyle(box.right, "px"),
+        top: self.formatStyle(box.top, "px"),
+        bottom: self.formatStyle(box.bottom, "px")
+      });
+    }
+
+    function overlaps(boxOne, boxTwo) {
+      return !(boxOne.left > boxTwo.right &&
+               boxOne.right < boxTwo.left &&
+               boxOne.top > boxTwo.bottom &&
+               boxOne.bottom < boxTwo.top);
+    }
+
+    function pushOver(axis, box, avoidBox) {
+      var move;
+      switch(axis) {
+      case "+x":
+        move = abs(avoidBox.right - box.left);
+        box.left += move;
+        box.right += move;
+        break;
+      case "-x":
+        move = abs(avoidBox.left - box.right);
+        box.left -= move;
+        box.right -= move;
+        break;
+      case "+y":
+        move = abs(avoidBox.top - box.bottom);
+        box.bottom += move;
+        box.top += move;
+        break;
+      case "-y":
+        move = abs(avoidBox.bottom - box.top);
+        box.bottom -= move;
+        box.top -= move;
+        break;
+      }
+      return box;
+    }
+
+    function bestPositionAlongAxis(axis, box) {
+      for (var i = 0; i < computedCueBoxes.length; i++) {
+        if (!overlaps(box, computedCueBoxes[i]))
+          continue;
+        box = pushOver(axis, box, computedCueBoxes[i]);
+        if (!overlaps(box, computedOverlayBox))
+          continue;
+        return null;
+      }
+      return box;
+    }
+
+    var axis,
+        linePos = !cue.snapToLines ? cue.line
+                                   : cue.vertical === "lr" ? "10%"
+                                                           : "90%";
+    switch (cue.vertical) {
+    case "":
+      this.applyStyles({
+        top: this.formatStyle(linePos, "%")
+      });
+      axis = ["+y", "-x", "+x", "-y"];
+      break;
+    case "lr":
+      this.applyStyles({
+        width: this.formatStyle(linePos, "%")
+      });
+      axis = ["+x", "+y", "-y", "-x"];
+      break;
+    default:
+      this.applyStyles({
+        right: this.formatStyle(linePos, "%")
+      });
+      axis = ["-x", "+y", "-y", "+x"];
+      break;
+    }
+
+    var box = this.computedBox(),
+        positionedBox = null;
+
+    for (var i = 0; i < axis.length && !positionedBox; i++)
+      positionedBox = bestPositionAlongAxis(axis[i], box);
+
+    // If we found a better position, i.e. the initial position was no good,
+    // then move the box to that position.
+    if (positionedBox)
+      moveToPosition(positionedBox);
+
+    // Set the cue's display state to the computed subtitle's div.
+    cue.displayState = this.div;
   }
   CueBoundingBox.prototype = Object.create(BasicBoundingBox.prototype);
   CueBoundingBox.prototype.constuctor = CueBoundingBox;
 
-  function RegionBoundingBox(window, region) {
+  function RegionBoundingBox(window, region, overlay) {
     BoundingBox.call(this);
     this.div = window.document.createElement("div");
-    this.region = region;
 
     var left = region.viewportAnchorX - 
                region.regionAnchorX * region.width / 100,
@@ -715,7 +830,13 @@
       justifyContent: "flex-end"
     });
 
-    this.addCue = function(cue) {
+    overlay.appendChild(this.div);
+    region.displayState = this.div;
+
+    this.maybeAddCue = function(cue) {
+      if (region.id !== cue.regionId)
+        return false;
+
       var basicBox = new BasicBoundingBox(window, cue);
       basicBox.applyStyles({
         position: "relative",
@@ -731,6 +852,7 @@
       }
 
       this.div.appendChild(basicBox.div);
+      return true;
     };
   }
   RegionBoundingBox.prototype = Object.create(BoundingBox.prototype);
@@ -761,36 +883,43 @@
     return parseContent(window, cuetext);
   };
 
-  WebVTTParser.processCues = function(window, cues, regions) {
-    if (!window || !cues)
+  WebVTTParser.processCues = function(window, cues, overlay, regions) {
+    if (!window || !cues || !overlay)
       return null;
 
     var regionBoxes = regions ? regions.map(function(region) {
-      return new RegionBoundingBox(window, region);
+      return new RegionBoundingBox(window, region, overlay);
     }) : null;
 
     function mapCueToRegion(cue) {
       for (var i = 0; i < regionBoxes.length; i++) {
-        if (regionBoxes[i].region.id === cue.regionId) {
-          regionBoxes[i].addCue(cue);
+        if (regionBoxes[i].maybeAddCue(cue))
           return true;
-        }
       }
       return false;
     }
 
-    var cueDivs = [];
-    for (var i = 0; i < cues.length; i++) {
-      if (!regionBoxes || !mapCueToRegion(cues[i])) {
-        var cueBox = new CueBoundingBox(window, cues[i]);
-        // TODO: Adjust cue divs see issue https://github.com/andreasgal/vtt.js/issues/112
-        cueDivs.push(cueBox.div);
+    var computedCueBoxes = [],
+        computedOverlayBox = overlay ? overlay.getBoundingClientRect() : null,
+        sortedCues = cues.sort(function(cueOne, cueTwo) {
+          // If cue.line is a percentage then we don't really need to sort this so
+          // put it at the beginning of the list.
+          if (!cueOne.snapToLines || cueOne.line < cueTwo.line)
+            return -1;
+          // If cue.line is auto then put it at the back of the list so we can put
+          // the cues that have actually been set to a line before it.
+          if (cueOne.line === "auto" || cueOne.line > cueTwo.line)
+            return 1;
+          return 0;
+        });
+
+    for (var i = 0; i < sortedCues.length; i++) {
+      if (!regionBoxes || !mapCueToRegion(sortedCues[i])) {
+        var cueBox = new CueBoundingBox(window, sortedCues[i], computedCueBoxes,
+                                        overlay, computedOverlayBox);
+        computedCueBoxes.push(cueBox.computedBox());
       }
     }
-
-    return regionBoxes ? regionBoxes.map(function(regionBox) {
-      return regionBox.div;
-    }).concat(cueDivs) : cueDivs;
   };
   
   WebVTTParser.prototype = {
