@@ -26,6 +26,7 @@
         "style": {
           "left": 0,
           "width": "auto",
+          "bottom": 0,
           "textAlign": "center",
           "position": "relative",
           "unicodeBidi": "plaintext"
@@ -43,6 +44,7 @@
         "style": {
           "left": 0,
           "width": "auto",
+          "bottom": 0,
           "textAlign": "end",
           "position": "relative",
           "unicodeBidi": "plaintext"
@@ -86,6 +88,7 @@
         "style": {
           "left": 0,
           "width": "auto",
+          "bottom": 0,
           "textAlign": "center",
           "position": "relative",
           "unicodeBidi": "plaintext"
@@ -103,6 +106,7 @@
         "style": {
           "left": 0,
           "width": "auto",
+          "bottom": 0,
           "textAlign": "start",
           "position": "relative",
           "unicodeBidi": "plaintext"
@@ -123,6 +127,7 @@
     "style": {
       "left": 0,
       "width": "100%",
+      "bottom": 0,
       "textAlign": "center",
       "direction": "ltr",
       "writingMode": "horizontal-tb",

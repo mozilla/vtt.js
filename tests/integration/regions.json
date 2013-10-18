@@ -38,6 +38,7 @@
         "style": {
           "left": 0,
           "width": "100%",
+          "bottom": 0,
           "textAlign": "left",
           "direction": "ltr",
           "writingMode": "horizontal-tb",
@@ -74,6 +75,7 @@
         "style": {
           "left": 0,
           "width": "100%",
+          "bottom": 0,
           "textAlign": "right",
           "direction": "ltr",
           "writingMode": "horizontal-tb",
@@ -110,6 +112,7 @@
         "style": {
           "left": 0,
           "width": "100%",
+          "bottom": 0,
           "textAlign": "left",
           "direction": "ltr",
           "writingMode": "horizontal-tb",
@@ -146,6 +149,7 @@
         "style": {
           "left": 0,
           "width": "100%",
+          "bottom": 0,
           "textAlign": "right",
           "direction": "ltr",
           "writingMode": "horizontal-tb",
@@ -182,6 +186,7 @@
         "style": {
           "left": 0,
           "width": "100%",
+          "bottom": 0,
           "textAlign": "left",
           "direction": "ltr",
           "writingMode": "horizontal-tb",
@@ -218,6 +223,7 @@
         "style": {
           "left": 0,
           "width": "100%",
+          "bottom": 0,
           "textAlign": "left",
           "direction": "ltr",
           "writingMode": "horizontal-tb",

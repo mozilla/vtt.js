@@ -17,6 +17,7 @@
         "style": {
           "top": 0,
           "height": "100%",
+          "left": 0,
           "textAlign": "center",
           "direction": "ltr",
           "writingMode": "vertical-lr",
