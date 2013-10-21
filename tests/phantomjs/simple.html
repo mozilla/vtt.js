@@ -13,29 +13,31 @@
   <script src="../../lib/phantom-testrunner.js"></script>
   <script>
     var vtt = "WEBVTT\n\n00:00.000 --> 00:02.000\nText",
-        parser = new WebVTTParser(window, WebVTTParser.StringDecoder());
-    var cues = [];
+        parser = new WebVTTParser(window, WebVTTParser.StringDecoder()),
+        cues = [];
+
     parser.oncue = function(cue){
       cues.push(cue);
     }
     parser.parse(vtt);
     parser.flush();
-    describe("Simple Mocha Phantomjs Tests", function(){
+
+    describe("Simple Mocha Phantomjs Tests", function() {
       it("should parse a single cue", function() {
-        assert.equal(cues.length, 1, "cues should have length of 1");
+        assert.equal(cues.length, 1, "Cues should have length of 1");
       });
 
       var cue = cues[0];
-      it("should compare cue Text to result", function(){
-        assert.equal(cue.text, "Text", "cue should equal Text");
+      it("should compare cue Text to result", function() {
+        assert.equal(cue.text, "Text", "Cue's text should be 'Text'.");
       });
 
-      it("should compare cue start time to result", function(){
-        assert.equal(cue.startTime, 0, "starttime =  0");
+      it("should compare cue start time to result", function() {
+        assert.equal(cue.startTime, 0, "Start time should be 0.");
       });
 
-      it("should compare cue end time to result", function(){
-        assert.equal(cue.endTime, 2, "endtime =  2");
+      it("should compare cue end time to result", function() {
+        assert.equal(cue.endTime, 2, "End time should be 2.");
       });
 
    });
