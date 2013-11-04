@@ -14,6 +14,30 @@
       "align": "middle",
       "position": 50,
       "domTree": {
+        "childNodes": [
+          {
+            "childNodes": [
+              {
+                "textContent": "That's "
+              },
+              {
+                "childNodes": [
+                  {
+                    "textContent": "awesome!"
+                  }
+                ],
+                "style": {},
+                "tagName": "rt",
+                "localName": "rt",
+                "className": "first"
+              }
+            ],
+            "style": {},
+            "tagName": "ruby",
+            "localName": "ruby",
+            "className": "first"
+          }
+        ],
         "style": {
           "left": 0,
           "width": "100%",
@@ -28,34 +52,6 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [
-              {
-                "style": {},
-                "childNodes": [],
-                "textContent": "That's "
-              },
-              {
-                "style": {},
-                "childNodes": [
-                  {
-                    "style": {},
-                    "childNodes": [],
-                    "textContent": "awesome!"
-                  }
-                ],
-                "tagName": "rt",
-                "localName": "rt",
-                "className": "first"
-              }
-            ],
-            "tagName": "ruby",
-            "localName": "ruby",
-            "className": "first"
-          }
-        ],
         "tagName": "div"
       }
     }

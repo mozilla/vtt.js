@@ -14,6 +14,26 @@
       "align": "start",
       "position": 0,
       "domTree": {
+        "childNodes": [
+          {
+            "childNodes": [
+              {
+                "childNodes": [
+                  {
+                    "textContent": "Laughs"
+                  }
+                ],
+                "style": {},
+                "tagName": "i",
+                "localName": "i"
+              }
+            ],
+            "style": {},
+            "tagName": "span",
+            "localName": "span",
+            "title": "Neil deGrasse Tyson"
+          }
+        ],
         "style": {
           "left": 0,
           "width": "50%",
@@ -28,28 +48,6 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [
-              {
-                "style": {},
-                "childNodes": [
-                  {
-                    "style": {},
-                    "childNodes": [],
-                    "textContent": "Laughs"
-                  }
-                ],
-                "tagName": "i",
-                "localName": "i"
-              }
-            ],
-            "tagName": "span",
-            "localName": "span",
-            "title": "Neil deGrasse Tyson"
-          }
-        ],
         "tagName": "div"
       }
     },
@@ -66,6 +64,24 @@
       "align": "start",
       "position": 0,
       "domTree": {
+        "childNodes": [
+          {
+            "textContent": "Random escapes &am& other "
+          },
+          {
+            "childNodes": [
+              {
+                "textContent": " stuff > &l<&rl\u200f\u200e "
+              }
+            ],
+            "style": {},
+            "tagName": "i",
+            "localName": "i"
+          },
+          {
+            "textContent": "\nOh my! >"
+          }
+        ],
         "style": {
           "left": 0,
           "width": "50%",
@@ -80,30 +96,6 @@
           "backgroundColor": "rgba(0, 0, 0, 0.8)",
           "whiteSpace": "pre-line"
         },
-        "childNodes": [
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": "Random escapes &am& other "
-          },
-          {
-            "style": {},
-            "childNodes": [
-              {
-                "style": {},
-                "childNodes": [],
-                "textContent": " stuff > &l<&rl\u200f\u200e "
-              }
-            ],
-            "tagName": "i",
-            "localName": "i"
-          },
-          {
-            "style": {},
-            "childNodes": [],
-            "textContent": "\nOh my! >"
-          }
-        ],
         "tagName": "div"
       }
     }
