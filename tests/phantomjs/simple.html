@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../node_modules/mocha/mocha.css"/>
+<script src="../../dist/vtt.min.js"></script>
+</head>
+
+<body>
+  <div id="mocha"></div>
+  <script src="../../node_modules/mocha/mocha.js"></script>
+  <script src="../../node_modules/chai/chai.js"></script>
+  <script src="../../lib/phantom-testrunner.js"></script>
+  <script>
+    var vtt = "WEBVTT\n\n00:00.000 --> 00:02.000\nText",
+        parser = new WebVTTParser(window, WebVTTParser.StringDecoder()),
+        cues = [];
+
+    parser.oncue = function(cue){
+      cues.push(cue);
+    }
+    parser.parse(vtt);
+    parser.flush();
+
+    describe("Simple Mocha Phantomjs Tests", function() {
+      it("should parse a single cue", function() {
+        assert.equal(cues.length, 1, "Cues should have length of 1");
+      });
+
+      var cue = cues[0];
+      it("should compare cue Text to result", function() {
+        assert.equal(cue.text, "Text", "Cue's text should be 'Text'.");
+      });
+
+      it("should compare cue start time to result", function() {
+        assert.equal(cue.startTime, 0, "Start time should be 0.");
+      });
+
+      it("should compare cue end time to result", function() {
+        assert.equal(cue.endTime, 2, "End time should be 2.");
+      });
+
+   });
+ </script>
+</body>
+</html>
