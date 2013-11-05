@@ -24,7 +24,7 @@
   "scripts": {
     "postinstall": "./node_modules/.bin/bower install",
     "pretest": "./node_modules/.bin/grunt start-server",
-    "test": "./node_modules/.bin/grunt && ./node_modules/.bin/mocha --recursive --reporter spec --timeout 60000 --slow 40000 tests && ./node_modules/.bin/mocha-phantomjs tests/phantomjs/simple.html",
+    "test": "./node_modules/.bin/grunt && ./node_modules/.bin/mocha --recursive --reporter spec --timeout 60000 --slow 40000 tests && ./node_modules/.bin/mocha-phantomjs tests/simple.html",
     "posttest": "./node_modules/.bin/grunt stop-server"
   },
   "license": {
