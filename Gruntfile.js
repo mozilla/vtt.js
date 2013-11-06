@@ -8,7 +8,14 @@ module.exports = function( grunt ) {
         indent: 2,
         expr: true
       },
-      files: [ "vtt.js" ]
+      files: [
+        "vtt.js",
+        "lib/vttcue.js",
+        "lib/vttregion.js",
+        "lib/util.js",
+        "lib/phantomjs-testrunner.js",
+        "tests/test-server.js"
+      ]
     },
 
     uglify: {
