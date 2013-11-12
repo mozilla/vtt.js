@@ -14,6 +14,7 @@ module.exports = function( grunt ) {
         "lib/vttregion.js",
         "lib/util.js",
         "lib/phantomjs-testrunner.js",
+        "lib/parser-runner.js",
         "tests/test-server.js"
       ]
     },
