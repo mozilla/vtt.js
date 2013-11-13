@@ -1,26 +1,34 @@
-var util = require("../../../lib/util.js"),
-    assert = util.assert;
+var TestRunner = require("../../../lib/test-runner.js"),
+    test = new TestRunner();
 
 describe("cuetext/bold tests", function(){
 
-  it("not-closed.vtt", function(){
-    assert.jsonEqual("cuetext/bold/not-closed.vtt", "cuetext/bold/not-closed.json");
+  before(function(onDone) {
+    test.init(onDone);
   });
 
-  it("with-annotation.vtt", function(){
-    assert.jsonEqual("cuetext/bold/with-annotation.vtt", "cuetext/bold/with-annotation.json");
+  after(function() {
+    test.shutdown();
   });
 
-  it("with-closing-span.vtt", function(){
-    assert.jsonEqual("cuetext/bold/with-closing-span.vtt", "cuetext/bold/with-closing-span.json");
+  it("not-closed.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/bold/not-closed.vtt", "cuetext/bold/not-closed.json", onDone);
   });
 
-  it("with-subclass.vtt", function(){
-    assert.jsonEqual("cuetext/bold/with-subclass.vtt", "cuetext/bold/with-subclass.json");
+  it("with-annotation.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/bold/with-annotation.vtt", "cuetext/bold/with-annotation.json", onDone);
   });
 
-  it("with-two-subclasses.vtt", function(){
-    assert.jsonEqual("cuetext/bold/with-two-subclasses.vtt", "cuetext/bold/with-two-subclasses.json");
+  it("with-closing-span.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/bold/with-closing-span.vtt", "cuetext/bold/with-closing-span.json", onDone);
+  });
+
+  it("with-subclass.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/bold/with-subclass.vtt", "cuetext/bold/with-subclass.json", onDone);
+  });
+
+  it("with-two-subclasses.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/bold/with-two-subclasses.vtt", "cuetext/bold/with-two-subclasses.json", onDone);
   });
 
 });

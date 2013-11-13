@@ -2,741 +2,199 @@
   "regions": [],
   "cues": [
     {
-      "id": "",
-      "startTime": 0,
+      "align": "middle",
       "endTime": 3,
+      "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 0,
       "text": "<v Kyle Huey> Not ready yet? Alright, I'll wait until the camera man tells me we're good.",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "childNodes": [
-              {
-                "textContent": " Not ready yet? Alright, I'll wait until the camera man tells me we're good."
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 4,
+      "align": "middle",
       "endTime": 5,
+      "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 4,
       "text": "<v Chris Pearce> Okay, we're good now.</v>\n<v Kyle Huey> Oh, now we're good?</v>\n<i>Laughter</i>",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "childNodes": [
-              {
-                "textContent": " Okay, we're good now."
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Chris Pearce"
-          },
-          {
-            "textContent": "\n"
-          },
-          {
-            "childNodes": [
-              {
-                "textContent": " Oh, now we're good?"
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
-          },
-          {
-            "textContent": "\n"
-          },
-          {
-            "childNodes": [
-              {
-                "textContent": "Laughter"
-              }
-            ],
-            "style": {},
-            "tagName": "i",
-            "localName": "i"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 6,
+      "align": "middle",
       "endTime": 15,
+      "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 6,
       "text": "<v Kyle Huey> So thanks again for <u>coming</u>. I'm going to talk a bit about the cycle collector and what it does and how we manage memory in Gecko.",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "childNodes": [
-              {
-                "textContent": " So thanks again for "
-              },
-              {
-                "childNodes": [
-                  {
-                    "textContent": "coming"
-                  }
-                ],
-                "style": {},
-                "tagName": "u",
-                "localName": "u"
-              },
-              {
-                "textContent": ". I'm going to talk a bit about the cycle collector and what it does and how we manage memory in Gecko."
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 16,
+      "align": "middle",
       "endTime": 19,
+      "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 16,
       "text": "<v Kyle Huey> And hopefully, answer questions that you all have about that.",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "childNodes": [
-              {
-                "textContent": " And hopefully, answer questions that you all have about that."
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 20,
+      "align": "middle",
       "endTime": 24,
+      "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 20,
       "text": "<v Kyle Huey> And hopefully people leave here with a better understanding about how it works and how to use it.",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "childNodes": [
-              {
-                "textContent": " And hopefully people leave here with a better understanding about how it works and how to use it."
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 25,
+      "align": "middle",
       "endTime": 33,
+      "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 25,
       "text": "<v Kyle Huey> So the <b>cyle collector</b> does three main things.",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "childNodes": [
-              {
-                "textContent": " So the "
-              },
-              {
-                "childNodes": [
-                  {
-                    "textContent": "cyle collector"
-                  }
-                ],
-                "style": {},
-                "tagName": "b",
-                "localName": "b"
-              },
-              {
-                "textContent": " does three main things."
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 34,
+      "align": "middle",
       "endTime": 43,
+      "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 34,
       "text": "<v Kyle Huey> So the first thing it does... no it probably doesn't do that.",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "childNodes": [
-              {
-                "textContent": " So the first thing it does... no it probably doesn't do that."
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 44,
+      "align": "middle",
       "endTime": 48,
+      "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 44,
       "text": "<v Kyle Huey> So the first thing that the <b>cycle collector</b> does is that it collects garbage C++ cycles.",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "childNodes": [
-              {
-                "textContent": " So the first thing that the "
-              },
-              {
-                "childNodes": [
-                  {
-                    "textContent": "cycle collector"
-                  }
-                ],
-                "style": {},
-                "tagName": "b",
-                "localName": "b"
-              },
-              {
-                "textContent": " does is that it collects garbage C++ cycles."
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 56,
+      "align": "middle",
       "endTime": 60,
+      "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 56,
       "text": "<v Kyle Huey> Hopefully, you can read my terrible hand writing, and hopefully, this doesn't fall down half way through.",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "childNodes": [
-              {
-                "textContent": " Hopefully, you can read my terrible hand writing, and hopefully, this doesn't fall down half way through."
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 62,
+      "align": "middle",
       "endTime": 68,
+      "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 62,
       "text": "<v Kyle Huey> So as most of you probably know, for most objects in Gecko we use <u>reference counting</u>.",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "childNodes": [
-              {
-                "textContent": " So as most of you probably know, for most objects in Gecko we use "
-              },
-              {
-                "childNodes": [
-                  {
-                    "textContent": "reference counting"
-                  }
-                ],
-                "style": {},
-                "tagName": "u",
-                "localName": "u"
-              },
-              {
-                "textContent": "."
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 69,
+      "align": "middle",
       "endTime": 75,
+      "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 69,
       "text": "<v Kyle Huey> To keep track of lifetimes and what not, and so, one situation you could end up with in reference counting is something like",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "childNodes": [
-              {
-                "textContent": " To keep track of lifetimes and what not, and so, one situation you could end up with in reference counting is something like"
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 78,
+      "align": "middle",
       "endTime": 83,
+      "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 78,
       "text": "<v Kyle Huey> A owns a reference to B and B owns a reference to A.",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "childNodes": [
-              {
-                "textContent": " A owns a reference to B and B owns a reference to A."
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 85,
+      "align": "middle",
       "endTime": 91,
+      "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 85,
       "text": "<v Kyle Huey> And so if you never do anything else, both of these will always have a reference count of 1, and you will leak memory... and that's bad.",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "childNodes": [
-              {
-                "textContent": " And so if you never do anything else, both of these will always have a reference count of 1, and you will leak memory... and that's bad."
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 92,
+      "align": "middle",
       "endTime": 95,
-      "text": "<v Kyle Huey> So that's the first thing the <b>cycle collector</b> gives us.",
-      "regionId": "",
-      "vertical": "",
+      "id": "",
       "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
       "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "childNodes": [
-              {
-                "textContent": " So that's the first thing the "
-              },
-              {
-                "childNodes": [
-                  {
-                    "textContent": "cycle collector"
-                  }
-                ],
-                "style": {},
-                "tagName": "b",
-                "localName": "b"
-              },
-              {
-                "textContent": " gives us."
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 92,
+      "text": "<v Kyle Huey> So that's the first thing the <b>cycle collector</b> gives us.",
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 96,
-      "endTime": 108,
-      "text": "<v Kyle Huey> The second thing the cycle collector deals with is cycles between C++ and Javascript.",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
       "align": "middle",
+      "endTime": 108,
+      "id": "",
+      "line": "auto",
       "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "childNodes": [
-              {
-                "textContent": " The second thing the cycle collector deals with is cycles between C++ and Javascript."
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Kyle Huey"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 96,
+      "text": "<v Kyle Huey> The second thing the cycle collector deals with is cycles between C++ and Javascript.",
+      "vertical": ""
     }
   ]
 }

@@ -1,26 +1,34 @@
-var util = require("../../../lib/util.js"),
-    assert = util.assert;
+var TestRunner = require("../../../lib/test-runner.js"),
+    test = new TestRunner();
 
 describe("cuetext/format tests", function(){
 
-  it("double-line-break.vtt", function(){
-    assert.jsonEqual("cuetext/format/double-line-break.vtt", "cuetext/format/double-line-break.json");
+  before(function(onDone) {
+    test.init(onDone);
   });
 
-  it("line-breaks.vtt", function(){
-    assert.jsonEqual("cuetext/format/line-breaks.vtt", "cuetext/format/line-breaks.json");
+  after(function() {
+    test.shutdown();
   });
 
-  it("long-line.vtt", function(){
-    assert.jsonEqual("cuetext/format/long-line.vtt", "cuetext/format/long-line.json");
+  it("double-line-break.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/format/double-line-break.vtt", "cuetext/format/double-line-break.json", onDone);
   });
 
-  it("no-line-break.vtt", function(){
-    assert.jsonEqual("cuetext/format/no-line-break.vtt", "cuetext/format/no-line-break.json");
+  it("line-breaks.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/format/line-breaks.vtt", "cuetext/format/line-breaks.json", onDone);
   });
 
-  it("no-newline-at-end.vtt", function(){
-    assert.jsonEqual("cuetext/format/no-newline-at-end.vtt", "cuetext/format/no-newline-at-end.json");
+  it("long-line.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/format/long-line.vtt", "cuetext/format/long-line.json", onDone);
+  });
+
+  it("no-line-break.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/format/no-line-break.vtt", "cuetext/format/no-line-break.json", onDone);
+  });
+
+  it("no-newline-at-end.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/format/no-newline-at-end.vtt", "cuetext/format/no-newline-at-end.json", onDone);
   });
 
 });

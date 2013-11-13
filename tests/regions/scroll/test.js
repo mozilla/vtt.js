@@ -1,26 +1,34 @@
-var util = require("../../../lib/util.js"),
-    assert = util.assert;
+var TestRunner = require("../../../lib/test-runner.js"),
+    test = new TestRunner();
 
 describe("regions/scroll tests", function(){
 
-  it("bogus-value.vtt", function(){
-    assert.jsonEqual("regions/scroll/bogus-value.vtt", "regions/scroll/bad-scroll.json");
+  before(function(onDone) {
+    test.init(onDone);
   });
 
-  it("correct.vtt", function(){
-    assert.jsonEqual("regions/scroll/correct.vtt", "regions/scroll/correct.json");
+  after(function() {
+    test.shutdown();
   });
 
-  it("incorrect-delimiter.vtt", function(){
-    assert.jsonEqual("regions/scroll/incorrect-delimiter.vtt", "regions/scroll/bad-scroll.json");
+  it("bogus-value.vtt", function(onDone){
+    test.jsonEqualAll("regions/scroll/bogus-value.vtt", "regions/scroll/bad-scroll.json", onDone);
   });
 
-  it("space-after-delimiter.vtt", function(){
-    assert.jsonEqual("regions/scroll/space-after-delimiter.vtt", "regions/scroll/bad-scroll.json");
+  it("correct.vtt", function(onDone){
+    test.jsonEqualAll("regions/scroll/correct.vtt", "regions/scroll/correct.json", onDone);
   });
 
-  it("space-before-delimiter.vtt", function(){
-    assert.jsonEqual("regions/scroll/space-before-delimiter.vtt", "regions/scroll/bad-scroll.json");
+  it("incorrect-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("regions/scroll/incorrect-delimiter.vtt", "regions/scroll/bad-scroll.json", onDone);
+  });
+
+  it("space-after-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("regions/scroll/space-after-delimiter.vtt", "regions/scroll/bad-scroll.json", onDone);
+  });
+
+  it("space-before-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("regions/scroll/space-before-delimiter.vtt", "regions/scroll/bad-scroll.json", onDone);
   });
 
 });

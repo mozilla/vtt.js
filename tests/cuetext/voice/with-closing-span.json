@@ -2,50 +2,17 @@
   "regions": [],
   "cues": [
     {
-      "id": "",
-      "startTime": 0,
-      "endTime": 2,
-      "text": "<v Joe>Hee!</v> Hee!",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
       "align": "middle",
+      "endTime": 2,
+      "id": "",
+      "line": "auto",
       "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "childNodes": [
-              {
-                "textContent": "Hee!"
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Joe"
-          },
-          {
-            "textContent": " Hee!"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 0,
+      "text": "<v Joe>Hee!</v> Hee!",
+      "vertical": ""
     }
   ]
 }

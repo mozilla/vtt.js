@@ -2,102 +2,30 @@
   "regions": [],
   "cues": [
     {
-      "id": "",
-      "startTime": 32.5,
-      "endTime": 33.5,
-      "text": "<v Neil deGrasse Tyson><i>Laughs</i>",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 50,
       "align": "start",
+      "endTime": 33.5,
+      "id": "",
+      "line": "auto",
       "position": 0,
-      "domTree": {
-        "childNodes": [
-          {
-            "childNodes": [
-              {
-                "childNodes": [
-                  {
-                    "textContent": "Laughs"
-                  }
-                ],
-                "style": {},
-                "tagName": "i",
-                "localName": "i"
-              }
-            ],
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Neil deGrasse Tyson"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "50%",
-          "bottom": 0,
-          "textAlign": "start",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "regionId": "",
+      "size": 50,
+      "snapToLines": true,
+      "startTime": 32.5,
+      "text": "<v Neil deGrasse Tyson><i>Laughs</i>",
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 34.5,
-      "endTime": 36.5,
-      "text": "Random escapes &am&amp; other <i> stuff &gt; &l&lt;&rl&rlm;&lrm; </i>\nOh my! &gt;",
-      "regionId": "escapes",
-      "vertical": "",
-      "line": 40,
-      "snapToLines": false,
-      "size": 50,
       "align": "start",
+      "endTime": 36.5,
+      "id": "",
+      "line": 40,
       "position": 0,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "Random escapes &am& other "
-          },
-          {
-            "childNodes": [
-              {
-                "textContent": " stuff > &l<&rl\u200f\u200e "
-              }
-            ],
-            "style": {},
-            "tagName": "i",
-            "localName": "i"
-          },
-          {
-            "textContent": "\nOh my! >"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "50%",
-          "bottom": 0,
-          "textAlign": "start",
-          "direction": "rtl",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "regionId": "escapes",
+      "size": 50,
+      "snapToLines": false,
+      "startTime": 34.5,
+      "text": "Random escapes &am&amp; other <i> stuff &gt; &l&lt;&rl&rlm;&lrm; </i>\nOh my! &gt;",
+      "vertical": ""
     }
   ]
 }

@@ -2,109 +2,43 @@
   "regions": [],
   "cues": [
     {
-      "id": "",
-      "startTime": 0,
+      "align": "middle",
       "endTime": 2,
+      "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 0,
       "text": "Text\n00:02.000 --> 00:04.000\nText",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "Text\n00:02.000 --> 00:04.000\nText"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 4,
+      "align": "middle",
       "endTime": 6,
-      "text": "Text\n-->\nText",
-      "regionId": "",
-      "vertical": "",
+      "id": "",
       "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
       "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "Text\n-->\nText"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 4,
+      "text": "Text\n-->\nText",
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 6,
-      "endTime": 8,
-      "text": "00:06.000 --> 00:08.000\nText",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
       "align": "middle",
+      "endTime": 8,
+      "id": "",
+      "line": "auto",
       "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "00:06.000 --> 00:08.000\nText"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 6,
+      "text": "00:06.000 --> 00:08.000\nText",
+      "vertical": ""
     }
   ]
 }
