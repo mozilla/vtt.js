@@ -95,6 +95,9 @@
   function parseOptions(input, callback, keyValueDelim, groupDelim) {
     var groups = groupDelim ? input.split(groupDelim) : [input];
     for (var i in groups) {
+      if (typeof groups[i] !== "string") {
+        continue;
+      }
       var kv = groups[i].split(keyValueDelim);
       if (kv.length !== 2)
         continue;
