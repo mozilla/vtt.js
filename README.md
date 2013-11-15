@@ -67,10 +67,14 @@ var divs = WebVTTParser.processCues(window, cues, regions);
 Browser
 =======
 
-In order to use the parser in a browser, you can build a minified version that also bundles a polyfill of
-[TextDecoder](http://encoding.spec.whatwg.org/), [VTTCue](http://dev.w3.org/html5/webvtt/#vttcue-interface),
+In order to use the parser in a browser, you need to get the built distribution of vtt.js. The distribution
+contains polyfills for [TextDecoder](http://encoding.spec.whatwg.org/), [VTTCue](http://dev.w3.org/html5/webvtt/#vttcue-interface),
 and [VTTRegion](http://dev.w3.org/html5/webvtt/#vttregion-interface) since not all browsers currently
-support them. Building a browser-ready version of the library is done using `grunt` (if you haven't installed
+support them.
+
+###Building Yourself###
+
+Building a browser-ready version of the library is done using `grunt` (if you haven't installed
 `grunt` globally, you can run it from `./node_modules/.bin/grunt` after running `npm install`):
 
 ```
@@ -81,14 +85,30 @@ File "dist/vtt.min.js" created.
 Done, without errors.
 ```
 
-The file is now built in `dist/vtt.min.js` and can be used like so:
+Your newly built vtt.js now lives in `dist/vtt.min.js`.
+
+###Bower###
+
+You can also get the a prebuilt distribution from [Bower](http://bower.io/). Either run the shell
+command:
+
+```
+bower install vtt.js
+```
+
+Or include `vtt.js` as a dependency in your `bower.json` file. `vtt.js` should now
+live in `bower_components/vtt.js/vtt.min.js`.
+
+###Usage###
+
+To use `vtt.js` you can just include the script on an HTML page like so:
 
 ```html
 <html>
 <head>
   <meta charset="utf-8">
   <title>vtt.js in the browser</title>
-  <script src="dist/vtt.min.js"></script>
+  <script src="bower_components/vtt.js/vtt.min.js"></script>
 </head>
 <body>
   <script>
