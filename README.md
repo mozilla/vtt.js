@@ -14,7 +14,6 @@ The parser has a simple API:
 var parser = new WebVTTParser(window, stringDecoder);
 parser.onregion = function (region) {}
 parser.oncue = function (cue) {}
-parser.onpartialcue = function (cue) {}
 parser.onflush = function () {}
 parser.parse(moreData);
 parser.parse(moreData);
@@ -47,8 +46,6 @@ parser.flush();
 `onregion` is invoked for every region that was fully parsed.
 
 `oncue` is invoked for every cue that was fully parsed. In case of streaming parsing oncue is delayed until the cue has been completely received.
-
-`onpartialcue` is invoked as a cue is received, and might be invoked with a cue object that only contains partial content, and might be invoked repeatedly with the same cue object in case additional streaming updates are received. After the cue was fully parsed, `oncue` will be triggered on the same cue object.
 
 `onflush` is invoked in response to flush() and after the content was parsed completely.
 
