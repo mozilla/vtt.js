@@ -87,7 +87,7 @@ function doParserAction(parser, path, onCompleted) {
       return onCompleted(error);
     }
     parser.flush(function() {
-      return onCompleted(null, { cues: parser.cues, regions: parser.regions });
+      return onCompleted(null, parser.vtt);
     });
   });
 }
