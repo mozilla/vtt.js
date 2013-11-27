@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../dist/vtt.min.js"></script>
+    <script type="text/javascript">
+      function setup() {
+        window.p = new WebVTTParser(window);
+        p.oncue = function(cue) {
+          window.callPhantom({ cue: cue });
+        }
+        p.onregion = function(region) {
+          window.callPhantom({ region: region });
+        }
+      }
+      window.onload = setup;
+    </script>
+  </head>
+  <body>
+      <!-- This is a basic HTML page for parsing VTT data. -->
+  </body>
+</html>

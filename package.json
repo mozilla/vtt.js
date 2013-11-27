@@ -2,7 +2,7 @@
   "author": "Andreas Gal <gal@mozilla.com>",
   "name": "vtt",
   "description": "WebVTT parser in JavaScript.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/andreasgal/vtt.js.git"
@@ -18,7 +18,10 @@
     "phantomjs": "~1.9.1",
     "mocha-phantomjs":"~3.1.3",
     "bower": "1.2.7",
-    "express": "3.4.4"
+    "express": "3.4.4",
+    "optimist": "0.6.0",
+    "node-phantom": "0.2.5",
+    "dive": "0.3.0"
   },
   "main": "vtt.js",
   "scripts": {
