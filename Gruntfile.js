@@ -15,6 +15,7 @@ module.exports = function( grunt ) {
         "lib/util.js",
         "lib/phantomjs-testrunner.js",
         "lib/parser-runner.js",
+        "lib/node-vtt.js",
         "tests/test-server.js"
       ]
     },
