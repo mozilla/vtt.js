@@ -1,8 +1,0 @@
-{
-  "name": "vtt.js",
-  "dependencies": {
-    "jquery": "2.0.3",
-    "chai": "1.8.1",
-    "underscore": "1.5.2"
-  }
-}

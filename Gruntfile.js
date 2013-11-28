@@ -13,10 +13,7 @@ module.exports = function( grunt ) {
         "lib/vttcue.js",
         "lib/vttregion.js",
         "lib/util.js",
-        "lib/phantomjs-testrunner.js",
-        "lib/parser-runner.js",
-        "lib/node-vtt.js",
-        "tests/test-server.js"
+        "lib/node-vtt.js"
       ]
     },
 
@@ -39,26 +36,6 @@ module.exports = function( grunt ) {
 
   grunt.loadNpmTasks( "grunt-contrib-jshint" );
   grunt.loadNpmTasks( "grunt-contrib-uglify" );
-
-  grunt.registerTask( "start-server", function() {
-    grunt.log.writeln( "Starting Testing Server" );
-    grunt.util.spawn({
-      cmd: "node",
-      args: [ "tests/test-server.js" ]
-    }, function( error, result, code ) {
-      console.log( result );
-    });
-  });
-
-  grunt.registerTask( "stop-server", function() {
-    grunt.log.writeln( "Killing Test Server" );
-    grunt.util.spawn({
-      cmd: "killall",
-      args: [ "node" ]
-    }, function( error, result, code ) {
-      console.log( result );
-    });
-  });
 
   grunt.registerTask( "build", [ "uglify" ] );
   grunt.registerTask( "default", [ "jshint", "uglify" ]);
