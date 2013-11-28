@@ -59,7 +59,7 @@ function writeOutput(data, path) {
   if (path) {
     console.log("Writing " + path);
     try {
-      fs.writeFileSync(path, json);
+      fs.writeFileSync(path, json + "\n");
       return true;
     } catch (e) {
       return fail("Unable to write output. " + e.message);
