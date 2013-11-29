@@ -7,6 +7,7 @@
       "id": "바다에서 바다",
       "line": "auto",
       "position": 50,
+      "positionAlign": "middle",
       "regionId": "",
       "size": 100,
       "snapToLines": true,

@@ -7,6 +7,7 @@
       "id": "",
       "line": "auto",
       "position": 50,
+      "positionAlign": "middle",
       "regionId": "fred123a$@*&AS01a",
       "size": 100,
       "snapToLines": true,

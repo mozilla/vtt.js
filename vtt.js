@@ -136,6 +136,12 @@
           settings.alt(k, v, ["auto"]);
           break;
         case "position":
+          var vals = v.split(",");
+          settings.percent(k, vals[0]);
+          if (vals.length === 2) {
+            settings.alt("positionAlign", vals[1], ["start", "middle", "end"]);
+          }
+          break;
         case "size":
           settings.percent(k, v);
           break;
@@ -155,6 +161,13 @@
       cue.position = settings.get("position", {start: 0, left: 0, middle: 50,
                                                end: 100, right: 100},
                                   cue.align);
+      cue.positionAlign = settings.get("positionAlign", {
+        start: "start",
+        left: "start",
+        middle: "middle",
+        end: "end",
+        right: "end"
+      }, cue.align);
     }
 
     function skipWhitespace() {
