@@ -131,12 +131,17 @@
           settings.alt(k, v, ["rl", "lr"]);
           break;
         case "line":
-          settings.integer(k, v);
-          settings.percent(k, v) ? settings.set("snapToLines", false) : null;
-          settings.alt(k, v, ["auto"]);
+          var vals = v.split(","),
+              vals0 = vals[0];
+          settings.integer(k, vals0);
+          settings.percent(k, vals0) ? settings.set("snapToLines", false) : null;
+          settings.alt(k, vals0, ["auto"]);
+          if (vals.length === 2) {
+            settings.alt("lineAlign", vals[1], ["start", "middle", "end"]);
+          }
           break;
         case "position":
-          var vals = v.split(",");
+          vals = v.split(",");
           settings.percent(k, vals[0]);
           if (vals.length === 2) {
             settings.alt("positionAlign", vals[1], ["start", "middle", "end"]);
@@ -155,6 +160,7 @@
       cue.regionId = settings.get("region", "");
       cue.vertical = settings.get("vertical", "");
       cue.line = settings.get("line", "auto");
+      cue.lineAlign = settings.get("lineAlign", "middle");
       cue.snapToLines = settings.get("snapToLines", true);
       cue.size = settings.get("size", 100);
       cue.align = settings.get("align", "middle");
