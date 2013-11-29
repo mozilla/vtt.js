@@ -1,30 +1,38 @@
-var util = require("../../../lib/util.js"),
-    assert = util.assert;
+var TestRunner = require("../../../lib/test-runner.js"),
+    test = new TestRunner();
 
 describe("regions/lines tests", function(){
 
-  it("correct.vtt", function(){
-    assert.jsonEqual("regions/lines/correct.vtt", "regions/lines/correct.json");
+  before(function(onDone) {
+    test.init(onDone);
   });
 
-  it("decimal-value.vtt", function(){
-    assert.jsonEqual("regions/lines/decimal-value.vtt", "regions/lines/bad-line.json");
+  after(function() {
+    test.shutdown();
   });
 
-  it("incorrect-delimiter.vtt", function(){
-    assert.jsonEqual("regions/lines/incorrect-delimiter.vtt", "regions/lines/bad-line.json");
+  it("correct.vtt", function(onDone){
+    test.jsonEqualAll("regions/lines/correct.vtt", "regions/lines/correct.json", onDone);
   });
 
-  it("letter-in-value.vtt", function(){
-    assert.jsonEqual("regions/lines/letter-in-value.vtt", "regions/lines/bad-line.json");
+  it("decimal-value.vtt", function(onDone){
+    test.jsonEqualAll("regions/lines/decimal-value.vtt", "regions/lines/bad-line.json", onDone);
   });
 
-  it("space-after-delimiter.vtt", function(){
-    assert.jsonEqual("regions/lines/space-after-delimiter.vtt", "regions/lines/bad-line.json");
+  it("incorrect-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("regions/lines/incorrect-delimiter.vtt", "regions/lines/bad-line.json", onDone);
   });
 
-  it("space-before-delimiter.vtt", function(){
-    assert.jsonEqual("regions/lines/space-before-delimiter.vtt", "regions/lines/bad-line.json");
+  it("letter-in-value.vtt", function(onDone){
+    test.jsonEqualAll("regions/lines/letter-in-value.vtt", "regions/lines/bad-line.json", onDone);
+  });
+
+  it("space-after-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("regions/lines/space-after-delimiter.vtt", "regions/lines/bad-line.json", onDone);
+  });
+
+  it("space-before-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("regions/lines/space-before-delimiter.vtt", "regions/lines/bad-line.json", onDone);
   });
 
 });

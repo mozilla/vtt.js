@@ -1,46 +1,54 @@
-var util = require("../../../lib/util.js"),
-    assert = util.assert;
+var TestRunner = require("../../../lib/test-runner.js"),
+    test = new TestRunner();
 
 describe("regions/width tests", function(){
 
-  it("correct.vtt", function(){
-    assert.jsonEqual("regions/width/correct.vtt", "regions/width/correct.json");
+  before(function(onDone) {
+    test.init(onDone);
   });
 
-  it("incorrect-delimiter.vtt", function(){
-    assert.jsonEqual("regions/width/incorrect-delimiter.vtt", "regions/width/bad-width.json");
+  after(function() {
+    test.shutdown();
   });
 
-  it("letter-in-value.vtt", function(){
-    assert.jsonEqual("regions/width/letter-in-value.vtt", "regions/width/bad-width.json");
+  it("correct.vtt", function(onDone){
+    test.jsonEqualAll("regions/width/correct.vtt", "regions/width/correct.json", onDone);
   });
 
-  it("negative-percent.vtt", function(){
-    assert.jsonEqual("regions/width/negative-percent.vtt", "regions/width/bad-width.json");
+  it("incorrect-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("regions/width/incorrect-delimiter.vtt", "regions/width/bad-width.json", onDone);
   });
 
-  it("no-percentage.vtt", function(){
-    assert.jsonEqual("regions/width/no-percentage.vtt", "regions/width/bad-width.json");
+  it("letter-in-value.vtt", function(onDone){
+    test.jsonEqualAll("regions/width/letter-in-value.vtt", "regions/width/bad-width.json", onDone);
   });
 
-  it("percent-over.vtt", function(){
-    assert.jsonEqual("regions/width/percent-over.vtt", "regions/width/bad-width.json");
+  it("negative-percent.vtt", function(onDone){
+    test.jsonEqualAll("regions/width/negative-percent.vtt", "regions/width/bad-width.json", onDone);
   });
 
-  it("percentage-at-front.vtt", function(){
-    assert.jsonEqual("regions/width/percentage-at-front.vtt", "regions/width/bad-width.json");
+  it("no-percentage.vtt", function(onDone){
+    test.jsonEqualAll("regions/width/no-percentage.vtt", "regions/width/bad-width.json", onDone);
   });
 
-  it("space-after-delimiter.vtt", function(){
-    assert.jsonEqual("regions/width/space-after-delimiter.vtt", "regions/width/bad-width.json");
+  it("percent-over.vtt", function(onDone){
+    test.jsonEqualAll("regions/width/percent-over.vtt", "regions/width/bad-width.json", onDone);
   });
 
-  it("space-before-delimiter.vtt", function(){
-    assert.jsonEqual("regions/width/space-before-delimiter.vtt", "regions/width/bad-width.json");
+  it("percentage-at-front.vtt", function(onDone){
+    test.jsonEqualAll("regions/width/percentage-at-front.vtt", "regions/width/bad-width.json", onDone);
   });
 
-  it("two-periods.vtt", function(){
-    assert.jsonEqual("regions/width/two-periods.vtt", "regions/width/bad-width.json");
+  it("space-after-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("regions/width/space-after-delimiter.vtt", "regions/width/bad-width.json", onDone);
+  });
+
+  it("space-before-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("regions/width/space-before-delimiter.vtt", "regions/width/bad-width.json", onDone);
+  });
+
+  it("two-periods.vtt", function(onDone){
+    test.jsonEqualAll("regions/width/two-periods.vtt", "regions/width/bad-width.json", onDone);
   });
 
 });

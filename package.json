@@ -17,11 +17,12 @@
     "underscore": "~1.5.1",
     "optimist": "0.6.0",
     "node-phantom": "0.2.5",
-    "dive": "0.3.0"
+    "dive": "0.3.0",
+    "async": "0.2.9"
   },
   "main": "vtt.js",
   "scripts": {
-    "test": "./node_modules/.bin/grunt && ./node_modules/.bin/mocha --recursive --reporter spec --timeout 60000 --slow 40000 tests"
+    "test": "./node_modules/.bin/grunt && ./node_modules/.bin/mocha --recursive --reporter spec --timeout 120000 --slow 30000 tests"
   },
   "license": {
     "type": "Apache-2.0",

@@ -1,38 +1,46 @@
-var util = require("../../../lib/util.js"),
-    assert = util.assert;
+var TestRunner = require("../../../lib/test-runner.js"),
+    test = new TestRunner();
 
 describe("cuetext/escape-characters tests", function(){
 
-  it("amp.vtt", function(){
-    assert.jsonEqual("cuetext/escape-characters/amp.vtt", "cuetext/escape-characters/amp.json");
+  before(function(onDone) {
+    test.init(onDone);
   });
 
-  it("gt.vtt", function(){
-    assert.jsonEqual("cuetext/escape-characters/gt.vtt", "cuetext/escape-characters/gt.json");
+  after(function() {
+    test.shutdown();
   });
 
-  it("incorrect.vtt", function(){
-    assert.jsonEqual("cuetext/escape-characters/incorrect.vtt", "cuetext/escape-characters/incorrect.json");
+  it("amp.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/escape-characters/amp.vtt", "cuetext/escape-characters/amp.json", onDone);
   });
 
-  it("lrm.vtt", function(){
-    assert.jsonEqual("cuetext/escape-characters/lrm.vtt", "cuetext/escape-characters/lrm.json");
+  it("gt.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/escape-characters/gt.vtt", "cuetext/escape-characters/gt.json", onDone);
   });
 
-  it("lt.vtt", function(){
-    assert.jsonEqual("cuetext/escape-characters/lt.vtt", "cuetext/escape-characters/lt.json");
+  it("incorrect.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/escape-characters/incorrect.vtt", "cuetext/escape-characters/incorrect.json", onDone);
   });
 
-  it("nbsp.vtt", function(){
-    assert.jsonEqual("cuetext/escape-characters/nbsp.vtt", "cuetext/escape-characters/nbsp.json");
+  it("lrm.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/escape-characters/lrm.vtt", "cuetext/escape-characters/lrm.json", onDone);
   });
 
-  it("rlm.vtt", function(){
-    assert.jsonEqual("cuetext/escape-characters/rlm.vtt", "cuetext/escape-characters/rlm.json");
+  it("lt.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/escape-characters/lt.vtt", "cuetext/escape-characters/lt.json", onDone);
   });
 
-  it("together.vtt", function(){
-    assert.jsonEqual("cuetext/escape-characters/together.vtt", "cuetext/escape-characters/together.json");
+  it("nbsp.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/escape-characters/nbsp.vtt", "cuetext/escape-characters/nbsp.json", onDone);
+  });
+
+  it("rlm.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/escape-characters/rlm.vtt", "cuetext/escape-characters/rlm.json", onDone);
+  });
+
+  it("together.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/escape-characters/together.vtt", "cuetext/escape-characters/together.json", onDone);
   });
 
 });

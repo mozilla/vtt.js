@@ -2,144 +2,56 @@
   "regions": [],
   "cues": [
     {
-      "id": "1",
-      "startTime": 1,
+      "align": "middle",
       "endTime": 2,
+      "id": "1",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 1,
       "text": "This",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "This"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "Random",
-      "startTime": 2,
+      "align": "middle",
       "endTime": 3,
+      "id": "Random",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 2,
       "text": "Is",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "Is"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "12*AS& Over ...",
-      "startTime": 3,
+      "align": "middle",
       "endTime": 4,
-      "text": "A",
-      "regionId": "",
-      "vertical": "",
+      "id": "12*AS& Over ...",
       "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
       "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "A"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 3,
+      "text": "A",
+      "vertical": ""
     },
     {
-      "id": "ja88120 aa",
-      "startTime": 6,
-      "endTime": 7,
-      "text": "And stuff?",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
       "align": "middle",
+      "endTime": 7,
+      "id": "ja88120 aa",
+      "line": "auto",
       "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "And stuff?"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 6,
+      "text": "And stuff?",
+      "vertical": ""
     }
   ]
 }

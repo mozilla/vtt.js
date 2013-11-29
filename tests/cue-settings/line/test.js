@@ -1,66 +1,74 @@
-var util = require("../../../lib/util.js"),
-    assert = util.assert;
+var TestRunner = require("../../../lib/test-runner.js"),
+    test = new TestRunner();
 
 describe("cue-settings/line tests", function(){
 
-  it("bad-delimiter.vtt", function(){
-    assert.jsonEqual("cue-settings/line/bad-delimiter.vtt", "cue-settings/line/bad-line.json");
+  before(function(onDone) {
+    test.init(onDone);
   });
 
-  it("bad-line.vtt", function(){
-    assert.jsonEqual("cue-settings/line/bad-line.vtt", "cue-settings/line/bad-line.json");
+  after(function() {
+    test.shutdown();
   });
 
-  it("bogus-value.vtt", function(){
-    assert.jsonEqual("cue-settings/line/bogus-value.vtt", "cue-settings/line/bad-line.json");
+  it("bad-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/bad-delimiter.vtt", "cue-settings/line/bad-line.json", onDone);
   });
 
-  it("dash-in-value.vtt", function(){
-    assert.jsonEqual("cue-settings/line/dash-in-value.vtt", "cue-settings/line/bad-line.json");
+  it("bad-line.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/bad-line.vtt", "cue-settings/line/bad-line.json", onDone);
   });
 
-  it("integer-value.vtt", function(){
-    assert.jsonEqual("cue-settings/line/integer-value.vtt", "cue-settings/line/integer-value.json");
+  it("bogus-value.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/bogus-value.vtt", "cue-settings/line/bad-line.json", onDone);
   });
 
-  it("large-integer-value.vtt", function(){
-    assert.jsonEqual("cue-settings/line/large-integer-value.vtt", "cue-settings/line/large-integer-value.json");
+  it("dash-in-value.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/dash-in-value.vtt", "cue-settings/line/bad-line.json", onDone);
   });
 
-  it("negative-integer-value.vtt", function(){
-    assert.jsonEqual("cue-settings/line/negative-integer-value.vtt", "cue-settings/line/negative-integer-value.json");
+  it("integer-value.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/integer-value.vtt", "cue-settings/line/integer-value.json", onDone);
   });
 
-  it("negative-percent-value.vtt", function(){
-    assert.jsonEqual("cue-settings/line/negative-percent-value.vtt", "cue-settings/line/bad-line.json");
+  it("large-integer-value.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/large-integer-value.vtt", "cue-settings/line/large-integer-value.json", onDone);
   });
 
-  it("negative-zeros.vtt", function(){
-    assert.jsonEqual("cue-settings/line/negative-zeros.vtt", "cue-settings/line/negative-zeros.json");
+  it("negative-integer-value.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/negative-integer-value.vtt", "cue-settings/line/negative-integer-value.json", onDone);
   });
 
-  it("no-value.vtt", function(){
-    assert.jsonEqual("cue-settings/line/no-value.vtt", "cue-settings/line/bad-line.json");
+  it("negative-percent-value.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/negative-percent-value.vtt", "cue-settings/line/bad-line.json", onDone);
   });
 
-  it("percent-in-value.vtt", function(){
-    assert.jsonEqual("cue-settings/line/percent-in-value.vtt", "cue-settings/line/bad-line.json");
+  it("negative-zeros.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/negative-zeros.vtt", "cue-settings/line/negative-zeros.json", onDone);
   });
 
-  it("percent-over.vtt", function(){
-    assert.jsonEqual("cue-settings/line/percent-over.vtt", "cue-settings/line/bad-line.json");
+  it("no-value.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/no-value.vtt", "cue-settings/line/bad-line.json", onDone);
   });
 
-  it("percent-value.vtt", function(){
-    assert.jsonEqual("cue-settings/line/percent-value.vtt", "cue-settings/line/percent-value.json");
+  it("percent-in-value.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/percent-in-value.vtt", "cue-settings/line/bad-line.json", onDone);
   });
 
-  it("space-after-delimiter.vtt", function(){
-    assert.jsonEqual("cue-settings/line/space-after-delimiter.vtt", "cue-settings/line/bad-line.json");
+  it("percent-over.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/percent-over.vtt", "cue-settings/line/bad-line.json", onDone);
   });
 
-  it("space-before-delimiter.vtt", function(){
-    assert.jsonEqual("cue-settings/line/space-before-delimiter.vtt", "cue-settings/line/bad-line.json");
+  it("percent-value.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/percent-value.vtt", "cue-settings/line/percent-value.json", onDone);
+  });
+
+  it("space-after-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/space-after-delimiter.vtt", "cue-settings/line/bad-line.json", onDone);
+  });
+
+  it("space-before-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/space-before-delimiter.vtt", "cue-settings/line/bad-line.json", onDone);
   });
 
 });

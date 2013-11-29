@@ -1,42 +1,50 @@
-var util = require("../../../lib/util.js"),
-    assert = util.assert;
+var TestRunner = require("../../../lib/test-runner.js"),
+    test = new TestRunner();
 
 describe("cue-settings/vertical tests", function(){
 
-  it("bogus-value.vtt", function(){
-    assert.jsonEqual("cue-settings/vertical/bogus-value.vtt", "cue-settings/vertical/bad-vertical.json");
+  before(function(onDone) {
+    test.init(onDone);
   });
 
-  it("capital-keyword.vtt", function(){
-    assert.jsonEqual("cue-settings/vertical/capital-keyword.vtt", "cue-settings/vertical/bad-vertical.json");
+  after(function() {
+    test.shutdown();
   });
 
-  it("correct-lr-keyword.vtt", function(){
-    assert.jsonEqual("cue-settings/vertical/correct-lr-keyword.vtt", "cue-settings/vertical/correct-lr-keyword.json");
+  it("bogus-value.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/vertical/bogus-value.vtt", "cue-settings/vertical/bad-vertical.json", onDone);
   });
 
-  it("correct-rl-keyword.vtt", function(){
-    assert.jsonEqual("cue-settings/vertical/correct-rl-keyword.vtt", "cue-settings/vertical/correct-rl-keyword.json");
+  it("capital-keyword.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/vertical/capital-keyword.vtt", "cue-settings/vertical/bad-vertical.json", onDone);
   });
 
-  it("incorrect-delimiter.vtt", function(){
-    assert.jsonEqual("cue-settings/vertical/incorrect-delimiter.vtt", "cue-settings/vertical/bad-vertical.json");
+  it("correct-lr-keyword.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/vertical/correct-lr-keyword.vtt", "cue-settings/vertical/correct-lr-keyword.json", onDone);
   });
 
-  it("incorrect-keyword.vtt", function(){
-    assert.jsonEqual("cue-settings/vertical/incorrect-keyword.vtt", "cue-settings/vertical/bad-vertical.json");
+  it("correct-rl-keyword.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/vertical/correct-rl-keyword.vtt", "cue-settings/vertical/correct-rl-keyword.json", onDone);
   });
 
-  it("no-value.vtt", function(){
-    assert.jsonEqual("cue-settings/vertical/no-value.vtt", "cue-settings/vertical/bad-vertical.json");
+  it("incorrect-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/vertical/incorrect-delimiter.vtt", "cue-settings/vertical/bad-vertical.json", onDone);
   });
 
-  it("space-after-delimiter.vtt", function(){
-    assert.jsonEqual("cue-settings/vertical/space-after-delimiter.vtt", "cue-settings/vertical/bad-vertical.json");
+  it("incorrect-keyword.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/vertical/incorrect-keyword.vtt", "cue-settings/vertical/bad-vertical.json", onDone);
   });
 
-  it("space-before-delimiter.vtt", function(){
-    assert.jsonEqual("cue-settings/vertical/space-before-delimiter.vtt", "cue-settings/vertical/bad-vertical.json");
+  it("no-value.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/vertical/no-value.vtt", "cue-settings/vertical/bad-vertical.json", onDone);
+  });
+
+  it("space-after-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/vertical/space-after-delimiter.vtt", "cue-settings/vertical/bad-vertical.json", onDone);
+  });
+
+  it("space-before-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/vertical/space-before-delimiter.vtt", "cue-settings/vertical/bad-vertical.json", onDone);
   });
 
 });

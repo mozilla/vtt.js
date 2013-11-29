@@ -1,33 +1,41 @@
-var util = require("../../../lib/util.js"),
-    assert = util.assert;
+var TestRunner = require("../../../lib/test-runner.js"),
+    test = new TestRunner();
 
 describe("cuetext/timestamp tests", function(){
 
-  it("basic.vtt", function(){
-    assert.jsonEqual("cuetext/timestamp/basic.vtt", "cuetext/timestamp/basic.json");
+  before(function(onDone) {
+    test.init(onDone);
   });
 
-  it("nested.vtt", function(){
-    assert.jsonEqual("cuetext/timestamp/nested.vtt", "cuetext/timestamp/nested.json");
+  after(function() {
+    test.shutdown();
   });
 
-  it("no-end-gt.vtt", function(){
-    assert.jsonEqual("cuetext/timestamp/no-end-gt.vtt", "cuetext/timestamp/no-end-gt.json");
+  it("basic.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/timestamp/basic.vtt", "cuetext/timestamp/basic.json", onDone);
   });
 
-  it("non-digit.vtt", function(){
-    assert.jsonEqual("cuetext/timestamp/non-digit.vtt", "cuetext/timestamp/non-digit.json");
+  it("nested.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/timestamp/nested.vtt", "cuetext/timestamp/nested.json", onDone);
   });
 
-  it("out-of-cue-range.vtt", function(){
-    assert.jsonEqual("cuetext/timestamp/out-of-cue-range.vtt", "cuetext/timestamp/out-of-cue-range.json");
+  it("no-end-gt.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/timestamp/no-end-gt.vtt", "cuetext/timestamp/no-end-gt.json", onDone);
   });
 
-  it("space-after-lt.vtt", function(){
-    assert.jsonEqual("cuetext/timestamp/space-after-lt.vtt", "cuetext/timestamp/space-after-lt.json");
+  it("non-digit.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/timestamp/non-digit.vtt", "cuetext/timestamp/non-digit.json", onDone);
   });
 
-  it("space-before-gt.vtt", function(){
-    assert.jsonEqual("cuetext/timestamp/space-before-gt.vtt", "cuetext/timestamp/space-before-gt.json");
+  it("out-of-cue-range.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/timestamp/out-of-cue-range.vtt", "cuetext/timestamp/out-of-cue-range.json", onDone);
+  });
+
+  it("space-after-lt.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/timestamp/space-after-lt.vtt", "cuetext/timestamp/space-after-lt.json", onDone);
+  });
+
+  it("space-before-gt.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/timestamp/space-before-gt.vtt", "cuetext/timestamp/space-before-gt.json", onDone);
   });
 });

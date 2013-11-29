@@ -2,39 +2,17 @@
   "regions": [],
   "cues": [
     {
-      "id": " Ì̚аð̳ÉÂįăËՅÌˊԭàѩßçêªÊÊĘ³êÄ¢é?Z߬<߼?ā?|񟺚ߺľ.9ѷѩʹЁE?vȁE?Q߬<ߨ<сEҟ,<߼??񙟺߼?ÿֿ?Zﾟ,<ﾟ<?γ?|:Zﾟ:ﾃ~.9ﾐwﾑ)ﾊ9ﾐ・?vﾈ・?Qﾟ,<ﾟ(<ﾑ・・ﾑﾟ,<ﾟ<?・?ﾟ:ﾟ<?ﾃ?ｶ?",
-      "startTime": 16,
-      "endTime": 18,
-      "text": "Payload",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
       "align": "middle",
+      "endTime": 18,
+      "id": " Ì̚аð̳ÉÂįăËՅÌˊԭàѩßçêªÊÊĘ³êÄ¢é?Z߬<߼?ā?|񟺚ߺľ.9ѷѩʹЁE?vȁE?Q߬<ߨ<сEҟ,<߼??񙟺߼?ÿֿ?Zﾟ,<ﾟ<?γ?|:Zﾟ:ﾃ~.9ﾐwﾑ)ﾊ9ﾐ・?vﾈ・?Qﾟ,<ﾟ(<ﾑ・・ﾑﾟ,<ﾟ<?・?ﾟ:ﾟ<?ﾃ?ｶ?",
+      "line": "auto",
       "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "Payload"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 16,
+      "text": "Payload",
+      "vertical": ""
     }
   ]
 }

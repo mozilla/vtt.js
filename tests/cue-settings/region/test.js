@@ -1,34 +1,42 @@
-var util = require("../../../lib/util.js"),
-    assert = util.assert;
+var TestRunner = require("../../../lib/test-runner.js"),
+    test = new TestRunner();
 
 describe("cue-settings/region tests", function(){
 
-  it("bad-delimiter.vtt", function(){
-    assert.jsonEqual("cue-settings/region/bad-delimiter.vtt", "cue-settings/region/bad-region.json");
+  before(function(onDone) {
+    test.init(onDone);
   });
 
-  it("bad-region.vtt", function(){
-    assert.jsonEqual("cue-settings/region/bad-region.vtt", "cue-settings/region/bad-region.json");
+  after(function() {
+    test.shutdown();
   });
 
-  it("no-value.vtt", function(){
-    assert.jsonEqual("cue-settings/region/no-value.vtt", "cue-settings/region/bad-region.json");
+  it("bad-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/region/bad-delimiter.vtt", "cue-settings/region/bad-region.json", onDone);
   });
 
-  it("region-arrows.vtt", function(){
-    assert.jsonEqual("cue-settings/region/region-arrows.vtt", "cue-settings/region/bad-region.json");
+  it("bad-region.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/region/bad-region.vtt", "cue-settings/region/bad-region.json", onDone);
   });
 
-  it("space-after-delimiter.vtt", function(){
-    assert.jsonEqual("cue-settings/region/space-after-delimiter.vtt", "cue-settings/region/bad-region.json");
+  it("no-value.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/region/no-value.vtt", "cue-settings/region/bad-region.json", onDone);
   });
 
-  it("space-before-delimiter.vtt", function(){
-    assert.jsonEqual("cue-settings/region/space-before-delimiter.vtt", "cue-settings/region/bad-region.json");
+  it("region-arrows.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/region/region-arrows.vtt", "cue-settings/region/bad-region.json", onDone);
   });
 
-  it("valid.vtt", function(){
-    assert.jsonEqual("cue-settings/region/valid.vtt", "cue-settings/region/valid.json");
+  it("space-after-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/region/space-after-delimiter.vtt", "cue-settings/region/bad-region.json", onDone);
+  });
+
+  it("space-before-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/region/space-before-delimiter.vtt", "cue-settings/region/bad-region.json", onDone);
+  });
+
+  it("valid.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/region/valid.vtt", "cue-settings/region/valid.json", onDone);
   });
 
 });

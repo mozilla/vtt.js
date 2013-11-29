@@ -2,235 +2,103 @@
   "regions": [
     {
       "id": "fred",
-      "width": 50,
       "lines": 3,
       "regionAnchorX": 0,
       "regionAnchorY": 100,
+      "scroll": "up",
       "viewportAnchorX": 10,
       "viewportAnchorY": 90,
-      "scroll": "up"
+      "width": 50
     },
     {
       "id": "bill",
-      "width": 50,
       "lines": 3,
       "regionAnchorX": 100,
       "regionAnchorY": 100,
+      "scroll": "up",
       "viewportAnchorX": 90,
       "viewportAnchorY": 90,
-      "scroll": "up"
+      "width": 50
     }
   ],
   "cues": [
     {
-      "id": "",
-      "startTime": 0,
+      "align": "left",
       "endTime": 20,
+      "id": "",
+      "line": "auto",
+      "position": 0,
+      "regionId": "fred",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 0,
       "text": "Hi, my name is Fred",
-      "regionId": "fred",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "left",
-      "position": 0,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "Hi, my name is Fred"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "left",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 2.5,
+      "align": "right",
       "endTime": 22.5,
+      "id": "",
+      "line": "auto",
+      "position": 100,
+      "regionId": "bill",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 2.5,
       "text": "Hi, I'm Bill",
-      "regionId": "bill",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "right",
-      "position": 100,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "Hi, I'm Bill"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "right",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 5,
+      "align": "left",
       "endTime": 25,
+      "id": "",
+      "line": "auto",
+      "position": 0,
+      "regionId": "fred",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 5,
       "text": "Would you like to get a coffee?",
-      "regionId": "fred",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "left",
-      "position": 0,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "Would you like to get a coffee?"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "left",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 7.5,
-      "endTime": 27.5,
-      "text": "Sure! I've only had one today.",
-      "regionId": "bill",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
       "align": "right",
+      "endTime": 27.5,
+      "id": "",
+      "line": "auto",
       "position": 100,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "Sure! I've only had one today."
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "right",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "regionId": "bill",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 7.5,
+      "text": "Sure! I've only had one today.",
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 10,
+      "align": "left",
       "endTime": 30,
-      "text": "This is my fourth!",
-      "regionId": "fred",
-      "vertical": "",
+      "id": "",
       "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "left",
       "position": 0,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "This is my fourth!"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "left",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "regionId": "fred",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 10,
+      "text": "This is my fourth!",
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 12.5,
-      "endTime": 32.5,
-      "text": "OK, let's go.",
-      "regionId": "fred",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
       "align": "left",
+      "endTime": 32.5,
+      "id": "",
+      "line": "auto",
       "position": 0,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "OK, let's go."
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "left",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "regionId": "fred",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 12.5,
+      "text": "OK, let's go.",
+      "vertical": ""
     }
   ]
 }

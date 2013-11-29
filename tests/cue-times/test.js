@@ -1,89 +1,94 @@
-var util = require("../../lib/util.js"),
-    assert = util.assert;
+var TestRunner = require("../../lib/test-runner.js"),
+    test = new TestRunner();
 
 describe("cue-times tests", function(){
 
-  it("fraction-digits.vtt", function(){
-    var vtt = util.parse("cue-times/fraction-digits.vtt");
-    assert.equal(vtt.cues.length, 0);
+  before(function(onDone) {
+    test.init(onDone);
   });
 
-  it("fractions.vtt", function(){
-    assert.jsonEqual("cue-times/fractions.vtt", "cue-times/fractions.json");
+  after(function() {
+    test.shutdown();
   });
 
-  it("incorrect-delimiter.vtt", function(){
-    var vtt = util.parse("cue-times/incorrect-delimiter.vtt");
-    assert.equal(vtt.cues.length, 0);
+  it("fraction-digits.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/fraction-digits.vtt", "cue-times/fraction-digits.json", onDone);
   });
 
-  it("left-tab.vtt", function(){
-    assert.jsonEqual("cue-times/left-tab.vtt", "cue-times/with-data.json");
+  it("fractions.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/fractions.vtt", "cue-times/fractions.json", onDone);
   });
 
-  it("max-spot-digits.vtt", function(){
-    assert.jsonEqual("cue-times/max-spot-digits.vtt", "cue-times/max-spot-digits.json");
+  it("incorrect-delimiter.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/incorrect-delimiter.vtt", "cue-times/incorrect-delimiter.json", onDone);
   });
 
-  it("max-spots-over-sixty.vtt", function(){
-    assert.jsonEqual("cue-times/max-spots-over-sixty.vtt", "cue-times/max-spots-over-sixty.json");
+  it("left-tab.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/left-tab.vtt", "cue-times/with-data.json", onDone);
   });
 
-  it("max-time-spots.vtt", function(){
-    assert.jsonEqual("cue-times/max-time-spots.vtt", "cue-times/max-time-spots.json");
+  it("max-spot-digits.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/max-spot-digits.vtt", "cue-times/max-spot-digits.json", onDone);
   });
 
-  it("min-mid-digits.vtt", function(){
-    var vtt = util.parse("cue-times/min-mid-digits.vtt");
-    assert.equal(vtt.cues.length, 0);
+  it("max-spots-over-sixty.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/max-spots-over-sixty.vtt", "cue-times/max-spots-over-sixty.json", onDone);
   });
 
-  it("min-top-digits.vtt", function(){
-    assert.jsonEqual("cue-times/min-top-digits.vtt", "cue-times/min-top-digits.json");
+  it("max-time-spots.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/max-time-spots.vtt", "cue-times/max-time-spots.json", onDone);
   });
 
-  it("minimum-spots-over-sixty.vtt", function(){
-    assert.jsonEqual("cue-times/minimum-spots-over-sixty.vtt", "cue-times/minimum-spots-over-sixty.json");
+  it("min-mid-digits.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/min-mid-digits.vtt", "cue-times/min-mid-digits.json", onDone);
   });
 
-  it("minimum-time-spots.vtt", function(){
-    assert.jsonEqual("cue-times/minimum-time-spots.vtt", "cue-times/minimum-time-spots.json");
+  it("min-top-digits.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/min-top-digits.vtt", "cue-times/min-top-digits.json", onDone);
   });
 
-  it("mismatched-time-spots.vtt", function(){
-    assert.jsonEqual("cue-times/mismatched-time-spots.vtt", "cue-times/mismatched-time-spots.json");
+  it("minimum-spots-over-sixty.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/minimum-spots-over-sixty.vtt", "cue-times/minimum-spots-over-sixty.json", onDone);
   });
 
-  it("missing-separator.vtt", function(){
-    assert.jsonEqual("cue-times/missing-separator.vtt", "cue-times/bad-data.json");
+  it("minimum-time-spots.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/minimum-time-spots.vtt", "cue-times/minimum-time-spots.json", onDone);
   });
 
-  it("missing-spaces-between-separator.vtt", function(){
-    assert.jsonEqual("cue-times/missing-spaces-between-separator.vtt", "cue-times/with-data.json");
+  it("mismatched-time-spots.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/mismatched-time-spots.vtt", "cue-times/mismatched-time-spots.json", onDone);
   });
 
-  it("separator-extra-space.vtt", function(){
-    assert.jsonEqual("cue-times/separator-extra-space.vtt", "cue-times/with-data.json");
+  it("missing-separator.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/missing-separator.vtt", "cue-times/bad-data.json", onDone);
   });
 
-  it("separator-tab.vtt", function(){
-    assert.jsonEqual("cue-times/separator-tab.vtt", "cue-times/with-data.json");
+  it("missing-spaces-between-separator.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/missing-spaces-between-separator.vtt", "cue-times/with-data.json", onDone);
   });
 
-  it("space-left-tab-right.vtt", function(){
-    assert.jsonEqual("cue-times/space-left-tab-right.vtt", "cue-times/with-data.json");
+  it("separator-extra-space.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/separator-extra-space.vtt", "cue-times/with-data.json", onDone);
   });
 
-  it("space-right-tab-left.vtt", function(){
-    assert.jsonEqual("cue-times/space-right-tab-left.vtt", "cue-times/with-data.json");
+  it("separator-tab.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/separator-tab.vtt", "cue-times/with-data.json", onDone);
   });
 
-  it("spaces-tabs-on-both-sides.vtt", function(){
-    assert.jsonEqual("cue-times/spaces-tabs-on-both-sides.vtt", "cue-times/with-data.json");
+  it("space-left-tab-right.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/space-left-tab-right.vtt", "cue-times/with-data.json", onDone);
   });
 
-  it("tab-right.vtt", function(){
-    assert.jsonEqual("cue-times/tab-right.vtt", "cue-times/with-data.json");
+  it("space-right-tab-left.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/space-right-tab-left.vtt", "cue-times/with-data.json", onDone);
+  });
+
+  it("spaces-tabs-on-both-sides.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/spaces-tabs-on-both-sides.vtt", "cue-times/with-data.json", onDone);
+  });
+
+  it("tab-right.vtt", function(onDone){
+    test.jsonEqualAll("cue-times/tab-right.vtt", "cue-times/with-data.json", onDone);
   });
 
 });

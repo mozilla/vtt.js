@@ -1,26 +1,34 @@
-var util = require("../../../lib/util.js"),
-    assert = util.assert;
+var TestRunner = require("../../../lib/test-runner.js"),
+    test = new TestRunner();
 
 describe("cuetext/underline tests", function(){
 
-  it("not-closed.vtt", function(){
-    assert.jsonEqual("cuetext/underline/not-closed.vtt", "cuetext/underline/not-closed.json");
+  before(function(onDone) {
+    test.init(onDone);
   });
 
-  it("with-annotation.vtt", function(){
-    assert.jsonEqual("cuetext/underline/with-annotation.vtt", "cuetext/underline/with-annotation.json");
+  after(function() {
+    test.shutdown();
   });
 
-  it("with-closing-span.vtt", function(){
-    assert.jsonEqual("cuetext/underline/with-closing-span.vtt", "cuetext/underline/with-closing-span.json");
+  it("not-closed.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/underline/not-closed.vtt", "cuetext/underline/not-closed.json", onDone);
   });
 
-  it("with-subclass.vtt", function(){
-    assert.jsonEqual("cuetext/underline/with-subclass.vtt", "cuetext/underline/with-subclass.json");
+  it("with-annotation.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/underline/with-annotation.vtt", "cuetext/underline/with-annotation.json", onDone);
   });
 
-  it("with-two-subclasses.vtt", function(){
-    assert.jsonEqual("cuetext/underline/with-two-subclasses.vtt", "cuetext/underline/with-two-subclasses.json");
+  it("with-closing-span.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/underline/with-closing-span.vtt", "cuetext/underline/with-closing-span.json", onDone);
+  });
+
+  it("with-subclass.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/underline/with-subclass.vtt", "cuetext/underline/with-subclass.json", onDone);
+  });
+
+  it("with-two-subclasses.vtt", function(onDone){
+    test.jsonEqualAll("cuetext/underline/with-two-subclasses.vtt", "cuetext/underline/with-two-subclasses.json", onDone);
   });
 
 });

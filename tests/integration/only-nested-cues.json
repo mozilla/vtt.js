@@ -2,214 +2,82 @@
   "regions": [],
   "cues": [
     {
-      "id": "",
-      "startTime": 0,
+      "align": "middle",
       "endTime": 84,
-      "text": "Introduction",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "Introduction"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
-    },
-    {
       "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
       "startTime": 0,
+      "text": "Introduction",
+      "vertical": ""
+    },
+    {
+      "align": "middle",
       "endTime": 44,
+      "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 0,
       "text": "Topics",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "Topics"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 44,
+      "align": "middle",
       "endTime": 79,
+      "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 44,
       "text": "Presenters",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "Presenters"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
+      "align": "middle",
+      "endTime": 300,
       "id": "",
+      "line": "auto",
+      "position": 50,
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
       "startTime": 84,
-      "endTime": 300,
       "text": "Scrolling Effects",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
-      "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "Scrolling Effects"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 95,
+      "align": "middle",
       "endTime": 180,
-      "text": "Achim's Demo",
-      "regionId": "",
-      "vertical": "",
+      "id": "",
       "line": "auto",
-      "snapToLines": true,
-      "size": 100,
-      "align": "middle",
       "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "Achim's Demo"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 95,
+      "text": "Achim's Demo",
+      "vertical": ""
     },
     {
-      "id": "",
-      "startTime": 180,
-      "endTime": 300,
-      "text": "Timeline Panel",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 100,
       "align": "middle",
+      "endTime": 300,
+      "id": "",
+      "line": "auto",
       "position": 50,
-      "domTree": {
-        "childNodes": [
-          {
-            "textContent": "Timeline Panel"
-          }
-        ],
-        "style": {
-          "left": 0,
-          "width": "100%",
-          "bottom": 0,
-          "textAlign": "center",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div"
-      }
+      "regionId": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 180,
+      "text": "Timeline Panel",
+      "vertical": ""
     }
   ]
 }
