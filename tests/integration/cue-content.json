@@ -5,26 +5,13 @@
       "align": "start",
       "endTime": 33.5,
       "id": "",
-      "line": "auto",
-      "position": 0,
-      "regionId": "",
-      "size": 50,
-      "snapToLines": true,
-      "startTime": 32.5,
-      "text": "<v Neil deGrasse Tyson><i>Laughs</i>",
-      "vertical": ""
-    },
-    {
-      "align": "start",
-      "endTime": 36.5,
-      "id": "",
       "line": 40,
       "position": 0,
       "regionId": "escapes",
       "size": 50,
       "snapToLines": false,
-      "startTime": 34.5,
-      "text": "Random escapes &am&amp; other <i> stuff &gt; &l&lt;&rl&rlm;&lrm; </i>\nOh my! &gt;",
+      "startTime": 32.5,
+      "text": "<v Neil deGrasse Tyson><i>Laughs</i> &am&amp; other <i> stuff &gt; &l&lt;&rl&rlm;&lrm; </i>\nOh my! &gt;",
       "vertical": ""
     }
   ]

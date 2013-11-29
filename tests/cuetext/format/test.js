@@ -20,7 +20,7 @@ describe("cuetext/format tests", function(){
   });
 
   it("long-line.vtt", function(onDone){
-    test.jsonEqualAll("cuetext/format/long-line.vtt", "cuetext/format/long-line.json", onDone);
+    test.jsonEqual("cuetext/format/long-line.vtt", "cuetext/format/long-line.json", onDone);
   });
 
   it("no-line-break.vtt", function(onDone){

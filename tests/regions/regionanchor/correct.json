@@ -2,13 +2,13 @@
   "regions": [
     {
       "id": "fred",
-      "width": 100,
       "lines": 3,
       "regionAnchorX": 21.12,
       "regionAnchorY": 89.56,
+      "scroll": "none",
       "viewportAnchorX": 0,
       "viewportAnchorY": 100,
-      "scroll": "none"
+      "width": 100
     }
   ],
   "cues": []

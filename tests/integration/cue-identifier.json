@@ -3,19 +3,6 @@
   "cues": [
     {
       "align": "middle",
-      "endTime": 2,
-      "id": "",
-      "line": "auto",
-      "position": 50,
-      "regionId": "",
-      "size": 100,
-      "snapToLines": true,
-      "startTime": 0,
-      "text": "That's an, an, that's an L!",
-      "vertical": ""
-    },
-    {
-      "align": "middle",
       "endTime": 5,
       "id": "transcription-credit",
       "line": "auto",

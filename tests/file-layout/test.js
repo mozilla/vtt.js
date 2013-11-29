@@ -28,7 +28,7 @@ describe("file-layout tests", function(){
   });  
 
   it("cue-spacing.vtt", function(onDone){
-    test.jsonEqualAll("file-layout/cue-spacing.vtt", "file-layout/cue-spacing.json", onDone);
+    test.jsonEqual("file-layout/cue-spacing.vtt", "file-layout/cue-spacing.json", onDone);
   });
 
   it.skip("garbage-signature.vtt", function(onDone){
@@ -41,7 +41,7 @@ describe("file-layout tests", function(){
   });
 
   it("many-comments.vtt", function(onDone){
-    test.jsonEqualAll("file-layout/many-comments.vtt", "file-layout/many-comments.json", onDone);
+    test.jsonEqual("file-layout/many-comments.vtt", "file-layout/many-comments.json", onDone);
   });  
 
   it("newline-before-webvtt.vtt", function(onDone){

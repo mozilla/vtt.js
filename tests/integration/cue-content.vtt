@@ -1,8 +1,5 @@
 WEBVTT
 
-00:32.500 --> 00:33.500 align:start size:50%
-<v Neil deGrasse Tyson><i>Laughs</i>
-
-00:34.500 --> 00:36.500 align:start size:50% line:40% region:escapes
-Random escapes &am&amp; other <i> stuff &gt; &l&lt;&rl&rlm;&lrm; </i>
+00:32.500 --> 00:33.500 align:start size:50% line:40% region:escapes
+<v Neil deGrasse Tyson><i>Laughs</i> &am&amp; other <i> stuff &gt; &l&lt;&rl&rlm;&lrm; </i>
 Oh my! &gt;

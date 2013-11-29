@@ -16,19 +16,6 @@
     },
     {
       "align": "middle",
-      "endTime": 6,
-      "id": "",
-      "line": "auto",
-      "position": 50,
-      "regionId": "",
-      "size": 100,
-      "snapToLines": true,
-      "startTime": 4,
-      "text": "Text\n-->\nText",
-      "vertical": ""
-    },
-    {
-      "align": "middle",
       "endTime": 8,
       "id": "",
       "line": "auto",
