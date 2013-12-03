@@ -3,7 +3,28 @@ vtt.js
 
 [![Build Status](https://travis-ci.org/andreasgal/vtt.js.png?branch=master)](https://travis-ci.org/andreasgal/vtt.js)
 
-[WebVTT](https://developer.mozilla.org/en-US/docs/HTML/WebVTT) parser in JavaScript.
+Implementation of the [WebVTT](https://developer.mozilla.org/en-US/docs/HTML/WebVTT) spec in JavaScript.
+
+##Table of Contents##
+
+- [API](#api)
+  - [parse](#parse)
+  - [flush](#flush)
+  - [onregion](#onregion)
+  - [oncue](#oncue)
+  - [onflush](#onflush)
+  - [convertCueToDOMTree](#convertCueToDOMTree)
+  - [processCues](#processCues)
+- [Browser](#browser)
+  - [Building Yourself](#building-yourself)
+  - [Bower](#bower)
+  - [Usage](#usage)
+- [Tests](#tests)
+  - [Writing Tests](#writing-tests)
+  - [Cue2json](#cue2json)
+- [Running On Node](#nodevtt)
+  - [Require vtt.js Directly](#require-vttjs-directly)
+  - [Require NodeVTT](#require-the-nodevtt-module)
 
 API
 ===
@@ -29,7 +50,9 @@ use, a StringDecoder is provided via `WebVTTParser.StringDecoder()`. If a custom
 StringDecoder object is passed in it must support the API specified by the
 [#whatwg string encoding](http://encoding.spec.whatwg.org/#api) spec.
 
-`parse` hands data in some format to the parser for parsing. The passed data format
+####parse####
+
+Hands data in some format to the parser for parsing. The passed data format
 is expected to be decodable by the StringDecoder object that it has. The parser
 decodes the data and reassembles partial data (streaming), even across line breaks.
 
@@ -41,21 +64,52 @@ parser.parse("<v.loud Mary>That's awesome!");
 parser.flush();
 ```
 
-`flush` indicates that no more data is expected and will trigger 'onflush' (see below).
+####flush####
 
-`onregion` is invoked for every region that was fully parsed.
+Indicates that no more data is expected and will trigger [onflush](#onFlush).
 
-`oncue` is invoked for every cue that was fully parsed. In case of streaming parsing oncue is delayed until the cue has been completely received.
+####onregion####
 
-`onflush` is invoked in response to flush() and after the content was parsed completely.
+Callback that is invoked for every region that is correctly parsed. Returns a [VTTRegion](#http://dev.w3.org/html5/webvtt/#dfn-vttregion)
+object.
 
-`convertCueToDOMTree` parses the cue text handed to it into a tree of DOM nodes that mirrors the internal WebVTT node structure of the cue text. It uses the window object handed to it to construct new HTMLElements and returns a tree of DOM nodes attached to a top level div.
+```js
+parse.onregion = function(region) {
+  console.log(region);
+};
+```
+
+####oncue####
+
+Callback that is invoked for every cue that is fully parsed. In case of streaming parsing oncue is
+delayed until the cue has been completely received. Returns a [VTTCue](#http://dev.w3.org/html5/webvtt/#vttcue-interface) object.
+
+```js
+parser.oncue = function(cue) {
+  console.log(cue);
+};
+```
+
+####onflush####
+
+Is invoked in response to `flush()` and after the content was parsed completely.
+
+####convertCueToDOMTree####
+
+Parses the cue text handed to it into a tree of DOM nodes that mirrors the internal WebVTT node structure of
+the cue text. It uses the window object handed to it to construct new HTMLElements and returns a tree of DOM
+nodes attached to a top level div.
 
 ```javascript
 var div = WebVTTParser.convertCueToDOMTree(window, cuetext);
 ```
 
-`processCues`  converts the cuetext of the cues passed to it to DOM trees--by calling convertCueToDOMTree--and then runs the processing model steps of the WebVTT specification on the divs. The processing model applies the necessary CSS styles to the cue divs to prepare them for display on the web page. It also converts the regions to divs, applies CSS, and adds any of the cue divs which are attached to that region as children of the region divs.
+####processCues####
+
+Converts the cuetext of the cues passed to it to DOM trees&mdash;by calling convertCueToDOMTree&mdash;and
+then runs the processing model steps of the WebVTT specification on the divs. The processing model applies the necessary
+CSS styles to the cue divs to prepare them for display on the web page. It also converts the regions to divs, applies
+CSS, and adds any of the cue divs which are attached to that region as children of the region divs.
 
 ```javascript
 var divs = WebVTTParser.processCues(window, cues, regions);
@@ -154,13 +208,9 @@ See the [usage docs](http://visionmedia.github.io/mocha/#usage) for further usag
 
 ###Writing Tests###
 
-Tests take one of two forms. Either a last-known-good JSON file is compared against a parsed .vtt file,
-or custom JS assertions are run over a parsed .vtt file.
-
-####JSON-based Tests####
-
-JSON-based tests are useful for creating regression tests. The JSON files can be easily generated
-using the parser, so you don't need to write these by hand (see details below about `cue2json`).
+Tests are done by comparing live parsed output to a last-known-good JSON file. The JSON files
+can be easily generated using the parser, so you don't need to write these by hand
+(see details below about `cue2json`).
 
 The first flavour of JSON based tests are tests that compare the parsed result of
 a WebVTT file to a JSON representation of it. For example your WebVTT file could
@@ -191,71 +241,39 @@ The associated JSON representation of the parsed file might look like this:
       "size": 50,
       "align": "start",
       "position": 0,
-      "domTree": {
-        "style": {
-          "left": 0,
-          "width": "50%",
-          "textAlign": "start",
-          "direction": "ltr",
-          "writingMode": "horizontal-tb",
-          "position": "absolute",
-          "unicodeBidi": "plaintext",
-          "font": "2.5vh sans-serif",
-          "color": "rgba(255, 255, 255, 1)",
-          "backgroundColor": "rgba(0, 0, 0, 0.8)",
-          "whiteSpace": "pre-line"
-        },
-        "tagName": "div",
-        "childNodes": [
-          {
-            "style": {},
-            "tagName": "span",
-            "localName": "span",
-            "title": "Mary",
-            "className": "loud",
-            "childNodes": [
-              {
-                "style": {},
-                "textContent": "That's awesome!"
-              }
-            ]
-          }
-        ]
-      }
     }
   ]
 }
 ```
 
-**NOTE:** If you use this style of JSON test you **must** define all the possible values for cue data even if they are
-not being tested. Put the default values in this case. Values that exist under the "domTree"
-of the parsed cue's cuetext can be left out if they are not there as the tree is generated
-dynamically with no defaults for values that aren't in the cue's cuetext.
-
 Writing the test to compare the live ouput to this JSON is done by creating a `.js` somewhere in `tests/`.
 It might look like this:
 
 ```javascript
-var util = require("../lib/util.js"),
-    assert = util.assert;
+var TestRunner = require("../../lib/test-runner.js"),
+    test = new TestRunner();
 
 describe("foo/bar.vtt", function(){
 
-  it("should compare JSON to parsed result", function(){
-    assert.jsonEqual("foo/bar.vtt", "foo/bar.json");
+  before(function(onDone) {
+    test.init(onDone);
+  });
+
+  after(function() {
+    test.shutdown();
+  });
+
+  it("should compare JSON to parsed result", function(onDone){
+    test.jsonEqualAll("foo/bar.vtt", "foo/bar.json", onDone);
   });
 
 });
 ```
 
-The `jsonEqual` assertion does 3 kinds of checks, including:
+The `jsonEqualAll` assertion does 2 kinds of checks, including:
 
 * Parsing the specified file as UTF8 binary data without streaming (i.e., single call to `parse)
 * Parsing the specified file as UTF8 binary data with streaming at every possible chunk size
-* Parsing the specified file as String data without streaming (i.e., single call to `parse)
-
-In some test situations (e.g., testing UTF8 sequences) it is impossible to parse the file as a String.
-In these cases you can use `jsonEqualUTF8` instead, which does the first two checks above, but not the third.
 
 The other style of JSON based tests are tests that check the processing model implementation rather then
 the parser implementation. The processing model is the part of the WebVTT spec that prepares a number of
@@ -350,13 +368,21 @@ would include a `.js` file somewhere in the `/tests` directory and use the
 `assert.checkProcessingModel` function instead of `jsonEqual`.
 
 ```javascript
-var util = require("../lib/util.js"),
-    assert = util.assert;
+var TestRunner = require("../../lib/test-runner.js"),
+    test = new TestRunner();
 
 describe("foo/bar.vtt", function(){
 
-  it("should compare JSON to processed result", function(){
-    assert.checkProcessingModel("foo/bar.vtt", "foo/bar.json");
+  before(function(onDone) {
+    test.init(onDone);
+  });
+
+  after(function() {
+    test.shutdown();
+  });
+
+  it("should compare JSON to processed result", function(onDone){
+    test.jsonEqualProcModel("foo/bar.vtt", "foo/bar.json", onDone);
   });
 
 });
@@ -370,6 +396,11 @@ You can automatically generate a JSON file for a given `.vtt` file using `cue2js
 You have a number of options for running `cue2json.js`.
 
 ```
+$ grunt build
+$ Running "uglify:dist" (uglify) task
+$ File "dist/vtt.min.js" created.
+$ 
+$ Done, without errors.
 $ ./bin/cue2json.js 
 $ Generate JSON test files from a reference VTT file.
 $ Usage: node ./bin/cue2json.js [options]
@@ -380,6 +411,9 @@ $   -d, --dir      Path to test directory. Will recursively find all JSON files 
 $   -c, --copy     Copies the VTT file to a JSON file with the same name.                                                
 $   -p, --process  Generate a JSON file of the output returned from the processing model. 
 ```
+
+**Note:** Cue2json will use the last built version of vtt.js so make sure to remember to rebuild it if you've made
+changes to vtt.js since the last run.
 
 `$ ./bin/cue2json.js -v tests/foo/bar.vtt` print the JSON representation of the parsed output of the WebVTT file to console.
 
@@ -403,31 +437,36 @@ a JSON test.
 the generated JSON will contain bugs. Therefore, always check the generated JSON files to check that the
 parser actually parsed according to spec.
 
-####JS-based Tests####
+Running on Node
+===============
 
-Sometimes comparing the parsed cues to JSON isn't flexible enough. In such cases, you can use JavaScript
-assertions. The `lib/util.js` module provides many helper functions and objects to make this easier,
-for example, being able to `parse` a `.vtt` file and get back resulting cues.
+If you'd like to run vtt.js from Node you have a few options.
 
-```javascript
-var util = require("../lib/util.js"),
-    assert = util.assert;
+###Require vtt.js Directly###
 
-describe("Simple VTT Tests", function(){
+Require vtt.js just like you would a regular Node module and use it to parse WebVTT files. The one
+draw back of this approach is that if you want to run the processing model part of WebVTT you need to
+provide a TextDecoder and a window object that has a DOM and a CSS layout engine.
 
-  it("should run JS assertions on parsed result", function(){
-    var vtt = util.parse("simple.vtt");
-    assert.equal(vtt.cues.length, 1);
-
-    var cue0 = vtt.cues[0];
-    assert.equal(cue0.id, "ID");
-    assert.equal(cue0.startTime, 0);
-    assert.equal(cue0.endTime, 2);
-    assert.equal(cue0.text, "Text");
-  });
-
-});
+```js
+var WebVTTParser = require("vtt.js").WebVTTParser,
+    parser = new WebVTTParser(fakeOrRealWindow, textDecoder);
 ```
 
-The `util.assert` object is the standard [node.js assert module](http://nodejs.org/api/assert.html) with
-the addition of `jsonEqual` and `jsonEqualUTF8`. See `lib/util.js` for other testing API functions and objects.
+###Require the NodeVTT Module###
+
+Require NodeVTT. NodeVTT runs vtt.js on a PhantomJS page so it has access to a full DOM and CSS layout
+engine which means that you can run any part of the spec that you want.
+
+```js
+var NodeVTT = require("./lib/node-vtt"),
+    parser = new NodeVTT();
+
+parser.init(function() {
+  parser.parseFile(file, function() {
+    parser.flush(function() {
+      console.log(parser.vtt);
+    });
+  });
+});
+```
