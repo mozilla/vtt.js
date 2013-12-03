@@ -1,7 +1,7 @@
 vtt.js
 ======
 
-[![Build Status](https://travis-ci.org/andreasgal/vtt.js.png?branch=master)](https://travis-ci.org/andreasgal/vtt.js)
+[![Build Status](https://travis-ci.org/mozilla/vtt.js.png?branch=master)](https://travis-ci.org/mozilla/vtt.js)
 
 [WebVTT](https://developer.mozilla.org/en-US/docs/HTML/WebVTT) parser in JavaScript.
 
