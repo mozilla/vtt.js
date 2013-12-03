@@ -707,7 +707,7 @@
     BoundingBox.call(this);
     this.div = window.document.createElement("div");
 
-    var left = region.viewportAnchorX - 
+    var left = region.viewportAnchorX -
                region.regionAnchorX * region.width / 100,
         top = region.viewportAnchorY -
               region.regionAnchorY * region.lines * LINE_HEIGHT / 100;
@@ -804,7 +804,7 @@
     for (var i = 0; i < cues.length; i++) {
       if (!regionBoxes || !mapCueToRegion(cues[i])) {
         var cueBox = new CueBoundingBox(window, cues[i]);
-        // TODO: Adjust cue divs see issue https://github.com/andreasgal/vtt.js/issues/112
+        // TODO: Adjust cue divs see issue https://github.com/mozilla/vtt.js/issues/112
         cueDivs.push(cueBox.div);
       }
     }
@@ -813,7 +813,7 @@
       return regionBox.div;
     }).concat(cueDivs) : cueDivs;
   };
-  
+
   WebVTTParser.prototype = {
     parse: function (data) {
       var self = this;
@@ -910,16 +910,16 @@
         var line;
         if (self.state === "INITIAL") {
           // We can't start parsing until we have the first line.
-          if (!/\r\n|\n/.test(self.buffer)) 
+          if (!/\r\n|\n/.test(self.buffer))
             return this;
-          
+
           line = collectNextLine();
-          
+
           var m = line.match(/^WEBVTT([ \t].*)?$/);
           if (!m || !m[0]) {
             throw "error";
           }
-          
+
           self.state = "HEADER";
         }
 
