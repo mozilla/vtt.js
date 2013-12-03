@@ -18,11 +18,11 @@ module.exports = function( grunt ) {
 
     uglify: {
       options: {
-        banner: "/*! vtt.js - https://github.com/andreasgal/vtt.js (built on <%= grunt.template.today('dd-mm-yyyy') %>) */\n"
+        banner: "/*! vtt.js - https://github.com/mozilla/vtt.js (built on <%= grunt.template.today('dd-mm-yyyy') %>) */\n"
       },
       dist: {
         files: {
-          "dist/vtt.min.js": [ 
+          "dist/vtt.min.js": [
             "lib/stringencoding/encoding.js",
             "lib/vttcue.js",
             "lib/vttregion.js",
