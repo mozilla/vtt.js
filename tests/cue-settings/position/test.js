@@ -15,6 +15,10 @@ describe("cue-settings/position tests", function(){
     test.jsonEqualAll("cue-settings/position/bad-delimiter.vtt", "cue-settings/position/bad-position.json", onDone);
   });
 
+  it("bad-position-align.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/position/bad-position-align.vtt", "cue-settings/position/bad-position-align.json", onDone);
+  });
+
   it("bad-position.vtt", function(onDone){
     test.jsonEqualAll("cue-settings/position/bad-position.vtt", "cue-settings/position/bad-position.json", onDone);
   });
@@ -45,6 +49,14 @@ describe("cue-settings/position tests", function(){
 
   it("percent-value.vtt", function(onDone){
     test.jsonEqualAll("cue-settings/position/percent-value.vtt", "cue-settings/position/percent-value.json", onDone);
+  });
+
+  it("position-end-align.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/position/position-end-align.vtt", "cue-settings/position/position-end-align.json", onDone);
+  });
+
+  it("position-start-align.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/position/position-start-align.vtt", "cue-settings/position/position-start-align.json", onDone);
   });
 
   it("space-after-delimiter.vtt", function(onDone){
