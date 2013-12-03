@@ -22,7 +22,7 @@
   },
   "main": "vtt.js",
   "scripts": {
-    "test": "./node_modules/.bin/grunt && ./node_modules/.bin/mocha --recursive --reporter spec --timeout 120000 --slow 30000 tests"
+    "test": "./node_modules/.bin/grunt && ./node_modules/.bin/mocha --recursive --reporter spec --timeout 120000 --slow 15000 tests"
   },
   "license": {
     "type": "Apache-2.0",
