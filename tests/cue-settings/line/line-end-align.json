@@ -5,15 +5,15 @@
       "align": "middle",
       "endTime": 2,
       "id": "",
-      "line": "auto",
-      "lineAlign": "middle",
+      "line": 42,
+      "lineAlign": "end",
       "position": 50,
       "positionAlign": "middle",
       "regionId": "",
       "size": 100,
-      "snapToLines": true,
+      "snapToLines": false,
       "startTime": 0,
-      "text": "<i Mary>No way!",
+      "text": "Text",
       "vertical": ""
     }
   ]

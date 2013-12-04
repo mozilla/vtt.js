@@ -6,6 +6,7 @@
       "endTime": 5,
       "id": "transcription-credit",
       "line": "auto",
+      "lineAlign": "middle",
       "position": 50,
       "positionAlign": "middle",
       "regionId": "",

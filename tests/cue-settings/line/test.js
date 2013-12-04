@@ -15,6 +15,10 @@ describe("cue-settings/line tests", function(){
     test.jsonEqualAll("cue-settings/line/bad-delimiter.vtt", "cue-settings/line/bad-line.json", onDone);
   });
 
+  it("bad-line-align.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/bad-line-align.vtt", "cue-settings/line/bad-line-align.json", onDone);
+  });
+
   it("bad-line.vtt", function(onDone){
     test.jsonEqualAll("cue-settings/line/bad-line.vtt", "cue-settings/line/bad-line.json", onDone);
   });
@@ -33,6 +37,14 @@ describe("cue-settings/line tests", function(){
 
   it("large-integer-value.vtt", function(onDone){
     test.jsonEqualAll("cue-settings/line/large-integer-value.vtt", "cue-settings/line/large-integer-value.json", onDone);
+  });
+
+  it("line-end-align.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/line-end-align.vtt", "cue-settings/line/line-end-align.json", onDone);
+  });
+
+  it("line-start-align.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/line-start-align.vtt", "cue-settings/line/line-start-align.json", onDone);
   });
 
   it("negative-integer-value.vtt", function(onDone){
