@@ -568,7 +568,8 @@
 
   function determineBidi(cueDiv) {
     var nodeStack = [],
-        text = "";
+        text = "",
+        charCode;
 
     if (!cueDiv || !cueDiv.childNodes)
       return "ltr";
@@ -604,8 +605,12 @@
     pushNodes(nodeStack, cueDiv);
     while ((text = nextTextNode(nodeStack))) {
       for (var i = 0; i < text.length; i++) {
-        if (strongRTLChars.indexOf(text.charCodeAt(i)) !== -1)
-          return "rtl";
+        charCode = text.charCodeAt(i);
+        for (var j = 0; j<strongRTLChars.length; j++) {
+          if (strongRTLChars[j] === charCode) {
+            return "rtl";
+          }
+        }
       }
     }
     return "ltr";
