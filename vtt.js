@@ -227,7 +227,7 @@
     consumeCueSettings(input, cue);
   }
 
-  const ESCAPE = {
+  var ESCAPE = {
     "&amp;": "&",
     "&lt;": "<",
     "&gt;": ">",
@@ -236,7 +236,7 @@
     "&nbsp;": "\u00a0"
   };
 
-  const TAG_NAME = {
+  var TAG_NAME = {
     c: "span",
     i: "i",
     b: "b",
@@ -247,12 +247,12 @@
     lang: "span"
   };
 
-  const TAG_ANNOTATION = {
+  var TAG_ANNOTATION = {
     v: "title",
     lang: "lang"
   };
 
-  const NEEDS_PARENT = {
+  var NEEDS_PARENT = {
     rt: "ruby"
   };
 
@@ -1048,9 +1048,9 @@
     return parseContent(window, cuetext);
   };
 
-  const FONT_SIZE_PERCENT = 0.05;
-  const FONT_STYLE = "sans-serif";
-  const CUE_BACKGROUND_PADDING = "1.5%";
+  var FONT_SIZE_PERCENT = 0.05;
+  var FONT_STYLE = "sans-serif";
+  var CUE_BACKGROUND_PADDING = "1.5%";
 
   // Runs the processing model over the cues and regions passed to it.
   // @param overlay A block level element (usually a div) that the computed cues
