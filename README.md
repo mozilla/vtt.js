@@ -3,10 +3,13 @@ vtt.js
 
 [![Build Status](https://travis-ci.org/mozilla/vtt.js.png?branch=master)](https://travis-ci.org/mozilla/vtt.js)
 
-Implementation of the [WebVTT](https://developer.mozilla.org/en-US/docs/HTML/WebVTT) spec in JavaScript.
+Implementation of the [WebVTT](https://developer.mozilla.org/en-US/docs/HTML/WebVTT) spec in JavaScript. Can be used
+in NodeJS, on the browser, and many other places. Mozilla uses this implementation for parsing and processing WebVTT
+files in Firefox/Gecko.
 
 ##Table of Contents##
 
+- [Spec Compliance](#spec-compliance)
 - [API](#api)
   - [parse](#parse)
   - [flush](#flush)
@@ -25,6 +28,28 @@ Implementation of the [WebVTT](https://developer.mozilla.org/en-US/docs/HTML/Web
 - [Running On Node](#nodevtt)
   - [Require vtt.js Directly](#require-vttjs-directly)
   - [Require NodeVTT](#require-the-nodevtt-module)
+
+
+Spec Compliance
+===============
+
+- [Parsing](http://dev.w3.org/html5/webvtt/#webvtt-file-format-parsing) (Completed)
+  - [File](http://dev.w3.org/html5/webvtt/#webvtt-file-parsing) (Completed)
+  - [Region](http://dev.w3.org/html5/webvtt/#webvtt-region-settings-parsing) (Completed)
+  - [Cue Timings and Settings](http://dev.w3.org/html5/webvtt/#webvtt-cue-timings-and-settings-parsing) (Completed)
+  - [WebVTT Cue Text](http://dev.w3.org/html5/webvtt/#dfn-webvtt-cue-text-parsing-rules) (Completed)
+  - [Cue DOM Construction](http://dev.w3.org/html5/webvtt/#webvtt-cue-text-dom-construction-rules) (Completed)
+- [Rendering](http://dev.w3.org/html5/webvtt/#rendering) (In Progress)
+  - [Processing Model](http://dev.w3.org/html5/webvtt/#processing-model) (In Progress) ***Unstable VTTRegion Support***
+    - [Apply WebVTT Cue Settings](http://dev.w3.org/html5/webvtt/#dfn-apply-webvtt-cue-settings) (In Progress)
+      - Basic Positioning (Completed) ***Steps 1 - 9***
+      - Overlap Avoidance (In Progress) ***Steps 11+***
+  - [Applying CSS Properties](http://dev.w3.org/html5/webvtt/#applying-css-properties-to-webvtt-node-objects) (Completed)
+  - [CSS Extensions](http://dev.w3.org/html5/webvtt/#css-extensions) (Not Implemented)
+- [WebVTT API Shim](http://dev.w3.org/html5/webvtt/#webvtt-api-for-browsers) (In Progress)
+  - [VTTCue](http://dev.w3.org/html5/webvtt/#vttcue-interface) (Completed)
+  - [VTTRegion](http://dev.w3.org/html5/webvtt/#vttregion-interface) (Completed)
+  - [VTTRegionList](http://dev.w3.org/html5/webvtt/#vttregionlist-interface) (Not Implemented)
 
 API
 ===
