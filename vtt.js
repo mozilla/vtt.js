@@ -628,9 +628,11 @@
 
   BoundingBox.prototype.applyStyles = function(styles) {
     var div = this.div;
-    Object.keys(styles).forEach(function(style) {
-      div.style[style] = styles[style];
-    });
+    for (prop in styles) {
+      if (styles.hasOwnProperty(prop)) {
+        div.style[prop] = styles[prop];
+      }
+    }
   };
 
   BoundingBox.prototype.formatStyle = function(val, unit) {
