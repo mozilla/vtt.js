@@ -9,12 +9,12 @@
 
       return function(o){
         if (arguments.length != 1) {
-            throw new Error('Object.create implementation only accepts one parameter.');
+          throw new Error('Object.create implementation only accepts one parameter.');
         }
-        F.prototype = o
-          return new F()
-      }
-    })()
+        F.prototype = o;
+        return new F();
+      };
+    })();
   }
 
   // Try to parse input as a time stamp.
@@ -633,7 +633,7 @@
 
   BoundingBox.prototype.applyStyles = function(styles) {
     var div = this.div;
-    for (prop in styles) {
+    for (var prop in styles) {
       if (styles.hasOwnProperty(prop)) {
         div.style[prop] = styles[prop];
       }
