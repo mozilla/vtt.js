@@ -3,6 +3,20 @@
 
 (function(global) {
 
+  if (!Object.create) {
+    Object.create = (function(){
+      function F(){}
+
+      return function(o){
+        if (arguments.length != 1) {
+          throw new Error('Object.create implementation only accepts one parameter.');
+        }
+        F.prototype = o;
+        return new F();
+      };
+    })();
+  }
+
   // Try to parse input as a time stamp.
   function parseTimeStamp(input) {
 
@@ -199,7 +213,7 @@
     consumeCueSettings(input, cue);
   }
 
-  const ESCAPE = {
+  var ESCAPE = {
     "&amp;": "&",
     "&lt;": "<",
     "&gt;": ">",
@@ -208,7 +222,7 @@
     "&nbsp;": "\u00a0"
   };
 
-  const TAG_NAME = {
+  var TAG_NAME = {
     c: "span",
     i: "i",
     b: "b",
@@ -219,12 +233,12 @@
     lang: "span"
   };
 
-  const TAG_ANNOTATION = {
+  var TAG_ANNOTATION = {
     v: "title",
     lang: "lang"
   };
 
-  const NEEDS_PARENT = {
+  var NEEDS_PARENT = {
     rt: "ruby"
   };
 
@@ -554,7 +568,8 @@
 
   function determineBidi(cueDiv) {
     var nodeStack = [],
-        text = "";
+        text = "",
+        charCode;
 
     if (!cueDiv || !cueDiv.childNodes)
       return "ltr";
@@ -569,15 +584,15 @@
         return null;
 
       var node = nodeStack.pop();
-      if (node.textContent) {
+      if (node.innerHTML) {
         // TODO: This should match all unicode type B characters (paragraph
         // separator characters). See issue #115.
-        var m = node.textContent.match(/^.*(\n|\r)/);
+        var m = node.innerHTML.match(/^.*(\n|\r)/);
         if (m) {
           nodeStack.length = 0;
           return m[0];
         }
-        return node.textContent;
+        return node.innerHTML;
       }
       if (node.tagName === "ruby")
         return nextTextNode(nodeStack);
@@ -590,8 +605,12 @@
     pushNodes(nodeStack, cueDiv);
     while ((text = nextTextNode(nodeStack))) {
       for (var i = 0; i < text.length; i++) {
-        if (strongRTLChars.indexOf(text.charCodeAt(i)) !== -1)
-          return "rtl";
+        charCode = text.charCodeAt(i);
+        for (var j = 0; j<strongRTLChars.length; j++) {
+          if (strongRTLChars[j] === charCode) {
+            return "rtl";
+          }
+        }
       }
     }
     return "ltr";
@@ -614,9 +633,11 @@
 
   BoundingBox.prototype.applyStyles = function(styles) {
     var div = this.div;
-    Object.keys(styles).forEach(function(style) {
-      div.style[style] = styles[style];
-    });
+    for (var prop in styles) {
+      if (styles.hasOwnProperty(prop)) {
+        div.style[prop] = styles[prop];
+      }
+    }
   };
 
   BoundingBox.prototype.formatStyle = function(val, unit) {
@@ -686,10 +707,10 @@
   BasicBoundingBox.prototype = Object.create(BoundingBox.prototype);
   BasicBoundingBox.prototype.constructor = BasicBoundingBox;
 
-  const CUE_FONT_SIZE = 2.5;
-  const SCROLL_DURATION = 0.433;
-  const LINE_HEIGHT = 0.0533;
-  const REGION_FONT_SIZE = 1.3;
+  var CUE_FONT_SIZE = 2.5;
+  var SCROLL_DURATION = 0.433;
+  var LINE_HEIGHT = 0.0533;
+  var REGION_FONT_SIZE = 1.3;
 
   function CueBoundingBox(window, cue) {
     BasicBoundingBox.call(this, window, cue);
