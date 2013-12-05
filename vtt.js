@@ -25,12 +25,12 @@
 
       return function(o){
         if (arguments.length != 1) {
-            throw new Error('Object.create implementation only accepts one parameter.');
+          throw new Error('Object.create implementation only accepts one parameter.');
         }
-        F.prototype = o
-          return new F()
-      }
-    })()
+        F.prototype = o;
+        return new F();
+      };
+    })();
   }
 
   function ParsingError(message) {
@@ -683,7 +683,7 @@
   // div on 'this'.
   StyleBox.prototype.applyStyles = function(styles, div) {
     div = div || this.div;
-    for (prop in styles) {
+    for (var prop in styles) {
       if (styles.hasOwnProperty(prop)) {
         div.style[prop] = styles[prop];
       }
