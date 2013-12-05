@@ -584,15 +584,15 @@
         return null;
 
       var node = nodeStack.pop();
-      if (node.textContent) {
+      if (node.innerHTML) {
         // TODO: This should match all unicode type B characters (paragraph
         // separator characters). See issue #115.
-        var m = node.textContent.match(/^.*(\n|\r)/);
+        var m = node.innerHTML.match(/^.*(\n|\r)/);
         if (m) {
           nodeStack.length = 0;
           return m[0];
         }
-        return node.textContent;
+        return node.innerHTML;
       }
       if (node.tagName === "ruby")
         return nextTextNode(nodeStack);
