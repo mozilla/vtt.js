@@ -1,0 +1,34 @@
+[
+  {
+    "childNodes": [
+      {
+        "childNodes": [],
+        "className": "first",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": "",
+        "title": ""
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "",
+    "title": ""
+  }
+]

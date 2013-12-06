@@ -1,0 +1,748 @@
+[
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": " Not ready yet? Alright, I'll wait until the camera man tells me we're good.",
+            "localName": "",
+            "textContent": " Not ready yet? Alright, I'll wait until the camera man tells me we're good."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": " Not ready yet? Alright, I'll wait until the camera man tells me we're good.",
+        "title": "Kyle Huey"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": " Not ready yet? Alright, I'll wait until the camera man tells me we're good.",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": " Okay, we're good now.",
+            "localName": "",
+            "textContent": " Okay, we're good now."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": " Okay, we're good now.",
+        "title": "Chris Pearce"
+      },
+      {
+        "childNodes": [],
+        "data": "\n",
+        "localName": "",
+        "textContent": "\n"
+      },
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": " Oh, now we're good?",
+            "localName": "",
+            "textContent": " Oh, now we're good?"
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": " Oh, now we're good?",
+        "title": "Kyle Huey"
+      },
+      {
+        "childNodes": [],
+        "data": "\n",
+        "localName": "",
+        "textContent": "\n"
+      },
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": "Laughter",
+            "localName": "",
+            "textContent": "Laughter"
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "i",
+        "style": {},
+        "tagName": "I",
+        "textContent": "Laughter",
+        "title": ""
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": " Okay, we're good now.\n Oh, now we're good?\nLaughter",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": " So thanks again for ",
+            "localName": "",
+            "textContent": " So thanks again for "
+          },
+          {
+            "childNodes": [
+              {
+                "childNodes": [],
+                "data": "coming",
+                "localName": "",
+                "textContent": "coming"
+              }
+            ],
+            "className": "",
+            "lang": "",
+            "localName": "u",
+            "style": {},
+            "tagName": "U",
+            "textContent": "coming",
+            "title": ""
+          },
+          {
+            "childNodes": [],
+            "data": ". I'm going to talk a bit about the cycle collector and what it does and how we manage memory in Gecko.",
+            "localName": "",
+            "textContent": ". I'm going to talk a bit about the cycle collector and what it does and how we manage memory in Gecko."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": " So thanks again for coming. I'm going to talk a bit about the cycle collector and what it does and how we manage memory in Gecko.",
+        "title": "Kyle Huey"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": " So thanks again for coming. I'm going to talk a bit about the cycle collector and what it does and how we manage memory in Gecko.",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": " And hopefully, answer questions that you all have about that.",
+            "localName": "",
+            "textContent": " And hopefully, answer questions that you all have about that."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": " And hopefully, answer questions that you all have about that.",
+        "title": "Kyle Huey"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": " And hopefully, answer questions that you all have about that.",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": " And hopefully people leave here with a better understanding about how it works and how to use it.",
+            "localName": "",
+            "textContent": " And hopefully people leave here with a better understanding about how it works and how to use it."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": " And hopefully people leave here with a better understanding about how it works and how to use it.",
+        "title": "Kyle Huey"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": " And hopefully people leave here with a better understanding about how it works and how to use it.",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": " So the ",
+            "localName": "",
+            "textContent": " So the "
+          },
+          {
+            "childNodes": [
+              {
+                "childNodes": [],
+                "data": "cyle collector",
+                "localName": "",
+                "textContent": "cyle collector"
+              }
+            ],
+            "className": "",
+            "lang": "",
+            "localName": "b",
+            "style": {},
+            "tagName": "B",
+            "textContent": "cyle collector",
+            "title": ""
+          },
+          {
+            "childNodes": [],
+            "data": " does three main things.",
+            "localName": "",
+            "textContent": " does three main things."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": " So the cyle collector does three main things.",
+        "title": "Kyle Huey"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": " So the cyle collector does three main things.",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": " So the first thing it does... no it probably doesn't do that.",
+            "localName": "",
+            "textContent": " So the first thing it does... no it probably doesn't do that."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": " So the first thing it does... no it probably doesn't do that.",
+        "title": "Kyle Huey"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": " So the first thing it does... no it probably doesn't do that.",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": " So the first thing that the ",
+            "localName": "",
+            "textContent": " So the first thing that the "
+          },
+          {
+            "childNodes": [
+              {
+                "childNodes": [],
+                "data": "cycle collector",
+                "localName": "",
+                "textContent": "cycle collector"
+              }
+            ],
+            "className": "",
+            "lang": "",
+            "localName": "b",
+            "style": {},
+            "tagName": "B",
+            "textContent": "cycle collector",
+            "title": ""
+          },
+          {
+            "childNodes": [],
+            "data": " does is that it collects garbage C++ cycles.",
+            "localName": "",
+            "textContent": " does is that it collects garbage C++ cycles."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": " So the first thing that the cycle collector does is that it collects garbage C++ cycles.",
+        "title": "Kyle Huey"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": " So the first thing that the cycle collector does is that it collects garbage C++ cycles.",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": " Hopefully, you can read my terrible hand writing, and hopefully, this doesn't fall down half way through.",
+            "localName": "",
+            "textContent": " Hopefully, you can read my terrible hand writing, and hopefully, this doesn't fall down half way through."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": " Hopefully, you can read my terrible hand writing, and hopefully, this doesn't fall down half way through.",
+        "title": "Kyle Huey"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": " Hopefully, you can read my terrible hand writing, and hopefully, this doesn't fall down half way through.",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": " So as most of you probably know, for most objects in Gecko we use ",
+            "localName": "",
+            "textContent": " So as most of you probably know, for most objects in Gecko we use "
+          },
+          {
+            "childNodes": [
+              {
+                "childNodes": [],
+                "data": "reference counting",
+                "localName": "",
+                "textContent": "reference counting"
+              }
+            ],
+            "className": "",
+            "lang": "",
+            "localName": "u",
+            "style": {},
+            "tagName": "U",
+            "textContent": "reference counting",
+            "title": ""
+          },
+          {
+            "childNodes": [],
+            "data": ".",
+            "localName": "",
+            "textContent": "."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": " So as most of you probably know, for most objects in Gecko we use reference counting.",
+        "title": "Kyle Huey"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": " So as most of you probably know, for most objects in Gecko we use reference counting.",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": " To keep track of lifetimes and what not, and so, one situation you could end up with in reference counting is something like",
+            "localName": "",
+            "textContent": " To keep track of lifetimes and what not, and so, one situation you could end up with in reference counting is something like"
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": " To keep track of lifetimes and what not, and so, one situation you could end up with in reference counting is something like",
+        "title": "Kyle Huey"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": " To keep track of lifetimes and what not, and so, one situation you could end up with in reference counting is something like",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": " A owns a reference to B and B owns a reference to A.",
+            "localName": "",
+            "textContent": " A owns a reference to B and B owns a reference to A."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": " A owns a reference to B and B owns a reference to A.",
+        "title": "Kyle Huey"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": " A owns a reference to B and B owns a reference to A.",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": " And so if you never do anything else, both of these will always have a reference count of 1, and you will leak memory... and that's bad.",
+            "localName": "",
+            "textContent": " And so if you never do anything else, both of these will always have a reference count of 1, and you will leak memory... and that's bad."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": " And so if you never do anything else, both of these will always have a reference count of 1, and you will leak memory... and that's bad.",
+        "title": "Kyle Huey"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": " And so if you never do anything else, both of these will always have a reference count of 1, and you will leak memory... and that's bad.",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": " So that's the first thing the ",
+            "localName": "",
+            "textContent": " So that's the first thing the "
+          },
+          {
+            "childNodes": [
+              {
+                "childNodes": [],
+                "data": "cycle collector",
+                "localName": "",
+                "textContent": "cycle collector"
+              }
+            ],
+            "className": "",
+            "lang": "",
+            "localName": "b",
+            "style": {},
+            "tagName": "B",
+            "textContent": "cycle collector",
+            "title": ""
+          },
+          {
+            "childNodes": [],
+            "data": " gives us.",
+            "localName": "",
+            "textContent": " gives us."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": " So that's the first thing the cycle collector gives us.",
+        "title": "Kyle Huey"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": " So that's the first thing the cycle collector gives us.",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": " The second thing the cycle collector deals with is cycles between C++ and Javascript.",
+            "localName": "",
+            "textContent": " The second thing the cycle collector deals with is cycles between C++ and Javascript."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": " The second thing the cycle collector deals with is cycles between C++ and Javascript.",
+        "title": "Kyle Huey"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": " The second thing the cycle collector deals with is cycles between C++ and Javascript.",
+    "title": ""
+  }
+]

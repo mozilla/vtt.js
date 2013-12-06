@@ -1,0 +1,81 @@
+[
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [
+              {
+                "childNodes": [],
+                "data": "Laughs",
+                "localName": "",
+                "textContent": "Laughs"
+              }
+            ],
+            "className": "",
+            "lang": "",
+            "localName": "i",
+            "style": {},
+            "tagName": "I",
+            "textContent": "Laughs",
+            "title": ""
+          },
+          {
+            "childNodes": [],
+            "data": " &am& other ",
+            "localName": "",
+            "textContent": " &am& other "
+          },
+          {
+            "childNodes": [
+              {
+                "childNodes": [],
+                "data": " stuff > &l<&rlâ€â€Ž ",
+                "localName": "",
+                "textContent": " stuff > &l<&rlâ€â€Ž "
+              }
+            ],
+            "className": "",
+            "lang": "",
+            "localName": "i",
+            "style": {},
+            "tagName": "I",
+            "textContent": " stuff > &l<&rlâ€â€Ž ",
+            "title": ""
+          },
+          {
+            "childNodes": [],
+            "data": "\nOh my! >",
+            "localName": "",
+            "textContent": "\nOh my! >"
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": "Laughs &am& other  stuff > &l<&rlâ€â€Ž \nOh my! >",
+        "title": "Neil deGrasse Tyson"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "rtl",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "start",
+      "top": "40%",
+      "white-space": "pre-line",
+      "width": "50%"
+    },
+    "tagName": "DIV",
+    "textContent": "Laughs &am& other  stuff > &l<&rlâ€â€Ž \nOh my! >",
+    "title": ""
+  }
+]

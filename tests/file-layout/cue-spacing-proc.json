@@ -1,0 +1,58 @@
+[
+  {
+    "childNodes": [
+      {
+        "childNodes": [],
+        "data": "Text\n00:02.000 --> 00:04.000\nText",
+        "localName": "",
+        "textContent": "Text\n00:02.000 --> 00:04.000\nText"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "Text\n00:02.000 --> 00:04.000\nText",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [],
+        "data": "00:06.000 --> 00:08.000\nText",
+        "localName": "",
+        "textContent": "00:06.000 --> 00:08.000\nText"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "00:06.000 --> 00:08.000\nText",
+    "title": ""
+  }
+]
