@@ -6,7 +6,15 @@ module.exports = function( grunt ) {
       options: {
         esnext: true,
         indent: 2,
-        expr: true
+        expr: true,
+        camelcase: true,
+        curly: true,
+        eqeqeq: true,
+        newcap: true,
+        unused: true,
+        trailing: true,
+        browser: true,
+        node: true
       },
       files: [
         "vtt.js",
