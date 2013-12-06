@@ -11,8 +11,9 @@
     }
 
     var m = input.match(/^(\d+):(\d{2})(:\d{2})?\.(\d{3})/);
-    if (!m)
+    if (!m) {
       return null;
+    }
 
     if (m[3]) {
       // Timestamp takes the form of [hours]:[minutes]:[seconds].[milliseconds]
@@ -36,8 +37,9 @@
   Settings.prototype = {
     // Only accept the first assignment to any key.
     set: function(k, v) {
-      if (!this.get(k) && v !== "")
+      if (!this.get(k) && v !== "") {
         this.values[k] = v;
+      }
     },
     // Return the value for a key, or a default value.
     // If 'defaultKey' is passed then 'dflt' is assumed to be an object with
@@ -45,8 +47,9 @@
     // the key of the property that will be chosen; otherwise it's assumed to be
     // a single value.
     get: function(k, dflt, defaultKey) {
-      if (defaultKey)
+      if (defaultKey) {
         return this.has(k) ? this.values[k] : dflt[defaultKey];
+      }
       return this.has(k) ? this.values[k] : dflt;
     },
     // Check whether we have a value for a key.
@@ -70,8 +73,9 @@
     },
     // Accept a setting if its a valid (signed) integer.
     integer: function(k, v) {
-      if (/^-?\d+$/.test(v)) // integer
+      if (/^-?\d+$/.test(v)) { // integer
         this.set(k, parseInt(v, 10));
+      }
     },
     // Accept a setting if its a valid percentage.
     percent: function(k, v, frac) {
@@ -99,8 +103,9 @@
         continue;
       }
       var kv = groups[i].split(keyValueDelim);
-      if (kv.length !== 2)
+      if (kv.length !== 2) {
         continue;
+      }
       var k = kv[0];
       var v = kv[1];
       callback(k, v);
@@ -111,8 +116,9 @@
     // 4.1 WebVTT timestamp
     function consumeTimeStamp() {
       var ts = parseTimeStamp(input);
-      if (ts === null)
+      if (ts === null) {
         throw "error";
+      }
       // Remove time stamp from input.
       input = input.replace(/^[^\s-]+/, "");
       return ts;
@@ -188,8 +194,9 @@
     skipWhitespace();
     cue.startTime = consumeTimeStamp();   // (1) collect cue start time
     skipWhitespace();
-    if (input.substr(0, 3) !== "-->")     // (3) next characters must match "-->"
+    if (input.substr(0, 3) !== "-->") {     // (3) next characters must match "-->"
       throw "error";
+    }
     input = input.substr(3);
     skipWhitespace();
     cue.endTime = consumeTimeStamp();     // (5) collect cue end time
@@ -232,8 +239,9 @@
   function parseContent(window, input) {
     function nextToken() {
       // Check for end-of-string.
-      if (!input)
+      if (!input) {
         return null;
+      }
 
       // Consume 'n' characters from the input.
       function consume(result) {
@@ -252,8 +260,9 @@
       return ESCAPE[e];
     }
     function unescape(s) {
-      while ((m = s.match(/&(amp|lt|gt|lrm|rlm|nbsp);/)))
+      while ((m = s.match(/&(amp|lt|gt|lrm|rlm|nbsp);/))) {
         s = s.replace(m[0], unescape1);
+      }
       return s;
     }
 
@@ -265,13 +274,15 @@
     // Create an element for this tag.
     function createElement(type, annotation) {
       var tagName = TAG_NAME[type];
-      if (!tagName)
+      if (!tagName) {
         return null;
+      }
       var element = window.document.createElement(tagName);
       element.localName = tagName;
       var name = TAG_ANNOTATION[type];
-      if (name && annotation)
+      if (name && annotation) {
         element[name] = annotation.trim();
+      }
       return element;
     }
 
@@ -302,19 +313,23 @@
         }
         var m = t.match(/^<([^.\s/0-9>]+)(\.[^\s\\>]+)?([^>\\]+)?(\\?)>?$/);
         // If we can't parse the tag, skip to the next tag.
-        if (!m)
+        if (!m) {
           continue;
+        }
         // Try to construct an element, and ignore the tag if we couldn't.
         node = createElement(m[1], m[3]);
-        if (!node)
+        if (!node) {
           continue;
+        }
         // Determine if the tag should be added based on the context of where it
         // is placed in the cuetext.
-        if (!shouldAdd(current, node))
+        if (!shouldAdd(current, node)) {
           continue;
+        }
         // Set the class list (as a list of classes, separated by space).
-        if (m[2])
+        if (m[2]) {
           node.className = m[2].substr(1).replace('.', ' ');
+        }
         // Append the node to the current node, and enter the scope of the new
         // node.
         tagStack.push(m[1]);
@@ -556,17 +571,20 @@
     var nodeStack = [],
         text = "";
 
-    if (!cueDiv || !cueDiv.childNodes)
+    if (!cueDiv || !cueDiv.childNodes) {
       return "ltr";
+    }
 
     function pushNodes(nodeStack, node) {
-      for (var i = node.childNodes.length - 1; i >= 0; i--)
+      for (var i = node.childNodes.length - 1; i >= 0; i--) {
         nodeStack.push(node.childNodes[i]);
+      }
     }
 
     function nextTextNode(nodeStack) {
-      if (!nodeStack || !nodeStack.length)
+      if (!nodeStack || !nodeStack.length) {
         return null;
+      }
 
       var node = nodeStack.pop();
       if (node.textContent) {
@@ -579,8 +597,9 @@
         }
         return node.textContent;
       }
-      if (node.tagName === "ruby")
+      if (node.tagName === "ruby") {
         return nextTextNode(nodeStack);
+      }
       if (node.childNodes) {
         pushNodes(nodeStack, node);
         return nextTextNode(nodeStack);
@@ -590,24 +609,29 @@
     pushNodes(nodeStack, cueDiv);
     while ((text = nextTextNode(nodeStack))) {
       for (var i = 0; i < text.length; i++) {
-        if (strongRTLChars.indexOf(text.charCodeAt(i)) !== -1)
+        if (strongRTLChars.indexOf(text.charCodeAt(i)) !== -1) {
           return "rtl";
+        }
       }
     }
     return "ltr";
   }
 
+  /**
+   * Unused right now.
   function computeLinePos(cue) {
     if (typeof cue.line === "number" &&
-        (cue.snapToLines || (cue.line >= 0 && cue.line <= 100)))
+        (cue.snapToLines || (cue.line >= 0 && cue.line <= 100))) {
       return cue.line;
-    if (!cue.track)
+    }
+    if (!cue.track) {
       return -1;
+    }
     // TODO: Have to figure out a way to determine what the position of the
     // Track is in the Media element's list of TextTracks and return that + 1,
     // negated.
     return 100;
-  }
+  }*/
 
   function BoundingBox() {
   }
@@ -741,8 +765,9 @@
     });
 
     this.maybeAddCue = function(cue) {
-      if (region.id !== cue.regionId)
+      if (region.id !== cue.regionId) {
         return false;
+      }
 
       var basicBox = new BasicBoundingBox(window, cue);
       basicBox.applyStyles({
@@ -751,7 +776,7 @@
         width: "auto"
       });
 
-      if (this.div.childNodes.length == 1 && region.scroll === "up") {
+      if (this.div.childNodes.length === 1 && region.scroll === "up") {
         this.applyStyles({
           transitionProperty: "top",
           transitionDuration: SCROLL_DURATION + "s"
@@ -769,30 +794,35 @@
     this.window = window;
     this.state = "INITIAL";
     this.buffer = "";
-    this.decoder = decoder || TextDecoder("utf8");
+    this.decoder = decoder || new TextDecoder("utf8");
   }
 
   // Helper to allow strings to be decoded instead of the default binary utf8 data.
   WebVTTParser.StringDecoder = function() {
     return {
       decode: function(data) {
-        if (!data) return "";
-        if (typeof data !== "string") throw "[StringDecoder] Error - expected string data";
-
+        if (!data) {
+          return "";
+        }
+        if (typeof data !== "string") {
+          throw "[StringDecoder] Error - expected string data";
+        }
         return decodeURIComponent(escape(data));
       }
     };
   };
 
   WebVTTParser.convertCueToDOMTree = function(window, cuetext) {
-    if (!window || !cuetext)
+    if (!window || !cuetext) {
       return null;
+    }
     return parseContent(window, cuetext);
   };
 
   WebVTTParser.processCues = function(window, cues, regions) {
-    if (!window || !cues)
+    if (!window || !cues) {
       return null;
+    }
 
     var regionBoxes = regions ? regions.map(function(region) {
       return new RegionBoundingBox(window, region);
@@ -800,8 +830,9 @@
 
     function mapCueToRegion(cue) {
       for (var i = 0; i < regionBoxes.length; i++) {
-        if (regionBoxes[i].maybeAddCue(cue))
+        if (regionBoxes[i].maybeAddCue(cue)) {
           return true;
+        }
       }
       return false;
     }
@@ -835,14 +866,17 @@
       function collectNextLine() {
         var buffer = self.buffer;
         var pos = 0;
-        while (pos < buffer.length && buffer[pos] != '\r' && buffer[pos] != '\n')
+        while (pos < buffer.length && buffer[pos] !== '\r' && buffer[pos] !== '\n') {
           ++pos;
+        }
         var line = buffer.substr(0, pos);
         // Advance the buffer early in case we fail below.
-        if (buffer[pos] === '\r')
+        if (buffer[pos] === '\r') {
           ++pos;
-        if (buffer[pos] === '\n')
+        }
+        if (buffer[pos] === '\n') {
           ++pos;
+        }
         self.buffer = buffer.substr(pos);
         return line;
       }
@@ -865,15 +899,17 @@
           case "regionanchor":
           case "viewportanchor":
             var xy = v.split(',');
-            if (xy.length !== 2)
+            if (xy.length !== 2) {
               break;
+            }
             // We have to make sure both x and y parse, so use a temporary
             // settings object here.
             var anchor = new Settings();
             anchor.percent("x", xy[0], true);
             anchor.percent("y", xy[1], true);
-            if (!anchor.has("x") || !anchor.has("y"))
+            if (!anchor.has("x") || !anchor.has("y")) {
               break;
+            }
             settings.set(k + "X", anchor.get("x"));
             settings.set(k + "Y", anchor.get("y"));
             break;
@@ -916,8 +952,9 @@
         var line;
         if (self.state === "INITIAL") {
           // We can't start parsing until we have the first line.
-          if (!/\r\n|\n/.test(self.buffer))
+          if (!/\r\n|\n/.test(self.buffer)) {
             return this;
+          }
 
           line = collectNextLine();
 
@@ -949,8 +986,9 @@
             continue;
           case "NOTE":
             // Ignore NOTE blocks.
-            if (!line)
+            if (!line) {
               self.state = "ID";
+            }
             continue;
           case "ID":
             // Check for the start of NOTE blocks.
@@ -959,12 +997,13 @@
               break;
             }
             // 19-29 - Allow any number of line terminators, then initialize new cue values.
-            if (!line)
+            if (!line) {
               continue;
+            }
             self.cue = new self.window.VTTCue(0, 0, "");
             self.state = "CUE";
             // 30-39 - Check if self line contains an optional identifier or timing data.
-            if (line.indexOf("-->") == -1) {
+            if (line.indexOf("-->") === -1) {
               self.cue.id = line;
               continue;
             }
@@ -991,8 +1030,9 @@
               self.state = "ID";
               continue;
             }
-            if (self.cue.text)
+            if (self.cue.text) {
               self.cue.text += "\n";
+            }
             self.cue.text += line;
             continue;
           case "BADCUE": // BADCUE
@@ -1005,8 +1045,9 @@
         }
       } catch (e) {
         // If we are currently parsing a cue, report what we have, and then the error.
-        if (self.state === "CUETEXT" && self.cue && self.oncue)
+        if (self.state === "CUETEXT" && self.cue && self.oncue) {
           self.oncue(self.cue);
+        }
         self.cue = null;
         // Enter BADWEBVTT state if header was not parsed correctly otherwise
         // another exception occurred so enter BADCUE state.
