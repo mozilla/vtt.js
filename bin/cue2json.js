@@ -71,8 +71,11 @@ function writeOutput(data, path) {
 
 // Get the file name of the file we should save the JSON to.
 function getJSONFileName(path) {
+  if (argv.c && argv.p) {
+    return path.replace(/\.vtt$/, "-proc.json");
+  }
   if (argv.c) {
-    return path.replace(/\.vtt$/, ".json")
+    return path.replace(/\.vtt$/, ".json");
   }
 }
 
@@ -113,7 +116,7 @@ function recurse(path) {
   createNodeVTT(function(parser) {
     var files = [];
     function onFile(error, file) {
-      if (file.match(/\.json$/)) {
+      if (file.match(/\.json$/) && !argv.p) {
         path = file.replace(/\.json$/, ".vtt");
         if (fs.existsSync(path)) {
           files.push(path);
@@ -156,6 +159,11 @@ try {
   var stats = fs.lstatSync(path);
   if (stats.isDirectory()) {
     argv.c = true; // Default when walking dirs is to write to copy.
+    // If we're recursively writing processing model JSON files then we want
+    // to write every file we find.
+    if (argv.p) {
+      argv.n = true;
+    }
     return recurse(path);
   }
   if(!path.match(/\.vtt$/)) {
