@@ -38,12 +38,29 @@ module.exports = function( grunt ) {
           ]
         }
       }
+    },
+
+    concat: {
+      options: {
+        banner: "/*! vtt.js - https://github.com/mozilla/vtt.js (built on <%= grunt.template.today('dd-mm-yyyy') %>) */\n"
+      },
+      dist: {
+        src: [
+          "lib/stringencoding/encoding.js",
+          "lib/vttcue.js",
+          "lib/vttregion.js",
+          "vtt.js"
+        ],
+        dest: "dist/vtt.js"
+      }
     }
+
   });
 
   grunt.loadNpmTasks( "grunt-contrib-jshint" );
   grunt.loadNpmTasks( "grunt-contrib-uglify" );
+  grunt.loadNpmTasks( "grunt-contrib-concat" );
 
-  grunt.registerTask( "build", [ "uglify" ] );
-  grunt.registerTask( "default", [ "jshint", "uglify" ]);
+  grunt.registerTask( "build", [ "uglify", "concat" ] );
+  grunt.registerTask( "default", [ "jshint", "build" ]);
 };
