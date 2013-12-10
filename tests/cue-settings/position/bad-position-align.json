@@ -7,6 +7,7 @@
       "id": "",
       "line": "auto",
       "lineAlign": "start",
+      "pauseOnExit": false,
       "position": 42,
       "positionAlign": "middle",
       "regionId": "",

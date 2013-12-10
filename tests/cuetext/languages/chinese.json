@@ -7,6 +7,7 @@
       "id": "从大海到大海",
       "line": "auto",
       "lineAlign": "start",
+      "pauseOnExit": false,
       "position": 50,
       "positionAlign": "middle",
       "regionId": "",
