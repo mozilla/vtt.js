@@ -930,7 +930,7 @@
           region.regionAnchorY = settings.get("regionanchorY", 100);
           region.viewportAnchorX = settings.get("viewportanchorX", 0);
           region.viewportAnchorY = settings.get("viewportanchorY", 100);
-          region.scroll = settings.get("scroll", "none");
+          region.scroll = settings.get("scroll", "");
           self.onregion(region);
         }
       }
