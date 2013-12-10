@@ -5,15 +5,15 @@
       "align": "middle",
       "endTime": 2,
       "id": "",
-      "line": "auto",
-      "lineAlign": "start",
+      "line": 42,
+      "lineAlign": "middle",
       "position": 50,
       "positionAlign": "middle",
       "regionId": "",
       "size": 100,
-      "snapToLines": true,
+      "snapToLines": false,
       "startTime": 0,
-      "text": "<a0:01.000>It's a blue apple tree!",
+      "text": "Text",
       "vertical": ""
     }
   ]

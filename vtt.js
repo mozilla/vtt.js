@@ -173,7 +173,7 @@
       cue.regionId = settings.get("region", "");
       cue.vertical = settings.get("vertical", "");
       cue.line = settings.get("line", "auto");
-      cue.lineAlign = settings.get("lineAlign", "middle");
+      cue.lineAlign = settings.get("lineAlign", "start");
       cue.snapToLines = settings.get("snapToLines", true);
       cue.size = settings.get("size", 100);
       cue.align = settings.get("align", "middle");
