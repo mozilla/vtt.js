@@ -3,6 +3,13 @@
 
 (function(global) {
 
+  function ParsingError(message) {
+    this.name = "ParsingError";
+    this.message = message || "";
+  }
+  ParsingError.prototype = Object.create(Error.prototype);
+  ParsingError.prototype.constructor = ParsingError;
+
   // Try to parse input as a time stamp.
   function parseTimeStamp(input) {
 
@@ -117,7 +124,7 @@
     function consumeTimeStamp() {
       var ts = parseTimeStamp(input);
       if (ts === null) {
-        throw "error";
+        throw new ParsingError("Malformed time stamp.");
       }
       // Remove time stamp from input.
       input = input.replace(/^[^\s-]+/, "");
@@ -195,7 +202,7 @@
     cue.startTime = consumeTimeStamp();   // (1) collect cue start time
     skipWhitespace();
     if (input.substr(0, 3) !== "-->") {     // (3) next characters must match "-->"
-      throw "error";
+      throw new ParsingError("Malformed time stamp (time stamps must be separated by '-->').");
     }
     input = input.substr(3);
     skipWhitespace();
@@ -805,7 +812,7 @@
           return "";
         }
         if (typeof data !== "string") {
-          throw "[StringDecoder] Error - expected string data";
+          throw new Error("Error - expected string data.");
         }
         return decodeURIComponent(escape(data));
       }
@@ -960,7 +967,7 @@
 
           var m = line.match(/^WEBVTT([ \t].*)?$/);
           if (!m || !m[0]) {
-            throw "error";
+            throw new ParsingError("Malformed WebVTT signature.");
           }
 
           self.state = "HEADER";
@@ -1014,6 +1021,10 @@
             try {
               parseCue(line, self.cue);
             } catch (e) {
+              // If it's not a parsing error then throw it to the consumer.
+              if (!(e instanceof ParsingError)) {
+                throw e;
+              }
               // In case of an error ignore rest of the cue.
               self.cue = null;
               self.state = "BADCUE";
@@ -1044,6 +1055,10 @@
           }
         }
       } catch (e) {
+        // If it's not a parsing error then throw it to the consumer.
+        if (!(e instanceof ParsingError)) {
+          throw e;
+        }
         // If we are currently parsing a cue, report what we have, and then the error.
         if (self.state === "CUETEXT" && self.cue && self.oncue) {
           self.oncue(self.cue);
