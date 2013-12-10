@@ -51,6 +51,13 @@ Spec Compliance
   - [VTTRegion](http://dev.w3.org/html5/webvtt/#vttregion-interface) (Completed)
   - [VTTRegionList](http://dev.w3.org/html5/webvtt/#vttregionlist-interface) (Not Implemented)
 
+###Notes###
+
+Our processing model portion of the specification makes use of a custom property, `_reset`. It allows us to detect
+when a VTTCue is dirty, i.e. one of its properties that affects display has changed and so we need to recompute its display
+state. This allows us to reuse a cue's display state if it has already been computed and nothing has changed to effect its
+position.
+
 API
 ===
 
