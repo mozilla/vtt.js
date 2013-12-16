@@ -894,7 +894,7 @@
         continue;
       }
       // Check to see if we can just reuse the last computed styles of the cue.
-      if (cues[i]._reset !== true && cues[i].displayState) {
+      if (cues[i].reset !== true && cues[i].displayState) {
         overlay.appendChild(cues[i].displayState);
         continue;
       }
