@@ -23,6 +23,7 @@ module.exports = function( grunt ) {
         "lib/vttcue-extended.js",
         "lib/vttregion.js",
         "lib/vttregion-extended.js",
+        "lib/vttregionlist.js",
         "lib/node-vtt.js"
       ]
     },
