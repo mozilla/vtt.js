@@ -1,0 +1,520 @@
+[
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": "We are in New York City",
+            "localName": "",
+            "textContent": "We are in New York City"
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": "We are in New York City",
+        "title": "Roger Bingham"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "We are in New York City",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": "We're actually at the Lucern Hotel, just down the street",
+            "localName": "",
+            "textContent": "We're actually at the Lucern Hotel, just down the street"
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": "We're actually at the Lucern Hotel, just down the street",
+        "title": "Roger Bingham"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "We're actually at the Lucern Hotel, just down the street",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": "from the American Museum of Natural History",
+            "localName": "",
+            "textContent": "from the American Museum of Natural History"
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": "from the American Museum of Natural History",
+        "title": "Roger Bingham"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "from the American Museum of Natural History",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": "And with me is Neil deGrasse Tyson",
+            "localName": "",
+            "textContent": "And with me is Neil deGrasse Tyson"
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": "And with me is Neil deGrasse Tyson",
+        "title": "Roger Bingham"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "And with me is Neil deGrasse Tyson",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": "Astrophysicist, Director of the Hayden Planetarium",
+            "localName": "",
+            "textContent": "Astrophysicist, Director of the Hayden Planetarium"
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": "Astrophysicist, Director of the Hayden Planetarium",
+        "title": "Roger Bingham"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "Astrophysicist, Director of the Hayden Planetarium",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": "at the AMNH.",
+            "localName": "",
+            "textContent": "at the AMNH."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": "at the AMNH.",
+        "title": "Roger Bingham"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "at the AMNH.",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": "Thank you for walking down here.",
+            "localName": "",
+            "textContent": "Thank you for walking down here."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": "Thank you for walking down here.",
+        "title": "Roger Bingham"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "Thank you for walking down here.",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": "And I want to do a follow-up on the last conversation we did.",
+            "localName": "",
+            "textContent": "And I want to do a follow-up on the last conversation we did."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": "And I want to do a follow-up on the last conversation we did.",
+        "title": "Roger Bingham"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "And I want to do a follow-up on the last conversation we did.",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": "When we e-mailedâ",
+            "localName": "",
+            "textContent": "When we e-mailedâ"
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": "When we e-mailedâ",
+        "title": "Roger Bingham"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "50%",
+      "position": "absolute",
+      "text-align": "end",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "50%"
+    },
+    "tagName": "DIV",
+    "textContent": "When we e-mailedâ",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": "Didn't we talk about enough in that conversation?",
+            "localName": "",
+            "textContent": "Didn't we talk about enough in that conversation?"
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": "Didn't we talk about enough in that conversation?",
+        "title": "Neil deGrasse Tyson"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "start",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "50%"
+    },
+    "tagName": "DIV",
+    "textContent": "Didn't we talk about enough in that conversation?",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": "No! No no no no; 'cos 'cos obviously 'cos",
+            "localName": "",
+            "textContent": "No! No no no no; 'cos 'cos obviously 'cos"
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": "No! No no no no; 'cos 'cos obviously 'cos",
+        "title": "Roger Bingham"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "50%",
+      "position": "absolute",
+      "text-align": "end",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "50%"
+    },
+    "tagName": "DIV",
+    "textContent": "No! No no no no; 'cos 'cos obviously 'cos",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [
+              {
+                "childNodes": [],
+                "data": "Laughs",
+                "localName": "",
+                "textContent": "Laughs"
+              }
+            ],
+            "className": "",
+            "lang": "",
+            "localName": "i",
+            "style": {},
+            "tagName": "I",
+            "textContent": "Laughs",
+            "title": ""
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": "Laughs",
+        "title": "Neil deGrasse Tyson"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "start",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "50%"
+    },
+    "tagName": "DIV",
+    "textContent": "Laughs",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+          {
+            "childNodes": [],
+            "data": "You know I'm so excited my glasses are falling off here.",
+            "localName": "",
+            "textContent": "You know I'm so excited my glasses are falling off here."
+          }
+        ],
+        "className": "",
+        "lang": "",
+        "localName": "span",
+        "style": {},
+        "tagName": "SPAN",
+        "textContent": "You know I'm so excited my glasses are falling off here.",
+        "title": "Roger Bingham"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "You know I'm so excited my glasses are falling off here.",
+    "title": ""
+  }
+]

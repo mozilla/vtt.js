@@ -1,6 +1,3 @@
-/* -*- Mode: Java; tab-width: 2; indent-tabs-mode: nil; c-basic-offset: 2 -*- */
-/* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
-
 (function(global) {
 
   function ParsingError(message) {
@@ -624,8 +621,6 @@
     return "ltr";
   }
 
-  /**
-   * Unused right now.
   function computeLinePos(cue) {
     if (typeof cue.line === "number" &&
         (cue.snapToLines || (cue.line >= 0 && cue.line <= 100))) {
@@ -638,7 +633,7 @@
     // Track is in the Media element's list of TextTracks and return that + 1,
     // negated.
     return 100;
-  }*/
+  }
 
   function BoundingBox() {
   }
@@ -660,52 +655,38 @@
     // Parse our cue's text into a DOM tree rooted at 'div'.
     this.div = parseContent(window, cue.text);
 
-    // Calculate the distance from the reference edge to the closest edge of the
-    // box. The reference edge will be resolved later when the position styles
-    // are applied.
-    var pos = 0;
-    switch (cue.align) {
-    case "middle":
-      pos = cue.position - (cue.size / 2);
-      break;
-    case "left":
+    // Calculate the distance from the reference edge of the viewport to the text
+    // position of the cue box. The reference edge will be resolved later when
+    // the box orientation styles are applied.
+    var textPos = 0;
+    switch (cue.positionAlign) {
     case "start":
-      pos = cue.position;
+      textPos = cue.position;
       break;
-    case "right":
+    case "middle":
+      textPos = cue.position - (cue.size / 2);
+      break;
     case "end":
-      pos = cue.position - cue.size;
+      textPos = cue.position - cue.size;
       break;
     }
 
-    // Horizontal box orientation; pos is the distance from the left edge of the
-    // area to the left edge of the box and boxLen is the distance extending to
-    // the right from there. Anchor to the bottom of the screen.
+    // Horizontal box orientation; textPos is the distance from the left edge of the
+    // area to the left edge of the box and cue.size is the distance extending to
+    // the right from there.
     if (cue.vertical === "") {
       this.applyStyles({
-        left:  this.formatStyle(pos, "%"),
+        left:  this.formatStyle(textPos, "%"),
         width: this.formatStyle(cue.size, "%"),
-        bottom: 0
       });
-    // Vertical box orientation; pos is the distance from the top edge of the
-    // area to the top edge of the box and boxLen is the height extending
+    // Vertical box orientation; textPos is the distance from the top edge of the
+    // area to the top edge of the box and cue.size is the height extending
     // downwards from there.
     } else {
       this.applyStyles({
-        top: this.formatStyle(pos, "%"),
+        top: this.formatStyle(textPos, "%"),
         height: this.formatStyle(cue.size, "%")
       });
-      // Anchor to the left of the screen for vertical growing right text.
-      if (cue.vertical === "lr") {
-        this.applyStyles({
-          left: 0
-        });
-      // Anchor to the right of the screen for vertical growing left text.
-      } else if (cue.vertical === "rl") {
-        this.applyStyles({
-          right: 0
-        });
-      }
     }
 
     // All WebVTT cue-setting alignments are equivalent to the CSS mirrors of
@@ -722,7 +703,9 @@
   const LINE_HEIGHT = 0.0533;
   const REGION_FONT_SIZE = 1.3;
 
-  function CueBoundingBox(window, cue) {
+  // Constructs the computed display state of the cue (a div). Places the div
+  // into the overlay which should be a block level element (usually a div).
+  function CueBoundingBox(window, cue, overlay) {
     BasicBoundingBox.call(this, window, cue);
     this.applyStyles({
       direction: determineBidi(this.div),
@@ -731,11 +714,64 @@
                                                                : "vertical-rl",
       position: "absolute",
       unicodeBidi: "plaintext",
-      font: CUE_FONT_SIZE + "vh sans-serif",
+      fontSize: CUE_FONT_SIZE + "vh",
+      fontFamily: "sans-serif",
       color: "rgba(255, 255, 255, 1)",
       backgroundColor: "rgba(0, 0, 0, 0.8)",
       whiteSpace: "pre-line"
     });
+
+    // Append the div to the overlay so we can get the computed styles of the
+    // element in order to position for overlap avoidance.
+    overlay.appendChild(this.div);
+
+    // Calculate the distance from the reference edge of the viewport to the line
+    // position of the cue box. The reference edge will be resolved later when
+    // the box orientation styles are applied. Default if snapToLines is not set
+    // is 85.
+    var linePos = 85;
+    if (!cue.snapToLines) {
+      var computedLinePos = computeLinePos(cue),
+          boxComputedStyle = window.getComputedStyle(this.div),
+          size = cue.vertical === "" ? boxComputedStyle.getPropertyValue("height") :
+                                       boxComputedStyle.getPropertyValue("width"),
+          // Get the percentage value of the computed height as getPropertyValue
+          // returns pixels.
+          overlayHeight = window.getComputedStyle(overlay).getPropertyValue("height"),
+          calculatedPercentage = (size.replace("px", "") / overlayHeight.replace("px", "")) * 100;
+
+      switch (cue.lineAlign) {
+      case "start":
+        linePos = computedLinePos;
+        break;
+      case "middle":
+        linePos = computedLinePos - (calculatedPercentage / 2);
+        break;
+      case "end":
+        linePos = computedLinePos - calculatedPercentage;
+        break;
+      }
+    }
+
+    switch (cue.vertical) {
+    case "":
+      this.applyStyles({
+        top: this.formatStyle(linePos, "%")
+      });
+      break;
+    case "rl":
+      this.applyStyles({
+        left: this.formatStyle(linePos, "%")
+      });
+      break;
+    case "lr":
+      this.applyStyles({
+        right: this.formatStyle(linePos, "%")
+      });
+      break;
+    }
+
+    cue.displayState = this.div;
   }
   CueBoundingBox.prototype = Object.create(BasicBoundingBox.prototype);
   CueBoundingBox.prototype.constuctor = CueBoundingBox;
@@ -826,9 +862,17 @@
     return parseContent(window, cuetext);
   };
 
-  WebVTTParser.processCues = function(window, cues, regions) {
-    if (!window || !cues) {
+  // Runs the processing model over the cues and regions passed to it.
+  // @param overlay A block level element (usually a div) that the computed cues
+  //                and regions will be placed into.
+  WebVTTParser.processCues = function(window, cues, regions, overlay) {
+    if (!window || !cues || !overlay) {
       return null;
+    }
+
+    // Remove all previous children.
+    while (overlay.firstChild) {
+      overlay.removeChild(overlay.firstChild);
     }
 
     var regionBoxes = regions ? regions.map(function(region) {
@@ -844,18 +888,19 @@
       return false;
     }
 
-    var cueDivs = [];
     for (var i = 0; i < cues.length; i++) {
-      if (!regionBoxes || !mapCueToRegion(cues[i])) {
-        var cueBox = new CueBoundingBox(window, cues[i]);
-        // TODO: Adjust cue divs see issue https://github.com/mozilla/vtt.js/issues/112
-        cueDivs.push(cueBox.div);
+      // Check to see if this cue is contained within a VTTRegion.
+      if (regionBoxes && mapCueToRegion(cues[i])) {
+        continue;
       }
+      // Check to see if we can just reuse the last computed styles of the cue.
+      if (cues[i]._reset !== true && cues[i].displayState) {
+        overlay.appendChild(cues[i].displayState);
+        continue;
+      }
+      // Compute the position of the cue box on the cue overlay.
+      var cueBox = new CueBoundingBox(window, cues[i], overlay);
     }
-
-    return regionBoxes ? regionBoxes.map(function(regionBox) {
-      return regionBox.div;
-    }).concat(cueDivs) : cueDivs;
   };
 
   WebVTTParser.prototype = {

@@ -72,7 +72,7 @@ parser.parse(moreData);
 parser.parse(moreData);
 parser.flush();
 WebVTTParser.convertCueToDOMTree(window, cuetext);
-WebVTTParser.processCues(window, cues, regions);
+WebVTTParser.processCues(window, cues, regions, overlay);
 ```
 
 The WebVTT constructor is passed a window object with which it will create new
@@ -141,10 +141,12 @@ var div = WebVTTParser.convertCueToDOMTree(window, cuetext);
 Converts the cuetext of the cues passed to it to DOM trees&mdash;by calling convertCueToDOMTree&mdash;and
 then runs the processing model steps of the WebVTT specification on the divs. The processing model applies the necessary
 CSS styles to the cue divs to prepare them for display on the web page. It also converts the regions to divs, applies
-CSS, and adds any of the cue divs which are attached to that region as children of the region divs.
+CSS, and adds any of the cue divs which are attached to that region as children of the region divs. During this process
+the cue divs get added to a block level element (overlay). The overlay should be a part of the live DOM as the algorithm
+will use the computed styles (only of the divs to do overlap avoidance.
 
 ```javascript
-var divs = WebVTTParser.processCues(window, cues, regions);
+var divs = WebVTTParser.processCues(window, cues, regions, overlay);
 ```
 
 Browser
@@ -262,17 +264,20 @@ The associated JSON representation of the parsed file might look like this:
   "regions": [],
   "cues": [
     {
-      "id": "",
-      "startTime": 32.5,
-      "endTime": 33.5,
-      "text": "<v.loud Mary>That's awesome!",
-      "regionId": "",
-      "vertical": "",
-      "line": "auto",
-      "snapToLines": true,
-      "size": 50,
       "align": "start",
-      "position": 0,
+      "endTime": 33.5,
+      "id": "",
+      "line": "auto",
+      "lineAlign": "start",
+      "pauseOnExit": false,
+      "position": 50,
+      "positionAlign": "middle",
+      "regionId": "",
+      "size": 50,
+      "snapToLines": true,
+      "startTime": 32.5,
+      "text": "<v.loud Mary>That's awesome!",
+      "vertical": ""
     }
   ]
 }
@@ -296,13 +301,13 @@ describe("foo/bar.vtt", function(){
   });
 
   it("should compare JSON to parsed result", function(onDone){
-    test.jsonEqualAll("foo/bar.vtt", "foo/bar.json", onDone);
+    test.jsonEqualParsing("foo/bar.vtt", "foo/bar.json", onDone);
   });
 
 });
 ```
 
-The `jsonEqualAll` assertion does 2 kinds of checks, including:
+The `jsonEqualParsing` assertion does 2 kinds of checks, including:
 
 * Parsing the specified file as UTF8 binary data without streaming (i.e., single call to `parse)
 * Parsing the specified file as UTF8 binary data with streaming at every possible chunk size
@@ -397,7 +402,7 @@ contained within the WebVTT file could look like:
 
 Writing a test for this is similar to the JSON based tests that test the parser. You
 would include a `.js` file somewhere in the `/tests` directory and use the
-`assert.checkProcessingModel` function instead of `jsonEqual`.
+`test.jsonEqualProcModel` method.
 
 ```javascript
 var TestRunner = require("../../lib/test-runner.js"),

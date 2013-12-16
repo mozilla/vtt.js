@@ -40,11 +40,11 @@ describe("cue-settings/line tests", function(){
   });
 
   it("line-end-align.vtt", function(onDone){
-    test.jsonEqualAll("cue-settings/line/line-end-align.vtt", "cue-settings/line/line-end-align.json", onDone);
+    test.jsonEqualParsing("cue-settings/line/line-end-align.vtt", "cue-settings/line/line-end-align.json", onDone);
   });
 
   it("line-start-align.vtt", function(onDone){
-    test.jsonEqualAll("cue-settings/line/line-start-align.vtt", "cue-settings/line/line-start-align.json", onDone);
+    test.jsonEqualParsing("cue-settings/line/line-start-align.vtt", "cue-settings/line/line-start-align.json", onDone);
   });
 
   it("negative-integer-value.vtt", function(onDone){
