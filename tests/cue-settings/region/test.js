@@ -24,7 +24,7 @@ describe("cue-settings/region tests", function(){
   });
 
   it("region-arrows.vtt", function(onDone){
-    test.jsonEqualAll("cue-settings/region/region-arrows.vtt", "cue-settings/region/bad-region.json", onDone);
+    test.jsonEqualAll("cue-settings/region/region-arrows.vtt", "cue-settings/region/region-arrows.json", onDone);
   });
 
   it("space-after-delimiter.vtt", function(onDone){
