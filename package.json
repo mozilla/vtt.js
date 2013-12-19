@@ -20,7 +20,8 @@
     "node-phantom": "0.2.5",
     "dive": "0.3.0",
     "async": "0.2.9",
-    "grunt-bump": "0.0.13"
+    "grunt-bump": "0.0.13",
+    "grunt-update-submodules": "0.2.0"
   },
   "main": "vtt.js",
   "scripts": {

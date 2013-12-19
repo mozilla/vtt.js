@@ -79,7 +79,8 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks( "grunt-contrib-uglify" );
   grunt.loadNpmTasks( "grunt-contrib-concat" );
   grunt.loadNpmTasks( "grunt-bump" );
+  grunt.loadNpmTasks( "grunt-update-submodules" );
 
-  grunt.registerTask( "build", [ "uglify", "concat" ] );
+  grunt.registerTask( "build", [ "update_submodules", "uglify", "concat" ] );
   grunt.registerTask( "default", [ "jshint", "build" ]);
 };
