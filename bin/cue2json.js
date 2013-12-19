@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /**
  * Copyright 2013 vtt.js Contributors
  *
@@ -14,7 +16,6 @@
  * limitations under the License.
  */
 
-#!/usr/bin/env node
 var opt = require("optimist")
     .usage("Parse VTT files into JSON.\n" +
            "Usage: $0 [options]")
