@@ -12,7 +12,7 @@ describe("regions/id tests", function(){
   });
 
   it("arrows.vtt", function(onDone){
-    test.jsonEqualParsing("regions/id/arrows.vtt", "regions/id/bad-id.json", onDone);
+    test.jsonEqualParsing("regions/id/arrows.vtt", "regions/id/arrows.json", onDone);
   });
 
   it("bad-delimiter.vtt", function(onDone){

@@ -1,0 +1,15 @@
+{
+  "regions": [
+    {
+      "id": "fred-->",
+      "width": 100,
+      "lines": 3,
+      "regionAnchorY": 100,
+      "regionAnchorX": 0,
+      "viewportAnchorY": 100,
+      "viewportAnchorX": 0,
+      "scroll": ""
+    }
+  ],
+  "cues": []
+}

@@ -69,12 +69,6 @@
         }
       }
     },
-    // Accept a region if it doesn't have the special string '-->'
-    region: function(k, v) {
-      if (!v.match(/-->/)) {
-        this.set(k, v);
-      }
-    },
     // Accept a setting if its a valid (signed) integer.
     integer: function(k, v) {
       if (/^-?\d+$/.test(v)) { // integer
@@ -135,7 +129,7 @@
       parseOptions(input, function (k, v) {
         switch (k) {
         case "region":
-          settings.region(k, v);
+          settings.set(k, v);
           break;
         case "vertical":
           settings.alt(k, v, ["rl", "lr"]);
@@ -940,7 +934,7 @@
         parseOptions(input, function (k, v) {
           switch (k) {
           case "id":
-            settings.region(k, v);
+            settings.set(k, v);
             break;
           case "width":
             settings.percent(k, v, true);
