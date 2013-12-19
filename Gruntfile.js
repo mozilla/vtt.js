@@ -56,6 +56,21 @@ module.exports = function( grunt ) {
         ],
         dest: "dist/vtt.js"
       }
+    },
+
+    bump: {
+      options: {
+        files: [ "package.json" ],
+        updateConfigs: [],
+        commit: true,
+        commitMessage: "Release v%VERSION%",
+        commitFiles: [ "package.json" ],
+        createTag: true,
+        tagName: "v%VERSION%",
+        tagMessage: "Version %VERSION%",
+        push: true,
+        pushTo: "git@github.com:mozilla/vtt.js.git",
+      }
     }
 
   });
@@ -63,6 +78,7 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks( "grunt-contrib-jshint" );
   grunt.loadNpmTasks( "grunt-contrib-uglify" );
   grunt.loadNpmTasks( "grunt-contrib-concat" );
+  grunt.loadNpmTasks( "grunt-bump" );
 
   grunt.registerTask( "build", [ "uglify", "concat" ] );
   grunt.registerTask( "default", [ "jshint", "build" ]);
