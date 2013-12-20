@@ -55,7 +55,7 @@ describe("VTTCue DOM shim test", function() {
        assert.ok(region.hasOwnProperty(prop), "VTTRegion should have the " + prop + "property");
     });
 
-    testEnum(region, "scroll", [ "", "none", "up" ]);
+    testEnum(region, "scroll", [ "", "up" ]);
     testRange(region, "regionAnchorX", -1, 101);
     testRange(region, "regionAnchorY", -1, 101);
     testRange(region, "viewportAnchorX", -1, 101);
