@@ -35,8 +35,8 @@ describe("cuetext/languages tests", function(){
     test.jsonEqualAll("cuetext/languages/korean.vtt", "cuetext/languages/korean.json", onDone);
   });
 
-  it.skip("long_string_arabic.vtt", function(onDone){
-    test.jsonEqualAll("cuetext/languages/long_string_arabic.vtt", "cuetext/languages/long_string_arabic.json", onDone);
+  it("long_string_arabic.vtt", function(onDone){
+    test.jsonEqual("cuetext/languages/long_string_arabic.vtt", "cuetext/languages/long_string_arabic.json", onDone);
   });
 
   it.skip("long_string_chinese.vtt", function(onDone){
