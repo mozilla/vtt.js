@@ -137,7 +137,7 @@
         throw new ParsingError("Malformed time stamp.");
       }
       // Remove time stamp from input.
-      input = input.replace(/^[^\s-]+/, "");
+      input = input.replace(/^[^\sa-zA-Z-]+/, "");
       return ts;
     }
 
