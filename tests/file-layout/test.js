@@ -47,6 +47,10 @@ describe("file-layout tests", function(){
     test.jsonEqualAll("file-layout/newline-before-webvtt.vtt", "file-layout/no-output.json", onDone);
   });
 
+  it("no-space-cue-times-cue-settings.vtt", function(onDone){
+    test.jsonEqualAll("file-layout/no-space-cue-times-cue-settings.vtt", "file-layout/no-space-cue-times-cue-settings.json", onDone);
+  });
+
   it("tab-after-bom-before-header.vtt", function(onDone){
     test.jsonEqualAll("file-layout/tab-after-bom-before-header.vtt", "file-layout/no-output.json", onDone);
   });
