@@ -639,13 +639,19 @@
         (cue.snapToLines || (cue.line >= 0 && cue.line <= 100))) {
       return cue.line;
     }
-    if (!cue.track) {
+    if (!cue.track || !cue.track.textTrackList ||
+        !cue.track.textTrackList.mediaElement) {
       return -1;
     }
-    // TODO: Have to figure out a way to determine what the position of the
-    // Track is in the Media element's list of TextTracks and return that + 1,
-    // negated.
-    return 100;
+    var track = cue.track,
+        trackList = track.textTrackList,
+        count = 0;
+    for (var i = 0; i < trackList.length && trackList[i] !== track; i++) {
+      if (trackList[i].mode === "showing") {
+        count++;
+      }
+    }
+    return ++count * -1;
   }
 
   function BoundingBox() {
