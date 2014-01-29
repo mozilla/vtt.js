@@ -718,9 +718,6 @@
   BasicBoundingBox.prototype.constructor = BasicBoundingBox;
 
   const CUE_FONT_SIZE = 2.5;
-  const SCROLL_DURATION = 0.433;
-  const LINE_HEIGHT = 0.0533;
-  const REGION_FONT_SIZE = 1.3;
 
   // Constructs the computed display state of the cue (a div). Places the div
   // into the overlay which should be a block level element (usually a div).
@@ -795,63 +792,6 @@
   CueBoundingBox.prototype = Object.create(BasicBoundingBox.prototype);
   CueBoundingBox.prototype.constuctor = CueBoundingBox;
 
-  function RegionBoundingBox(window, region) {
-    BoundingBox.call(this);
-    this.div = window.document.createElement("div");
-
-    var left = region.viewportAnchorX -
-               region.regionAnchorX * region.width / 100,
-        top = region.viewportAnchorY -
-              region.regionAnchorY * region.lines * LINE_HEIGHT / 100;
-
-    this.applyStyles({
-      position: "absolute",
-      writingMode: "horizontal-tb",
-      backgroundColor: "rgba(0, 0, 0, 0.8)",
-      wordWrap: "break-word",
-      overflowWrap: "break-word",
-      font: REGION_FONT_SIZE + "vh/" + LINE_HEIGHT + "vh sans-serif",
-      lineHeight: LINE_HEIGHT + "vh",
-      color: "rgba(255, 255, 255, 1)",
-      overflow: "hidden",
-      width: this.formatStyle(region.width, "%"),
-      minHeight: "0",
-      // TODO: This value is undefined in the spec, but I am assuming that they
-      // refer to lines * line height to get the max height See issue #107.
-      maxHeight: this.formatStyle(region.lines * LINE_HEIGHT, "px"),
-      left: this.formatStyle(left, "%"),
-      top: this.formatStyle(top, "%"),
-      display: "inline-flex",
-      flexFlow: "column",
-      justifyContent: "flex-end"
-    });
-
-    this.maybeAddCue = function(cue) {
-      if (region.id !== cue.regionId) {
-        return false;
-      }
-
-      var basicBox = new BasicBoundingBox(window, cue);
-      basicBox.applyStyles({
-        position: "relative",
-        unicodeBidi: "plaintext",
-        width: "auto"
-      });
-
-      if (this.div.childNodes.length === 1 && region.scroll === "up") {
-        this.applyStyles({
-          transitionProperty: "top",
-          transitionDuration: SCROLL_DURATION + "s"
-        });
-      }
-
-      this.div.appendChild(basicBox.div);
-      return true;
-    };
-  }
-  RegionBoundingBox.prototype = Object.create(BoundingBox.prototype);
-  RegionBoundingBox.prototype.constructor = RegionBoundingBox;
-
   function WebVTTParser(window, decoder) {
     this.window = window;
     this.state = "INITIAL";
@@ -884,7 +824,7 @@
   // Runs the processing model over the cues and regions passed to it.
   // @param overlay A block level element (usually a div) that the computed cues
   //                and regions will be placed into.
-  WebVTTParser.processCues = function(window, cues, regions, overlay) {
+  WebVTTParser.processCues = function(window, cues, overlay) {
     if (!window || !cues || !overlay) {
       return null;
     }
@@ -894,24 +834,7 @@
       overlay.removeChild(overlay.firstChild);
     }
 
-    var regionBoxes = regions ? regions.map(function(region) {
-      return new RegionBoundingBox(window, region);
-    }) : null;
-
-    function mapCueToRegion(cue) {
-      for (var i = 0; i < regionBoxes.length; i++) {
-        if (regionBoxes[i].maybeAddCue(cue)) {
-          return true;
-        }
-      }
-      return false;
-    }
-
     for (var i = 0; i < cues.length; i++) {
-      // Check to see if this cue is contained within a VTTRegion.
-      if (regionBoxes && mapCueToRegion(cues[i])) {
-        continue;
-      }
       // Check to see if we can just reuse the last computed styles of the cue.
       if (cues[i].hasBeenReset !== true && cues[i].displayState) {
         overlay.appendChild(cues[i].displayState);
