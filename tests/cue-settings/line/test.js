@@ -31,6 +31,10 @@ describe("cue-settings/line tests", function(){
     test.jsonEqualAll("cue-settings/line/dash-in-value.vtt", "cue-settings/line/bad-line.json", onDone);
   });
 
+  it("decimal-percent.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/line/decimal-percent.vtt", "cue-settings/line/decimal-percent.json", onDone);
+  });
+
   it("integer-value.vtt", function(onDone){
     test.jsonEqualAll("cue-settings/line/integer-value.vtt", "cue-settings/line/integer-value.json", onDone);
   });

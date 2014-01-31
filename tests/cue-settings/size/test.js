@@ -23,6 +23,10 @@ describe("cue-settings/size tests", function(){
     test.jsonEqualAll("cue-settings/size/bogus-value.vtt", "cue-settings/size/bad-size.json", onDone);
   });
 
+  it("decimal-percent.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/size/decimal-percent.vtt", "cue-settings/size/decimal-percent.json", onDone);
+  });
+
   it("integer-value.vtt", function(onDone){
     test.jsonEqualAll("cue-settings/size/integer-value.vtt", "cue-settings/size/bad-size.json", onDone);
   });
