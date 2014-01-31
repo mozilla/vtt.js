@@ -72,7 +72,7 @@ parser.parse(moreData);
 parser.parse(moreData);
 parser.flush();
 WebVTTParser.convertCueToDOMTree(window, cuetext);
-WebVTTParser.processCues(window, cues, regions, overlay);
+WebVTTParser.processCues(window, cues, overlay);
 ```
 
 The WebVTT constructor is passed a window object with which it will create new
@@ -140,13 +140,12 @@ var div = WebVTTParser.convertCueToDOMTree(window, cuetext);
 
 Converts the cuetext of the cues passed to it to DOM trees&mdash;by calling convertCueToDOMTree&mdash;and
 then runs the processing model steps of the WebVTT specification on the divs. The processing model applies the necessary
-CSS styles to the cue divs to prepare them for display on the web page. It also converts the regions to divs, applies
-CSS, and adds any of the cue divs which are attached to that region as children of the region divs. During this process
-the cue divs get added to a block level element (overlay). The overlay should be a part of the live DOM as the algorithm
-will use the computed styles (only of the divs to do overlap avoidance.
+CSS styles to the cue divs to prepare them for display on the web page. During this process the cue divs get added
+to a block level element (overlay). The overlay should be a part of the live DOM as the algorithm will use the
+computed styles (only of the divs to do overlap avoidance.
 
 ```javascript
-var divs = WebVTTParser.processCues(window, cues, regions, overlay);
+var divs = WebVTTParser.processCues(window, cues, overlay);
 ```
 
 Browser
@@ -314,16 +313,15 @@ The `jsonEqualParsing` assertion does 2 kinds of checks, including:
 
 The other style of JSON based tests are tests that check the processing model implementation rather then
 the parser implementation. The processing model is the part of the WebVTT spec that prepares a number of
-cues and regions to be displayed on the web page by converting their content to DOM trees and applying
+cues to be displayed on the web page by converting their content to DOM trees and applying
 CSS styling to them.
 
 For example your WebVTT file could look like:
 
 ```
 WEBVTT
-Region: id=fred width=50% lines=3 regionanchor=0%,100% viewportanchor=10%,90% scroll=up
 
-00:01.000 --> 00:02.000 region:fred
+00:01.000 --> 00:02.000
 Is
 
 00:01.000 --> 00:02.000
@@ -336,66 +334,60 @@ contained within the WebVTT file could look like:
 ```json
 [
   {
-    "style": {
-      "position": "absolute",
-      "writingMode": "horizontal-tb",
-      "backgroundColor": "rgba(0, 0, 0, 0.8)",
-      "wordWrap": "break-word",
-      "overflowWrap": "break-word",
-      "font": "1.3vh/0.0533vh sans-serif",
-      "lineHeight": "0.0533vh",
-      "color": "rgba(255, 255, 255, 1)",
-      "overflow": "hidden",
-      "width": "50%",
-      "minHeight": "0",
-      "maxHeight": "0.1599px",
-      "left": "10%",
-      "top": "9.8401%",
-      "display": "inline-flex",
-      "flexFlow": "column",
-      "justifyContent": "flex-end"
-    },
-    "tagName": "div",
     "childNodes": [
       {
-        "style": {
-          "left": 0,
-          "width": "auto",
-          "textAlign": "center",
-          "position": "relative",
-          "unicodeBidi": "plaintext"
-        },
-        "tagName": "div",
-        "childNodes": [
-          {
-            "style": {},
-            "textContent": "Is"
-          }
-        ]
+        "childNodes": [],
+        "data": "Is",
+        "localName": "",
+        "textContent": "Is"
       }
-    ]
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "Is",
+    "title": ""
   },
   {
-    "style": {
-      "left": 0,
-      "width": "100%",
-      "textAlign": "center",
-      "direction": "ltr",
-      "writingMode": "horizontal-tb",
-      "position": "absolute",
-      "unicodeBidi": "plaintext",
-      "font": "2.5vh sans-serif",
-      "color": "rgba(255, 255, 255, 1)",
-      "backgroundColor": "rgba(0, 0, 0, 0.8)",
-      "whiteSpace": "pre-line"
-    },
-    "tagName": "div",
     "childNodes": [
       {
-        "style": {},
+        "childNodes": [],
+        "data": "A",
+        "localName": "",
         "textContent": "A"
       }
-    ]
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "center",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "A",
+    "title": ""
   }
 ]
 ```
