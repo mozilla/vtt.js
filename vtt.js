@@ -651,24 +651,24 @@
     return ++count * -1;
   }
 
-  function BoundingBox() {
+  function StyleBox() {
   }
 
-  BoundingBox.prototype.applyStyles = function(styles) {
+  StyleBox.prototype.applyStyles = function(styles) {
     var div = this.div;
     Object.keys(styles).forEach(function(style) {
       div.style[style] = styles[style];
     });
   };
 
-  BoundingBox.prototype.formatStyle = function(val, unit) {
+  StyleBox.prototype.formatStyle = function(val, unit) {
     return val === 0 ? 0 : val + unit;
   };
 
   // Constructs the computed display state of the cue (a div). Places the div
   // into the overlay which should be a block level element (usually a div).
-  function CueBoundingBox(window, cue, styleOptions) {
-    BoundingBox.call(this);
+  function CueStyleBox(window, cue, styleOptions) {
+    StyleBox.call(this);
     this.cue = cue;
     // Parse our cue's text into a DOM tree rooted at 'div'.
     this.div = parseContent(window, cue.text);
@@ -723,8 +723,8 @@
       whiteSpace: "pre-line"
     });
   }
-  CueBoundingBox.prototype = Object.create(BoundingBox.prototype);
-  CueBoundingBox.prototype.constructor = CueBoundingBox;
+  CueStyleBox.prototype = Object.create(StyleBox.prototype);
+  CueStyleBox.prototype.constructor = CueStyleBox;
 
   function computeLinePostion(window, cueBox, overlay) {
     // Append the div to the overlay so we can get the computed styles of the
@@ -838,7 +838,7 @@
         continue;
       }
       // Compute the position of the cue box on the cue overlay.
-      var cueBox = new CueBoundingBox(window, cues[i], styleOptions);
+      var cueBox = new CueStyleBox(window, cues[i], styleOptions);
       computeLinePostion(window, cueBox, overlay);
     }
   };
