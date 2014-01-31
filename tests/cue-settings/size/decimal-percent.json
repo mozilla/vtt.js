@@ -1,0 +1,21 @@
+{
+  "regions": [],
+  "cues": [
+    {
+      "id": "",
+      "pauseOnExit": false,
+      "startTime": 0,
+      "endTime": 2,
+      "text": "Text",
+      "regionId": "",
+      "vertical": "",
+      "snapToLines": true,
+      "line": "auto",
+      "lineAlign": "start",
+      "position": 50,
+      "positionAlign": "middle",
+      "size": 42.12,
+      "align": "middle"
+    }
+  ]
+}

@@ -31,6 +31,10 @@ describe("cue-settings/position tests", function(){
     test.jsonEqualAll("cue-settings/position/bogus-value.vtt", "cue-settings/position/bad-position.json", onDone);
   });
 
+  it("decimal-percent.vtt", function(onDone){
+    test.jsonEqualAll("cue-settings/position/decimal-percent.vtt", "cue-settings/position/decimal-percent.json", onDone);
+  });
+
   it("integer-value.vtt", function(onDone){
     test.jsonEqualAll("cue-settings/position/integer-value.vtt", "cue-settings/position/bad-position.json", onDone);
   });
