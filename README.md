@@ -46,10 +46,10 @@ Spec Compliance
       - Overlap Avoidance (In Progress) ***Steps 11+***
   - [Applying CSS Properties](http://dev.w3.org/html5/webvtt/#applying-css-properties-to-webvtt-node-objects) (Completed)
   - [CSS Extensions](http://dev.w3.org/html5/webvtt/#css-extensions) (Not Implemented)
-- [WebVTT API Shim](http://dev.w3.org/html5/webvtt/#webvtt-api-for-browsers) (In Progress)
+- [WebVTT API Shim](http://dev.w3.org/html5/webvtt/#webvtt-api-for-browsers) (Completed)
   - [VTTCue](http://dev.w3.org/html5/webvtt/#vttcue-interface) (Completed)
   - [VTTRegion](http://dev.w3.org/html5/webvtt/#vttregion-interface) (Completed)
-  - [VTTRegionList](http://dev.w3.org/html5/webvtt/#vttregionlist-interface) (Not Implemented)
+  - [VTTRegionList](http://dev.w3.org/html5/webvtt/#vttregionlist-interface) (Completed)
 
 ###Notes###
 
