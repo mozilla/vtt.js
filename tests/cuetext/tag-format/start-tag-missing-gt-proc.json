@@ -21,7 +21,7 @@
       "background-color": "rgba(0, 0, 0, 0.796875)",
       "color": "rgb(255, 255, 255)",
       "direction": "ltr",
-      "font-family": "sans-serif",
+      "font": "normal normal normal 7.5px/normal sans-serif",
       "left": "0px",
       "position": "absolute",
       "text-align": "center",
