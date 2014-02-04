@@ -2,7 +2,8 @@
   {
     "childNodes": [
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": "Did you know I didn't put a\u00A0space here?",
         "localName": "",
         "textContent": "Did you know I didn't put a\u00A0space here?"

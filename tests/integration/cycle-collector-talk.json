@@ -1,5 +1,4 @@
 {
-  "regions": [],
   "cues": [
     {
       "align": "middle",
@@ -241,5 +240,7 @@
       "text": "<v Kyle Huey> The second thing the cycle collector deals with is cycles between C++ and Javascript.",
       "vertical": ""
     }
+  ],
+  "regions": [
   ]
 }

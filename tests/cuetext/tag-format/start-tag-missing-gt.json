@@ -1,5 +1,4 @@
 {
-  "regions": [],
   "cues": [
     {
       "align": "middle",
@@ -17,5 +16,7 @@
       "text": "<c.first That's awesome!</c>",
       "vertical": ""
     }
+  ],
+  "regions": [
   ]
 }

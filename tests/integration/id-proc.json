@@ -2,7 +2,8 @@
   {
     "childNodes": [
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": "This",
         "localName": "",
         "textContent": "This"
@@ -30,7 +31,8 @@
   {
     "childNodes": [
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": "Is",
         "localName": "",
         "textContent": "Is"
@@ -58,7 +60,8 @@
   {
     "childNodes": [
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": "A",
         "localName": "",
         "textContent": "A"
@@ -86,7 +89,8 @@
   {
     "childNodes": [
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": "And stuff?",
         "localName": "",
         "textContent": "And stuff?"

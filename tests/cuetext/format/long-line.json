@@ -1,5 +1,4 @@
 {
-  "regions": [],
   "cues": [
     {
       "align": "middle",
@@ -17,5 +16,7 @@
       "text": "The Organisation for Sample Public Service Announcements accepts no liability for the content of this advertisement, or for the consequences of any actions taken on the basis of the information provided.",
       "vertical": ""
     }
+  ],
+  "regions": [
   ]
 }

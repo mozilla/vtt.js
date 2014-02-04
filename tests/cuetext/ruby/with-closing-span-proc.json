@@ -4,7 +4,8 @@
       {
         "childNodes": [
           {
-            "childNodes": [],
+            "childNodes": [
+            ],
             "data": "That's ",
             "localName": "",
             "textContent": "That's "
@@ -12,7 +13,8 @@
           {
             "childNodes": [
               {
-                "childNodes": [],
+                "childNodes": [
+                ],
                 "data": "awesome!",
                 "localName": "",
                 "textContent": "awesome!"
@@ -21,7 +23,8 @@
             "className": "",
             "lang": "",
             "localName": "rt",
-            "style": {},
+            "style": {
+            },
             "tagName": "RT",
             "textContent": "awesome!",
             "title": ""
@@ -30,13 +33,15 @@
         "className": "",
         "lang": "",
         "localName": "ruby",
-        "style": {},
+        "style": {
+        },
         "tagName": "RUBY",
         "textContent": "That's awesome!",
         "title": ""
       },
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": " Hee!",
         "localName": "",
         "textContent": " Hee!"

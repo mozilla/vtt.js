@@ -2,7 +2,8 @@
   {
     "childNodes": [
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": "Text",
         "localName": "",
         "textContent": "Text"
@@ -19,7 +20,7 @@
       "left": "0px",
       "position": "absolute",
       "text-align": "center",
-      "top": "38%",
+      "top": "31.333333333333332%",
       "white-space": "pre-line",
       "width": "100%"
     },

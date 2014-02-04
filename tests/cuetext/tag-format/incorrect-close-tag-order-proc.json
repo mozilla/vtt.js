@@ -4,13 +4,15 @@
       {
         "childNodes": [
           {
-            "childNodes": [],
+            "childNodes": [
+            ],
             "data": "Hee!",
             "localName": "",
             "textContent": "Hee!"
           },
           {
-            "childNodes": [],
+            "childNodes": [
+            ],
             "data": " Hee!",
             "localName": "",
             "textContent": " Hee!"
@@ -19,7 +21,8 @@
         "className": "",
         "lang": "",
         "localName": "i",
-        "style": {},
+        "style": {
+        },
         "tagName": "I",
         "textContent": "Hee! Hee!",
         "title": ""

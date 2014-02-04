@@ -1,5 +1,4 @@
 {
-  "regions": [],
   "cues": [
     {
       "align": "middle",
@@ -97,5 +96,7 @@
       "text": "Timeline Panel",
       "vertical": ""
     }
+  ],
+  "regions": [
   ]
 }

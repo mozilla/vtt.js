@@ -2,7 +2,8 @@
   {
     "childNodes": [
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": "Some text < &> < &nb\u00A0 &am< \u200F&lr\u200E other stuff.",
         "localName": "",
         "textContent": "Some text < &> < &nb\u00A0 &am< \u200F&lr\u200E other stuff."

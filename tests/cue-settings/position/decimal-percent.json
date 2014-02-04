@@ -1,21 +1,22 @@
 {
-  "regions": [],
   "cues": [
     {
-      "id": "",
-      "pauseOnExit": false,
-      "startTime": 0,
+      "align": "middle",
       "endTime": 2,
-      "text": "Text",
-      "regionId": "",
-      "vertical": "",
-      "snapToLines": true,
+      "id": "",
       "line": "auto",
       "lineAlign": "start",
+      "pauseOnExit": false,
       "position": 42.12,
       "positionAlign": "middle",
+      "regionId": "",
       "size": 100,
-      "align": "middle"
+      "snapToLines": true,
+      "startTime": 0,
+      "text": "Text",
+      "vertical": ""
     }
+  ],
+  "regions": [
   ]
 }

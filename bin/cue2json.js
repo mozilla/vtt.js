@@ -41,7 +41,8 @@ var opt = require("optimist")
   fs = require("fs"),
   NodeVTT = require("../lib/node-vtt.js"),
   exec = require("child_process").exec,
-  dive = require("dive");
+  dive = require("dive"),
+  stringify = require("json-stable-stringify");
 
 function fail(message, fatal) {
   message = message || "Unable to process request.";
@@ -69,7 +70,7 @@ function createNodeVTT(onCreated) {
 function writeOutput(data, path) {
   var json;
   try {
-    json = JSON.stringify(data, null, 2);
+    json = stringify(data, { space: "  " });
   } catch(error) {
     return fail("Unable to jsonify data. " + error.message);
   }

@@ -2,7 +2,8 @@
   {
     "childNodes": [
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": "It's a blue apple tree!",
         "localName": "",
         "textContent": "It's a blue apple tree!"

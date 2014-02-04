@@ -2,7 +2,8 @@
   {
     "childNodes": [
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": "This should be \u200E. Correct?",
         "localName": "",
         "textContent": "This should be \u200E. Correct?"

@@ -4,7 +4,8 @@
       {
         "childNodes": [
           {
-            "childNodes": [],
+            "childNodes": [
+            ],
             "data": "No way!",
             "localName": "",
             "textContent": "No way!"
@@ -13,7 +14,8 @@
         "className": "",
         "lang": "",
         "localName": "u",
-        "style": {},
+        "style": {
+        },
         "tagName": "U",
         "textContent": "No way!",
         "title": ""

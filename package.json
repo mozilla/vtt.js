@@ -21,7 +21,8 @@
     "dive": "0.3.0",
     "async": "0.2.9",
     "grunt-bump": "0.0.13",
-    "grunt-update-submodules": "0.2.0"
+    "grunt-update-submodules": "0.2.0",
+    "json-stable-stringify": "git://github.com/RickEyre/json-stable-stringify.git#295f57aadda83777c411cc904410d0ccc13c2721"
   },
   "main": "vtt.js",
   "scripts": {

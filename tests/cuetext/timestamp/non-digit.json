@@ -1,5 +1,4 @@
 {
-  "regions": [],
   "cues": [
     {
       "align": "middle",
@@ -17,5 +16,7 @@
       "text": "<a0:01.000>It's a blue apple tree!",
       "vertical": ""
     }
+  ],
+  "regions": [
   ]
 }

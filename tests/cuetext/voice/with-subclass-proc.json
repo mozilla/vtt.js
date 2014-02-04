@@ -4,7 +4,8 @@
       {
         "childNodes": [
           {
-            "childNodes": [],
+            "childNodes": [
+            ],
             "data": "That's awesome!",
             "localName": "",
             "textContent": "That's awesome!"
@@ -13,7 +14,8 @@
         "className": "loud",
         "lang": "",
         "localName": "span",
-        "style": {},
+        "style": {
+        },
         "tagName": "SPAN",
         "textContent": "That's awesome!",
         "title": "Joe"

@@ -2,7 +2,8 @@
   {
     "childNodes": [
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": "Text\n00:02.000 --> 00:04.000\nText",
         "localName": "",
         "textContent": "Text\n00:02.000 --> 00:04.000\nText"
@@ -30,7 +31,8 @@
   {
     "childNodes": [
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": "00:06.000 --> 00:08.000\nText",
         "localName": "",
         "textContent": "00:06.000 --> 00:08.000\nText"

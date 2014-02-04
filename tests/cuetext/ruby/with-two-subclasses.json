@@ -1,5 +1,4 @@
 {
-  "regions": [],
   "cues": [
     {
       "align": "middle",
@@ -17,5 +16,7 @@
       "text": "<ruby.first.loud>That's <rt.first.loud>awesome!</rt></ruby>",
       "vertical": ""
     }
+  ],
+  "regions": [
   ]
 }

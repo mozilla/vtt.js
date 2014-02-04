@@ -4,7 +4,8 @@
       {
         "childNodes": [
           {
-            "childNodes": [],
+            "childNodes": [
+            ],
             "data": "That's awesome!",
             "localName": "",
             "textContent": "That's awesome!"
@@ -13,13 +14,15 @@
         "className": "",
         "lang": "",
         "localName": "u",
-        "style": {},
+        "style": {
+        },
         "tagName": "U",
         "textContent": "That's awesome!",
         "title": ""
       },
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": " Hee!",
         "localName": "",
         "textContent": " Hee!"

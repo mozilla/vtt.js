@@ -1,5 +1,4 @@
 {
-  "regions": [],
   "cues": [
     {
       "align": "start",
@@ -17,5 +16,7 @@
       "text": "Text",
       "vertical": ""
     }
+  ],
+  "regions": [
   ]
 }
