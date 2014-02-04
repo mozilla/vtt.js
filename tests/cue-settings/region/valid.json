@@ -9,7 +9,15 @@
       "pauseOnExit": false,
       "position": 50,
       "positionAlign": "middle",
-      "regionId": "fred123a$@*&AS01a",
+      "region": {
+        "lines": 3,
+        "regionAnchorX": 0,
+        "regionAnchorY": 100,
+        "scroll": "",
+        "viewportAnchorX": 0,
+        "viewportAnchorY": 100,
+        "width": 100
+      },
       "size": 100,
       "snapToLines": true,
       "startTime": 0,
@@ -18,5 +26,14 @@
     }
   ],
   "regions": [
+    {
+      "lines": 3,
+      "regionAnchorX": 0,
+      "regionAnchorY": 100,
+      "scroll": "",
+      "viewportAnchorX": 0,
+      "viewportAnchorY": 100,
+      "width": 100
+    }
   ]
 }

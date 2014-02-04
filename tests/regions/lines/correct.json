@@ -3,7 +3,6 @@
   ],
   "regions": [
     {
-      "id": "fred",
       "lines": 5,
       "regionAnchorX": 0,
       "regionAnchorY": 100,

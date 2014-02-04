@@ -9,7 +9,7 @@
       "pauseOnExit": false,
       "position": 50,
       "positionAlign": "middle",
-      "regionId": "",
+      "region": "",
       "size": 42,
       "snapToLines": true,
       "startTime": 0,
