@@ -2,13 +2,15 @@
   {
     "childNodes": [
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": "No ",
         "localName": "",
         "textContent": "No "
       },
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": " way!",
         "localName": "",
         "textContent": " way!"

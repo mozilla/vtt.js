@@ -1,5 +1,4 @@
 {
-  "regions": [],
   "cues": [
     {
       "align": "middle",
@@ -17,5 +16,7 @@
       "text": "<00:01.000 >No way!",
       "vertical": ""
     }
+  ],
+  "regions": [
   ]
 }

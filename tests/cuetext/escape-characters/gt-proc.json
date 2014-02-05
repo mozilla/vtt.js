@@ -2,7 +2,8 @@
   {
     "childNodes": [
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": "Everyone likes the '>' sign right?",
         "localName": "",
         "textContent": "Everyone likes the '>' sign right?"

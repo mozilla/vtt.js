@@ -1,1 +1,176 @@
-[]
+[
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+        ],
+        "data": "Hi, my name is Fred",
+        "localName": "",
+        "textContent": "Hi, my name is Fred"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "left",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "Hi, my name is Fred",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+        ],
+        "data": "Hi, I'm Bill",
+        "localName": "",
+        "textContent": "Hi, I'm Bill"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "right",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "Hi, I'm Bill",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+        ],
+        "data": "Would you like to get a coffee?",
+        "localName": "",
+        "textContent": "Would you like to get a coffee?"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "left",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "Would you like to get a coffee?",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+        ],
+        "data": "Sure! I've only had one today.",
+        "localName": "",
+        "textContent": "Sure! I've only had one today."
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "right",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "Sure! I've only had one today.",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+        ],
+        "data": "This is my fourth!",
+        "localName": "",
+        "textContent": "This is my fourth!"
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "left",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "This is my fourth!",
+    "title": ""
+  },
+  {
+    "childNodes": [
+      {
+        "childNodes": [
+        ],
+        "data": "OK, let's go.",
+        "localName": "",
+        "textContent": "OK, let's go."
+      }
+    ],
+    "className": "",
+    "lang": "",
+    "localName": "div",
+    "style": {
+      "background-color": "rgba(0, 0, 0, 0.796875)",
+      "color": "rgb(255, 255, 255)",
+      "direction": "ltr",
+      "font-family": "sans-serif",
+      "left": "0px",
+      "position": "absolute",
+      "text-align": "left",
+      "top": "85%",
+      "white-space": "pre-line",
+      "width": "100%"
+    },
+    "tagName": "DIV",
+    "textContent": "OK, let's go.",
+    "title": ""
+  }
+]

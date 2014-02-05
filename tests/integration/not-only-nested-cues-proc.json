@@ -2,7 +2,8 @@
   {
     "childNodes": [
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": "The First Minute",
         "localName": "",
         "textContent": "The First Minute"
@@ -30,7 +31,8 @@
   {
     "childNodes": [
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "data": "The Final Minute",
         "localName": "",
         "textContent": "The Final Minute"

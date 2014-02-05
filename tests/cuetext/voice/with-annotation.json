@@ -1,5 +1,4 @@
 {
-  "regions": [],
   "cues": [
     {
       "align": "middle",
@@ -17,5 +16,7 @@
       "text": "<v Mary>No way!</v>",
       "vertical": ""
     }
+  ],
+  "regions": [
   ]
 }

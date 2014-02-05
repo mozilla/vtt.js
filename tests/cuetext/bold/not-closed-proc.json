@@ -4,7 +4,8 @@
       {
         "childNodes": [
           {
-            "childNodes": [],
+            "childNodes": [
+            ],
             "data": "It's a blue apple tree!",
             "localName": "",
             "textContent": "It's a blue apple tree!"
@@ -13,7 +14,8 @@
         "className": "",
         "lang": "",
         "localName": "b",
-        "style": {},
+        "style": {
+        },
         "tagName": "B",
         "textContent": "It's a blue apple tree!",
         "title": ""

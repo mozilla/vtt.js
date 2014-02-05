@@ -1,5 +1,4 @@
 {
-  "regions": [],
   "cues": [
     {
       "align": "start",
@@ -17,5 +16,7 @@
       "text": "<v Neil deGrasse Tyson><i>Laughs</i> &am&amp; other <i> stuff &gt; &l&lt;&rl&rlm;&lrm; </i>\nOh my! &gt;",
       "vertical": ""
     }
+  ],
+  "regions": [
   ]
 }

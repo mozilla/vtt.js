@@ -6,7 +6,8 @@
           {
             "childNodes": [
               {
-                "childNodes": [],
+                "childNodes": [
+                ],
                 "data": "Laughs",
                 "localName": "",
                 "textContent": "Laughs"
@@ -15,13 +16,15 @@
             "className": "",
             "lang": "",
             "localName": "i",
-            "style": {},
+            "style": {
+            },
             "tagName": "I",
             "textContent": "Laughs",
             "title": ""
           },
           {
-            "childNodes": [],
+            "childNodes": [
+            ],
             "data": " &am& other ",
             "localName": "",
             "textContent": " &am& other "
@@ -29,22 +32,25 @@
           {
             "childNodes": [
               {
-                "childNodes": [],
-                "data": " stuff > &l<&rlâ€â€Ž ",
+                "childNodes": [
+                ],
+                "data": " stuff > &l<&rl‏‎ ",
                 "localName": "",
-                "textContent": " stuff > &l<&rlâ€â€Ž "
+                "textContent": " stuff > &l<&rl‏‎ "
               }
             ],
             "className": "",
             "lang": "",
             "localName": "i",
-            "style": {},
+            "style": {
+            },
             "tagName": "I",
-            "textContent": " stuff > &l<&rlâ€â€Ž ",
+            "textContent": " stuff > &l<&rl‏‎ ",
             "title": ""
           },
           {
-            "childNodes": [],
+            "childNodes": [
+            ],
             "data": "\nOh my! >",
             "localName": "",
             "textContent": "\nOh my! >"
@@ -53,9 +59,10 @@
         "className": "",
         "lang": "",
         "localName": "span",
-        "style": {},
+        "style": {
+        },
         "tagName": "SPAN",
-        "textContent": "Laughs &am& other  stuff > &l<&rlâ€â€Ž \nOh my! >",
+        "textContent": "Laughs &am& other  stuff > &l<&rl‏‎ \nOh my! >",
         "title": "Neil deGrasse Tyson"
       }
     ],
@@ -75,7 +82,7 @@
       "width": "50%"
     },
     "tagName": "DIV",
-    "textContent": "Laughs &am& other  stuff > &l<&rlâ€â€Ž \nOh my! >",
+    "textContent": "Laughs &am& other  stuff > &l<&rl‏‎ \nOh my! >",
     "title": ""
   }
 ]

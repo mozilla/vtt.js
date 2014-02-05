@@ -4,7 +4,8 @@
       {
         "childNodes": [
           {
-            "childNodes": [],
+            "childNodes": [
+            ],
             "data": "It's a ",
             "localName": "",
             "textContent": "It's a "
@@ -12,7 +13,8 @@
           {
             "childNodes": [
               {
-                "childNodes": [],
+                "childNodes": [
+                ],
                 "data": "blue apple tree!",
                 "localName": "",
                 "textContent": "blue apple tree!"
@@ -21,7 +23,8 @@
             "className": "",
             "lang": "",
             "localName": "rt",
-            "style": {},
+            "style": {
+            },
             "tagName": "RT",
             "textContent": "blue apple tree!",
             "title": ""
@@ -30,7 +33,8 @@
         "className": "",
         "lang": "",
         "localName": "ruby",
-        "style": {},
+        "style": {
+        },
         "tagName": "RUBY",
         "textContent": "It's a blue apple tree!",
         "title": ""

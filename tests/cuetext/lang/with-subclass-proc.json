@@ -4,7 +4,8 @@
       {
         "childNodes": [
           {
-            "childNodes": [],
+            "childNodes": [
+            ],
             "data": "Hee!",
             "localName": "",
             "textContent": "Hee!"
@@ -13,7 +14,8 @@
         "className": "first",
         "lang": "en-Us",
         "localName": "span",
-        "style": {},
+        "style": {
+        },
         "tagName": "SPAN",
         "textContent": "Hee!",
         "title": ""

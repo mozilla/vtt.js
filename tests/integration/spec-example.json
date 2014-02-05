@@ -1,5 +1,4 @@
 {
-  "regions": [],
   "cues": [
     {
       "align": "middle",
@@ -209,5 +208,7 @@
       "text": "<v Roger Bingham>You know I'm so excited my glasses are falling off here.",
       "vertical": ""
     }
+  ],
+  "regions": [
   ]
 }

@@ -2,11 +2,13 @@
   {
     "childNodes": [
       {
-        "childNodes": [],
+        "childNodes": [
+        ],
         "className": "",
         "lang": "",
         "localName": "span",
-        "style": {},
+        "style": {
+        },
         "tagName": "SPAN",
         "textContent": "",
         "title": "It's a blue apple tree!"

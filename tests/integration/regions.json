@@ -1,26 +1,4 @@
 {
-  "regions": [
-    {
-      "id": "fred",
-      "lines": 3,
-      "regionAnchorX": 0,
-      "regionAnchorY": 100,
-      "scroll": "up",
-      "viewportAnchorX": 10,
-      "viewportAnchorY": 90,
-      "width": 50
-    },
-    {
-      "id": "bill",
-      "lines": 3,
-      "regionAnchorX": 100,
-      "regionAnchorY": 100,
-      "scroll": "up",
-      "viewportAnchorX": 90,
-      "viewportAnchorY": 90,
-      "width": 50
-    }
-  ],
   "cues": [
     {
       "align": "left",
@@ -117,6 +95,28 @@
       "startTime": 12.5,
       "text": "OK, let's go.",
       "vertical": ""
+    }
+  ],
+  "regions": [
+    {
+      "id": "fred",
+      "lines": 3,
+      "regionAnchorX": 0,
+      "regionAnchorY": 100,
+      "scroll": "up",
+      "viewportAnchorX": 10,
+      "viewportAnchorY": 90,
+      "width": 50
+    },
+    {
+      "id": "bill",
+      "lines": 3,
+      "regionAnchorX": 100,
+      "regionAnchorY": 100,
+      "scroll": "up",
+      "viewportAnchorX": 90,
+      "viewportAnchorY": 90,
+      "width": 50
     }
   ]
 }
