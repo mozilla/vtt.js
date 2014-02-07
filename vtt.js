@@ -881,6 +881,12 @@
       return bestPosition || specifiedPosition;
     }
 
+    function reverseAxis(axis) {
+      return axis.map(function(a) {
+        return a.indexOf("+") !== -1 ? a.replace("+", "-") : a.replace("-", "+");
+      });
+    }
+
     var boxPosition,
         cue = styleBox.cue,
         linePos = computeLinePos(cue),
@@ -900,10 +906,21 @@
         break;
       }
 
+      // If computed line position returns negative then line numbers are
+      // relative to the bottom of the video instead of the top. Therefore, we
+      // need to increase our initial position by the length or width of the
+      // video, depending on the writing direction, and reverse our axis directions.
+      var initialPosition = lineHeight * Math.floor(linePos + 0.5),
+          initialAxis = axis[0];
+      if (linePos < 0) {
+        initialPosition += cue.vertical === "" ? containerBox.height : containerBox.width;
+        axis = reverseAxis(axis);
+      }
+
       // Move the box to the specified position. This may not be its best
       // position.
       boxPosition = new BoxPosition(styleBox);
-      boxPosition.move(axis[0], lineHeight * Math.floor(linePos + 0.5));
+      boxPosition.move(initialAxis, initialPosition);
 
     } else {
       // If we have a percentage line value for the cue.
