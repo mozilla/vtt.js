@@ -3,19 +3,17 @@
 
 (function(global) {
 
-  if (!Object.create) {
-    Object.create = (function(){
-      function F(){}
+  _objCreate = (function(){
+    function F(){}
 
-      return function(o){
-        if (arguments.length != 1) {
-          throw new Error('Object.create implementation only accepts one parameter.');
-        }
-        F.prototype = o;
-        return new F();
-      };
-    })();
-  }
+    return function(o){
+      if (arguments.length != 1) {
+        throw new Error('Object.create implementation only accepts one parameter.');
+      }
+      F.prototype = o;
+      return new F();
+    };
+  })();
 
   // Try to parse input as a time stamp.
   function parseTimeStamp(input) {
@@ -44,7 +42,7 @@
   // A settings object holds key/value pairs and will ignore anything but the first
   // assignment to a specific key.
   function Settings() {
-    this.values = Object.create(null);
+    this.values = _objCreate(null);
   }
 
   Settings.prototype = {
@@ -704,7 +702,7 @@
       "textAlign": cue.align === "middle" ? "center" : cue.align
     });
   }
-  BasicBoundingBox.prototype = Object.create(BoundingBox.prototype);
+  BasicBoundingBox.prototype = _objCreate(BoundingBox.prototype);
   BasicBoundingBox.prototype.constructor = BasicBoundingBox;
 
   var CUE_FONT_SIZE = 2.5;
@@ -727,7 +725,7 @@
       whiteSpace: "pre-line"
     });
   }
-  CueBoundingBox.prototype = Object.create(BasicBoundingBox.prototype);
+  CueBoundingBox.prototype = _objCreate(BasicBoundingBox.prototype);
   CueBoundingBox.prototype.constuctor = CueBoundingBox;
 
   function RegionBoundingBox(window, region) {
@@ -783,7 +781,7 @@
       return true;
     };
   }
-  RegionBoundingBox.prototype = Object.create(BoundingBox.prototype);
+  RegionBoundingBox.prototype = _objCreate(BoundingBox.prototype);
   RegionBoundingBox.prototype.constructor = RegionBoundingBox;
 
   function WebVTTParser(window, decoder) {
