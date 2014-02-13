@@ -19,25 +19,23 @@
 
 (function(global) {
 
-  if (!Object.create) {
-    Object.create = (function(){
-      function F(){}
+  _objCreate = (function(){
+    function F(){}
 
-      return function(o){
-        if (arguments.length != 1) {
-          throw new Error('Object.create implementation only accepts one parameter.');
-        }
-        F.prototype = o;
-        return new F();
-      };
-    })();
-  }
+    return function(o){
+      if (arguments.length != 1) {
+        throw new Error('Object.create implementation only accepts one parameter.');
+      }
+      F.prototype = o;
+      return new F();
+    };
+  })();
 
   function ParsingError(message) {
     this.name = "ParsingError";
     this.message = message || "";
   }
-  ParsingError.prototype = Object.create(Error.prototype);
+  ParsingError.prototype = _objCreate(Error.prototype);
   ParsingError.prototype.constructor = ParsingError;
 
   // Try to parse input as a time stamp.
@@ -68,7 +66,7 @@
   // A settings object holds key/value pairs and will ignore anything but the first
   // assignment to a specific key.
   function Settings() {
-    this.values = Object.create(null);
+    this.values = _objCreate(null);
   }
 
   Settings.prototype = {
@@ -777,7 +775,7 @@
       });
     };
   }
-  CueStyleBox.prototype = Object.create(StyleBox.prototype);
+  CueStyleBox.prototype = _objCreate(StyleBox.prototype);
   CueStyleBox.prototype.constructor = CueStyleBox;
 
   // Represents the co-ordinates of an Element in a way that we can easily
