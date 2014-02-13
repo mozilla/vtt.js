@@ -1352,6 +1352,8 @@
         // Enter BADWEBVTT state if header was not parsed correctly otherwise
         // another exception occurred so enter BADCUE state.
         self.state = self.state === "INITIAL" ? "BADWEBVTT" : "BADCUE";
+
+        throw e;
       }
       return this;
     },
