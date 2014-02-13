@@ -665,11 +665,9 @@
     return val === 0 ? 0 : val + unit;
   };
 
-  const CUE_FONT_SIZE = 2.5;
-
   // Constructs the computed display state of the cue (a div). Places the div
   // into the overlay which should be a block level element (usually a div).
-  function CueBoundingBox(window, cue) {
+  function CueBoundingBox(window, cue, styleOptions) {
     BoundingBox.call(this);
     this.cue = cue;
     // Parse our cue's text into a DOM tree rooted at 'div'.
@@ -719,8 +717,7 @@
                                                                : "vertical-rl",
       position: "absolute",
       unicodeBidi: "plaintext",
-      fontSize: CUE_FONT_SIZE + "vh",
-      fontFamily: "sans-serif",
+      font: styleOptions.font,
       color: "rgba(255, 255, 255, 1)",
       backgroundColor: "rgba(0, 0, 0, 0.8)",
       whiteSpace: "pre-line"
@@ -813,6 +810,9 @@
     return parseContent(window, cuetext);
   };
 
+  const FONT_SIZE_PERCENT = 0.05;
+  const FONT_STYLE = "sans-serif";
+
   // Runs the processing model over the cues and regions passed to it.
   // @param overlay A block level element (usually a div) that the computed cues
   //                and regions will be placed into.
@@ -826,6 +826,11 @@
       overlay.removeChild(overlay.firstChild);
     }
 
+    var containerBox = overlay.getBoundingClientRect();
+    var styleOptions = {
+      font: (containerBox.height * FONT_SIZE_PERCENT) + "px " + FONT_STYLE
+    };
+
     for (var i = 0; i < cues.length; i++) {
       // Check to see if we can just reuse the last computed styles of the cue.
       if (cues[i].hasBeenReset !== true && cues[i].displayState) {
@@ -833,7 +838,7 @@
         continue;
       }
       // Compute the position of the cue box on the cue overlay.
-      var cueBox = new CueBoundingBox(window, cues[i]);
+      var cueBox = new CueBoundingBox(window, cues[i], styleOptions);
       computeLinePostion(window, cueBox, overlay);
     }
   };
