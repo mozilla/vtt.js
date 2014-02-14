@@ -45,7 +45,7 @@ Spec Compliance
       - Basic Positioning (Completed) ***Steps 1 - 9***
       - Overlap Avoidance (In Progress) ***Steps 11+***
   - [Applying CSS Properties](http://dev.w3.org/html5/webvtt/#applying-css-properties-to-webvtt-node-objects) (Completed)
-  - [CSS Extensions](http://dev.w3.org/html5/webvtt/#css-extensions) (**Won't Implement**)
+  - [CSS Extensions](http://dev.w3.org/html5/webvtt/#css-extensions) **(Won't Implement)**
 - [WebVTT API Shim](http://dev.w3.org/html5/webvtt/#webvtt-api-for-browsers) (In Progress)
   - [VTTCue](http://dev.w3.org/html5/webvtt/#vttcue-interface) (Completed)
   - [VTTRegion](http://dev.w3.org/html5/webvtt/#vttregion-interface) (Completed)
