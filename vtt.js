@@ -804,6 +804,23 @@
            this.right <= container.right;
   };
 
+  // Check if this box is entirely within the container or it is overlapping
+  // on the edge opposite of the axis direction passed. For example, if "+x" is
+  // passed and the box is overlapping on the left edge of the container, then
+  // return true.
+  BoxPosition.prototype.overlapsOppositeAxis = function(container, axis) {
+    switch (axis) {
+    case "+x":
+      return this.left < container.left;
+    case "-x":
+      return this.right > container.right;
+    case "+y":
+      return this.top < container.top;
+    case "-y":
+      return this.bottom > container.bottom;
+    }
+  };
+
   // Find the percentage of the area that this box is overlapping with another
   // box.
   BoxPosition.prototype.intersectPercentage = function(b2) {
@@ -860,7 +877,8 @@
           percentage = 1; // Highest possible so the first thing we get is better.
 
       for (var i = 0; i < axis.length; i++) {
-        while (b.within(containerBox) && b.overlapsAny(boxPositions)) {
+        while (b.overlapsOppositeAxis(containerBox, axis[i]) ||
+               (b.within(containerBox) && b.overlapsAny(boxPositions))) {
           b.move(axis[i], lineHeight);
         }
         // We found a spot where we aren't overlapping anything. This is our
