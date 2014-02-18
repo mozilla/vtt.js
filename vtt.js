@@ -91,7 +91,8 @@
     // Accept a setting if its a valid (signed) integer.
     integer: function(k, v) {
       if (/^-?\d+$/.test(v)) { // integer
-        this.set(k, parseInt(v, 10));
+        // Only take values in the range of -1000 ~ 1000
+        this.set(k, Math.min(Math.max(parseInt(v, 10), -1000), 1000));
       }
     },
     // Accept a setting if its a valid percentage.
