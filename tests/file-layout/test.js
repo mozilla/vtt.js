@@ -27,6 +27,7 @@ describe("file-layout tests", function(){
     test.jsonEqualAll("file-layout/bom-tab-webvtt.vtt", "file-layout/no-output.json", onDone);
   });  
 
+  // Turn back on: https://github.com/mozilla/vtt.js/issues/262
   it("cue-spacing.vtt", function(onDone){
     test.jsonEqual("file-layout/cue-spacing.vtt", "file-layout/cue-spacing.json", onDone);
   });
@@ -39,6 +40,7 @@ describe("file-layout tests", function(){
     test.jsonEqualAll("file-layout/header-no-new-line.vtt", "file-layout/no-output.json", onDone);
   });
 
+  // Turn back on: https://github.com/mozilla/vtt.js/issues/262
   it("many-comments.vtt", function(onDone){
     test.jsonEqual("file-layout/many-comments.vtt", "file-layout/many-comments.json", onDone);
   });  
