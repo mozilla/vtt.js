@@ -748,17 +748,24 @@
     // was passed in and we need to copy the results of 'getBoundingClientRect'
     // as the object returned is readonly. All co-ordinate values are in reference
     // to the viewport origin (top left).
-    obj = obj.div ? obj.div.getBoundingClientRect() : obj;
+    var lines;
+    if (obj.div) {
+      lines = obj.div.textContent.split("\n").length;
+      obj = obj.div.getBoundingClientRect();
+    }
     this.left = obj.left;
     this.right = obj.right;
     this.top = obj.top;
     this.height = obj.height;
     this.bottom = obj.bottom;
     this.width = obj.width;
+    this.lineHeight = obj.lineHeight || (lines && (this.height / lines));
   }
 
-  // Move the box along a particular axis.
+  // Move the box along a particular axis. If no amount to move is passed, via
+  // the val parameter, then the default amount is the line height of the box.
   BoxPosition.prototype.move = function(axis, val) {
+    val = val !== undefined ? val : this.lineHeight;
     switch (axis) {
     case "+x":
       this.left += val;
@@ -861,11 +868,10 @@
     };
   };
 
-  // Move a StyleBox to its specified, or next best, position. The lineHeight
-  // passed is the increment at which it will move the box around. The containerBox
+  // Move a StyleBox to its specified, or next best, position. The containerBox
   // is the box that contains the StyleBox, such as a div. boxPositions are
   // a list of other boxes that the styleBox can't overlap with.
-  function moveBoxToLinePosition(window, styleBox, lineHeight, containerBox, boxPositions) {
+  function moveBoxToLinePosition(window, styleBox, containerBox, boxPositions) {
 
     // Find the best position for a cue box, b, on the video. The axis parameter
     // is a list of axis, the order of which, it will move the box along. For example:
@@ -880,7 +886,7 @@
       for (var i = 0; i < axis.length; i++) {
         while (b.overlapsOppositeAxis(containerBox, axis[i]) ||
                (b.within(containerBox) && b.overlapsAny(boxPositions))) {
-          b.move(axis[i], lineHeight);
+          b.move(axis[i]);
         }
         // We found a spot where we aren't overlapping anything. This is our
         // best position.
@@ -906,7 +912,7 @@
       });
     }
 
-    var boxPosition,
+    var boxPosition = new BoxPosition(styleBox),
         cue = styleBox.cue,
         linePos = computeLinePos(cue),
         axis = [];
@@ -929,7 +935,7 @@
       // relative to the bottom of the video instead of the top. Therefore, we
       // need to increase our initial position by the length or width of the
       // video, depending on the writing direction, and reverse our axis directions.
-      var initialPosition = lineHeight * Math.floor(linePos + 0.5),
+      var initialPosition = boxPosition.lineHeight * Math.floor(linePos + 0.5),
           initialAxis = axis[0];
       if (linePos < 0) {
         initialPosition += cue.vertical === "" ? containerBox.height : containerBox.width;
@@ -938,12 +944,11 @@
 
       // Move the box to the specified position. This may not be its best
       // position.
-      boxPosition = new BoxPosition(styleBox);
       boxPosition.move(initialAxis, initialPosition);
 
     } else {
       // If we have a percentage line value for the cue.
-      var calculatedPercentage = (lineHeight / containerBox.height) * 100;
+      var calculatedPercentage = (boxPosition.lineHeight / containerBox.height) * 100;
 
       switch (cue.lineAlign) {
       case "middle":
@@ -975,7 +980,8 @@
 
       axis = [ "+y", "-x", "+x", "-y" ];
 
-      // Get the box position after we get the inital position of it.
+      // Get the box position again after we've applied the specified positioning
+      // to it.
       boxPosition = new BoxPosition(styleBox);
     }
 
@@ -1028,21 +1034,6 @@
       overlay.removeChild(overlay.firstChild);
     }
 
-    // Set up a dummy div with the same styling and one line so we can get the
-    // line height accurately. This gets around the problem of different
-    // browsers returning 'normal' as the computed line height style.
-    function determineLineHeight(styleOptions) {
-      var d = window.document.createElement("div");
-      d.textContent = ESCAPE["&nbsp;"];
-      d.style.font = styleOptions.font;
-
-      overlay.appendChild(d);
-      var lineHeight = BoxPosition.getSimpleBoxPosition(d).height;
-      overlay.removeChild(d);
-
-      return lineHeight;
-    }
-
     // Determine if we need to compute the display states of the cues. This could
     // be the case if a cue's state has been changed since the last computation or
     // if it has not been computed yet.
@@ -1068,7 +1059,6 @@
     var styleOptions = {
       font: (containerBox.height * FONT_SIZE_PERCENT) + "px " + FONT_STYLE
     };
-    var lineHeight = determineLineHeight(styleOptions);
 
     cues.forEach(function(cue) {
       // Compute the intial position and styles of the cue div.
@@ -1076,7 +1066,7 @@
       overlay.appendChild(styleBox.div);
 
       // Move the cue div to it's correct line position.
-      moveBoxToLinePosition(window, styleBox, lineHeight, containerBox, boxPositions);
+      moveBoxToLinePosition(window, styleBox, containerBox, boxPositions);
 
       // Remember the computed div so that we don't have to recompute it later
       // if we don't have too.
