@@ -1020,6 +1020,7 @@
 
   const FONT_SIZE_PERCENT = 0.05;
   const FONT_STYLE = "sans-serif";
+  const CUE_BACKGROUND_PADDING = "1.5%";
 
   // Runs the processing model over the cues and regions passed to it.
   // @param overlay A block level element (usually a div) that the computed cues
@@ -1033,6 +1034,15 @@
     while (overlay.firstChild) {
       overlay.removeChild(overlay.firstChild);
     }
+
+    var paddedOverlay = window.document.createElement("div");
+    paddedOverlay.style.position = "absolute";
+    paddedOverlay.style.left = "0";
+    paddedOverlay.style.right = "0";
+    paddedOverlay.style.top = "0";
+    paddedOverlay.style.bottom = "0";
+    paddedOverlay.style.margin = CUE_BACKGROUND_PADDING;
+    overlay.appendChild(paddedOverlay);
 
     // Determine if we need to compute the display states of the cues. This could
     // be the case if a cue's state has been changed since the last computation or
@@ -1049,21 +1059,22 @@
     // We don't need to recompute the cues' display states. Just reuse them.
     if (!shouldCompute(cues)) {
       cues.forEach(function(cue) {
-        overlay.appendChild(cue.displayState);
+        paddedOverlay.appendChild(cue.displayState);
       });
       return;
     }
 
     var boxPositions = [],
-        containerBox = BoxPosition.getSimpleBoxPosition(overlay);
+        containerBox = BoxPosition.getSimpleBoxPosition(paddedOverlay),
+        fontSize = Math.round(containerBox.height * FONT_SIZE_PERCENT * 100) / 100;
     var styleOptions = {
-      font: (containerBox.height * FONT_SIZE_PERCENT) + "px " + FONT_STYLE
+      font: fontSize + "px " + FONT_STYLE
     };
 
     cues.forEach(function(cue) {
       // Compute the intial position and styles of the cue div.
       var styleBox = new CueStyleBox(window, cue, styleOptions);
-      overlay.appendChild(styleBox.div);
+      paddedOverlay.appendChild(styleBox.div);
 
       // Move the cue div to it's correct line position.
       moveBoxToLinePosition(window, styleBox, containerBox, boxPositions);
