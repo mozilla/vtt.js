@@ -5,37 +5,57 @@
         "childNodes": [
           {
             "childNodes": [
-            ],
-            "data": "It's a ",
-            "localName": "",
-            "textContent": "It's a "
-          },
-          {
-            "childNodes": [
               {
                 "childNodes": [
                 ],
-                "data": "blue apple tree!",
+                "data": "It's a ",
                 "localName": "",
-                "textContent": "blue apple tree!"
+                "textContent": "It's a "
+              },
+              {
+                "childNodes": [
+                  {
+                    "childNodes": [
+                    ],
+                    "data": "blue apple tree!",
+                    "localName": "",
+                    "textContent": "blue apple tree!"
+                  }
+                ],
+                "className": "",
+                "lang": "",
+                "localName": "rt",
+                "style": {
+                },
+                "tagName": "RT",
+                "textContent": "blue apple tree!",
+                "title": ""
               }
             ],
             "className": "",
             "lang": "",
-            "localName": "rt",
+            "localName": "ruby",
             "style": {
             },
-            "tagName": "RT",
-            "textContent": "blue apple tree!",
+            "tagName": "RUBY",
+            "textContent": "It's a blue apple tree!",
             "title": ""
           }
         ],
         "className": "",
         "lang": "",
-        "localName": "ruby",
+        "localName": "div",
         "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
         },
-        "tagName": "RUBY",
+        "tagName": "DIV",
         "textContent": "It's a blue apple tree!",
         "title": ""
       }
@@ -44,9 +64,7 @@
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "0px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "11px",
