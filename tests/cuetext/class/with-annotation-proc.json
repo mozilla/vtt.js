@@ -5,18 +5,38 @@
         "childNodes": [
           {
             "childNodes": [
+              {
+                "childNodes": [
+                ],
+                "data": "No way!",
+                "localName": "",
+                "textContent": "No way!"
+              }
             ],
-            "data": "No way!",
-            "localName": "",
-            "textContent": "No way!"
+            "className": "",
+            "lang": "",
+            "localName": "span",
+            "style": {
+            },
+            "tagName": "SPAN",
+            "textContent": "No way!",
+            "title": ""
           }
         ],
         "className": "",
         "lang": "",
-        "localName": "span",
+        "localName": "div",
         "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
         },
-        "tagName": "SPAN",
+        "tagName": "DIV",
         "textContent": "No way!",
         "title": ""
       }
@@ -25,9 +45,7 @@
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "0px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "7px",

@@ -3,19 +3,37 @@
     "childNodes": [
       {
         "childNodes": [
+          {
+            "childNodes": [
+            ],
+            "data": "This",
+            "localName": "",
+            "textContent": "This"
+          }
         ],
-        "data": "This",
-        "localName": "",
-        "textContent": "This"
+        "className": "",
+        "lang": "",
+        "localName": "div",
+        "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
+        },
+        "tagName": "DIV",
+        "textContent": "This",
+        "title": ""
       }
     ],
     "className": "",
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "0px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "7px",
@@ -35,19 +53,37 @@
     "childNodes": [
       {
         "childNodes": [
+          {
+            "childNodes": [
+            ],
+            "data": "Is",
+            "localName": "",
+            "textContent": "Is"
+          }
         ],
-        "data": "Is",
-        "localName": "",
-        "textContent": "Is"
+        "className": "",
+        "lang": "",
+        "localName": "div",
+        "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
+        },
+        "tagName": "DIV",
+        "textContent": "Is",
+        "title": ""
       }
     ],
     "className": "",
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "7px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "7px",
@@ -67,19 +103,37 @@
     "childNodes": [
       {
         "childNodes": [
+          {
+            "childNodes": [
+            ],
+            "data": "A",
+            "localName": "",
+            "textContent": "A"
+          }
         ],
-        "data": "A",
-        "localName": "",
-        "textContent": "A"
+        "className": "",
+        "lang": "",
+        "localName": "div",
+        "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
+        },
+        "tagName": "DIV",
+        "textContent": "A",
+        "title": ""
       }
     ],
     "className": "",
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "14px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "7px",
@@ -99,19 +153,37 @@
     "childNodes": [
       {
         "childNodes": [
+          {
+            "childNodes": [
+            ],
+            "data": "And stuff?",
+            "localName": "",
+            "textContent": "And stuff?"
+          }
         ],
-        "data": "And stuff?",
-        "localName": "",
-        "textContent": "And stuff?"
+        "className": "",
+        "lang": "",
+        "localName": "div",
+        "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
+        },
+        "tagName": "DIV",
+        "textContent": "And stuff?",
+        "title": ""
       }
     ],
     "className": "",
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "21px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "7px",

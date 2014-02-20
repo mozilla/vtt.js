@@ -5,29 +5,47 @@
         "childNodes": [
           {
             "childNodes": [
+              {
+                "childNodes": [
+                ],
+                "data": "We are in New York City",
+                "localName": "",
+                "textContent": "We are in New York City"
+              }
             ],
-            "data": "We are in New York City",
-            "localName": "",
-            "textContent": "We are in New York City"
+            "className": "",
+            "lang": "",
+            "localName": "span",
+            "style": {
+            },
+            "tagName": "SPAN",
+            "textContent": "We are in New York City",
+            "title": "Roger Bingham"
           }
         ],
         "className": "",
         "lang": "",
-        "localName": "span",
+        "localName": "div",
         "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
         },
-        "tagName": "SPAN",
+        "tagName": "DIV",
         "textContent": "We are in New York City",
-        "title": "Roger Bingham"
+        "title": ""
       }
     ],
     "className": "",
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "0px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "7px",
@@ -49,29 +67,47 @@
         "childNodes": [
           {
             "childNodes": [
+              {
+                "childNodes": [
+                ],
+                "data": "We're actually at the Lucern Hotel, just down the street",
+                "localName": "",
+                "textContent": "We're actually at the Lucern Hotel, just down the street"
+              }
             ],
-            "data": "We're actually at the Lucern Hotel, just down the street",
-            "localName": "",
-            "textContent": "We're actually at the Lucern Hotel, just down the street"
+            "className": "",
+            "lang": "",
+            "localName": "span",
+            "style": {
+            },
+            "tagName": "SPAN",
+            "textContent": "We're actually at the Lucern Hotel, just down the street",
+            "title": "Roger Bingham"
           }
         ],
         "className": "",
         "lang": "",
-        "localName": "span",
+        "localName": "div",
         "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
         },
-        "tagName": "SPAN",
+        "tagName": "DIV",
         "textContent": "We're actually at the Lucern Hotel, just down the street",
-        "title": "Roger Bingham"
+        "title": ""
       }
     ],
     "className": "",
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "7px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "7px",
@@ -93,29 +129,47 @@
         "childNodes": [
           {
             "childNodes": [
+              {
+                "childNodes": [
+                ],
+                "data": "from the American Museum of Natural History",
+                "localName": "",
+                "textContent": "from the American Museum of Natural History"
+              }
             ],
-            "data": "from the American Museum of Natural History",
-            "localName": "",
-            "textContent": "from the American Museum of Natural History"
+            "className": "",
+            "lang": "",
+            "localName": "span",
+            "style": {
+            },
+            "tagName": "SPAN",
+            "textContent": "from the American Museum of Natural History",
+            "title": "Roger Bingham"
           }
         ],
         "className": "",
         "lang": "",
-        "localName": "span",
+        "localName": "div",
         "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
         },
-        "tagName": "SPAN",
+        "tagName": "DIV",
         "textContent": "from the American Museum of Natural History",
-        "title": "Roger Bingham"
+        "title": ""
       }
     ],
     "className": "",
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "14px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "7px",
@@ -137,29 +191,47 @@
         "childNodes": [
           {
             "childNodes": [
+              {
+                "childNodes": [
+                ],
+                "data": "And with me is Neil deGrasse Tyson",
+                "localName": "",
+                "textContent": "And with me is Neil deGrasse Tyson"
+              }
             ],
-            "data": "And with me is Neil deGrasse Tyson",
-            "localName": "",
-            "textContent": "And with me is Neil deGrasse Tyson"
+            "className": "",
+            "lang": "",
+            "localName": "span",
+            "style": {
+            },
+            "tagName": "SPAN",
+            "textContent": "And with me is Neil deGrasse Tyson",
+            "title": "Roger Bingham"
           }
         ],
         "className": "",
         "lang": "",
-        "localName": "span",
+        "localName": "div",
         "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
         },
-        "tagName": "SPAN",
+        "tagName": "DIV",
         "textContent": "And with me is Neil deGrasse Tyson",
-        "title": "Roger Bingham"
+        "title": ""
       }
     ],
     "className": "",
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "21px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "7px",
@@ -181,29 +253,47 @@
         "childNodes": [
           {
             "childNodes": [
+              {
+                "childNodes": [
+                ],
+                "data": "Astrophysicist, Director of the Hayden Planetarium",
+                "localName": "",
+                "textContent": "Astrophysicist, Director of the Hayden Planetarium"
+              }
             ],
-            "data": "Astrophysicist, Director of the Hayden Planetarium",
-            "localName": "",
-            "textContent": "Astrophysicist, Director of the Hayden Planetarium"
+            "className": "",
+            "lang": "",
+            "localName": "span",
+            "style": {
+            },
+            "tagName": "SPAN",
+            "textContent": "Astrophysicist, Director of the Hayden Planetarium",
+            "title": "Roger Bingham"
           }
         ],
         "className": "",
         "lang": "",
-        "localName": "span",
+        "localName": "div",
         "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
         },
-        "tagName": "SPAN",
+        "tagName": "DIV",
         "textContent": "Astrophysicist, Director of the Hayden Planetarium",
-        "title": "Roger Bingham"
+        "title": ""
       }
     ],
     "className": "",
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "28px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "7px",
@@ -225,29 +315,47 @@
         "childNodes": [
           {
             "childNodes": [
+              {
+                "childNodes": [
+                ],
+                "data": "at the AMNH.",
+                "localName": "",
+                "textContent": "at the AMNH."
+              }
             ],
-            "data": "at the AMNH.",
-            "localName": "",
-            "textContent": "at the AMNH."
+            "className": "",
+            "lang": "",
+            "localName": "span",
+            "style": {
+            },
+            "tagName": "SPAN",
+            "textContent": "at the AMNH.",
+            "title": "Roger Bingham"
           }
         ],
         "className": "",
         "lang": "",
-        "localName": "span",
+        "localName": "div",
         "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
         },
-        "tagName": "SPAN",
+        "tagName": "DIV",
         "textContent": "at the AMNH.",
-        "title": "Roger Bingham"
+        "title": ""
       }
     ],
     "className": "",
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "35px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "7px",
@@ -269,29 +377,47 @@
         "childNodes": [
           {
             "childNodes": [
+              {
+                "childNodes": [
+                ],
+                "data": "Thank you for walking down here.",
+                "localName": "",
+                "textContent": "Thank you for walking down here."
+              }
             ],
-            "data": "Thank you for walking down here.",
-            "localName": "",
-            "textContent": "Thank you for walking down here."
+            "className": "",
+            "lang": "",
+            "localName": "span",
+            "style": {
+            },
+            "tagName": "SPAN",
+            "textContent": "Thank you for walking down here.",
+            "title": "Roger Bingham"
           }
         ],
         "className": "",
         "lang": "",
-        "localName": "span",
+        "localName": "div",
         "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
         },
-        "tagName": "SPAN",
+        "tagName": "DIV",
         "textContent": "Thank you for walking down here.",
-        "title": "Roger Bingham"
+        "title": ""
       }
     ],
     "className": "",
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "42px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "7px",
@@ -313,29 +439,47 @@
         "childNodes": [
           {
             "childNodes": [
+              {
+                "childNodes": [
+                ],
+                "data": "And I want to do a follow-up on the last conversation we did.",
+                "localName": "",
+                "textContent": "And I want to do a follow-up on the last conversation we did."
+              }
             ],
-            "data": "And I want to do a follow-up on the last conversation we did.",
-            "localName": "",
-            "textContent": "And I want to do a follow-up on the last conversation we did."
+            "className": "",
+            "lang": "",
+            "localName": "span",
+            "style": {
+            },
+            "tagName": "SPAN",
+            "textContent": "And I want to do a follow-up on the last conversation we did.",
+            "title": "Roger Bingham"
           }
         ],
         "className": "",
         "lang": "",
-        "localName": "span",
+        "localName": "div",
         "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
         },
-        "tagName": "SPAN",
+        "tagName": "DIV",
         "textContent": "And I want to do a follow-up on the last conversation we did.",
-        "title": "Roger Bingham"
+        "title": ""
       }
     ],
     "className": "",
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "49px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "7px",
@@ -357,29 +501,47 @@
         "childNodes": [
           {
             "childNodes": [
+              {
+                "childNodes": [
+                ],
+                "data": "When we e-mailedâ",
+                "localName": "",
+                "textContent": "When we e-mailedâ"
+              }
             ],
-            "data": "When we e-mailedâ",
-            "localName": "",
-            "textContent": "When we e-mailedâ"
+            "className": "",
+            "lang": "",
+            "localName": "span",
+            "style": {
+            },
+            "tagName": "SPAN",
+            "textContent": "When we e-mailedâ",
+            "title": "Roger Bingham"
           }
         ],
         "className": "",
         "lang": "",
-        "localName": "span",
+        "localName": "div",
         "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
         },
-        "tagName": "SPAN",
+        "tagName": "DIV",
         "textContent": "When we e-mailedâ",
-        "title": "Roger Bingham"
+        "title": ""
       }
     ],
     "className": "",
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "56px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "7px",
@@ -401,29 +563,47 @@
         "childNodes": [
           {
             "childNodes": [
+              {
+                "childNodes": [
+                ],
+                "data": "Didn't we talk about enough in that conversation?",
+                "localName": "",
+                "textContent": "Didn't we talk about enough in that conversation?"
+              }
             ],
-            "data": "Didn't we talk about enough in that conversation?",
-            "localName": "",
-            "textContent": "Didn't we talk about enough in that conversation?"
+            "className": "",
+            "lang": "",
+            "localName": "span",
+            "style": {
+            },
+            "tagName": "SPAN",
+            "textContent": "Didn't we talk about enough in that conversation?",
+            "title": "Neil deGrasse Tyson"
           }
         ],
         "className": "",
         "lang": "",
-        "localName": "span",
+        "localName": "div",
         "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
         },
-        "tagName": "SPAN",
+        "tagName": "DIV",
         "textContent": "Didn't we talk about enough in that conversation?",
-        "title": "Neil deGrasse Tyson"
+        "title": ""
       }
     ],
     "className": "",
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "56px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "14px",
@@ -445,29 +625,47 @@
         "childNodes": [
           {
             "childNodes": [
+              {
+                "childNodes": [
+                ],
+                "data": "No! No no no no; 'cos 'cos obviously 'cos",
+                "localName": "",
+                "textContent": "No! No no no no; 'cos 'cos obviously 'cos"
+              }
             ],
-            "data": "No! No no no no; 'cos 'cos obviously 'cos",
-            "localName": "",
-            "textContent": "No! No no no no; 'cos 'cos obviously 'cos"
+            "className": "",
+            "lang": "",
+            "localName": "span",
+            "style": {
+            },
+            "tagName": "SPAN",
+            "textContent": "No! No no no no; 'cos 'cos obviously 'cos",
+            "title": "Roger Bingham"
           }
         ],
         "className": "",
         "lang": "",
-        "localName": "span",
+        "localName": "div",
         "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
         },
-        "tagName": "SPAN",
+        "tagName": "DIV",
         "textContent": "No! No no no no; 'cos 'cos obviously 'cos",
-        "title": "Roger Bingham"
+        "title": ""
       }
     ],
     "className": "",
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "63px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "7px",
@@ -491,39 +689,57 @@
             "childNodes": [
               {
                 "childNodes": [
+                  {
+                    "childNodes": [
+                    ],
+                    "data": "Laughs",
+                    "localName": "",
+                    "textContent": "Laughs"
+                  }
                 ],
-                "data": "Laughs",
-                "localName": "",
-                "textContent": "Laughs"
+                "className": "",
+                "lang": "",
+                "localName": "i",
+                "style": {
+                },
+                "tagName": "I",
+                "textContent": "Laughs",
+                "title": ""
               }
             ],
             "className": "",
             "lang": "",
-            "localName": "i",
+            "localName": "span",
             "style": {
             },
-            "tagName": "I",
+            "tagName": "SPAN",
             "textContent": "Laughs",
-            "title": ""
+            "title": "Neil deGrasse Tyson"
           }
         ],
         "className": "",
         "lang": "",
-        "localName": "span",
+        "localName": "div",
         "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
         },
-        "tagName": "SPAN",
+        "tagName": "DIV",
         "textContent": "Laughs",
-        "title": "Neil deGrasse Tyson"
+        "title": ""
       }
     ],
     "className": "",
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "70px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "7px",
@@ -545,29 +761,47 @@
         "childNodes": [
           {
             "childNodes": [
+              {
+                "childNodes": [
+                ],
+                "data": "You know I'm so excited my glasses are falling off here.",
+                "localName": "",
+                "textContent": "You know I'm so excited my glasses are falling off here."
+              }
             ],
-            "data": "You know I'm so excited my glasses are falling off here.",
-            "localName": "",
-            "textContent": "You know I'm so excited my glasses are falling off here."
+            "className": "",
+            "lang": "",
+            "localName": "span",
+            "style": {
+            },
+            "tagName": "SPAN",
+            "textContent": "You know I'm so excited my glasses are falling off here.",
+            "title": "Roger Bingham"
           }
         ],
         "className": "",
         "lang": "",
-        "localName": "span",
+        "localName": "div",
         "style": {
+          "background-color": "rgba(0, 0, 0, 0.796875)",
+          "bottom": "0px",
+          "color": "rgb(255, 255, 255)",
+          "display": "inline",
+          "left": "0px",
+          "position": "relative",
+          "right": "0px",
+          "top": "0px"
         },
-        "tagName": "SPAN",
+        "tagName": "DIV",
         "textContent": "You know I'm so excited my glasses are falling off here.",
-        "title": "Roger Bingham"
+        "title": ""
       }
     ],
     "className": "",
     "lang": "",
     "localName": "div",
     "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
       "bottom": "77px",
-      "color": "rgb(255, 255, 255)",
       "direction": "ltr",
       "font": "normal normal normal 7.3px/normal sans-serif",
       "height": "7px",

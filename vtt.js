@@ -655,8 +655,10 @@
   function StyleBox() {
   }
 
-  StyleBox.prototype.applyStyles = function(styles) {
-    var div = this.div;
+  // Apply styles to a div. If there is no div passed then it defaults to the
+  // div on 'this'.
+  StyleBox.prototype.applyStyles = function(styles, div) {
+    div = div || this.div;
     Object.keys(styles).forEach(function(style) {
       div.style[style] = styles[style];
     });
@@ -671,8 +673,38 @@
   function CueStyleBox(window, cue, styleOptions) {
     StyleBox.call(this);
     this.cue = cue;
-    // Parse our cue's text into a DOM tree rooted at 'div'.
-    this.div = parseContent(window, cue.text);
+
+    // Parse our cue's text into a DOM tree rooted at 'cueDiv'. This div will
+    // have inline positioning and will function as the cue background box.
+    this.cueDiv = parseContent(window, cue.text);
+    this.applyStyles({
+      color: "rgba(255, 255, 255, 1)",
+      backgroundColor: "rgba(0, 0, 0, 0.8)",
+      position: "relative",
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
+      display: "inline"
+    }, this.cueDiv);
+
+    // Create an absolutely positioned div that will be used to position the cue
+    // div. Note, all WebVTT cue-setting alignments are equivalent to the CSS
+    // mirrors of them except "middle" which is "center" in CSS.
+    this.div = window.document.createElement("div");
+    this.applyStyles({
+      textAlign: cue.align === "middle" ? "center" : cue.align,
+      direction: determineBidi(this.cueDiv),
+      writingMode: cue.vertical === "" ? "horizontal-tb"
+                                       : cue.vertical === "lr" ? "vertical-lr"
+                                                               : "vertical-rl",
+      unicodeBidi: "plaintext",
+      font: styleOptions.font,
+      whiteSpace: "pre-line",
+      position: "absolute"
+    });
+
+    this.div.appendChild(this.cueDiv);
 
     // Calculate the distance from the reference edge of the viewport to the text
     // position of the cue box. The reference edge will be resolved later when
@@ -707,22 +739,6 @@
         height: this.formatStyle(cue.size, "%")
       });
     }
-
-    // All WebVTT cue-setting alignments are equivalent to the CSS mirrors of
-    // them except "middle" which is "center" in CSS.
-    this.applyStyles({
-      "textAlign": cue.align === "middle" ? "center" : cue.align,
-      direction: determineBidi(this.div),
-      writingMode: cue.vertical === "" ? "horizontal-tb"
-                                       : cue.vertical === "lr" ? "vertical-lr"
-                                                               : "vertical-rl",
-      position: "absolute",
-      unicodeBidi: "plaintext",
-      font: styleOptions.font,
-      color: "rgba(255, 255, 255, 1)",
-      backgroundColor: "rgba(0, 0, 0, 0.8)",
-      whiteSpace: "pre-line"
-    });
 
     this.move = function(box) {
       this.applyStyles({
