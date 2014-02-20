@@ -764,10 +764,17 @@
     // was passed in and we need to copy the results of 'getBoundingClientRect'
     // as the object returned is readonly. All co-ordinate values are in reference
     // to the viewport origin (top left).
-    var lines;
+    var lh;
     if (obj.div) {
-      lines = obj.div.textContent.split("\n").length;
+      var rects = (rects = obj.div.childNodes) && (rects = rects[0]) &&
+                  rects.getClientRects && rects.getClientRects();
       obj = obj.div.getBoundingClientRect();
+      // In certain cases the outter div will be slightly larger then the sum of
+      // the inner div's lines. This could be due to bold text, etc, on some platforms.
+      // In this case we should get the average line height and use that. This will
+      // result in the desired behaviour.
+      lh = rects ? Math.max((rects[0] && rects[0].height) || 0, obj.height / rects.length)
+                 : 0;
     }
     this.left = obj.left;
     this.right = obj.right;
@@ -775,7 +782,7 @@
     this.height = obj.height;
     this.bottom = obj.bottom;
     this.width = obj.width;
-    this.lineHeight = obj.lineHeight || (lines && (this.height / lines));
+    this.lineHeight = lh !== undefined ? lh : obj.lineHeight;
   }
 
   // Move the box along a particular axis. If no amount to move is passed, via
