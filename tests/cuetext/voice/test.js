@@ -11,9 +11,8 @@ describe("cuetext/voice tests", function(){
     test.shutdown();
   });
 
-  // TODO: Turn back on https://github.com/mozilla/vtt.js/issues/247
   it("no-end-gt.vtt", function(onDone){
-    test.jsonEqualParsing("cuetext/voice/no-end-gt.vtt", "cuetext/voice/no-end-gt.json", onDone);
+    test.jsonEqualAll("cuetext/voice/no-end-gt.vtt", "cuetext/voice/no-end-gt.json", onDone);
   });
 
   it("not-closed.vtt", function(onDone){
