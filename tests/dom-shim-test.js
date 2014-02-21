@@ -21,7 +21,7 @@ function testRange(obj, prop, low, high) {
   }, null, "Setting " + (typeof obj) + "'s " + prop + " property to " + high + " should throw.");
 }
 
-describe("VTTCue DOM shim test", function() {
+describe("VTT DOM shim tests", function() {
 
   it("vttcue", function() {
     var cue = new VTTCue(1, 2, "This is test.");
