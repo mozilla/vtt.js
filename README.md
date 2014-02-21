@@ -40,10 +40,10 @@ Spec Compliance
   - [WebVTT Cue Text](http://dev.w3.org/html5/webvtt/#dfn-webvtt-cue-text-parsing-rules) (Completed)
   - [Cue DOM Construction](http://dev.w3.org/html5/webvtt/#webvtt-cue-text-dom-construction-rules) (Completed)
 - [Rendering](http://dev.w3.org/html5/webvtt/#rendering) (In Progress)
-  - [Processing Model](http://dev.w3.org/html5/webvtt/#processing-model) (In Progress) ***Unstable VTTRegion Support***
+  - [Processing Model](http://dev.w3.org/html5/webvtt/#processing-model) (In Progress) ***No VTTRegion or vertical text support***
     - [Apply WebVTT Cue Settings](http://dev.w3.org/html5/webvtt/#dfn-apply-webvtt-cue-settings) (In Progress)
-      - Basic Positioning (Completed) ***Steps 1 - 9***
-      - Overlap Avoidance (In Progress) ***Steps 11+***
+      - Steps 1 - 11 (Completed)
+      - Step 12 (In progress)
   - [Applying CSS Properties](http://dev.w3.org/html5/webvtt/#applying-css-properties-to-webvtt-node-objects) (Completed)
   - [CSS Extensions](http://dev.w3.org/html5/webvtt/#css-extensions) **(Won't Implement)**
 - [WebVTT API Shim](http://dev.w3.org/html5/webvtt/#webvtt-api-for-browsers) (In Progress)
