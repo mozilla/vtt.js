@@ -9,7 +9,15 @@
       "pauseOnExit": false,
       "position": 0,
       "positionAlign": "start",
-      "regionId": "fred",
+      "region": {
+        "lines": 3,
+        "regionAnchorX": 0,
+        "regionAnchorY": 100,
+        "scroll": "up",
+        "viewportAnchorX": 10,
+        "viewportAnchorY": 90,
+        "width": 50
+      },
       "size": 100,
       "snapToLines": true,
       "startTime": 0,
@@ -25,7 +33,15 @@
       "pauseOnExit": false,
       "position": 100,
       "positionAlign": "end",
-      "regionId": "bill",
+      "region": {
+        "lines": 3,
+        "regionAnchorX": 100,
+        "regionAnchorY": 100,
+        "scroll": "up",
+        "viewportAnchorX": 90,
+        "viewportAnchorY": 90,
+        "width": 50
+      },
       "size": 100,
       "snapToLines": true,
       "startTime": 2.5,
@@ -41,7 +57,15 @@
       "pauseOnExit": false,
       "position": 0,
       "positionAlign": "start",
-      "regionId": "fred",
+      "region": {
+        "lines": 3,
+        "regionAnchorX": 0,
+        "regionAnchorY": 100,
+        "scroll": "up",
+        "viewportAnchorX": 10,
+        "viewportAnchorY": 90,
+        "width": 50
+      },
       "size": 100,
       "snapToLines": true,
       "startTime": 5,
@@ -57,7 +81,15 @@
       "pauseOnExit": false,
       "position": 100,
       "positionAlign": "end",
-      "regionId": "bill",
+      "region": {
+        "lines": 3,
+        "regionAnchorX": 100,
+        "regionAnchorY": 100,
+        "scroll": "up",
+        "viewportAnchorX": 90,
+        "viewportAnchorY": 90,
+        "width": 50
+      },
       "size": 100,
       "snapToLines": true,
       "startTime": 7.5,
@@ -73,7 +105,15 @@
       "pauseOnExit": false,
       "position": 0,
       "positionAlign": "start",
-      "regionId": "fred",
+      "region": {
+        "lines": 3,
+        "regionAnchorX": 0,
+        "regionAnchorY": 100,
+        "scroll": "up",
+        "viewportAnchorX": 10,
+        "viewportAnchorY": 90,
+        "width": 50
+      },
       "size": 100,
       "snapToLines": true,
       "startTime": 10,
@@ -89,7 +129,15 @@
       "pauseOnExit": false,
       "position": 0,
       "positionAlign": "start",
-      "regionId": "fred",
+      "region": {
+        "lines": 3,
+        "regionAnchorX": 0,
+        "regionAnchorY": 100,
+        "scroll": "up",
+        "viewportAnchorX": 10,
+        "viewportAnchorY": 90,
+        "width": 50
+      },
       "size": 100,
       "snapToLines": true,
       "startTime": 12.5,
@@ -99,7 +147,6 @@
   ],
   "regions": [
     {
-      "id": "fred",
       "lines": 3,
       "regionAnchorX": 0,
       "regionAnchorY": 100,
@@ -109,7 +156,6 @@
       "width": 50
     },
     {
-      "id": "bill",
       "lines": 3,
       "regionAnchorX": 100,
       "regionAnchorY": 100,

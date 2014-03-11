@@ -25,7 +25,7 @@ describe("VTT DOM shim tests", function() {
 
   it("vttcue", function() {
     var cue = new VTTCue(1, 2, "This is test.");
-    ("startTime endTime text regionId " +
+    ("startTime endTime text region " +
      "vertical snapToLines line lineAlign " +
      "position positionAlign size align " +
      "displayState").split(" ").forEach(function(prop) {
@@ -47,10 +47,9 @@ describe("VTT DOM shim tests", function() {
     testRange(cue, "size", -1, 101);
   });
 
-
   it("vttregion", function() {
     var region = new VTTRegion();
-    ("id width lines regionAnchorY regionAnchorX " +
+    ("width lines regionAnchorY regionAnchorX " +
      "viewportAnchorY viewportAnchorX scroll").split(" ").forEach(function(prop) {
        assert.ok(region.hasOwnProperty(prop), "VTTRegion should have the " + prop + "property");
     });

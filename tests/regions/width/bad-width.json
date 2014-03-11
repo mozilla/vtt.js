@@ -1,7 +1,8 @@
 {
+  "cues": [
+  ],
   "regions": [
     {
-      "id": "fred",
       "lines": 3,
       "regionAnchorX": 0,
       "regionAnchorY": 100,
@@ -10,6 +11,5 @@
       "viewportAnchorY": 100,
       "width": 100
     }
-  ],
-  "cues": []
+  ]
 }
