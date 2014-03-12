@@ -620,16 +620,17 @@
         return null;
       }
 
-      var node = nodeStack.pop();
-      if (node.innerHTML) {
+      var node = nodeStack.pop(),
+          text = node.textContent || node.innerText;
+      if (text) {
         // TODO: This should match all unicode type B characters (paragraph
         // separator characters). See issue #115.
-        var m = node.innerHTML.match(/^.*(\n|\r)/);
+        var m = text.match(/^.*(\n|\r)/);
         if (m) {
           nodeStack.length = 0;
           return m[0];
         }
-        return node.innerHTML;
+        return text;
       }
       if (node.tagName === "ruby") {
         return nextTextNode(nodeStack);
