@@ -1365,7 +1365,7 @@
       } catch (e) {
         self.reportOrThrowError(e);
 
-        // If we are currently parsing a cue, report what we have, and then the error.
+        // If we are currently parsing a cue, report what we have.
         if (self.state === "CUETEXT" && self.cue && self.oncue) {
           self.oncue(self.cue);
         }
