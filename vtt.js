@@ -1155,6 +1155,15 @@
   };
 
   WebVTTParser.prototype = {
+    // If the error is a ParsingError then catch it and report it to the
+    // consumer if possible, otherwise, throw it.
+    reportOrThrowError: function(e) {
+      if (e instanceof ParsingError) {
+        this.onparsingerror && this.onparsingerror(e);
+      } else {
+        throw e;
+      }
+    },
     parse: function (data) {
       var self = this;
 
@@ -1323,10 +1332,7 @@
             try {
               parseCue(line, self.cue, self.regionList);
             } catch (e) {
-              // If it's not a parsing error then throw it to the consumer.
-              if (!(e instanceof ParsingError)) {
-                throw e;
-              }
+              self.reportOrThrowError(e);
               // In case of an error ignore rest of the cue.
               self.cue = null;
               self.state = "BADCUE";
@@ -1357,10 +1363,8 @@
           }
         }
       } catch (e) {
-        // If it's not a parsing error then throw it to the consumer.
-        if (!(e instanceof ParsingError)) {
-          throw e;
-        }
+        self.reportOrThrowError(e);
+
         // If we are currently parsing a cue, report what we have, and then the error.
         if (self.state === "CUETEXT" && self.cue && self.oncue) {
           self.oncue(self.cue);
