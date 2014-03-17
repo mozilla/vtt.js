@@ -1380,12 +1380,22 @@
     },
     flush: function () {
       var self = this;
-      // Finish decoding the stream.
-      self.buffer += self.decoder.decode();
-      // Synthesize the end of the current cue or region.
-      if (self.cue || self.state === "HEADER") {
-        self.buffer += "\n\n";
-        self.parse();
+      try {
+        // Finish decoding the stream.
+        self.buffer += self.decoder.decode();
+        // Synthesize the end of the current cue or region.
+        if (self.cue || self.state === "HEADER") {
+          self.buffer += "\n\n";
+          self.parse();
+        }
+        // If we've flushed, parsed, and we're still on the INITIAL state then
+        // that means we don't have enough of the stream to parse the first
+        // line.
+        if (self.state === "INITIAL") {
+          throw new ParsingError(ParsingError.Errors.BadSignature);
+        }
+      } catch(e) {
+        self.reportOrThrowError(e);
       }
       self.onflush && self.onflush();
       return this;
