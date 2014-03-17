@@ -13,6 +13,9 @@
         p.onregion = function(region) {
           window.callPhantom({ region: region });
         }
+        p.onparsingerror = function(e) {
+          window.callPhantom({ error: e });
+        }
       }
       window.onload = setup;
 

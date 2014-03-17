@@ -16,6 +16,7 @@ files in Firefox/Gecko.
   - [onregion](#onregion)
   - [oncue](#oncue)
   - [onflush](#onflush)
+  - [onparsingerror](#onparsingerror)
   - [convertCueToDOMTree](#convertCueToDOMTree)
   - [processCues](#processCues)
 - [Browser](#browser)
@@ -125,6 +126,20 @@ parser.oncue = function(cue) {
 ####onflush####
 
 Is invoked in response to `flush()` and after the content was parsed completely.
+
+####onparsingerror####
+
+Is invoked when a parsing error has occured. This means that some part of the
+WebVTT markup has been badly formed. Passes back a `ParsingError` object which
+has a `name`, `code`, and `message` property, along with all the regular
+properties that come with a JavaScript error object.
+
+There are two error codes that can be reported back currently:
+
+- 0 BadSignature
+- 1 BadTimeStamp
+
+**Note:** Regular exceptions will be thrown back to the consumer of `vtt.js`.
 
 ####convertCueToDOMTree####
 
