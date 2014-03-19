@@ -47,10 +47,9 @@ Spec Compliance
       - Step 12 (In progress)
   - [Applying CSS Properties](http://dev.w3.org/html5/webvtt/#applying-css-properties-to-webvtt-node-objects) (Completed)
   - [CSS Extensions](http://dev.w3.org/html5/webvtt/#css-extensions) **(Won't Implement)**
-- [WebVTT API Shim](http://dev.w3.org/html5/webvtt/#webvtt-api-for-browsers) (In Progress)
-  - [VTTCue](http://dev.w3.org/html5/webvtt/#vttcue-interface) (Completed)
+- [WebVTT API Shim](http://dev.w3.org/html5/webvtt/#webvtt-api-for-browsers) (Completed)
+  - [VTTCue](http://dev.w3.org/html5/webvtt/#vttcue-interface) (Completed) ***Shims the TextTrackCue interface as well***
   - [VTTRegion](http://dev.w3.org/html5/webvtt/#vttregion-interface) (Completed)
-  - [VTTRegionList](http://dev.w3.org/html5/webvtt/#vttregionlist-interface) (Not Implemented)
 
 ###Notes###
 
