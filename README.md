@@ -11,14 +11,16 @@ files in Firefox/Gecko.
 
 - [Spec Compliance](#spec-compliance)
 - [API](#api)
-  - [parse](#parse)
-  - [flush](#flush)
-  - [onregion](#onregion)
-  - [oncue](#oncue)
-  - [onflush](#onflush)
-  - [onparsingerror](#onparsingerror)
-  - [convertCueToDOMTree](#convertCueToDOMTree)
-  - [processCues](#processCues)
+  - [WebVTT.Parser](#webvttparser)
+    - [parse](#parse)
+    - [flush](#flush)
+    - [onregion](#onregion)
+    - [oncue](#oncue)
+    - [onflush](#onflush)
+    - [onparsingerror](#onparsingerror)
+  - [WebVTT.convertCueToDOMTree](#webvttconvertcuetodomtree)
+  - [WebVTT.processCues](#webvttprocesscues)
+  - [ParsingError](#parsingerror)
 - [Browser](#browser)
   - [Building Yourself](#building-yourself)
   - [Bower](#bower)
@@ -61,24 +63,25 @@ position.
 API
 ===
 
+####WebVTT.Parser####
+
 The parser has a simple API:
 
 ```javascript
-var parser = new WebVTTParser(window, stringDecoder);
-parser.onregion = function (region) {}
-parser.oncue = function (cue) {}
-parser.onflush = function () {}
+var parser = new WebVTT.Parser(window, stringDecoder);
+parser.onregion = function(region) {};
+parser.oncue = function(cue) {};
+parser.onflush = function() {};
+parser.onparsingerror = function(e) {};
 parser.parse(moreData);
 parser.parse(moreData);
 parser.flush();
-WebVTTParser.convertCueToDOMTree(window, cuetext);
-WebVTTParser.processCues(window, cues, overlay);
 ```
 
-The WebVTT constructor is passed a window object with which it will create new
+The Parser constructor is passed a window object with which it will create new
 VTTCues and VTTRegions as well as an optional StringDecoder object which
 it will use to decode the data that the `parse()` function receives. For ease of
-use, a StringDecoder is provided via `WebVTTParser.StringDecoder()`. If a custom
+use, a StringDecoder is provided via `WebVTT.StringDecoder()`. If a custom
 StringDecoder object is passed in it must support the API specified by the
 [#whatwg string encoding](http://encoding.spec.whatwg.org/#api) spec.
 
@@ -89,7 +92,7 @@ is expected to be decodable by the StringDecoder object that it has. The parser
 decodes the data and reassembles partial data (streaming), even across line breaks.
 
 ```javascript
-var parser = new WebVTTParser(window, WebVTTParser.StringDecoder());
+var parser = new WebVTT.Parser(window, WebVTT.StringDecoder());
 parser.parse("WEBVTT\n\n");
 parser.parse("00:32.500 --> 00:33.500 align:start size:50%\n");
 parser.parse("<v.loud Mary>That's awesome!");
@@ -98,7 +101,8 @@ parser.flush();
 
 ####flush####
 
-Indicates that no more data is expected and will trigger [onflush](#onFlush).
+Indicates that no more data is expected and will force the parser to parse any
+unparsed data that it may have. Will also trigger [onflush](#onflush).
 
 ####onregion####
 
@@ -106,7 +110,7 @@ Callback that is invoked for every region that is correctly parsed. Returns a [V
 object.
 
 ```js
-parse.onregion = function(region) {
+parser.onregion = function(region) {
   console.log(region);
 };
 ```
@@ -126,31 +130,35 @@ parser.oncue = function(cue) {
 
 Is invoked in response to `flush()` and after the content was parsed completely.
 
+```js
+parser.onflush = function() {
+  console.log("Flushed");
+};
+```
+
 ####onparsingerror####
 
 Is invoked when a parsing error has occured. This means that some part of the
-WebVTT markup has been badly formed. Passes back a `ParsingError` object which
-has a `name`, `code`, and `message` property, along with all the regular
-properties that come with a JavaScript error object.
+WebVTT file markup is badly formed. See [ParsingError](#parsingerror) for more
+information.
 
-There are two error codes that can be reported back currently:
+```js
+parser.onparsingerror = function(e) {
+  console.log(e);
+};
+```
 
-- 0 BadSignature
-- 1 BadTimeStamp
-
-**Note:** Regular exceptions will be thrown back to the consumer of `vtt.js`.
-
-####convertCueToDOMTree####
+####WebVTT.convertCueToDOMTree####
 
 Parses the cue text handed to it into a tree of DOM nodes that mirrors the internal WebVTT node structure of
 the cue text. It uses the window object handed to it to construct new HTMLElements and returns a tree of DOM
 nodes attached to a top level div.
 
 ```javascript
-var div = WebVTTParser.convertCueToDOMTree(window, cuetext);
+var div = WebVTT.convertCueToDOMTree(window, cuetext);
 ```
 
-####processCues####
+####WebVTT.processCues####
 
 Converts the cuetext of the cues passed to it to DOM trees&mdash;by calling convertCueToDOMTree&mdash;and
 then runs the processing model steps of the WebVTT specification on the divs. The processing model applies the necessary
@@ -159,8 +167,30 @@ to a block level element (overlay). The overlay should be a part of the live DOM
 computed styles (only of the divs to do overlap avoidance.
 
 ```javascript
-var divs = WebVTTParser.processCues(window, cues, overlay);
+var divs = WebVTT.processCues(window, cues, overlay);
 ```
+
+####ParsingError####
+
+A custom JS error object that is reported through the
+[onparsingerror](#onparsingerror) callback. It has a `name`, `code`, and
+`message` property, along with all the regular properties that come with a
+JavaScript error object.
+
+```json
+{
+  name: "ParsingError",
+  code: "SomeCode",
+  message: "SomeMessage"
+}
+```
+
+There are two error codes that can be reported back currently:
+
+- 0 BadSignature
+- 1 BadTimeStamp
+
+**Note:** Exceptions other then `PaserError` will be thrown and not reported.
 
 Browser
 =======
@@ -211,7 +241,7 @@ To use `vtt.js` you can just include the script on an HTML page like so:
 <body>
   <script>
     var vtt = "WEBVTT\n\nID\n00:00.000 --> 00:02.000\nText",
-        parser = new WebVTTParser(window, WebVTTParser.StringDecoder());
+        parser = new WebVTT.Parser(window, WebVTT.StringDecoder());
     parser.oncue = function(cue) {
       console.log(cue);
     };
@@ -492,8 +522,8 @@ draw back of this approach is that if you want to run the processing model part 
 provide a TextDecoder and a window object that has a DOM and a CSS layout engine.
 
 ```js
-var WebVTTParser = require("vtt.js").WebVTTParser,
-    parser = new WebVTTParser(fakeOrRealWindow, textDecoder);
+var WebVTT = require("vtt.js").WebVTT,
+    parser = new WebVTT.Parser(fakeOrRealWindow, textDecoder);
 ```
 
 ###Require the NodeVTT Module###
