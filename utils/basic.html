@@ -6,7 +6,7 @@
     <script src="../lib/vttregion-extended.js"></script>
     <script type="text/javascript">
       function setup() {
-        window.p = new WebVTTParser(window);
+        window.p = new WebVTT.Parser(window);
         p.oncue = function(cue) {
           window.callPhantom({ cue: cue });
         }
