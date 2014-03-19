@@ -190,7 +190,7 @@ There are two error codes that can be reported back currently:
 - 0 BadSignature
 - 1 BadTimeStamp
 
-**Note:** Exceptions other then `PaserError` will be thrown and not reported.
+**Note:** Exceptions other then `ParsingError` will be thrown and not reported.
 
 Browser
 =======
