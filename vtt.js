@@ -1054,16 +1054,12 @@
     styleBox.move(bestPosition.toCSSCompatValues(containerBox));
   }
 
-  function WebVTTParser(window, decoder) {
-    this.window = window;
-    this.state = "INITIAL";
-    this.buffer = "";
-    this.decoder = decoder || new TextDecoder("utf8");
-    this.regionList = [];
+  function WebVTT() {
+    // Nothing
   }
 
   // Helper to allow strings to be decoded instead of the default binary utf8 data.
-  WebVTTParser.StringDecoder = function() {
+  WebVTT.StringDecoder = function() {
     return {
       decode: function(data) {
         if (!data) {
@@ -1077,7 +1073,7 @@
     };
   };
 
-  WebVTTParser.convertCueToDOMTree = function(window, cuetext) {
+  WebVTT.convertCueToDOMTree = function(window, cuetext) {
     if (!window || !cuetext) {
       return null;
     }
@@ -1091,7 +1087,7 @@
   // Runs the processing model over the cues and regions passed to it.
   // @param overlay A block level element (usually a div) that the computed cues
   //                and regions will be placed into.
-  WebVTTParser.processCues = function(window, cues, overlay) {
+  WebVTT.processCues = function(window, cues, overlay) {
     if (!window || !cues || !overlay) {
       return null;
     }
@@ -1153,7 +1149,15 @@
     });
   };
 
-  WebVTTParser.prototype = {
+  WebVTT.Parser = function(window, decoder) {
+    this.window = window;
+    this.state = "INITIAL";
+    this.buffer = "";
+    this.decoder = decoder || new TextDecoder("utf8");
+    this.regionList = [];
+  };
+
+  WebVTT.Parser.prototype = {
     // If the error is a ParsingError then catch it and report it to the
     // consumer if possible, otherwise, throw it.
     reportOrThrowError: function(e) {
@@ -1399,6 +1403,6 @@
     }
   };
 
-  global.WebVTTParser = WebVTTParser;
+  global.WebVTT = WebVTT;
 
 }(this));
