@@ -12,15 +12,24 @@ files in Firefox/Gecko.
 - [Spec Compliance](#spec-compliance)
 - [API](#api)
   - [WebVTT.Parser](#webvttparser)
-    - [parse](#parse)
-    - [flush](#flush)
-    - [onregion](#onregion)
-    - [oncue](#oncue)
-    - [onflush](#onflush)
-    - [onparsingerror](#onparsingerror)
-  - [WebVTT.convertCueToDOMTree](#webvttconvertcuetodomtree)
-  - [WebVTT.processCues](#webvttprocesscues)
+    - [parse(data)](#parsedata)
+    - [flush()](#flush)
+    - [onregion(region)](#onregionregion)
+    - [oncue(cue)](#oncuecue)
+    - [onflush()](#onflush)
+    - [onparsingerror(error)](#onparsingerrorerror)
+  - [WebVTT.convertCueToDOMTree(window, cuetext)](#webvttconvertcuetodomtreewindow-cuetext)
+  - [WebVTT.processCues(window, cues, overlay)](#webvttprocesscueswindow-cues-overlay)
   - [ParsingError](#parsingerror)
+  - [VTTCue](#vttcue)
+    - [Extended API](#extended-api)
+      - [toJSON()](#tojson)
+      - [VTTCue.fromJSON(json)](#vttcuefromjsonjson)
+      - [VTTCue.create(options)](#vttcuecreateoptions)
+  - [VTTRegion](#vttregion)
+    - [Extended API](#extended-api-1)
+        - [VTTRegion.fromJSON(json)](#vttregionfromjsonjson)
+        - [VTTRegion.create(options)](#vttregioncreateoptions)
 - [Browser](#browser)
   - [Building Yourself](#building-yourself)
   - [Bower](#bower)
@@ -85,7 +94,7 @@ use, a StringDecoder is provided via `WebVTT.StringDecoder()`. If a custom
 StringDecoder object is passed in it must support the API specified by the
 [#whatwg string encoding](http://encoding.spec.whatwg.org/#api) spec.
 
-####parse####
+####parse(data)####
 
 Hands data in some format to the parser for parsing. The passed data format
 is expected to be decodable by the StringDecoder object that it has. The parser
@@ -99,12 +108,12 @@ parser.parse("<v.loud Mary>That's awesome!");
 parser.flush();
 ```
 
-####flush####
+####flush()####
 
 Indicates that no more data is expected and will force the parser to parse any
 unparsed data that it may have. Will also trigger [onflush](#onflush).
 
-####onregion####
+####onregion(region)####
 
 Callback that is invoked for every region that is correctly parsed. Returns a [VTTRegion](#http://dev.w3.org/html5/webvtt/#dfn-vttregion)
 object.
@@ -115,7 +124,7 @@ parser.onregion = function(region) {
 };
 ```
 
-####oncue####
+####oncue(cue)####
 
 Callback that is invoked for every cue that is fully parsed. In case of streaming parsing oncue is
 delayed until the cue has been completely received. Returns a [VTTCue](#http://dev.w3.org/html5/webvtt/#vttcue-interface) object.
@@ -126,7 +135,7 @@ parser.oncue = function(cue) {
 };
 ```
 
-####onflush####
+####onflush()####
 
 Is invoked in response to `flush()` and after the content was parsed completely.
 
@@ -136,7 +145,7 @@ parser.onflush = function() {
 };
 ```
 
-####onparsingerror####
+####onparsingerror(error)####
 
 Is invoked when a parsing error has occured. This means that some part of the
 WebVTT file markup is badly formed. See [ParsingError](#parsingerror) for more
@@ -148,7 +157,7 @@ parser.onparsingerror = function(e) {
 };
 ```
 
-####WebVTT.convertCueToDOMTree####
+####WebVTT.convertCueToDOMTree(window, cuetext)####
 
 Parses the cue text handed to it into a tree of DOM nodes that mirrors the internal WebVTT node structure of
 the cue text. It uses the window object handed to it to construct new HTMLElements and returns a tree of DOM
@@ -158,7 +167,7 @@ nodes attached to a top level div.
 var div = WebVTT.convertCueToDOMTree(window, cuetext);
 ```
 
-####WebVTT.processCues####
+####WebVTT.processCues(window, cues, overlay)####
 
 Converts the cuetext of the cues passed to it to DOM trees&mdash;by calling convertCueToDOMTree&mdash;and
 then runs the processing model steps of the WebVTT specification on the divs. The processing model applies the necessary
@@ -191,6 +200,87 @@ There are two error codes that can be reported back currently:
 - 1 BadTimeStamp
 
 **Note:** Exceptions other then `ParsingError` will be thrown and not reported.
+
+####VTTCue####
+
+A DOM shim for the VTTCue. See the [spec](http://dev.w3.org/html5/webvtt/#vttcue-interface)
+for more information. Our VTTCue shim also includes properties of its abstract base class
+[TextTrackCue](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html#texttrackcue).
+
+```js
+var cue = new window.VTTCue(0, 1, "I'm a cue.");
+```
+
+**Note:** Since this polfyill doesn't implement the track specification directly the `onenter`
+and `onexit` events will do nothing and do not exist on this shim.
+
+####Extended API####
+
+There is also an extended version of this shim that gives a few convenience methods
+for converting back and forth between JSON and VTTCues. If you'd like to use these
+methods then us `vttcue-extended.js` instead of `vttcue.js`. This isn't normally
+built into the `vtt.js` distributable so you will have to build a custom distribution
+instead of using bower.
+
+####toJSON()####
+
+Converts a cue to JSON.
+
+```js
+var json = cue.toJSON();
+```
+
+####VTTCue.fromJSON(json)####
+
+Create and initialize a VTTCue from JSON.
+
+```js
+var cue = VTTCue.fromJSON(json);
+```
+
+####VTTCue.create(options)####
+
+Initializes a VTTCue from an options object where the properties in the option
+objects are the same as the properties on the VTTCue.
+
+```js
+var cue = VTTCue.create(options);
+```
+
+####VTTRegion####
+
+A DOM shim for the VTTRegion. See the [spec](http://dev.w3.org/html5/webvtt/#vttregion-interface)
+for more information.
+
+```js
+var region = new window.VTTRegion(0, 1, "I'm a region.");
+cue.region = region;
+```
+
+####Extended API####
+
+There is also an extended version of this shim that gives a few convenience methods
+for converting back and forth between JSON and VTTRegions. If you'd like to use these
+methods then us `vttregion-extended.js` instead of `vttregion.js`. This isn't normally
+built into the `vtt.js` distributable so you will have to build a custom distribution
+instead of using bower.
+
+####VTTRegion.fromJSON(json)####
+
+Creates and initializes a VTTRegion from JSON.
+
+```js
+var region = VTTRegion.fromJSON(json);
+```
+
+####VTTRegion.create(options)####
+
+Creates a VTTRegion from an options object where the properties on the options
+object are the same as the properties on the VTTRegion.
+
+```js
+var region = VTTRegion.create(options);
+```
 
 Browser
 =======
