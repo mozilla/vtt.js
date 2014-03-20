@@ -1,5 +1,5 @@
-var VTTCue = require("../lib/vttcue.js").VTTCue,
-    VTTRegion = require("../lib/vttregion.js").VTTRegion,
+var VTTCue = require("../../lib/vttcue.js").VTTCue,
+    VTTRegion = require("../../lib/vttregion.js").VTTRegion,
     assert = Object.create(require("assert"));
 
 function testEnum(obj, prop, set) {
