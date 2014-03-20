@@ -18,7 +18,7 @@ module.exports = function( grunt ) {
         node: true
       },
       files: [
-        "vtt.js",
+        "lib/vtt.js",
         "lib/vttcue.js",
         "lib/vttcue-extended.js",
         "lib/vttregion.js",
@@ -37,7 +37,7 @@ module.exports = function( grunt ) {
             "lib/stringencoding/encoding.js",
             "lib/vttcue.js",
             "lib/vttregion.js",
-            "vtt.js"
+            "lib/vtt.js"
           ]
         }
       }
@@ -52,7 +52,7 @@ module.exports = function( grunt ) {
           "lib/stringencoding/encoding.js",
           "lib/vttcue.js",
           "lib/vttregion.js",
-          "vtt.js"
+          "lib/vtt.js"
         ],
         dest: "dist/vtt.js"
       }

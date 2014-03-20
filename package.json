@@ -24,7 +24,7 @@
     "grunt-update-submodules": "0.2.0",
     "json-stable-stringify": "git://github.com/RickEyre/json-stable-stringify.git#295f57aadda83777c411cc904410d0ccc13c2721"
   },
-  "main": "vtt.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "./node_modules/.bin/grunt && ./node_modules/.bin/mocha --recursive --reporter spec --timeout 120000 --slow 15000 tests"
   },
