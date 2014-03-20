@@ -1,4 +1,4 @@
-var TestRunner = require("../../../lib/test-runner.js"),
+var TestRunner = require("../../test-runner.js"),
     test = new TestRunner();
 
 describe("cue-settings/align tests", function(){

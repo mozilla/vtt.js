@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-var NodeVTT = require("./node-vtt"),
+var NodeVTT = require("../lib/node-vtt"),
     deepEqual = require("underscore").isEqual,
     difflet = require("difflet")({ indent: 2, deepEqual: deepEqual }),
     fs = require("fs"),
