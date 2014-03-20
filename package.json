@@ -31,6 +31,14 @@
     "lib/vttcue-extended.js",
     "lib/vttregion-extended.js"
   ],
+  "keywords": [
+    "vtt",
+    "webvtt",
+    "track",
+    "captions",
+    "subtitles",
+    "text track"
+  ],
   "scripts": {
     "test": "./node_modules/.bin/grunt && ./node_modules/.bin/mocha --recursive --reporter spec --timeout 120000 --slow 15000 tests"
   },
