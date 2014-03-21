@@ -28,7 +28,9 @@
   "files": [
     "lib/index.js",
     "lib/vtt.js",
+    "lib/vttcue.js",
     "lib/vttcue-extended.js",
+    "lib/vttregion.js",
     "lib/vttregion-extended.js"
   ],
   "keywords": [
