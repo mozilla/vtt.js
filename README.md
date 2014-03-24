@@ -34,13 +34,12 @@ files in Firefox/Gecko.
   - [Building Yourself](#building-yourself)
   - [Bower](#bower)
   - [Usage](#usage)
+- [Node](#node)
+  - [vtt.js](#vttjs-1)
+  - [node-vtt](#node-vtt)
 - [Tests](#tests)
   - [Writing Tests](#writing-tests)
   - [Cue2json](#cue2json)
-- [Running On Node](#nodevtt)
-  - [Require vtt.js Directly](#require-vttjs-directly)
-  - [Require NodeVTT](#require-the-nodevtt-module)
-
 
 Spec Compliance
 ===============
@@ -373,6 +372,52 @@ $ mocha .
 
 See the [usage docs](http://visionmedia.github.io/mocha/#usage) for further usage info.
 
+Node
+====
+
+You have a couple of options if you'd like to run the library from Node.
+
+###vtt.js###
+
+`vtt.js` is on npm. Just do:
+
+```
+npm install vtt.js
+```
+
+Require it and use it:
+
+```js
+var vtt = require("vtt.js"),
+    WebVTT = vtt.WebVTT,
+    VTTCue = vtt.VTTCue,
+    VTTRegion = vtt.VTTRegion;
+
+var parser = new WebVTT.Parser(window);
+parser.parse();
+// etc
+
+var elements = WebVTT.processCues(window, cues, overlay);
+var element = WebVTT.convertCueToDOMTree(window, cuetext);
+
+var cue = new VTTCue(0, 1, "I'm a cue.");
+var region = new VTTRegion();
+```
+
+See the [API](#api) for more information on how to use it.
+
+**Note:** If you use this method you will have to provide your own window object
+or a shim of one with the necessary functionality for either the parsing or processing
+portion of the spec. The only shims that are provided to you are `VTTCue` and `VTTRegion`
+which you can attach to your global that is passed into the various functions.
+
+###node-vtt###
+
+Use [node-vtt](https://github.com/mozilla/node-vtt). Node-vtt runs `vtt.js` on a PhantomJS page
+from Node so it has access to a full DOM and CSS layout engine which means you can run any part
+of the library you want. See the [node-vtt](https://github.com/mozilla/node-vtt) repo for more
+information.
+
 ###Writing Tests###
 
 Tests are done by comparing live parsed output to a last-known-good JSON file. The JSON files
@@ -599,37 +644,3 @@ a JSON test.
 **NOTE:** Since `cue2json` uses the actual parser to generate these JSON files there is the possibility that
 the generated JSON will contain bugs. Therefore, always check the generated JSON files to check that the
 parser actually parsed according to spec.
-
-Running on Node
-===============
-
-If you'd like to run vtt.js from Node you have a few options.
-
-###Require vtt.js Directly###
-
-Require vtt.js just like you would a regular Node module and use it to parse WebVTT files. The one
-draw back of this approach is that if you want to run the processing model part of WebVTT you need to
-provide a TextDecoder and a window object that has a DOM and a CSS layout engine.
-
-```js
-var WebVTT = require("vtt.js").WebVTT,
-    parser = new WebVTT.Parser(fakeOrRealWindow, textDecoder);
-```
-
-###Require the NodeVTT Module###
-
-Require NodeVTT. NodeVTT runs vtt.js on a PhantomJS page so it has access to a full DOM and CSS layout
-engine which means that you can run any part of the spec that you want.
-
-```js
-var NodeVTT = require("./lib/node-vtt"),
-    parser = new NodeVTT();
-
-parser.init(function() {
-  parser.parseFile(file, function() {
-    parser.flush(function() {
-      console.log(parser.vtt);
-    });
-  });
-});
-```
