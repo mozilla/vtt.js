@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-var NodeVTT = require("../lib/node-vtt"),
+var NodeVTT = require("node-vtt"),
     deepEqual = require("underscore").isEqual,
     difflet = require("difflet")({ indent: 2, deepEqual: deepEqual }),
     fs = require("fs"),
@@ -65,7 +65,7 @@ TestRunner.prototype.assert = assert;
 // Set up an instance of NodeVTT that we can use to run our tests.
 TestRunner.prototype.init = function(onInit) {
   this.nodeVTT = new NodeVTT();
-  this.nodeVTT.init(onInit);
+  this.nodeVTT.init({ uri: path.resolve(__dirname, "../utils/basic.html") }, onInit);
 };
 
 // Shutdown the NodeVTT instance that we've been using.

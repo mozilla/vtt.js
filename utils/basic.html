@@ -5,20 +5,6 @@
     <script src="../lib/vttcue-extended.js"></script>
     <script src="../lib/vttregion-extended.js"></script>
     <script type="text/javascript">
-      function setup() {
-        window.p = new WebVTT.Parser(window);
-        p.oncue = function(cue) {
-          window.callPhantom({ cue: cue });
-        }
-        p.onregion = function(region) {
-          window.callPhantom({ region: region });
-        }
-        p.onparsingerror = function(e) {
-          window.callPhantom({ error: e });
-        }
-      }
-      window.onload = setup;
-
       // The properties on DOM objects that we care about testing.
       window.vttProps = ( "localName tagName className textContent" +
                           " lang target data title" ).split(" ");
