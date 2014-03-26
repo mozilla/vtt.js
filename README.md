@@ -1,7 +1,7 @@
 vtt.js
 ======
 
-[![Build Status](https://travis-ci.org/mozilla/vtt.js.png?branch=master)](https://travis-ci.org/mozilla/vtt.js)
+[![Build Status](https://travis-ci.org/mozilla/vtt.js.svg?branch=master)](https://travis-ci.org/mozilla/vtt.js)
 
 Implementation of the [WebVTT](https://developer.mozilla.org/en-US/docs/HTML/WebVTT) spec in JavaScript. Can be used
 in NodeJS, on the browser, and many other places. Mozilla uses this implementation for parsing and processing WebVTT
