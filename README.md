@@ -284,7 +284,7 @@ var region = VTTRegion.create(options);
 Browser
 =======
 
-In order to use the parser in a browser, you need to get the built distribution of vtt.js. The distribution
+In order to use the `vtt.js` in a browser, you need to get the built distribution of vtt.js. The distribution
 contains polyfills for [TextDecoder](http://encoding.spec.whatwg.org/), [VTTCue](http://dev.w3.org/html5/webvtt/#vttcue-interface),
 and [VTTRegion](http://dev.w3.org/html5/webvtt/#vttregion-interface) since not all browsers currently
 support them.
@@ -294,27 +294,34 @@ support them.
 Building a browser-ready version of the library is done using `grunt` (if you haven't installed
 `grunt` globally, you can run it from `./node_modules/.bin/grunt` after running `npm install`):
 
-```
+```bash
 $ grunt build
-Running "uglify:dist" (uglify) task
-File "dist/vtt.min.js" created.
+$ Running "update_submodules" task
 
-Done, without errors.
+$ Running "uglify:dist" (uglify) task
+$ File "dist/vtt.min.js" created.
+
+$ Running "concat:dist" (concat) task
+$ File "dist/vtt.js" created.
+
+$ Done, without errors.
 ```
 
-Your newly built vtt.js now lives in `dist/vtt.min.js`.
+Your newly built `vtt.js` now lives in `dist/vtt.min.js`, or alternatively, `dis/vtt.js` for an
+unminified version.
 
 ###Bower###
 
 You can also get the a prebuilt distribution from [Bower](http://bower.io/). Either run the shell
 command:
 
-```
-bower install vtt.js
+```bash
+$ bower install vtt.js
 ```
 
 Or include `vtt.js` as a dependency in your `bower.json` file. `vtt.js` should now
-live in `bower_components/vtt.js/vtt.min.js`.
+live in `bower_components/vtt.js/vtt.min.js`. There is also an unminified
+version included with bower at `bower_components/vtt.js/vtt.js`.
 
 ###Usage###
 
@@ -330,47 +337,25 @@ To use `vtt.js` you can just include the script on an HTML page like so:
 <body>
   <script>
     var vtt = "WEBVTT\n\nID\n00:00.000 --> 00:02.000\nText",
-        parser = new WebVTT.Parser(window, WebVTT.StringDecoder());
+        parser = new WebVTT.Parser(window, WebVTT.StringDecoder()),
+        cues = [],
+        regions = [];
     parser.oncue = function(cue) {
-      console.log(cue);
+      cues.push(cue);
     };
     parser.onregion = function(region) {
-      console.log(region);
+      regions.push(region);
     }
     parser.parse(vtt);
     parser.flush();
+
+    var div = WebVTT.convertCueToDOMTree(window, cues[0].text);
+    var divs = WebVTT.processCues(window, cues, document.getElementById("overlay"));
   </script>
+  <div id="overlay" style="position: relative; width: 300px; height: 150px"></div>
 </body>
 </html>
 ```
-
-Tests
-=====
-
-Tests are written and run using [Mocha](http://visionmedia.github.io/mocha/) on node.js.
-Before they can be run, you need to install various dependencies:
-
-```
-$ npm install
-$ git submodule update --init --recursive
-```
-
-To run all the tests, do the following:
-
-```
-$ npm test
-```
-
-If you want to run individual tests, you can install the [Mocha](http://visionmedia.github.io/mocha/) command-line
-tool globally, and then run tests per-directory:
-
-```
-$ npm install -g mocha
-$ cd tests/some/sub/dir
-$ mocha .
-```
-
-See the [usage docs](http://visionmedia.github.io/mocha/#usage) for further usage info.
 
 Node
 ====
@@ -418,185 +403,81 @@ from Node so it has access to a full DOM and CSS layout engine which means you c
 of the library you want. See the [node-vtt](https://github.com/mozilla/node-vtt) repo for more
 information.
 
+Tests
+=====
+
+Tests are written and run using [Mocha](http://visionmedia.github.io/mocha/) on node.js.
+
+To run all the tests, do the following:
+
+```bash
+$ npm test
+```
+
+If you want to run individual tests, you can install the [Mocha](http://visionmedia.github.io/mocha/) command-line
+tool globally, and then run tests per-directory:
+
+```bash
+$ npm install -g mocha
+$ cd tests/some/sub/dir
+$ mocha --reporter spec --timeout 200000
+```
+
+See the [usage docs](http://visionmedia.github.io/mocha/#usage) for further usage info.
+
 ###Writing Tests###
 
 Tests are done by comparing live parsed output to a last-known-good JSON file. The JSON files
-can be easily generated using the parser, so you don't need to write these by hand
-(see details below about `cue2json`).
+can be easily generated using `vtt.js`, so you don't need to write these by hand
+(see details below about [cue2json](#cue2json)).
 
-The first flavour of JSON based tests are tests that compare the parsed result of
-a WebVTT file to a JSON representation of it. For example your WebVTT file could
-look like this:
+####TestRunner####
 
-```
-WEBVTT
+There's a prebuilt API in place for testing different parts of `vtt.js`. Simply
+require the [TestRunner](https://github.com/mozilla/vtt.js/blob/master/tests/test-runner.js)
+module in the `lib` directory and start writing tests using `mocha`. See an example of a test file
+[here](https://github.com/mozilla/vtt.js/blob/master/tests/cue-settings/align/test.js)
+with its first test's WebVTT file [here](https://github.com/mozilla/vtt.js/blob/master/tests/cue-settings/align/bad-align.vtt)
+and its corresponding [parsing JSON file](https://github.com/mozilla/vtt.js/blob/master/tests/cue-settings/align/bad-align.json)
+and [processing JSON file](https://github.com/mozilla/vtt.js/blob/master/tests/cue-settings/align/bad-align-proc.json).
+You can also check out the [tests](https://github.com/mozilla/vtt.js/tree/master/tests)
+directory for more examples on how to write tests.
 
-00:32.500 --> 00:33.500 align:start size:50%
-<v.loud Mary>That's awesome!
-```
+####jsonEqual(vttFile, jsonRefFile, message, onDone)####
 
-The associated JSON representation of the parsed file might look like this:
+First parses the WebVTT file as UTF8 and compares it to the reference JSON file
+and then parses the WebVTT file as a string and compares it to the reference JSON
+file.
 
-``` json
-{
-  "regions": [],
-  "cues": [
-    {
-      "align": "start",
-      "endTime": 33.5,
-      "id": "",
-      "line": "auto",
-      "lineAlign": "start",
-      "pauseOnExit": false,
-      "position": 50,
-      "positionAlign": "middle",
-      "regionId": "",
-      "size": 50,
-      "snapToLines": true,
-      "startTime": 32.5,
-      "text": "<v.loud Mary>That's awesome!",
-      "vertical": ""
-    }
-  ]
-}
-```
+####jsonEqualStreaming(vttFile, jsonRefFile, message, onDone)####
 
-Writing the test to compare the live ouput to this JSON is done by creating a `.js` somewhere in `tests/`.
-It might look like this:
+Simulates parsing the file while streaming by splitting the WebVTT file into
+chunks. Will simulate parsing like this `n` times for a single WebVTT file where
+`n` is the length in unicode characters of the file, so use this only on small
+files or else you will get a timeout failure on your test.
 
-```javascript
-var TestRunner = require("../../lib/test-runner.js"),
-    test = new TestRunner();
+####jsonEqualParsing(vttFile, jsonRefFile, message, onDone)####
 
-describe("foo/bar.vtt", function(){
+Runs `jsonEqual` and `jsonEqualStreaming` in one go.
 
-  before(function(onDone) {
-    test.init(onDone);
-  });
+####jsonEqualProcModel(vttFile, jsonRefFile, message, onDone)####
 
-  after(function() {
-    test.shutdown();
-  });
+Runs the processing model over the `VTTCues` and `VTTRegions` that are returned
+from parsing the WebVTT file.
 
-  it("should compare JSON to parsed result", function(onDone){
-    test.jsonEqualParsing("foo/bar.vtt", "foo/bar.json", onDone);
-  });
+####jsonEqualAll(vttFile, jsonRefFile, message, onDone)####
 
-});
-```
+Runs `jsonEqualParsing` and `jsonEqualProcModel`. Note that `jsonRefFile` should
+contain JSON that is generated from parsing. The processing model test will compare
+its results to a JSON file located at `[vttFile]-proc.json`. Therefore, if you
+have a WebVTT file named `basic.vtt` the JSON reference file for the processing
+model tests will be `basic-proc.json`.
 
-The `jsonEqualParsing` assertion does 2 kinds of checks, including:
+####jsonEqualAllNoStream(vttFile, jsonRefFile, message, onDone)####
 
-* Parsing the specified file as UTF8 binary data without streaming (i.e., single call to `parse)
-* Parsing the specified file as UTF8 binary data with streaming at every possible chunk size
-
-The other style of JSON based tests are tests that check the processing model implementation rather then
-the parser implementation. The processing model is the part of the WebVTT spec that prepares a number of
-cues to be displayed on the web page by converting their content to DOM trees and applying
-CSS styling to them.
-
-For example your WebVTT file could look like:
-
-```
-WEBVTT
-
-00:01.000 --> 00:02.000
-Is
-
-00:01.000 --> 00:02.000
-A
-```
-
-And the associated JSON representation of running the processing model over the cues and regions
-contained within the WebVTT file could look like:
-
-```json
-[
-  {
-    "childNodes": [
-      {
-        "childNodes": [],
-        "data": "Is",
-        "localName": "",
-        "textContent": "Is"
-      }
-    ],
-    "className": "",
-    "lang": "",
-    "localName": "div",
-    "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
-      "color": "rgb(255, 255, 255)",
-      "direction": "ltr",
-      "font-family": "sans-serif",
-      "left": "0px",
-      "position": "absolute",
-      "text-align": "center",
-      "top": "85%",
-      "white-space": "pre-line",
-      "width": "100%"
-    },
-    "tagName": "DIV",
-    "textContent": "Is",
-    "title": ""
-  },
-  {
-    "childNodes": [
-      {
-        "childNodes": [],
-        "data": "A",
-        "localName": "",
-        "textContent": "A"
-      }
-    ],
-    "className": "",
-    "lang": "",
-    "localName": "div",
-    "style": {
-      "background-color": "rgba(0, 0, 0, 0.796875)",
-      "color": "rgb(255, 255, 255)",
-      "direction": "ltr",
-      "font-family": "sans-serif",
-      "left": "0px",
-      "position": "absolute",
-      "text-align": "center",
-      "top": "85%",
-      "white-space": "pre-line",
-      "width": "100%"
-    },
-    "tagName": "DIV",
-    "textContent": "A",
-    "title": ""
-  }
-]
-```
-
-Writing a test for this is similar to the JSON based tests that test the parser. You
-would include a `.js` file somewhere in the `/tests` directory and use the
-`test.jsonEqualProcModel` method.
-
-```javascript
-var TestRunner = require("../../lib/test-runner.js"),
-    test = new TestRunner();
-
-describe("foo/bar.vtt", function(){
-
-  before(function(onDone) {
-    test.init(onDone);
-  });
-
-  after(function() {
-    test.shutdown();
-  });
-
-  it("should compare JSON to processed result", function(onDone){
-    test.jsonEqualProcModel("foo/bar.vtt", "foo/bar.json", onDone);
-  });
-
-});
-```
-
-JSON based test `.js` files can live anywhere in or below `tests/`, and the test runner will find and run them.
+Runs `jsonEqual` and `jsonEqualProcModel` use this if you want to do parsing
+and processing tests, but do not want to simulate streaming because you
+have too big of a WebVTT file.
 
 ####Cue2json####
 
