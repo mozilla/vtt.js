@@ -81,7 +81,7 @@ TestRunner.prototype.assertReady = function(ready) {
   }
 };
 
-// Compare JSON to live parsed data that has been passed as a whole to the parser.
+// Compare JSON to live parsed utf8 and string data that has been passed as a whole to the parser.
 TestRunner.prototype.jsonEqual = function(vttFile, jsonFile, message, onTestFinish) {
   this.assertReady();
 
@@ -97,17 +97,35 @@ TestRunner.prototype.jsonEqual = function(vttFile, jsonFile, message, onTestFini
       json = require(jsonFile);
 
   async.series({
-    parse: function(onDone) {
+    utf8Parse: function(onDone) {
       self.nodeVTT.parseFile(vttFile, onDone);
     },
-    vtt: function(onDone) {
-      onDone(null, self.nodeVTT.vtt);
+    firstTest: function(onDone) {
+      testDone(null, self.nodeVTT.vtt, json, message,
+               "parsing utf8 without streaming", onDone);
     },
-    clear: function(onDone) {
-      self.nodeVTT.clear(onDone);
+    setupParser: function(onDone) {
+      self.nodeVTT.setupParser("string", onDone);
+    },
+    stringParse: function(onDone) {
+      var vtt = fs.readFileSync(vttFile, { encoding: "utf8" });
+      // Strip the BOM character if there is one.
+      vtt.charCodeAt(0) === 65279 && (vtt = vtt.substr(1));
+      self.nodeVTT.parse(vtt, onDone);
+    },
+    flush: function(onDone) {
+      self.nodeVTT.flush(onDone);
+    },
+    secondTest: function(onDone) {
+      testDone(null, self.nodeVTT.vtt, json, message,
+               "parsing string without streaming", onDone);
+    },
+    resetParser: function(onDone) {
+      self.nodeVTT.setupParser("utf8", onDone);
     }
-  }, function onDone(error, results) {
-    testDone(error, results.vtt, json, message, "parsing utf8 without streaming", onTestFinish);
+  }, function onDone(error) {
+    error && fail("failed on parsing without streaming", error);
+    onTestFinish();
   });
 };
 
