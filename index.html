@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>vtt.js by mozilla</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>vtt.js</h1>
+        <h2>A JavaScript implementation of the WebVTT specification</h2>
+        <a href="https://github.com/mozilla/vtt.js" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="vttjs" class="anchor" href="#vttjs"><span class="octicon octicon-link"></span></a>vtt.js</h1>
+
+<p><a href="https://travis-ci.org/mozilla/vtt.js"><img src="https://travis-ci.org/mozilla/vtt.js.svg?branch=master" alt="Build Status"></a> <a href="https://www.npmjs.org/package/vtt.js"><img src="http://img.shields.io/npm/v/vtt.js.svg" alt="npm-version"></a> <a href="https://david-dm.org/mozilla/vtt.js"><img src="https://david-dm.org/mozilla/vtt.js.svg?theme=shields.io" alt="Dependency Status"></a> <a href="https://david-dm.org/mozilla/vtt.js#info=devDependencies"><img src="https://david-dm.org/mozilla/vtt.js/dev-status.svg?theme=shields.io" alt="devDependency Status"></a></p>
+
+<p>Implementation of the <a href="https://developer.mozilla.org/en-US/docs/HTML/WebVTT">WebVTT</a> spec in JavaScript. Can be used
+in NodeJS, on the browser, and many other places. Mozilla uses this implementation for parsing and processing WebVTT
+files in Firefox/Gecko.</p>
+
+<h2>
+<a name="table-of-contents" class="anchor" href="#table-of-contents"><span class="octicon octicon-link"></span></a>Table of Contents</h2>
+
+<ul>
+<li><a href="#spec-compliance">Spec Compliance</a></li>
+<li>
+<a href="#api">API</a>
+
+<ul>
+<li>
+<a href="#webvttparser">WebVTT.Parser</a>
+
+<ul>
+<li><a href="#parsedata">parse(data)</a></li>
+<li><a href="#flush">flush()</a></li>
+<li><a href="#onregionregion">onregion(region)</a></li>
+<li><a href="#oncuecue">oncue(cue)</a></li>
+<li><a href="#onflush">onflush()</a></li>
+<li><a href="#onparsingerrorerror">onparsingerror(error)</a></li>
+</ul>
+</li>
+<li><a href="#webvttconvertcuetodomtreewindow-cuetext">WebVTT.convertCueToDOMTree(window, cuetext)</a></li>
+<li><a href="#webvttprocesscueswindow-cues-overlay">WebVTT.processCues(window, cues, overlay)</a></li>
+<li><a href="#parsingerror">ParsingError</a></li>
+<li>
+<a href="#vttcue">VTTCue</a>
+
+<ul>
+<li>
+<a href="#extended-api">Extended API</a>
+
+<ul>
+<li><a href="#tojson">toJSON()</a></li>
+<li><a href="#vttcuefromjsonjson">VTTCue.fromJSON(json)</a></li>
+<li><a href="#vttcuecreateoptions">VTTCue.create(options)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#vttregion">VTTRegion</a>
+
+<ul>
+<li>
+<a href="#extended-api-1">Extended API</a>
+
+<ul>
+<li><a href="#vttregionfromjsonjson">VTTRegion.fromJSON(json)</a></li>
+<li><a href="#vttregioncreateoptions">VTTRegion.create(options)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="#browser">Browser</a>
+
+<ul>
+<li><a href="#building-yourself">Building Yourself</a></li>
+<li><a href="#bower">Bower</a></li>
+<li><a href="#usage">Usage</a></li>
+</ul>
+</li>
+<li>
+<a href="#node">Node</a>
+
+<ul>
+<li><a href="#vttjs-1">vtt.js</a></li>
+<li><a href="#node-vtt">node-vtt</a></li>
+</ul>
+</li>
+<li>
+<a href="#tests">Tests</a>
+
+<ul>
+<li><a href="#writing-tests">Writing Tests</a></li>
+<li><a href="#cue2json">Cue2json</a></li>
+</ul>
+</li>
+</ul><h1>
+<a name="spec-compliance" class="anchor" href="#spec-compliance"><span class="octicon octicon-link"></span></a>Spec Compliance</h1>
+
+<ul>
+<li>
+<a href="http://dev.w3.org/html5/webvtt/#webvtt-file-format-parsing">Parsing</a> (Completed)
+
+<ul>
+<li>
+<a href="http://dev.w3.org/html5/webvtt/#webvtt-file-parsing">File</a> (Completed)</li>
+<li>
+<a href="http://dev.w3.org/html5/webvtt/#webvtt-region-settings-parsing">Region</a> (Completed)</li>
+<li>
+<a href="http://dev.w3.org/html5/webvtt/#webvtt-cue-timings-and-settings-parsing">Cue Timings and Settings</a> (Completed)</li>
+<li>
+<a href="http://dev.w3.org/html5/webvtt/#dfn-webvtt-cue-text-parsing-rules">WebVTT Cue Text</a> (Completed)</li>
+<li>
+<a href="http://dev.w3.org/html5/webvtt/#webvtt-cue-text-dom-construction-rules">Cue DOM Construction</a> (Completed)</li>
+</ul>
+</li>
+<li>
+<a href="http://dev.w3.org/html5/webvtt/#rendering">Rendering</a> (In Progress)
+
+<ul>
+<li>
+<a href="http://dev.w3.org/html5/webvtt/#processing-model">Processing Model</a> (In Progress) <strong><em>No VTTRegion or vertical text support</em></strong>
+
+<ul>
+<li>
+<a href="http://dev.w3.org/html5/webvtt/#dfn-apply-webvtt-cue-settings">Apply WebVTT Cue Settings</a> (In Progress)
+
+<ul>
+<li>Steps 1 - 11 (Completed)</li>
+<li>Step 12 (In progress)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://dev.w3.org/html5/webvtt/#applying-css-properties-to-webvtt-node-objects">Applying CSS Properties</a> (Completed)</li>
+<li>
+<a href="http://dev.w3.org/html5/webvtt/#css-extensions">CSS Extensions</a> <strong>(Won't Implement)</strong>
+</li>
+</ul>
+</li>
+<li>
+<a href="http://dev.w3.org/html5/webvtt/#webvtt-api-for-browsers">WebVTT API Shim</a> (Completed)
+
+<ul>
+<li>
+<a href="http://dev.w3.org/html5/webvtt/#vttcue-interface">VTTCue</a> (Completed) <strong><em>Shims the TextTrackCue interface as well</em></strong>
+</li>
+<li>
+<a href="http://dev.w3.org/html5/webvtt/#vttregion-interface">VTTRegion</a> (Completed)</li>
+</ul>
+</li>
+</ul><h3>
+<a name="notes" class="anchor" href="#notes"><span class="octicon octicon-link"></span></a>Notes</h3>
+
+<p>Our processing model portion of the specification makes use of a custom property, <code>hasBeenReset</code>. It allows us to detect
+when a VTTCue is dirty, i.e. one of its properties that affects display has changed and so we need to recompute its display
+state. This allows us to reuse a cue's display state if it has already been computed and nothing has changed to effect its
+position.</p>
+
+<h1>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h1>
+
+<h4>
+<a name="webvttparser" class="anchor" href="#webvttparser"><span class="octicon octicon-link"></span></a>WebVTT.Parser</h4>
+
+<p>The parser has a simple API:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebVTT</span><span class="p">.</span><span class="nx">Parser</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="nx">stringDecoder</span><span class="p">);</span>
+<span class="nx">parser</span><span class="p">.</span><span class="nx">onregion</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">region</span><span class="p">)</span> <span class="p">{};</span>
+<span class="nx">parser</span><span class="p">.</span><span class="nx">oncue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cue</span><span class="p">)</span> <span class="p">{};</span>
+<span class="nx">parser</span><span class="p">.</span><span class="nx">onflush</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{};</span>
+<span class="nx">parser</span><span class="p">.</span><span class="nx">onparsingerror</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{};</span>
+<span class="nx">parser</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">moreData</span><span class="p">);</span>
+<span class="nx">parser</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">moreData</span><span class="p">);</span>
+<span class="nx">parser</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
+</pre></div>
+
+<p>The Parser constructor is passed a window object with which it will create new
+VTTCues and VTTRegions as well as an optional StringDecoder object which
+it will use to decode the data that the <code>parse()</code> function receives. For ease of
+use, a StringDecoder is provided via <code>WebVTT.StringDecoder()</code>. If a custom
+StringDecoder object is passed in it must support the API specified by the
+<a href="http://encoding.spec.whatwg.org/#api">#whatwg string encoding</a> spec.</p>
+
+<h4>
+<a name="parsedata" class="anchor" href="#parsedata"><span class="octicon octicon-link"></span></a>parse(data)</h4>
+
+<p>Hands data in some format to the parser for parsing. The passed data format
+is expected to be decodable by the StringDecoder object that it has. The parser
+decodes the data and reassembles partial data (streaming), even across line breaks.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebVTT</span><span class="p">.</span><span class="nx">Parser</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="nx">WebVTT</span><span class="p">.</span><span class="nx">StringDecoder</span><span class="p">());</span>
+<span class="nx">parser</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s2">"WEBVTT\n\n"</span><span class="p">);</span>
+<span class="nx">parser</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s2">"00:32.500 --&gt; 00:33.500 align:start size:50%\n"</span><span class="p">);</span>
+<span class="nx">parser</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s2">"&lt;v.loud Mary&gt;That's awesome!"</span><span class="p">);</span>
+<span class="nx">parser</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
+</pre></div>
+
+<h4>
+<a name="flush" class="anchor" href="#flush"><span class="octicon octicon-link"></span></a>flush()</h4>
+
+<p>Indicates that no more data is expected and will force the parser to parse any
+unparsed data that it may have. Will also trigger <a href="#onflush">onflush</a>.</p>
+
+<h4>
+<a name="onregionregion" class="anchor" href="#onregionregion"><span class="octicon octicon-link"></span></a>onregion(region)</h4>
+
+<p>Callback that is invoked for every region that is correctly parsed. Returns a <a>VTTRegion</a>
+object.</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">parser</span><span class="p">.</span><span class="nx">onregion</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">region</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">region</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+
+<h4>
+<a name="oncuecue" class="anchor" href="#oncuecue"><span class="octicon octicon-link"></span></a>oncue(cue)</h4>
+
+<p>Callback that is invoked for every cue that is fully parsed. In case of streaming parsing oncue is
+delayed until the cue has been completely received. Returns a <a>VTTCue</a> object.</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">parser</span><span class="p">.</span><span class="nx">oncue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cue</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">cue</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+
+<h4>
+<a name="onflush" class="anchor" href="#onflush"><span class="octicon octicon-link"></span></a>onflush()</h4>
+
+<p>Is invoked in response to <code>flush()</code> and after the content was parsed completely.</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">parser</span><span class="p">.</span><span class="nx">onflush</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Flushed"</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+
+<h4>
+<a name="onparsingerrorerror" class="anchor" href="#onparsingerrorerror"><span class="octicon octicon-link"></span></a>onparsingerror(error)</h4>
+
+<p>Is invoked when a parsing error has occured. This means that some part of the
+WebVTT file markup is badly formed. See <a href="#parsingerror">ParsingError</a> for more
+information.</p>
+
+<div class="highlight highlight-js"><pre><span class="nx">parser</span><span class="p">.</span><span class="nx">onparsingerror</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+
+<h4>
+<a name="webvttconvertcuetodomtreewindow-cuetext" class="anchor" href="#webvttconvertcuetodomtreewindow-cuetext"><span class="octicon octicon-link"></span></a>WebVTT.convertCueToDOMTree(window, cuetext)</h4>
+
+<p>Parses the cue text handed to it into a tree of DOM nodes that mirrors the internal WebVTT node structure of
+the cue text. It uses the window object handed to it to construct new HTMLElements and returns a tree of DOM
+nodes attached to a top level div.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nx">WebVTT</span><span class="p">.</span><span class="nx">convertCueToDOMTree</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="nx">cuetext</span><span class="p">);</span>
+</pre></div>
+
+<h4>
+<a name="webvttprocesscueswindow-cues-overlay" class="anchor" href="#webvttprocesscueswindow-cues-overlay"><span class="octicon octicon-link"></span></a>WebVTT.processCues(window, cues, overlay)</h4>
+
+<p>Converts the cuetext of the cues passed to it to DOM trees—by calling convertCueToDOMTree—and
+then runs the processing model steps of the WebVTT specification on the divs. The processing model applies the necessary
+CSS styles to the cue divs to prepare them for display on the web page. During this process the cue divs get added
+to a block level element (overlay). The overlay should be a part of the live DOM as the algorithm will use the
+computed styles (only of the divs to do overlap avoidance.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">divs</span> <span class="o">=</span> <span class="nx">WebVTT</span><span class="p">.</span><span class="nx">processCues</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="nx">cues</span><span class="p">,</span> <span class="nx">overlay</span><span class="p">);</span>
+</pre></div>
+
+<h4>
+<a name="parsingerror" class="anchor" href="#parsingerror"><span class="octicon octicon-link"></span></a>ParsingError</h4>
+
+<p>A custom JS error object that is reported through the
+<a href="#onparsingerror">onparsingerror</a> callback. It has a <code>name</code>, <code>code</code>, and
+<code>message</code> property, along with all the regular properties that come with a
+JavaScript error object.</p>
+
+<div class="highlight highlight-json"><pre><span class="p">{</span>
+  <span class="err">name:</span> <span class="nt">"ParsingError"</span><span class="p">,</span>
+  <span class="err">code:</span> <span class="nt">"SomeCode"</span><span class="p">,</span>
+  <span class="err">message:</span> <span class="nt">"SomeMessage"</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>There are two error codes that can be reported back currently:</p>
+
+<ul>
+<li>0 BadSignature</li>
+<li>1 BadTimeStamp</li>
+</ul><p><strong>Note:</strong> Exceptions other then <code>ParsingError</code> will be thrown and not reported.</p>
+
+<h4>
+<a name="vttcue" class="anchor" href="#vttcue"><span class="octicon octicon-link"></span></a>VTTCue</h4>
+
+<p>A DOM shim for the VTTCue. See the <a href="http://dev.w3.org/html5/webvtt/#vttcue-interface">spec</a>
+for more information. Our VTTCue shim also includes properties of its abstract base class
+<a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html#texttrackcue">TextTrackCue</a>.</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">cue</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">window</span><span class="p">.</span><span class="nx">VTTCue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"I'm a cue."</span><span class="p">);</span>
+</pre></div>
+
+<p><strong>Note:</strong> Since this polfyill doesn't implement the track specification directly the <code>onenter</code>
+and <code>onexit</code> events will do nothing and do not exist on this shim.</p>
+
+<h4>
+<a name="extended-api" class="anchor" href="#extended-api"><span class="octicon octicon-link"></span></a>Extended API</h4>
+
+<p>There is also an extended version of this shim that gives a few convenience methods
+for converting back and forth between JSON and VTTCues. If you'd like to use these
+methods then us <code>vttcue-extended.js</code> instead of <code>vttcue.js</code>. This isn't normally
+built into the <code>vtt.js</code> distributable so you will have to build a custom distribution
+instead of using bower.</p>
+
+<h4>
+<a name="tojson" class="anchor" href="#tojson"><span class="octicon octicon-link"></span></a>toJSON()</h4>
+
+<p>Converts a cue to JSON.</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="nx">cue</span><span class="p">.</span><span class="nx">toJSON</span><span class="p">();</span>
+</pre></div>
+
+<h4>
+<a name="vttcuefromjsonjson" class="anchor" href="#vttcuefromjsonjson"><span class="octicon octicon-link"></span></a>VTTCue.fromJSON(json)</h4>
+
+<p>Create and initialize a VTTCue from JSON.</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">cue</span> <span class="o">=</span> <span class="nx">VTTCue</span><span class="p">.</span><span class="nx">fromJSON</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
+</pre></div>
+
+<h4>
+<a name="vttcuecreateoptions" class="anchor" href="#vttcuecreateoptions"><span class="octicon octicon-link"></span></a>VTTCue.create(options)</h4>
+
+<p>Initializes a VTTCue from an options object where the properties in the option
+objects are the same as the properties on the VTTCue.</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">cue</span> <span class="o">=</span> <span class="nx">VTTCue</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+</pre></div>
+
+<h4>
+<a name="vttregion" class="anchor" href="#vttregion"><span class="octicon octicon-link"></span></a>VTTRegion</h4>
+
+<p>A DOM shim for the VTTRegion. See the <a href="http://dev.w3.org/html5/webvtt/#vttregion-interface">spec</a>
+for more information.</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">region</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">window</span><span class="p">.</span><span class="nx">VTTRegion</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"I'm a region."</span><span class="p">);</span>
+<span class="nx">cue</span><span class="p">.</span><span class="nx">region</span> <span class="o">=</span> <span class="nx">region</span><span class="p">;</span>
+</pre></div>
+
+<h4>
+<a name="extended-api-1" class="anchor" href="#extended-api-1"><span class="octicon octicon-link"></span></a>Extended API</h4>
+
+<p>There is also an extended version of this shim that gives a few convenience methods
+for converting back and forth between JSON and VTTRegions. If you'd like to use these
+methods then us <code>vttregion-extended.js</code> instead of <code>vttregion.js</code>. This isn't normally
+built into the <code>vtt.js</code> distributable so you will have to build a custom distribution
+instead of using bower.</p>
+
+<h4>
+<a name="vttregionfromjsonjson" class="anchor" href="#vttregionfromjsonjson"><span class="octicon octicon-link"></span></a>VTTRegion.fromJSON(json)</h4>
+
+<p>Creates and initializes a VTTRegion from JSON.</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">region</span> <span class="o">=</span> <span class="nx">VTTRegion</span><span class="p">.</span><span class="nx">fromJSON</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
+</pre></div>
+
+<h4>
+<a name="vttregioncreateoptions" class="anchor" href="#vttregioncreateoptions"><span class="octicon octicon-link"></span></a>VTTRegion.create(options)</h4>
+
+<p>Creates a VTTRegion from an options object where the properties on the options
+object are the same as the properties on the VTTRegion.</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">region</span> <span class="o">=</span> <span class="nx">VTTRegion</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+</pre></div>
+
+<h1>
+<a name="browser" class="anchor" href="#browser"><span class="octicon octicon-link"></span></a>Browser</h1>
+
+<p>In order to use the <code>vtt.js</code> in a browser, you need to get the built distribution of vtt.js. The distribution
+contains polyfills for <a href="http://encoding.spec.whatwg.org/">TextDecoder</a>, <a href="http://dev.w3.org/html5/webvtt/#vttcue-interface">VTTCue</a>,
+and <a href="http://dev.w3.org/html5/webvtt/#vttregion-interface">VTTRegion</a> since not all browsers currently
+support them.</p>
+
+<h3>
+<a name="building-yourself" class="anchor" href="#building-yourself"><span class="octicon octicon-link"></span></a>Building Yourself</h3>
+
+<p>Building a browser-ready version of the library is done using <code>grunt</code> (if you haven't installed
+<code>grunt</code> globally, you can run it from <code>./node_modules/.bin/grunt</code> after running <code>npm install</code>):</p>
+
+<div class="highlight highlight-bash"><pre><span class="nv">$ </span>grunt build
+<span class="nv">$ </span>Running <span class="s2">"update_submodules"</span> task
+
+<span class="nv">$ </span>Running <span class="s2">"uglify:dist"</span> <span class="o">(</span>uglify<span class="o">)</span> task
+<span class="nv">$ </span>File <span class="s2">"dist/vtt.min.js"</span> created.
+
+<span class="nv">$ </span>Running <span class="s2">"concat:dist"</span> <span class="o">(</span>concat<span class="o">)</span> task
+<span class="nv">$ </span>File <span class="s2">"dist/vtt.js"</span> created.
+
+<span class="nv">$ </span>Done, without errors.
+</pre></div>
+
+<p>Your newly built <code>vtt.js</code> now lives in <code>dist/vtt.min.js</code>, or alternatively, <code>dis/vtt.js</code> for an
+unminified version.</p>
+
+<h3>
+<a name="bower" class="anchor" href="#bower"><span class="octicon octicon-link"></span></a>Bower</h3>
+
+<p>You can also get the a prebuilt distribution from <a href="http://bower.io/">Bower</a>. Either run the shell
+command:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nv">$ </span>bower install vtt.js
+</pre></div>
+
+<p>Or include <code>vtt.js</code> as a dependency in your <code>bower.json</code> file. <code>vtt.js</code> should now
+live in <code>bower_components/vtt.js/vtt.min.js</code>. There is also an unminified
+version included with bower at <code>bower_components/vtt.js/vtt.js</code>.</p>
+
+<h3>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<p>To use <code>vtt.js</code> you can just include the script on an HTML page like so:</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;title&gt;</span>vtt.js in the browser<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"bower_components/vtt.js/vtt.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;script&gt;</span>
+    <span class="kd">var</span> <span class="nx">vtt</span> <span class="o">=</span> <span class="s2">"WEBVTT\n\nID\n00:00.000 --&gt; 00:02.000\nText"</span><span class="p">,</span>
+        <span class="nx">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebVTT</span><span class="p">.</span><span class="nx">Parser</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="nx">WebVTT</span><span class="p">.</span><span class="nx">StringDecoder</span><span class="p">()),</span>
+        <span class="nx">cues</span> <span class="o">=</span> <span class="p">[],</span>
+        <span class="nx">regions</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nx">parser</span><span class="p">.</span><span class="nx">oncue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cue</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">cues</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">cue</span><span class="p">);</span>
+    <span class="p">};</span>
+    <span class="nx">parser</span><span class="p">.</span><span class="nx">onregion</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">region</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">regions</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">region</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">parser</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">vtt</span><span class="p">);</span>
+    <span class="nx">parser</span><span class="p">.</span><span class="nx">flush</span><span class="p">();</span>
+
+    <span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nx">WebVTT</span><span class="p">.</span><span class="nx">convertCueToDOMTree</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="nx">cues</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">text</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">divs</span> <span class="o">=</span> <span class="nx">WebVTT</span><span class="p">.</span><span class="nx">processCues</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="nx">cues</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"overlay"</span><span class="p">));</span>
+  <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"overlay"</span> <span class="na">style=</span><span class="s">"position: relative; width: 300px; height: 150px"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+<h1>
+<a name="node" class="anchor" href="#node"><span class="octicon octicon-link"></span></a>Node</h1>
+
+<p>You have a couple of options if you'd like to run the library from Node.</p>
+
+<h3>
+<a name="vttjs-1" class="anchor" href="#vttjs-1"><span class="octicon octicon-link"></span></a>vtt.js</h3>
+
+<p><code>vtt.js</code> is on npm. Just do:</p>
+
+<pre><code>npm install vtt.js
+</code></pre>
+
+<p>Require it and use it:</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">vtt</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"vtt.js"</span><span class="p">),</span>
+    <span class="nx">WebVTT</span> <span class="o">=</span> <span class="nx">vtt</span><span class="p">.</span><span class="nx">WebVTT</span><span class="p">,</span>
+    <span class="nx">VTTCue</span> <span class="o">=</span> <span class="nx">vtt</span><span class="p">.</span><span class="nx">VTTCue</span><span class="p">,</span>
+    <span class="nx">VTTRegion</span> <span class="o">=</span> <span class="nx">vtt</span><span class="p">.</span><span class="nx">VTTRegion</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">parser</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebVTT</span><span class="p">.</span><span class="nx">Parser</span><span class="p">(</span><span class="nb">window</span><span class="p">);</span>
+<span class="nx">parser</span><span class="p">.</span><span class="nx">parse</span><span class="p">();</span>
+<span class="c1">// etc</span>
+
+<span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nx">WebVTT</span><span class="p">.</span><span class="nx">processCues</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="nx">cues</span><span class="p">,</span> <span class="nx">overlay</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">WebVTT</span><span class="p">.</span><span class="nx">convertCueToDOMTree</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="nx">cuetext</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">cue</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VTTCue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"I'm a cue."</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">region</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">VTTRegion</span><span class="p">();</span>
+</pre></div>
+
+<p>See the <a href="#api">API</a> for more information on how to use it.</p>
+
+<p><strong>Note:</strong> If you use this method you will have to provide your own window object
+or a shim of one with the necessary functionality for either the parsing or processing
+portion of the spec. The only shims that are provided to you are <code>VTTCue</code> and <code>VTTRegion</code>
+which you can attach to your global that is passed into the various functions.</p>
+
+<h3>
+<a name="node-vtt" class="anchor" href="#node-vtt"><span class="octicon octicon-link"></span></a>node-vtt</h3>
+
+<p>Use <a href="https://github.com/mozilla/node-vtt">node-vtt</a>. Node-vtt runs <code>vtt.js</code> on a PhantomJS page
+from Node so it has access to a full DOM and CSS layout engine which means you can run any part
+of the library you want. See the <a href="https://github.com/mozilla/node-vtt">node-vtt</a> repo for more
+information.</p>
+
+<h1>
+<a name="tests" class="anchor" href="#tests"><span class="octicon octicon-link"></span></a>Tests</h1>
+
+<p>Tests are written and run using <a href="http://visionmedia.github.io/mocha/">Mocha</a> on node.js.</p>
+
+<p>To run all the tests, do the following:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nv">$ </span>npm <span class="nb">test</span>
+</pre></div>
+
+<p>If you want to run individual tests, you can install the <a href="http://visionmedia.github.io/mocha/">Mocha</a> command-line
+tool globally, and then run tests per-directory:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nv">$ </span>npm install -g mocha
+<span class="nv">$ </span><span class="nb">cd </span>tests/some/sub/dir
+<span class="nv">$ </span>mocha --reporter spec --timeout 200000
+</pre></div>
+
+<p>See the <a href="http://visionmedia.github.io/mocha/#usage">usage docs</a> for further usage info.</p>
+
+<h3>
+<a name="writing-tests" class="anchor" href="#writing-tests"><span class="octicon octicon-link"></span></a>Writing Tests</h3>
+
+<p>Tests are done by comparing live parsed output to a last-known-good JSON file. The JSON files
+can be easily generated using <code>vtt.js</code>, so you don't need to write these by hand
+(see details below about <a href="#cue2json">cue2json</a>).</p>
+
+<h4>
+<a name="testrunner" class="anchor" href="#testrunner"><span class="octicon octicon-link"></span></a>TestRunner</h4>
+
+<p>There's a prebuilt API in place for testing different parts of <code>vtt.js</code>. Simply
+require the <a href="https://github.com/mozilla/vtt.js/blob/master/tests/test-runner.js">TestRunner</a>
+module in the <code>lib</code> directory and start writing tests using <code>mocha</code>. See an example of a test file
+<a href="https://github.com/mozilla/vtt.js/blob/master/tests/cue-settings/align/test.js">here</a>
+with its first test's WebVTT file <a href="https://github.com/mozilla/vtt.js/blob/master/tests/cue-settings/align/bad-align.vtt">here</a>
+and its corresponding <a href="https://github.com/mozilla/vtt.js/blob/master/tests/cue-settings/align/bad-align.json">parsing JSON file</a>
+and <a href="https://github.com/mozilla/vtt.js/blob/master/tests/cue-settings/align/bad-align-proc.json">processing JSON file</a>.
+You can also check out the <a href="https://github.com/mozilla/vtt.js/tree/master/tests">tests</a>
+directory for more examples on how to write tests.</p>
+
+<h4>
+<a name="jsonequalvttfile-jsonreffile-message-ondone" class="anchor" href="#jsonequalvttfile-jsonreffile-message-ondone"><span class="octicon octicon-link"></span></a>jsonEqual(vttFile, jsonRefFile, message, onDone)</h4>
+
+<p>First parses the WebVTT file as UTF8 and compares it to the reference JSON file
+and then parses the WebVTT file as a string and compares it to the reference JSON
+file.</p>
+
+<h4>
+<a name="jsonequalstreamingvttfile-jsonreffile-message-ondone" class="anchor" href="#jsonequalstreamingvttfile-jsonreffile-message-ondone"><span class="octicon octicon-link"></span></a>jsonEqualStreaming(vttFile, jsonRefFile, message, onDone)</h4>
+
+<p>Simulates parsing the file while streaming by splitting the WebVTT file into
+chunks. Will simulate parsing like this <code>n</code> times for a single WebVTT file where
+<code>n</code> is the length in unicode characters of the file, so use this only on small
+files or else you will get a timeout failure on your test.</p>
+
+<h4>
+<a name="jsonequalparsingvttfile-jsonreffile-message-ondone" class="anchor" href="#jsonequalparsingvttfile-jsonreffile-message-ondone"><span class="octicon octicon-link"></span></a>jsonEqualParsing(vttFile, jsonRefFile, message, onDone)</h4>
+
+<p>Runs <code>jsonEqual</code> and <code>jsonEqualStreaming</code> in one go.</p>
+
+<h4>
+<a name="jsonequalprocmodelvttfile-jsonreffile-message-ondone" class="anchor" href="#jsonequalprocmodelvttfile-jsonreffile-message-ondone"><span class="octicon octicon-link"></span></a>jsonEqualProcModel(vttFile, jsonRefFile, message, onDone)</h4>
+
+<p>Runs the processing model over the <code>VTTCues</code> and <code>VTTRegions</code> that are returned
+from parsing the WebVTT file.</p>
+
+<h4>
+<a name="jsonequalallvttfile-jsonreffile-message-ondone" class="anchor" href="#jsonequalallvttfile-jsonreffile-message-ondone"><span class="octicon octicon-link"></span></a>jsonEqualAll(vttFile, jsonRefFile, message, onDone)</h4>
+
+<p>Runs <code>jsonEqualParsing</code> and <code>jsonEqualProcModel</code>. Note that <code>jsonRefFile</code> should
+contain JSON that is generated from parsing. The processing model test will compare
+its results to a JSON file located at <code>[vttFile]-proc.json</code>. Therefore, if you
+have a WebVTT file named <code>basic.vtt</code> the JSON reference file for the processing
+model tests will be <code>basic-proc.json</code>.</p>
+
+<h4>
+<a name="jsonequalallnostreamvttfile-jsonreffile-message-ondone" class="anchor" href="#jsonequalallnostreamvttfile-jsonreffile-message-ondone"><span class="octicon octicon-link"></span></a>jsonEqualAllNoStream(vttFile, jsonRefFile, message, onDone)</h4>
+
+<p>Runs <code>jsonEqual</code> and <code>jsonEqualProcModel</code> use this if you want to do parsing
+and processing tests, but do not want to simulate streaming because you
+have too big of a WebVTT file.</p>
+
+<h4>
+<a name="cue2json" class="anchor" href="#cue2json"><span class="octicon octicon-link"></span></a>Cue2json</h4>
+
+<p>You can automatically generate a JSON file for a given <code>.vtt</code> file using <code>cue2json.js</code>.
+You have a number of options for running <code>cue2json.js</code>.</p>
+
+<pre><code>$ grunt build
+$ Running "uglify:dist" (uglify) task
+$ File "dist/vtt.min.js" created.
+$ 
+$ Done, without errors.
+$ ./bin/cue2json.js 
+$ Generate JSON test files from a reference VTT file.
+$ Usage: node ./bin/cue2json.js [options]
+$ 
+$ Options:
+$   -v, --vtt      Path to VTT file.                                                                                     
+$   -d, --dir      Path to test directory. Will recursively find all JSON files with matching VTT files and rewrite them.
+$   -c, --copy     Copies the VTT file to a JSON file with the same name.                                                
+$   -p, --process  Generate a JSON file of the output returned from the processing model. 
+</code></pre>
+
+<p><strong>Note:</strong> Cue2json will use the last built version of vtt.js so make sure to remember to rebuild it if you've made
+changes to vtt.js since the last run.</p>
+
+<p><code>$ ./bin/cue2json.js -v tests/foo/bar.vtt</code> print the JSON representation of the parsed output of the WebVTT file to console.</p>
+
+<p><code>$ ./bin/cue2json.js -v tests/foo/bar.vtt -c</code> Same as above, but print the output to a JSON file with the name <code>tests/foo/bar.json</code>.</p>
+
+<p><code>$ ./bin/cue2json.js -v tests/foo/bar.vtt &gt; tests/foo/bar-bad.json</code> print JSON output to a file called <code>tests/foo/bar-bad.json</code>.</p>
+
+<p><code>$ ./bin/cue2json.js -v tests/foo/bar.vtt -p</code> print JSON representation of running the processing model on the WebVTT file to console.</p>
+
+<p><code>$ ./bin/cue2json.js -v tests/foo/bar.vtt -cp</code> Same as above, but print it to a file named <code>tests/foo/bar.json</code>.</p>
+
+<p><code>$ ./bin/cue2json.js -d ./tests</code> walk the <code>tests</code> directory and rewrite any JSON files whose WebVTT source files are known i.e. there
+is a corresponding WebVTT file with the same name as the JSON file found.</p>
+
+<p><code>$ ./bin/cue2json.js -d ./tests -p</code> Same as above, but print the JSON generated from running the processing model.</p>
+
+<p>Assuming the parser is able to correctly parse the vtt file(s), you now have the correct JSON to run
+a JSON test.</p>
+
+<p><strong>NOTE:</strong> Since <code>cue2json</code> uses the actual parser to generate these JSON files there is the possibility that
+the generated JSON will contain bugs. Therefore, always check the generated JSON files to check that the
+parser actually parsed according to spec.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/mozilla/vtt.js/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/mozilla/vtt.js/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/mozilla/vtt.js"></a> is maintained by <a href="https://github.com/mozilla">mozilla</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
