@@ -296,8 +296,6 @@ Building a browser-ready version of the library is done using `grunt` (if you ha
 
 ```bash
 $ grunt build
-$ Running "update_submodules" task
-
 $ Running "uglify:dist" (uglify) task
 $ File "dist/vtt.min.js" created.
 

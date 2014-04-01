@@ -22,7 +22,8 @@
     "grunt-bump": "0.0.13",
     "grunt-update-submodules": "0.3.0",
     "json-stable-stringify": "git://github.com/RickEyre/json-stable-stringify.git#295f57aadda83777c411cc904410d0ccc13c2721",
-    "node-vtt": "0.1.1"
+    "node-vtt": "0.1.1",
+    "text-encoding": "0.0.0"
   },
   "main": "lib/index.js",
   "files": [

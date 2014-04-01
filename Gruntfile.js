@@ -37,7 +37,8 @@ module.exports = function( grunt ) {
             "lib/stringencoding/encoding.js",
             "lib/vttcue.js",
             "lib/vttregion.js",
-            "lib/vtt.js"
+            "lib/vtt.js",
+            "node_modules/text-encoding/lib/encoding.js"
           ]
         }
       }
@@ -52,7 +53,8 @@ module.exports = function( grunt ) {
           "lib/stringencoding/encoding.js",
           "lib/vttcue.js",
           "lib/vttregion.js",
-          "lib/vtt.js"
+          "lib/vtt.js",
+          "node_modules/text-encoding/lib/encoding.js"
         ],
         dest: "dist/vtt.js"
       }
@@ -79,8 +81,7 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks( "grunt-contrib-uglify" );
   grunt.loadNpmTasks( "grunt-contrib-concat" );
   grunt.loadNpmTasks( "grunt-bump" );
-  grunt.loadNpmTasks( "grunt-update-submodules" );
 
-  grunt.registerTask( "build", [ "update_submodules", "uglify", "concat" ] );
+  grunt.registerTask( "build", [ "uglify", "concat" ] );
   grunt.registerTask( "default", [ "jshint", "build" ]);
 };
