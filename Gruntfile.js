@@ -1,3 +1,5 @@
+var exec = require("child_process").exec;
+
 module.exports = function( grunt ) {
   grunt.initConfig({
     pkg: grunt.file.readJSON( "package.json" ),
@@ -62,11 +64,11 @@ module.exports = function( grunt ) {
 
     bump: {
       options: {
-        files: [ "package.json" ],
+        files: [ "package.json", "bower.json" ],
         updateConfigs: [],
         commit: true,
         commitMessage: "Release v%VERSION%",
-        commitFiles: [ "package.json" ],
+        commitFiles: [ "package.json", "bower.json", "dist/*" ],
         createTag: true,
         tagName: "v%VERSION%",
         tagMessage: "Version %VERSION%",
@@ -84,4 +86,12 @@ module.exports = function( grunt ) {
 
   grunt.registerTask( "build", [ "uglify", "concat" ] );
   grunt.registerTask( "default", [ "jshint", "build" ]);
+
+  grunt.registerTask( "stage-dist", "Stage dist files.", function() {
+    exec( "git add dist/*", this.async() );
+  });
+
+  grunt.registerTask( "release", "Build the distributables and bump the version.", function(arg) {
+    grunt.task.run( "build", "stage-dist", "bump:" + arg );
+  });
 };
