@@ -1,0 +1,47 @@
+{
+  "name": "vtt.js",
+  "description": "A JavaScript implementation of the WebVTT specification.",
+  "version": "0.11.0",
+  "homepage": "https://github.com/mozilla/vtt.js",
+  "authors": [
+    "Andreas Gal <gal@mozilla.com>",
+    "Rick Eyre <rick.eyre@hotmail.com>",
+    "David Humphrey <david.humphrey@senecacollege.ca>",
+    "Jeffrey Espiritu <jeff_pro3@hotmail.com>",
+    "Alex Kotliar <alexkotliar@gmail.com>",
+    "Ali Al Dallal <ali@alicoding.com>",
+    "Edwin Lim <limed3@gmail.com>",
+    "Michael Afidchao <mdafidchao@learn.senecac.on.ca>",
+    "Shayan Ahmad <szahmad@learn.senecac.on.ca>",
+    "Jordan Raffoul <raffoul.jordan@gmail.com>",
+    "Vince Lee <vince.lee.lien@gmail.com>",
+    "Kyle Barnhart <kyle@barnhart.ca>",
+    "Mandeep Garg <mkgarg1@learn.senecac.on.ca>",
+    "Dale Karp <me@dale.io>",
+    "Marcus Saad <mv.nsaad@gmail.com>",
+    "Cyril Concolato <cyril.concolato@telecom-paristech.fr>"
+  ],
+  "license": "Apache-2.0",
+  "main": "dist/vtt.js",
+  "keywords": [
+    "vtt",
+    "webvtt",
+    "text",
+    "track",
+    "polyfill",
+    "library",
+    "caption",
+    "subtitle"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "tests",
+    "utils",
+    "bin",
+    "AUTHORS",
+    "README.md",
+    "**/index.js",
+    "Gruntfile.js"
+  ]
+}
