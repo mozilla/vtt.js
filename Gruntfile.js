@@ -13,8 +13,7 @@ module.exports = function( grunt ) {
         curly: true,
         eqeqeq: true,
         newcap: true,
-        // Add this back once process algo is fixed // unused: true,
-        // See https://github.com/mozilla/vtt.js/issues/203
+        unused: true,
         trailing: true,
         browser: true,
         node: true
