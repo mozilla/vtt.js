@@ -37,9 +37,10 @@ files in Firefox/Gecko.
 - [Node](#node)
   - [vtt.js](#vttjs-1)
   - [node-vtt](#node-vtt)
-- [Tests](#tests)
-  - [Writing Tests](#writing-tests)
-  - [Cue2json](#cue2json)
+- [Developing vtt.js](#developing-vttjs)
+  - [Tests](#tests)
+    - [Writing Tests](#writing-tests)
+    - [Cue2json](#cue2json)
 
 Spec Compliance
 ===============
@@ -401,8 +402,18 @@ from Node so it has access to a full DOM and CSS layout engine which means you c
 of the library you want. See the [node-vtt](https://github.com/mozilla/node-vtt) repo for more
 information.
 
-Tests
-=====
+Developing vtt.js
+=================
+
+A few things to note:
+
+* When bumping the version remember to use the `grunt release` task as this will
+bump `package.json` + `bower.json` and build the `dist` files for `vtt.js` in one
+go.
+* The [cue2json](#cue2json) tool is handy for running the library without having
+to run the whole test suite or set of tests.
+
+####Tests####
 
 Tests are written and run using [Mocha](http://visionmedia.github.io/mocha/) on node.js.
 
