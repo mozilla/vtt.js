@@ -1,4 +1,10 @@
-var exec = require("child_process").exec;
+var exec = require("child_process").exec,
+    distFiles = [
+      "lib/vttcue.js",
+      "lib/vttregion.js",
+      "lib/vtt.js",
+      "node_modules/text-encoding/lib/encoding.js"
+    ];
 
 module.exports = function( grunt ) {
   grunt.initConfig({
@@ -34,12 +40,12 @@ module.exports = function( grunt ) {
       },
       dist: {
         files: {
-          "dist/vtt.min.js": [
-            "lib/vttcue.js",
-            "lib/vttregion.js",
-            "lib/vtt.js",
-            "node_modules/text-encoding/lib/encoding.js"
-          ]
+          "dist/vtt.min.js": distFiles
+        }
+      },
+      dev: {
+        files: {
+          "dev_build/vtt.min.js": distFiles
         }
       }
     },
@@ -49,13 +55,12 @@ module.exports = function( grunt ) {
         banner: "/*! vtt.js - https://github.com/mozilla/vtt.js (built on <%= grunt.template.today('dd-mm-yyyy') %>) */\n"
       },
       dist: {
-        src: [
-          "lib/vttcue.js",
-          "lib/vttregion.js",
-          "lib/vtt.js",
-          "node_modules/text-encoding/lib/encoding.js"
-        ],
+        src: distFiles,
         dest: "dist/vtt.js"
+      },
+      dev: {
+        src: distFiles,
+        dest: "dev_build/vtt.js"
       }
     },
 
@@ -81,8 +86,9 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks( "grunt-contrib-concat" );
   grunt.loadNpmTasks( "grunt-bump" );
 
-  grunt.registerTask( "build", [ "uglify", "concat" ] );
-  grunt.registerTask( "default", [ "jshint", "build" ]);
+  grunt.registerTask( "build", [ "uglify:dist", "concat:dist" ] );
+  grunt.registerTask( "dev-build", [ "uglify:dev", "concat:dev" ])
+  grunt.registerTask( "default", [ "jshint", "dev-build" ]);
 
   grunt.registerTask( "stage-dist", "Stage dist files.", function() {
     exec( "git add dist/*", this.async() );

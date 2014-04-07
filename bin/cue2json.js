@@ -56,7 +56,7 @@ function fail(message, fatal) {
 // Create an instance of NodeVTT which interfaces with vtt.js and PhantomJS for us.
 function createNodeVTT(onCreated) {
   var parser = new NodeVTT();
-  parser.init(function(error) {
+  parser.init({ uri: path.resolve(__dirname, "../utils/basic.html") }, function(error) {
     if (error) {
       parser.shutdown();
       fail("Unable to initialize an instance of NodeVTT. " + error.message,
@@ -67,17 +67,17 @@ function createNodeVTT(onCreated) {
 }
 
 // Write JSON either to standard out or to a file.
-function writeOutput(data, path) {
+function writeOutput(data, filePath) {
   var json;
   try {
     json = stringify(data, { space: "  " });
   } catch(error) {
     return fail("Unable to jsonify data. " + error.message);
   }
-  if (path) {
-    console.log("Writing " + path);
+  if (filePath) {
+    console.log("Writing " + filePath);
     try {
-      fs.writeFileSync(path, json + "\n");
+      fs.writeFileSync(filePath, json + "\n");
       return true;
     } catch (e) {
       return fail("Unable to write output. " + e.message);
@@ -88,22 +88,22 @@ function writeOutput(data, path) {
 }
 
 // Get the file name of the file we should save the JSON to.
-function getJSONFileName(path) {
+function getJSONFileName(filePath) {
   if (argv.c && argv.p) {
-    return path.replace(/\.vtt$/, "-proc.json");
+    return filePath.replace(/\.vtt$/, "-proc.json");
   }
   if (argv.c) {
-    return path.replace(/\.vtt$/, ".json");
+    return filePath.replace(/\.vtt$/, ".json");
   }
 }
 
 // Will either just parse a VTT file or will run the processing model as well
 // based on what command line arguments have been passed.
-function doParserAction(parser, path, onCompleted) {
+function doParserAction(parser, filePath, onCompleted) {
   if (argv.p) {
-    return parser.processFile(path, onCompleted);
+    return parser.processFile(filePath, onCompleted);
   }
-  parser.parseFile(path, function(error) {
+  parser.parseFile(filePath, function(error) {
     if (error) {
       return onCompleted(error);
     }
@@ -114,14 +114,14 @@ function doParserAction(parser, path, onCompleted) {
 }
 
 // Process a single VTT file and output it's JSON.
-function processSingleFile(path) {
+function processSingleFile(filePath) {
   createNodeVTT(function(parser) {
-    doParserAction(parser, path, function(error, data) {
+    doParserAction(parser, filePath, function(error, data) {
       if (error) {
         parser.shutdown();
         fail(error.message, true);
       }
-      writeOutput(data, getJSONFileName(path));
+      writeOutput(data, getJSONFileName(filePath));
       parser.shutdown();
     });
   });
@@ -130,14 +130,14 @@ function processSingleFile(path) {
 // Walk through a directory tree and process any number of VTT files into JSON.
 // Which VTT files and where the output of the JSON goes is determined by the
 // arguments passed to the script.
-function recurse(path) {
+function recurse(filePath) {
   createNodeVTT(function(parser) {
     var files = [];
     function onFile(error, file) {
       if (file.match(/\.json$/) && !argv.p) {
-        path = file.replace(/\.json$/, ".vtt");
-        if (fs.existsSync(path)) {
-          files.push(path);
+        filePath = file.replace(/\.json$/, ".vtt");
+        if (fs.existsSync(filePath)) {
+          files.push(filePath);
         }
       } else if (file.match(/\.vtt$/) && argv.n) {
         files.push(file);
@@ -165,16 +165,16 @@ function recurse(path) {
       iterate();
     }
 
-    dive(path, onFile, onCompleted);
+    dive(filePath, onFile, onCompleted);
   });
 }
 
-if (!fs.existsSync("./dist/vtt.min.js")) {
-  fail("Error: You must first build vtt.js by running `grunt build`", true);
+if (!fs.existsSync(path.resolve(__dirname, "../dev_build/vtt.min.js"))) {
+  fail("Error: You must first build vtt.js by running `grunt dev-build`", true);
 }
-var path = argv.v;
+var filePath = argv.v;
 try {
-  var stats = fs.lstatSync(path);
+  var stats = fs.lstatSync(filePath);
   if (stats.isDirectory()) {
     argv.c = true; // Default when walking dirs is to write to copy.
     // If we're recursively writing processing model JSON files then we want
@@ -182,12 +182,12 @@ try {
     if (argv.p) {
       argv.n = true;
     }
-    return recurse(path);
+    return recurse(filePath);
   }
-  if(!path.match(/\.vtt$/)) {
+  if(!filePath.match(/\.vtt$/)) {
     fail("Error: File must be a VTT file.", true);
   }
-  processSingleFile(path);
+  processSingleFile(filePath);
 } catch(error) {
   fail(error.message, true);
 }
