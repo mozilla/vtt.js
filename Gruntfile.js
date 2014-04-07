@@ -35,7 +35,6 @@ module.exports = function( grunt ) {
       dist: {
         files: {
           "dist/vtt.min.js": [
-            "lib/stringencoding/encoding.js",
             "lib/vttcue.js",
             "lib/vttregion.js",
             "lib/vtt.js",
@@ -51,7 +50,6 @@ module.exports = function( grunt ) {
       },
       dist: {
         src: [
-          "lib/stringencoding/encoding.js",
           "lib/vttcue.js",
           "lib/vttregion.js",
           "lib/vtt.js",
