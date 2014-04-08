@@ -1,4 +1,4 @@
-/*! vtt.js - https://github.com/mozilla/vtt.js (built on 04-04-2014) */
+/*! vtt.js - https://github.com/mozilla/vtt.js (built on 08-04-2014) */
 /**
  * Copyright 2013 vtt.js Contributors
  *
@@ -1199,8 +1199,6 @@
   // compute things with such as if it overlaps or intersects with another Element.
   // Can initialize it with either a StyleBox or another BoxPosition.
   function BoxPosition(obj) {
-    var self = this;
-
     // Either a BoxPosition was passed in and we need to copy it, or a StyleBox
     // was passed in and we need to copy the results of 'getBoundingClientRect'
     // as the object returned is readonly. All co-ordinate values are in reference
@@ -1226,28 +1224,58 @@
     this.lineHeight = lh !== undefined ? lh : obj.lineHeight;
   }
 
-  // Move the box along a particular axis. If no amount to move is passed, via
-  // the val parameter, then the default amount is the line height of the box.
-  BoxPosition.prototype.move = function(axis, val) {
-    val = val !== undefined ? val : this.lineHeight;
-    switch (axis) {
-    case "+x":
-      this.left += val;
-      this.right += val;
-      break;
-    case "-x":
-      this.left -= val;
-      this.right -= val;
-      break;
-    case "+y":
-      this.top += val;
-      this.bottom += val;
-      break;
-    case "-y":
-      this.top -= val;
-      this.bottom -= val;
-      break;
+  var axesMaps = {
+    "+x": [ "left", "right" ],
+    "-x": [ "left", "right" ],
+    "+y": [ "top", "bottom" ],
+    "-y": [ "top", "bottom" ],
+  };
+
+  // Move the box along a particular axis. Optionally pass in an amount to move
+  // or a container box to clamp the max amount moved to through the options
+  // parameter.
+  BoxPosition.prototype.move = function(axis, options) {
+    options = options || {};
+
+    // Negate the amount to move the box since we're moving along the
+    // neagtive axis.
+    var toMove = options.toMove !== undefined ? options.toMove : this.lineHeight;
+    if (axis.indexOf("-") !== -1) {
+      toMove *= -1;
     }
+
+    var axes = axesMaps[axis];
+    if (!axes) {
+      throw new Error("You must pass in a valid axis.");
+    }
+
+    for (var i = 0; i < axes.length; i++) {
+      this[axes[i]] += toMove;
+    }
+
+    // If we don't have a container, are already within the container, or have
+    // a line height of 0 then there is no need to clamp.
+    var container = options.container;
+    if (!container || this.overlaps(container) || this.lineHeight === 0) {
+      return;
+    }
+
+    var diff,
+        coordOne = axes[0],
+        coordTwo = axes[1];
+    if (this[coordOne]  > container[coordTwo]) {
+      diff = this[coordOne] - container[coordTwo];
+    } else {
+      diff = this[coordTwo] - container[coordOne];
+    }
+
+    // Calculate the distance that we need to move such that we will take the
+    // fewest amount of 'step' intervals and intersect the container box.
+    var step = this.lineHeight,
+        stepOffset = diff / step,
+        stepsToMove = stepOffset === 0 ? stepOffset : Math.floor(stepOffset - 1);
+    // Move the box that amount of steps in the opposite direction.
+    this.move(axis, { toMove: stepsToMove * step * -1 });
   };
 
   // Check if this box overlaps another box, b2.
@@ -1408,7 +1436,7 @@
 
       // Move the box to the specified position. This may not be its best
       // position.
-      boxPosition.move(initialAxis, initialPosition);
+      boxPosition.move(initialAxis, { toMove: initialPosition, container: containerBox });
 
     } else {
       // If we have a percentage line value for the cue.
