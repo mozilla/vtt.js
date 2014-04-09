@@ -40,7 +40,7 @@ describe("cue-settings/line tests", function(){
     test.jsonEqualParsing("cue-settings/line/integer-value.vtt", "cue-settings/line/integer-value.json", onDone);
   });
 
-  // Turn back on issue: https://github.com/mozilla/vtt.js/issues/253
+  // Turn back on issue: https://github.com/mozilla/vtt.js/issues/255
   it("large-integer-value.vtt", function(onDone){
     test.jsonEqualParsing("cue-settings/line/large-integer-value.vtt", "cue-settings/line/large-integer-value.json", onDone);
   });
