@@ -27,28 +27,15 @@ function fixTestPath(filename) {
   return path.join(__dirname, "..", "tests", filename);
 }
 
-// Fail the test with an optional error message to console.
-function fail(message, error) {
-  if (error) {
-    console.error(error);
-  }
-  assert.ok(false, message);
-}
-
-// Evaluate data from test and determine if it's a pass or fail.
-function testDone(error, vtt, json, message, testType, onDone) {
+function evalTest(vtt, json, testType, onDone) {
   try {
     vtt = JSON.parse(JSON.stringify(vtt));
   } catch(e) {
-    fail(message, "Unable to JSONify VTT data.");
+    return onDone(e);
   }
-  if (error) {
-    fail(message, "Failed test while " + testType + ".");
-  } else if (!deepEqual(vtt, json)) {
-    var diff = difflet.compare(vtt, json);
-    fail(message, "Failed JSON diff while " + testType + ".\n" + diff);
-  } else {
-    assert.ok(true, message);
+  if (!deepEqual(vtt, json)) {
+    return onDone(new Error("Failed JSON diff while " + testType + ".\n" +
+                            difflet.compare(vtt, json)));
   }
   onDone();
 }
@@ -58,9 +45,6 @@ function TestRunner() {
     get: function() { return this.nodeVTT; }
   });
 }
-
-// Use Node's assert module for our tests.
-TestRunner.prototype.assert = assert;
 
 // Set up an instance of NodeVTT that we can use to run our tests.
 TestRunner.prototype.init = function(onInit) {
@@ -76,10 +60,23 @@ TestRunner.prototype.shutdown = function() {
 // Assert that the TestRunner is ready to run tests.
 TestRunner.prototype.assertReady = function(ready) {
   if (!this.ready) {
-    fail("TestRunner configured incorrectly. " +
-         "You must call TestRunner.init() before calling anything else.");
+    assert.ok(false,
+              "TestRunner configured incorrectly. " +
+              "You must call TestRunner.init() before calling anything else.");
   }
 };
+
+TestRunner.prototype.report = function(error, onDone) {
+  this.assertReady();
+  this.nodeVTT.setupParser("utf8", function() {
+    if (error) {
+      return onDone(error);
+    } else {
+      assert.ok(true, "Passed basic string and utf8 parsing.");
+    }
+    onDone();
+  });
+}
 
 // Compare JSON to live parsed utf8 and string data that has been passed as a whole to the parser.
 TestRunner.prototype.jsonEqual = function(vttFile, jsonFile, message, onTestFinish) {
@@ -101,8 +98,8 @@ TestRunner.prototype.jsonEqual = function(vttFile, jsonFile, message, onTestFini
       self.nodeVTT.parseFile(vttFile, onDone);
     },
     firstTest: function(onDone) {
-      testDone(null, self.nodeVTT.vtt, json, message,
-               "parsing utf8 without streaming", onDone);
+      evalTest(self.nodeVTT.vtt, json, "parsing utf8 without streaming",
+               onDone);
     },
     setupParser: function(onDone) {
       self.nodeVTT.setupParser("string", onDone);
@@ -117,15 +114,11 @@ TestRunner.prototype.jsonEqual = function(vttFile, jsonFile, message, onTestFini
       self.nodeVTT.flush(onDone);
     },
     secondTest: function(onDone) {
-      testDone(null, self.nodeVTT.vtt, json, message,
-               "parsing string without streaming", onDone);
-    },
-    resetParser: function(onDone) {
-      self.nodeVTT.setupParser("utf8", onDone);
+      evalTest(self.nodeVTT.vtt, json, "parsing string without streaming",
+               onDone);
     }
   }, function onDone(error) {
-    error && fail("failed on parsing without streaming", error);
-    onTestFinish();
+    self.report(error, onTestFinish);
   });
 };
 
@@ -168,15 +161,12 @@ TestRunner.prototype.jsonEqualStreaming = function(vttFile, jsonFile, message, o
           self.nodeVTT.clear(onSeries);
         }
       }, function(error, results) {
-        testDone(error, results.vtt, json, message,
+        evalTest(results.vtt, json,
                  "parsing utf8 with streaming; chunk number: " + size, onWhilst);
       });
     },
     function(error) {
-      if (error) {
-        fail(message, error + " while parsing utf8 with streaming.");
-      }
-      onTestFinish();
+      self.report(error, onTestFinish);
     }
   );
 };
@@ -344,13 +334,11 @@ TestRunner.prototype.jsonEqualProcModel = function(vttFile, jsonFile, message, o
       onContinue(null, processedData);
     },
     function(processedData, onContinue) {
-      self.nodeVTT.clear(function() {
-        onContinue(null, processedData);
-      });
-    }
-  ], function(error, results) {
-    testDone(error, results, json, message,
-             "running the processing model", onTestFinish)
+      evalTest(processedData, json, "running the processing model",
+               onContinue);
+    },
+  ], function(error) {
+    self.report(error, onTestFinish);
   });
 };
 
