@@ -1,4 +1,5 @@
-/*! vtt.js - https://github.com/mozilla/vtt.js (built on 11-04-2014) */
+/* vtt.js - v0.11.5 (https://github.com/mozilla/vtt.js) built on 23-04-2014 */
+
 /**
  * Copyright 2013 vtt.js Contributors
  *
@@ -418,7 +419,7 @@
 
 (function(global) {
 
-  _objCreate = Object.create || (function() {
+  var _objCreate = Object.create || (function() {
     function F() {}
     return function(o) {
       if (arguments.length !== 1) {
