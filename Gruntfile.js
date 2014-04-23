@@ -101,7 +101,11 @@ module.exports = function( grunt ) {
     exec( "git add dist/*", this.async() );
   });
 
+  grunt.registerTask( "reload-pkg", "Reload the package.json config.", function() {
+    grunt.config( "pkg", grunt.file.readJSON( "package.json" ) );
+  });
+
   grunt.registerTask( "release", "Build the distributables and bump the version.", function(arg) {
-    grunt.task.run( "build", "stage-dist", "bump:" + arg );
+    grunt.task.run( "bump-only:" + arg, "reload-pkg", "build", "stage-dist", "bump-commit" );
   });
 };
