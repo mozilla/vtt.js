@@ -4,7 +4,9 @@ var exec = require("child_process").exec,
       "lib/vttregion.js",
       "lib/vtt.js",
       "node_modules/text-encoding/lib/encoding.js"
-    ];
+    ],
+    banner = "/* <%= pkg.name %> - v<%= pkg.version %> (<%= pkg.homepage %>) " +
+             "built on <%= grunt.template.today('dd-mm-yyyy') %> */\n"
 
 module.exports = function( grunt ) {
   grunt.initConfig({
@@ -29,7 +31,7 @@ module.exports = function( grunt ) {
 
     uglify: {
       options: {
-        banner: "/*! vtt.js - https://github.com/mozilla/vtt.js (built on <%= grunt.template.today('dd-mm-yyyy') %>) */\n"
+        banner: banner
       },
       dist: {
         files: {
@@ -45,7 +47,7 @@ module.exports = function( grunt ) {
 
     concat: {
       options: {
-        banner: "/*! vtt.js - https://github.com/mozilla/vtt.js (built on <%= grunt.template.today('dd-mm-yyyy') %>) */\n"
+        banner: banner + "\n"
       },
       dist: {
         src: distFiles,
