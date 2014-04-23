@@ -70,6 +70,17 @@ module.exports = function( grunt ) {
         push: true,
         pushTo: "git@github.com:mozilla/vtt.js.git",
       }
+    },
+
+    mochaTest: {
+      test: {
+        options: {
+          reporter: "spec",
+          slow: "15000",
+          timeout: "120000"
+        },
+        src: [ "tests/**/*.js" ]
+      }
     }
 
   });
@@ -78,10 +89,11 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks( "grunt-contrib-uglify" );
   grunt.loadNpmTasks( "grunt-contrib-concat" );
   grunt.loadNpmTasks( "grunt-bump" );
+  grunt.loadNpmTasks( "grunt-mocha-test" );
 
   grunt.registerTask( "build", [ "uglify:dist", "concat:dist" ] );
   grunt.registerTask( "dev-build", [ "uglify:dev", "concat:dev" ])
-  grunt.registerTask( "default", [ "jshint", "dev-build" ]);
+  grunt.registerTask( "default", [ "jshint", "dev-build", "mochaTest" ]);
 
   grunt.registerTask( "stage-dist", "Stage dist files.", function() {
     exec( "git add dist/*", this.async() );

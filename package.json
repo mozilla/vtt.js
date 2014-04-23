@@ -23,7 +23,8 @@
     "grunt-update-submodules": "0.3.0",
     "json-stable-stringify": "0.1.2",
     "node-vtt": "1.1.0",
-    "text-encoding": "0.0.0"
+    "text-encoding": "0.0.0",
+    "grunt-mocha-test": "0.10.2"
   },
   "main": "lib/index.js",
   "files": [
@@ -43,7 +44,7 @@
     "text track"
   ],
   "scripts": {
-    "test": "./node_modules/.bin/grunt && ./node_modules/.bin/mocha --recursive --reporter spec --timeout 120000 --slow 15000 tests"
+    "test": "./node_modules/.bin/grunt"
   },
   "license": {
     "type": "Apache-2.0",
