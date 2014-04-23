@@ -493,11 +493,14 @@ have too big of a WebVTT file.
 You can automatically generate a JSON file for a given `.vtt` file using `cue2json.js`.
 You have a number of options for running `cue2json.js`.
 
-```
-$ grunt build
-$ Running "uglify:dist" (uglify) task
-$ File "dist/vtt.min.js" created.
-$ 
+```bash
+$ grunt dev-build
+$ Running "uglify:dev" (uglify) task
+$ File dev_build/vtt.min.js created: 133.75 kB → 46.18 kB
+$
+$ Running "concat:dev" (concat) task
+$ File dev_build/vtt.js created.
+$
 $ Done, without errors.
 $ ./bin/cue2json.js 
 $ Generate JSON test files from a reference VTT file.
