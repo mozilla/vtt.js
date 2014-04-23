@@ -58,7 +58,7 @@ TestRunner.prototype.shutdown = function() {
 };
 
 // Assert that the TestRunner is ready to run tests.
-TestRunner.prototype.assertReady = function(ready) {
+TestRunner.prototype.assertReady = function() {
   if (!this.ready) {
     assert.ok(false,
               "TestRunner configured incorrectly. " +
@@ -76,7 +76,7 @@ TestRunner.prototype.report = function(error, onDone) {
     }
     onDone();
   });
-}
+};
 
 // Compare JSON to live parsed utf8 and string data that has been passed as a whole to the parser.
 TestRunner.prototype.jsonEqual = function(vttFile, jsonFile, message, onTestFinish) {
@@ -254,7 +254,8 @@ function balanceComputedValues(cues, vtt, json) {
       var i = index | 0,
           cue = cues[i],
           js = json[i].style,
-          vs = vtt[i].style;
+          vs = vtt[i].style,
+          offset;
 
       // If the cue has been set to snap to lines then we can figure out the
       // difference between the computed and expected line height, determine how
@@ -269,9 +270,9 @@ function balanceComputedValues(cues, vtt, json) {
         if (js[edges.line] !== vs[edges.line]) {
           var lineCount = pxToNum(js[edges.line]) / LINE_HEIGHT,
               computeDiff = (pxToNum(vs[edges.line]) - pxToNum(js[edges.line])) / lineCount,
-              offset = computeDiff * (pxToNum(js[edges.topEdge]) / LINE_HEIGHT),
               vsTop = pxToNum(vs[edges.topEdge]),
               vsBottom = pxToNum(vs[edges.bottomEdge]);
+          offset = computeDiff * (pxToNum(js[edges.topEdge]) / LINE_HEIGHT);
           // Balance line height; should be the same.
           vs[edges.line] = js[edges.line];
           // Balance top and bottom edges by the offset amount.
@@ -297,7 +298,7 @@ function balanceComputedValues(cues, vtt, json) {
       // the difference of the computed values.
       } else {
         var edge = EDGES[cue.vertical];
-        var offset = pxToNum(vs[edge.line]) - pxToNum(js[edge.line]);
+        offset = pxToNum(vs[edge.line]) - pxToNum(js[edge.line]);
         vs[edge.bottomEdge] = (pxToNum(vs[edge.bottomEdge]) + offset) + "px";
         vs[edge.line] = js[edge.line];
       }

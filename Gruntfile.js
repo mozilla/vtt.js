@@ -24,14 +24,7 @@ module.exports = function( grunt ) {
         browser: true,
         node: true
       },
-      files: [
-        "lib/vtt.js",
-        "lib/vttcue.js",
-        "lib/vttcue-extended.js",
-        "lib/vttregion.js",
-        "lib/vttregion-extended.js",
-        "lib/node-vtt.js"
-      ]
+      files: [ "lib/*", "tests/**/*.js" ]
     },
 
     uglify: {
