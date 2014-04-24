@@ -1,7 +1,11 @@
-language: node_js
-node_js:
-  - "0.10"
+language: objective-c
+
 before_install:
+  - brew install node
   - npm install -g bower
 before_script:
+  - npm install -g grunt
   - npm install -g grunt-cli
+script:
+  - ls -la
+  - npm test
