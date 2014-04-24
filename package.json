@@ -45,7 +45,7 @@
     "text track"
   ],
   "scripts": {
-    "test": "./node_modules/.bin/grunt"
+    "test": "./node_modules/.bin/mocha --recursive --reporter spec --slow 15000 --timeout 120000 tests"
   },
   "license": {
     "type": "Apache-2.0",
