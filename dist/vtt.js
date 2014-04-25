@@ -1,4 +1,4 @@
-/* vtt.js - v0.11.7 (https://github.com/mozilla/vtt.js) built on 23-04-2014 */
+/* vtt.js - v0.11.8 (https://github.com/mozilla/vtt.js) built on 25-04-2014 */
 
 /**
  * Copyright 2013 vtt.js Contributors
