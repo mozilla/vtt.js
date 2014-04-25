@@ -87,6 +87,15 @@ module.exports = function( grunt ) {
 
   });
 
+  function execCmd(cmd, onExecuted) {
+    exec( cmd, function(error, stdout, stderr) {
+      error && console.error(error);
+      stderr && console.error(stderr);
+      stdout && console.log(stdout);
+      onExecuted();
+    });
+  }
+
   grunt.loadNpmTasks( "grunt-contrib-jshint" );
   grunt.loadNpmTasks( "grunt-contrib-uglify" );
   grunt.loadNpmTasks( "grunt-contrib-concat" );
@@ -98,7 +107,7 @@ module.exports = function( grunt ) {
   grunt.registerTask( "default", [ "jshint", "dev-build", "mochaTest" ]);
 
   grunt.registerTask( "stage-dist", "Stage dist files.", function() {
-    exec( "git add dist/*", this.async() );
+    execCmd( "git add dist/*", this.async() );
   });
 
   grunt.registerTask( "reload-pkg", "Reload the package.json config.", function() {
@@ -108,4 +117,13 @@ module.exports = function( grunt ) {
   grunt.registerTask( "release", "Build the distributables and bump the version.", function(arg) {
     grunt.task.run( "bump-only:" + arg, "reload-pkg", "build", "stage-dist", "bump-commit" );
   });
+
+  grunt.registerTask( "cue2json", "Run cue2json.", function(path, opts) {
+    execCmd( "./bin/cue2json.js -v " + path + (opts && " -" + opts || ""), this.async() );
+  });
+
+  grunt.registerTask( "run", "Build dev-build and run cue2json.", function(path, opts) {
+    grunt.task.run( "dev-build", "cue2json:" + path + ":" + opts );
+  });
+
 };
