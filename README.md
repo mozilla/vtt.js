@@ -188,9 +188,9 @@ JavaScript error object.
 
 ```json
 {
-  name: "ParsingError",
-  code: "SomeCode",
-  message: "SomeMessage"
+  "name": "ParsingError",
+  "code": "SomeCode",
+  "message": "SomeMessage"
 }
 ```
 
