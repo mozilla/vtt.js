@@ -40,7 +40,7 @@ files in Firefox/Gecko.
 - [Developing vtt.js](#developing-vttjs)
   - [Tests](#tests)
     - [Writing Tests](#writing-tests)
-    - [Cue2json](#cue2json)
+  - [Grunt Run Task](#grunt-run-task)
 
 Spec Compliance
 ===============
@@ -410,7 +410,7 @@ A few things to note:
 * When bumping the version remember to use the `grunt release` task as this will
 bump `package.json` + `bower.json` and build the `dist` files for `vtt.js` in one
 go.
-* The [cue2json](#cue2json) tool is handy for running the library without having
+* The [Grunt Run Task](#grunt-run-task) tool is handy for running the library without having
 to run the whole test suite or set of tests.
 
 ####Tests####
@@ -438,7 +438,7 @@ See the [usage docs](http://visionmedia.github.io/mocha/#usage) for further usag
 
 Tests are done by comparing live parsed output to a last-known-good JSON file. The JSON files
 can be easily generated using `vtt.js`, so you don't need to write these by hand
-(see details below about [cue2json](#cue2json)).
+(see details below about [Grunt Run Task](#grunt-run-task)).
 
 ####TestRunner####
 
@@ -488,20 +488,54 @@ Runs `jsonEqual` and `jsonEqualProcModel` use this if you want to do parsing
 and processing tests, but do not want to simulate streaming because you
 have too big of a WebVTT file.
 
-####Cue2json####
+###Grunt Run Task###
 
-You can automatically generate a JSON file for a given `.vtt` file using `cue2json.js`.
-You have a number of options for running `cue2json.js`.
+You can automatically generate a JSON file for a given `.vtt` file using the
+`run` Grunt task.
+
+To get parsed JSON output from some WebVTT file do:
 
 ```bash
-$ grunt dev-build
-$ Running "uglify:dev" (uglify) task
-$ File dev_build/vtt.min.js created: 133.75 kB → 46.18 kB
-$
-$ Running "concat:dev" (concat) task
-$ File dev_build/vtt.js created.
-$
-$ Done, without errors.
+$ grunt run:my-vtt-file.vtt
+$ grunt run:my-vtt-file.vtt > my-json-file.json
+```
+
+To get processed output from the WebVTT file do:
+
+```bash
+$ grunt run:my-vtt-file.vtt:p
+$ grunt run:my-vtt-file.vtt:p > my-json-file.json
+```
+
+By passing the `c` flag you can automatically copy the output into a JSON file
+with the same name as the WebVTT file:
+
+```bash
+$ grunt run:my-vtt-file.vtt:c
+$ grunt run:my-vtt-file.vtt:pc
+```
+
+The parsed JSON output now lives in `my-vtt-file.json` and the processing JSON
+output lives in `my-vtt-file-proc.json`.
+
+You can also run it over a directory copying the output of parsing or
+processing each WebVTT file to a corresponding JSON file like so:
+
+```bash
+$ grunt run:my-vtt-file-directory
+$ grunt run:my-vtt-file-directory:p
+```
+
+This is useful when you've modified how `vtt.js` works and each JSON file needs
+a slight change.
+
+The `run` task utilizes a script called `cue2json`, but
+does a few other things for you before each run like building a development
+build for `cue2json` to use. It's also a bit easier to type in the CL options
+for the task. If you want to know more about `cue2json` you can run it directly
+like so:
+
+```bash
 $ ./bin/cue2json.js 
 $ Generate JSON test files from a reference VTT file.
 $ Usage: node ./bin/cue2json.js [options]
@@ -513,27 +547,11 @@ $   -c, --copy     Copies the VTT file to a JSON file with the same name.
 $   -p, --process  Generate a JSON file of the output returned from the processing model. 
 ```
 
-**Note:** Cue2json will use the last built version of vtt.js so make sure to remember to rebuild it if you've made
-changes to vtt.js since the last run.
+**Notes:** 
 
-`$ ./bin/cue2json.js -v tests/foo/bar.vtt` print the JSON representation of the parsed output of the WebVTT file to console.
-
-`$ ./bin/cue2json.js -v tests/foo/bar.vtt -c` Same as above, but print the output to a JSON file with the name `tests/foo/bar.json`.
-
-`$ ./bin/cue2json.js -v tests/foo/bar.vtt > tests/foo/bar-bad.json` print JSON output to a file called `tests/foo/bar-bad.json`.
-
-`$ ./bin/cue2json.js -v tests/foo/bar.vtt -p` print JSON representation of running the processing model on the WebVTT file to console.
-
-`$ ./bin/cue2json.js -v tests/foo/bar.vtt -cp` Same as above, but print it to a file named `tests/foo/bar.json`.
-
-`$ ./bin/cue2json.js -d ./tests` walk the `tests` directory and rewrite any JSON files whose WebVTT source files are known i.e. there
-is a corresponding WebVTT file with the same name as the JSON file found.
-
-`$ ./bin/cue2json.js -d ./tests -p` Same as above, but print the JSON generated from running the processing model.
-
-Assuming the parser is able to correctly parse the vtt file(s), you now have the correct JSON to run
-a JSON test.
-
-**NOTE:** Since `cue2json` uses the actual parser to generate these JSON files there is the possibility that
+* `cue2json` utilizes the last development build done. This is why the Grunt `run` task is
+good as you don't have to remember to build it yourself. If you don't build it yourself then you could
+potentially get incorrect results from it.
+* Since `cue2json` uses the actual parser to generate these JSON files there is the possibility that
 the generated JSON will contain bugs. Therefore, always check the generated JSON files to check that the
 parser actually parsed according to spec.
