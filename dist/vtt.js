@@ -1,4 +1,4 @@
-/* vtt.js - v0.11.8 (https://github.com/mozilla/vtt.js) built on 25-04-2014 */
+/* vtt.js - v0.11.9 (https://github.com/mozilla/vtt.js) built on 12-05-2014 */
 
 /**
  * Copyright 2013 vtt.js Contributors
@@ -555,11 +555,14 @@
   }
 
   function parseCue(input, cue, regionList) {
+    // Remember the original input if we need to throw an error.
+    var oInput = input;
     // 4.1 WebVTT timestamp
     function consumeTimeStamp() {
       var ts = parseTimeStamp(input);
       if (ts === null) {
-        throw new ParsingError(ParsingError.Errors.BadTimeStamp);
+        throw new ParsingError(ParsingError.Errors.BadTimeStamp,
+                              "Malformed timestamp: " + oInput);
       }
       // Remove time stamp from input.
       input = input.replace(/^[^\sa-zA-Z-]+/, "");
@@ -644,7 +647,8 @@
     skipWhitespace();
     if (input.substr(0, 3) !== "-->") {     // (3) next characters must match "-->"
       throw new ParsingError(ParsingError.Errors.BadTimeStamp,
-                             "Malformed time stamp (time stamps must be separated by '-->').");
+                             "Malformed time stamp (time stamps must be separated by '-->'): " +
+                             oInput);
     }
     input = input.substr(3);
     skipWhitespace();
