@@ -3,23 +3,26 @@ var NodeVTT = require("node-vtt"),
     async = require("async"),
     path = require("path");
 
-function testParsingError(nodeVTT, testInfo) {
+function testParsingError(nodeVTT, testInfo, onDone) {
   async.series([
     function(onDone) {
       nodeVTT.parseFile(path.resolve(__dirname, testInfo.file), onDone);
     },
     function(onDone) {
-      assert.equals(nodeVTT.errors.length, 1, "Should have one ParsingError.");
+      assert.equal(nodeVTT.errors.length, 1, "Should have one ParsingError.");
       var error = nodeVTT.errors[0];
-      assert.equals(error.name, testInfo.name, "Error's name should be '" +
+      assert.equal(error.name, testInfo.name, "Error's name should be '" +
                     testInfo.name + "'.");
-      assert.equals(error.code, testInfo.code, "Error's code should be '" +
+      assert.equal(error.code, testInfo.code, "Error's code should be '" +
                     testInfo.code + "'.");
       onDone();
     },
-    nodeVTT.clear
+    function(onDone) {
+      nodeVTT.clear(onDone);
+    }
   ], function(error) {
     error && assert.ok(false, error.message);
+    onDone();
   });
 }
 
@@ -47,9 +50,8 @@ describe("parsing error tests", function(){
       name: "ParsingError",
       code: 1
     }];
-    testInfo.forEach(function(info) {
-      testParsingError(nodeVTT, info);
-    });
-    onDone();
+    async.eachSeries(testInfo, function(info, onTestFinish) {
+      testParsingError(nodeVTT, info, onTestFinish);
+    }, onDone);
   });
 });
