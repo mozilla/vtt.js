@@ -306,7 +306,7 @@ $ File "dist/vtt.js" created.
 $ Done, without errors.
 ```
 
-Your newly built `vtt.js` now lives in `dist/vtt.min.js`, or alternatively, `dis/vtt.js` for an
+Your newly built `vtt.js` now lives in `dist/vtt.min.js`, or alternatively, `dist/vtt.js` for an
 unminified version.
 
 ###Bower###
