@@ -21,7 +21,6 @@
     "dive": "0.3.1",
     "async": "0.9.0",
     "grunt-bump": "0.0.14",
-    "grunt-update-submodules": "0.3.0",
     "json-stable-stringify": "0.1.2",
     "node-vtt": "1.1.3",
     "text-encoding": "0.0.0",
