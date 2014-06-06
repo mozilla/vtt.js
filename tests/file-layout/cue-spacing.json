@@ -13,7 +13,23 @@
       "size": 100,
       "snapToLines": true,
       "startTime": 0,
-      "text": "Text\n00:02.000 --> 00:04.000\nText",
+      "text": "Text",
+      "vertical": ""
+    },
+    {
+      "align": "middle",
+      "endTime": 4,
+      "id": "",
+      "line": "auto",
+      "lineAlign": "start",
+      "pauseOnExit": false,
+      "position": 50,
+      "positionAlign": "middle",
+      "region": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 2,
+      "text": "Text",
       "vertical": ""
     },
     {
@@ -29,7 +45,23 @@
       "size": 100,
       "snapToLines": true,
       "startTime": 6,
-      "text": "00:06.000 --> 00:08.000\nText",
+      "text": "",
+      "vertical": ""
+    },
+    {
+      "align": "middle",
+      "endTime": 8,
+      "id": "",
+      "line": "auto",
+      "lineAlign": "start",
+      "pauseOnExit": false,
+      "position": 50,
+      "positionAlign": "middle",
+      "region": "",
+      "size": 100,
+      "snapToLines": true,
+      "startTime": 6,
+      "text": "Text",
       "vertical": ""
     }
   ],
