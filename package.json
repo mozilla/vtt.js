@@ -2,7 +2,7 @@
   "author": "Andreas Gal <gal@mozilla.com>",
   "name": "vtt.js",
   "description": "A JavaScript implementation of the WebVTT specification.",
-  "version": "0.11.10",
+  "version": "0.11.11",
   "repository": {
     "type": "git",
     "url": "https://github.com/mozilla/vtt.js.git"

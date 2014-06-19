@@ -1,4 +1,4 @@
-/* vtt.js - v0.11.10 (https://github.com/mozilla/vtt.js) built on 19-05-2014 */
+/* vtt.js - v0.11.11 (https://github.com/mozilla/vtt.js) built on 19-06-2014 */
 
 /**
  * Copyright 2013 vtt.js Contributors
@@ -1698,13 +1698,18 @@
           self.state = "HEADER";
         }
 
+        var alreadyCollectedLine = false;
         while (self.buffer) {
           // We can't parse a line until we have the full line.
           if (!/\r\n|\n/.test(self.buffer)) {
             return this;
           }
 
-          line = collectNextLine();
+          if (!alreadyCollectedLine) {
+            line = collectNextLine();
+          } else {
+            alreadyCollectedLine = false;
+          }
 
           switch (self.state) {
           case "HEADER":
@@ -1755,8 +1760,12 @@
             self.state = "CUETEXT";
             continue;
           case "CUETEXT":
-            // 41-53 - Collect the cue text, create a cue, and add it to the output.
-            if (!line) {
+            var hasSubstring = line.indexOf("-->") !== -1;
+            // 34 - If we have an empty line then report the cue.
+            // 35 - If we have the special substring '-->' then report the cue,
+            // but do not collect the line as we need to process the current
+            // one as a new cue.
+            if (!line || hasSubstring && (alreadyCollectedLine = true)) {
               // We are done parsing self cue.
               self.oncue && self.oncue(self.cue);
               self.cue = null;
