@@ -28,6 +28,8 @@
   },
   "main": "lib/index.js",
   "files": [
+    "dist/",
+    "lib/browser.js",
     "lib/index.js",
     "lib/vtt.js",
     "lib/vttcue.js",
