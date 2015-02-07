@@ -1,4 +1,4 @@
-/* vtt.js - v0.11.11 (https://github.com/mozilla/vtt.js) built on 19-06-2014 */
+/* vtt.js - v0.12.0 (https://github.com/mozilla/vtt.js) built on 06-02-2015 */
 
 /**
  * Copyright 2013 vtt.js Contributors
@@ -19,26 +19,57 @@
 (function(root) {
 
   var autoKeyword = "auto";
-  var directionSetting = [ "", "lr", "rl" ];
-  var alignSetting = [ "start", "middle", "end", "left", "right" ];
+  var directionSetting = {
+    "": true,
+    "lr": true,
+    "rl": true
+  };
+  var alignSetting = {
+    "start": true,
+    "middle": true,
+    "end": true,
+    "left": true,
+    "right": true
+  };
 
   function findDirectionSetting(value) {
     if (typeof value !== "string") {
       return false;
     }
-    var index = directionSetting.indexOf(value.toLowerCase());
-    return index === -1 ? false : directionSetting[index];
+    var dir = directionSetting[value.toLowerCase()];
+    return dir ? value.toLowerCase() : false;
   }
 
   function findAlignSetting(value) {
     if (typeof value !== "string") {
       return false;
     }
-    var index = alignSetting.indexOf(value.toLowerCase());
-    return index === -1 ? false : alignSetting[index];
+    var align = alignSetting[value.toLowerCase()];
+    return align ? value.toLowerCase() : false;
+  }
+
+  function extend(obj) {
+    var i = 1;
+    for (; i < arguments.length; i++) {
+      var cobj = arguments[i];
+      for (var p in cobj) {
+        obj[p] = cobj[p];
+      }
+    }
+
+    return obj;
   }
 
   function VTTCue(startTime, endTime, text) {
+    var cue = this;
+    var isIE8 = (/MSIE\s8\.0/).test(navigator.userAgent);
+    var baseObj = {};
+
+    if (isIE8) {
+      cue = document.createElement('custom');
+    } else {
+      baseObj.enumerable = true;
+    }
 
     /**
      * Shim implementation specific properties. These properties are not in
@@ -48,7 +79,7 @@
     // Lets us know when the VTTCue's data has changed in such a way that we need
     // to recompute its display state. This lets us compute its display state
     // lazily.
-    this.hasBeenReset = false;
+    cue.hasBeenReset = false;
 
     /**
      * VTTCue and TextTrackCue properties
@@ -70,27 +101,28 @@
     var _size = 50;
     var _align = "middle";
 
-    Object.defineProperties(this, {
-      "id": {
-        enumerable: true,
+    Object.defineProperty(cue,
+      "id", extend({}, baseObj, {
         get: function() {
           return _id;
         },
         set: function(value) {
           _id = "" + value;
         }
-      },
-      "pauseOnExit": {
-        enumerable: true,
+      }));
+
+    Object.defineProperty(cue,
+      "pauseOnExit", extend({}, baseObj, {
         get: function() {
           return _pauseOnExit;
         },
         set: function(value) {
           _pauseOnExit = !!value;
         }
-      },
-      "startTime": {
-        enumerable: true,
+      }));
+
+    Object.defineProperty(cue,
+      "startTime", extend({}, baseObj, {
         get: function() {
           return _startTime;
         },
@@ -101,9 +133,10 @@
           _startTime = value;
           this.hasBeenReset = true;
         }
-      },
-      "endTime": {
-        enumerable: true,
+      }));
+
+    Object.defineProperty(cue,
+      "endTime", extend({}, baseObj, {
         get: function() {
           return _endTime;
         },
@@ -114,9 +147,10 @@
           _endTime = value;
           this.hasBeenReset = true;
         }
-      },
-      "text": {
-        enumerable: true,
+      }));
+
+    Object.defineProperty(cue,
+      "text", extend({}, baseObj, {
         get: function() {
           return _text;
         },
@@ -124,19 +158,21 @@
           _text = "" + value;
           this.hasBeenReset = true;
         }
-      },
-      "region": {
-        enumerable: true,
+      }));
+
+    Object.defineProperty(cue,
+      "region", extend({}, baseObj, {
         get: function() {
           return _region;
         },
         set: function(value) {
           _region = value;
           this.hasBeenReset = true;
-        },
-      },
-      "vertical": {
-        enumerable: true,
+        }
+      }));
+
+    Object.defineProperty(cue,
+      "vertical", extend({}, baseObj, {
         get: function() {
           return _vertical;
         },
@@ -148,10 +184,11 @@
           }
           _vertical = setting;
           this.hasBeenReset = true;
-        },
-      },
-      "snapToLines": {
-        enumerable: true,
+        }
+      }));
+
+    Object.defineProperty(cue,
+      "snapToLines", extend({}, baseObj, {
         get: function() {
           return _snapToLines;
         },
@@ -159,9 +196,10 @@
           _snapToLines = !!value;
           this.hasBeenReset = true;
         }
-      },
-      "line": {
-        enumerable: true,
+      }));
+
+    Object.defineProperty(cue,
+      "line", extend({}, baseObj, {
         get: function() {
           return _line;
         },
@@ -172,9 +210,10 @@
           _line = value;
           this.hasBeenReset = true;
         }
-      },
-      "lineAlign": {
-        enumerable: true,
+      }));
+
+    Object.defineProperty(cue,
+      "lineAlign", extend({}, baseObj, {
         get: function() {
           return _lineAlign;
         },
@@ -186,9 +225,10 @@
           _lineAlign = setting;
           this.hasBeenReset = true;
         }
-      },
-      "position": {
-        enumerable: true,
+      }));
+
+    Object.defineProperty(cue,
+      "position", extend({}, baseObj, {
         get: function() {
           return _position;
         },
@@ -199,9 +239,10 @@
           _position = value;
           this.hasBeenReset = true;
         }
-      },
-      "positionAlign": {
-        enumerable: true,
+      }));
+
+    Object.defineProperty(cue,
+      "positionAlign", extend({}, baseObj, {
         get: function() {
           return _positionAlign;
         },
@@ -213,9 +254,10 @@
           _positionAlign = setting;
           this.hasBeenReset = true;
         }
-      },
-      "size": {
-        enumerable: true,
+      }));
+
+    Object.defineProperty(cue,
+      "size", extend({}, baseObj, {
         get: function() {
           return _size;
         },
@@ -226,9 +268,10 @@
           _size = value;
           this.hasBeenReset = true;
         }
-      },
-      "align": {
-        enumerable: true,
+      }));
+
+    Object.defineProperty(cue,
+      "align", extend({}, baseObj, {
         get: function() {
           return _align;
         },
@@ -240,15 +283,18 @@
           _align = setting;
           this.hasBeenReset = true;
         }
-      }
-    });
+      }));
 
     /**
      * Other <track> spec defined properties
      */
 
     // http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html#text-track-cue-display-state
-    this.displayState = undefined;
+    cue.displayState = undefined;
+
+    if (isIE8) {
+      return cue;
+    }
   }
 
   /**
@@ -260,7 +306,7 @@
     return WebVTT.convertCueToDOMTree(window, this.text);
   };
 
-  root.VTTCue = root.VTTCue || VTTCue;
+  root.VTTCue = VTTCue || root.VTTCue;
 }(this));
 
 /**
@@ -281,14 +327,17 @@
 
 (function(root) {
 
-  var scrollSetting = [ "", "up" ];
+  var scrollSetting = {
+    "": true,
+    "up": true,
+  };
 
   function findScrollSetting(value) {
     if (typeof value !== "string") {
       return false;
     }
-    var index = scrollSetting.indexOf(value.toLowerCase());
-    return index === -1 ? false : scrollSetting[index];
+    var scroll = scrollSetting[value.toLowerCase()];
+    return scroll ? value.toLowerCase() : false;
   }
 
   function isValidPercentValue(value) {
@@ -1116,38 +1165,60 @@
   // Constructs the computed display state of the cue (a div). Places the div
   // into the overlay which should be a block level element (usually a div).
   function CueStyleBox(window, cue, styleOptions) {
+    var isIE8 = (/MSIE\s8\.0/).test(navigator.userAgent);
+    var color = "rgba(255, 255, 255, 1)";
+    var backgroundColor = "rgba(0, 0, 0, 0.8)";
+
+    if (isIE8) {
+      color = "rgb(255, 255, 255)";
+      backgroundColor = "rgb(0, 0, 0)";
+    }
+
     StyleBox.call(this);
     this.cue = cue;
 
     // Parse our cue's text into a DOM tree rooted at 'cueDiv'. This div will
     // have inline positioning and will function as the cue background box.
     this.cueDiv = parseContent(window, cue.text);
-    this.applyStyles({
-      color: "rgba(255, 255, 255, 1)",
-      backgroundColor: "rgba(0, 0, 0, 0.8)",
+    var styles = {
+      color: color,
+      backgroundColor: backgroundColor,
       position: "relative",
       left: 0,
       right: 0,
       top: 0,
       bottom: 0,
       display: "inline"
-    }, this.cueDiv);
+    };
+
+    if (!isIE8) {
+      styles.writingMode = cue.vertical === "" ? "horizontal-tb"
+                                               : cue.vertical === "lr" ? "vertical-lr"
+                                                                       : "vertical-rl";
+      styles.unicodeBidi = "plaintext";
+    }
+    this.applyStyles(styles, this.cueDiv);
 
     // Create an absolutely positioned div that will be used to position the cue
     // div. Note, all WebVTT cue-setting alignments are equivalent to the CSS
     // mirrors of them except "middle" which is "center" in CSS.
     this.div = window.document.createElement("div");
-    this.applyStyles({
+    styles = {
       textAlign: cue.align === "middle" ? "center" : cue.align,
-      direction: determineBidi(this.cueDiv),
-      writingMode: cue.vertical === "" ? "horizontal-tb"
-                                       : cue.vertical === "lr" ? "vertical-lr"
-                                                               : "vertical-rl",
-      unicodeBidi: "plaintext",
       font: styleOptions.font,
       whiteSpace: "pre-line",
       position: "absolute"
-    });
+    };
+
+    if (!isIE8) {
+      styles.direction = determineBidi(this.cueDiv);
+      styles.writingMode = cue.vertical === "" ? "horizontal-tb"
+                                               : cue.vertical === "lr" ? "vertical-lr"
+                                                                       : "vertical-rl".
+      stylesunicodeBidi =  "plaintext";
+    }
+
+    this.applyStyles(styles);
 
     this.div.appendChild(this.cueDiv);
 
@@ -1203,12 +1274,18 @@
   // compute things with such as if it overlaps or intersects with another Element.
   // Can initialize it with either a StyleBox or another BoxPosition.
   function BoxPosition(obj) {
+    var isIE8 = (/MSIE\s8\.0/).test(navigator.userAgent);
+
     // Either a BoxPosition was passed in and we need to copy it, or a StyleBox
     // was passed in and we need to copy the results of 'getBoundingClientRect'
     // as the object returned is readonly. All co-ordinate values are in reference
     // to the viewport origin (top left).
-    var lh;
+    var lh, height, width, top;
     if (obj.div) {
+      height = obj.div.offsetHeight;
+      width = obj.div.offsetWidth;
+      top = obj.div.offsetTop;
+
       var rects = (rects = obj.div.childNodes) && (rects = rects[0]) &&
                   rects.getClientRects && rects.getClientRects();
       obj = obj.div.getBoundingClientRect();
@@ -1218,14 +1295,19 @@
       // result in the desired behaviour.
       lh = rects ? Math.max((rects[0] && rects[0].height) || 0, obj.height / rects.length)
                  : 0;
+
     }
     this.left = obj.left;
     this.right = obj.right;
-    this.top = obj.top;
-    this.height = obj.height;
-    this.bottom = obj.bottom;
-    this.width = obj.width;
+    this.top = obj.top || top;
+    this.height = obj.height || height;
+    this.bottom = obj.bottom || (top + (obj.height || height));
+    this.width = obj.width || width;
     this.lineHeight = lh !== undefined ? lh : obj.lineHeight;
+
+    if (isIE8 && !this.lineHeight) {
+      this.lineHeight = 13;
+    }
   }
 
   // Move the box along a particular axis. Optionally pass in an amount to move
@@ -1323,16 +1405,21 @@
   // Get an object that represents the box's position without anything extra.
   // Can pass a StyleBox, HTMLElement, or another BoxPositon.
   BoxPosition.getSimpleBoxPosition = function(obj) {
+    var height = obj.div ? obj.div.offsetHeight : obj.tagName ? obj.offsetHeight : 0;
+    var width = obj.div ? obj.div.offsetWidth : obj.tagName ? obj.offsetWidth : 0;
+    var top = obj.div ? obj.div.offsetTop : obj.tagName ? obj.offsetTop : 0;
+
     obj = obj.div ? obj.div.getBoundingClientRect() :
                   obj.tagName ? obj.getBoundingClientRect() : obj;
-    return {
+    var ret = {
       left: obj.left,
       right: obj.right,
-      top: obj.top,
-      height: obj.height,
-      bottom: obj.bottom,
-      width: obj.width
+      top: obj.top || top,
+      height: obj.height || height,
+      bottom: obj.bottom || (top + (obj.height || height)),
+      width: obj.width || width
     };
+    return ret;
   };
 
   // Move a StyleBox to its specified, or next best, position. The containerBox
@@ -1531,9 +1618,9 @@
 
     // We don't need to recompute the cues' display states. Just reuse them.
     if (!shouldCompute(cues)) {
-      cues.forEach(function(cue) {
-        paddedOverlay.appendChild(cue.displayState);
-      });
+      for (var i = 0; i < cues.length; i++) {
+        paddedOverlay.appendChild(cues[i].displayState);
+      }
       return;
     }
 
@@ -1544,20 +1631,26 @@
       font: fontSize + "px " + FONT_STYLE
     };
 
-    cues.forEach(function(cue) {
-      // Compute the intial position and styles of the cue div.
-      var styleBox = new CueStyleBox(window, cue, styleOptions);
-      paddedOverlay.appendChild(styleBox.div);
+    (function() {
+      var styleBox, cue;
 
-      // Move the cue div to it's correct line position.
-      moveBoxToLinePosition(window, styleBox, containerBox, boxPositions);
+      for (var i = 0; i < cues.length; i++) {
+        cue = cues[i];
 
-      // Remember the computed div so that we don't have to recompute it later
-      // if we don't have too.
-      cue.displayState = styleBox.div;
+        // Compute the intial position and styles of the cue div.
+        styleBox = new CueStyleBox(window, cue, styleOptions);
+        paddedOverlay.appendChild(styleBox.div);
 
-      boxPositions.push(BoxPosition.getSimpleBoxPosition(styleBox));
-    });
+        // Move the cue div to it's correct line position.
+        moveBoxToLinePosition(window, styleBox, containerBox, boxPositions);
+
+        // Remember the computed div so that we don't have to recompute it later
+        // if we don't have too.
+        cue.displayState = styleBox.div;
+
+        boxPositions.push(BoxPosition.getSimpleBoxPosition(styleBox));
+      }
+    })();
   };
 
   WebVTT.Parser = function(window, decoder) {
@@ -2540,9 +2633,9 @@ if (typeof module !== "undefined" && module.exports) {
   var name_to_encoding = {};
   var label_to_encoding = {};
   encodings.forEach(function(category) {
-    category.encodings.forEach(function(encoding) {
-      name_to_encoding[encoding.name] = encoding;
-      encoding.labels.forEach(function(label) {
+    category['encodings'].forEach(function(encoding) {
+      name_to_encoding[encoding['name']] = encoding;
+      encoding['labels'].forEach(function(label) {
         label_to_encoding[label] = encoding;
       });
     });
@@ -2759,9 +2852,12 @@ if (typeof module !== "undefined" && module.exports) {
     options = Object(options);
     /** @private */
     this._encoding = getEncoding(opt_encoding);
-    if (this._encoding === null || (this._encoding.name !== 'utf-8' &&
-                                    this._encoding.name !== 'utf-16le' &&
-                                    this._encoding.name !== 'utf-16be'))
+
+    var allowLegacyEncoding = options.NONSTANDARD_allowLegacyEncoding;
+    var isLegacyEncoding = (this._encoding.name !== 'utf-8' &&
+                            this._encoding.name !== 'utf-16le' &&
+                            this._encoding.name !== 'utf-16be');
+    if (this._encoding === null || (isLegacyEncoding && !allowLegacyEncoding))
       throw new TypeError('Unknown encoding: ' + opt_encoding);
 
     if (!this._encoding.getEncoder)
@@ -3021,10 +3117,10 @@ if (typeof module !== "undefined" && module.exports) {
     if (!('encoding-indexes' in global))
       return;
     encodings.forEach(function(category) {
-      if (category.heading !== 'Legacy single-byte encodings')
+      if (category['heading'] !== 'Legacy single-byte encodings')
         return;
-      category.encodings.forEach(function(encoding) {
-        var idx = index(encoding.name);
+      category['encodings'].forEach(function(encoding) {
+        var idx = index(encoding['name']);
         /** @param {{fatal: boolean}} options */
         encoding.getDecoder = function(options) {
           return new SingleByteDecoder(idx, options);
@@ -4159,7 +4255,66 @@ if (typeof module !== "undefined" && module.exports) {
   };
 
   // 14.5 x-user-defined
-  // TODO: Implement this encoding.
+
+  /**
+   * @constructor
+   * @param {{fatal: boolean}} options
+   */
+  function XUserDefinedDecoder(options) {
+    var fatal = options.fatal;
+    /**
+     * @param {ByteInputStream} byte_pointer The byte stream to decode.
+     * @return {?number} The next code point decoded, or null if not enough
+     *     data exists in the input stream to decode a complete code point.
+     */
+    this.decode = function(byte_pointer) {
+      var bite = byte_pointer.get();
+      if (bite === EOF_byte) {
+        return EOF_code_point;
+      }
+      byte_pointer.offset(1);
+      if (inRange(bite, 0x00, 0x7F)) {
+        return bite;
+      }
+      return 0xF780 + bite - 0x80;
+    };
+  }
+
+  /**
+   * @constructor
+   * @param {{fatal: boolean}} options
+   */
+  function XUserDefinedEncoder(index, options) {
+    var fatal = options.fatal;
+    /**
+     * @param {ByteOutputStream} output_byte_stream Output byte stream.
+     * @param {CodePointInputStream} code_point_pointer Input stream.
+     * @return {number} The last byte emitted.
+     */
+    this.encode = function(output_byte_stream, code_point_pointer) {
+      var code_point = code_point_pointer.get();
+      if (code_point === EOF_code_point) {
+        return EOF_byte;
+      }
+      code_point_pointer.offset(1);
+      if (inRange(code_point, 0x0000, 0x007F)) {
+        return output_byte_stream.emit(code_point);
+      }
+      if (inRange(code_point, 0xF780, 0xF7FF)) {
+        return output_byte_stream.emit(code_point - 0xF780 + 0x80);
+      }
+      encoderError(code_point);
+    };
+  }
+
+  /** @param {{fatal: boolean}} options */
+  name_to_encoding['x-user-defined'].getEncoder = function(options) {
+    return new XUserDefinedEncoder(false, options);
+  };
+  /** @param {{fatal: boolean}} options */
+  name_to_encoding['x-user-defined'].getDecoder = function(options) {
+    return new XUserDefinedDecoder(false, options);
+  };
 
   // NOTE: currently unused
   /**
