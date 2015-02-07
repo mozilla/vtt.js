@@ -1,3 +1,7 @@
+global.navigator = {
+  userAgent: ''
+};
+
 var VTTCue = require("../../lib/vttcue.js").VTTCue,
     VTTRegion = require("../../lib/vttregion.js").VTTRegion,
     assert = Object.create(require("assert"));
