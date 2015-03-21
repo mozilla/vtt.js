@@ -1,4 +1,4 @@
-/* vtt.js - v0.12.0 (https://github.com/mozilla/vtt.js) built on 06-02-2015 */
+/* vtt.js - v0.12.1 (https://github.com/mozilla/vtt.js) built on 21-03-2015 */
 
 /**
  * Copyright 2013 vtt.js Contributors
@@ -329,7 +329,7 @@
 
   var scrollSetting = {
     "": true,
-    "up": true,
+    "up": true
   };
 
   function findScrollSetting(value) {
@@ -1244,7 +1244,7 @@
     if (cue.vertical === "") {
       this.applyStyles({
         left:  this.formatStyle(textPos, "%"),
-        width: this.formatStyle(cue.size, "%"),
+        width: this.formatStyle(cue.size, "%")
       });
     // Vertical box orientation; textPos is the distance from the top edge of the
     // area to the top edge of the box and cue.size is the height extending
@@ -1263,7 +1263,7 @@
         left: this.formatStyle(box.left, "px"),
         right: this.formatStyle(box.right, "px"),
         height: this.formatStyle(box.height, "px"),
-        width: this.formatStyle(box.width, "px"),
+        width: this.formatStyle(box.width, "px")
       });
     };
   }
