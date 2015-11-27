@@ -1,4 +1,4 @@
-/* vtt.js - v0.12.1 (https://github.com/mozilla/vtt.js) built on 26-11-2015 */
+/* vtt.js - v0.12.1 (https://github.com/mozilla/vtt.js) built on 27-11-2015 */
 
 /**
  * Copyright 2013 vtt.js Contributors
@@ -477,35 +477,36 @@
                       opacity].join(",") + ")";
   }
 
-  var WebVTTPrefs = ['webvtt.font.color', 'webvtt.font.opacity', 'webvtt.font.scale', 'webvtt.bg.color',
-               'webvtt.bg.opacity', 'webvtt.edge.color', 'webvtt.edge.type'];
+  var WebVTTPrefs = ['webvtt.font.color', 'webvtt.font.opacity', 'webvtt.font.scale',
+                     'webvtt.bg.color', 'webvtt.bg.opacity',
+                     'webvtt.edge.color', 'webvtt.edge.type'];
 
   var fontScale = 1;
 
   function observe(subject, topic, data) {
-     switch (data) {
-        case "webvtt.font.color":
-        case "webvtt.font.opacity":
-            var fontColor = Services.prefs.getCharPref("webvtt.font.color");
-            var fontOpacity = Services.prefs.getIntPref("webvtt.font.opacity") / 100;
-            WebVTTSet.fontSet = makeColorSet(fontColor, fontOpacity);
-            break;
-        case "webvtt.font.scale":
-            fontScale = Services.prefs.getIntPref("webvtt.font.scale") / 100;
-            break;
-        case "webvtt.bg.color":
-        case "webvtt.bg.opacity":
-            var backgroundColor = Services.prefs.getCharPref("webvtt.bg.color");
-            var backgroundOpacity = Services.prefs.getIntPref("webvtt.bg.opacity") / 100;
-            WebVTTSet.backgroundSet = makeColorSet(backgroundColor, backgroundOpacity);
-            break;
-        case "webvtt.edge.color":
-        case "webvtt.edge.type":
-            var edgeTypeList = ["", "0px 0px ", "4px 4px 4px ", "-2px -2px ", "2px 2px "];
-            var edgeType = Services.prefs.getIntPref("webvtt.edge.type");
-            var edgeColor = Services.prefs.getCharPref("webvtt.edge.color");
-            WebVTTSet.edgeSet = edgeTypeList[edgeType] + makeColorSet(edgeColor);
-            break;
+    switch (data) {
+      case "webvtt.font.color":
+      case "webvtt.font.opacity":
+        var fontColor = Services.prefs.getCharPref("webvtt.font.color");
+        var fontOpacity = Services.prefs.getIntPref("webvtt.font.opacity") / 100;
+        WebVTTSet.fontSet = makeColorSet(fontColor, fontOpacity);
+        break;
+      case "webvtt.font.scale":
+        fontScale = Services.prefs.getIntPref("webvtt.font.scale") / 100;
+        break;
+      case "webvtt.bg.color":
+      case "webvtt.bg.opacity":
+        var backgroundColor = Services.prefs.getCharPref("webvtt.bg.color");
+        var backgroundOpacity = Services.prefs.getIntPref("webvtt.bg.opacity") / 100;
+        WebVTTSet.backgroundSet = makeColorSet(backgroundColor, backgroundOpacity);
+        break;
+      case "webvtt.edge.color":
+      case "webvtt.edge.type":
+        var edgeTypeList = ["", "0px 0px ", "4px 4px 4px ", "-2px -2px ", "2px 2px "];
+        var edgeType = Services.prefs.getIntPref("webvtt.edge.type");
+        var edgeColor = Services.prefs.getCharPref("webvtt.edge.color");
+        WebVTTSet.edgeSet = edgeTypeList[edgeType] + makeColorSet(edgeColor);
+        break;
     }
   }
 
