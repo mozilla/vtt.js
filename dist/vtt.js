@@ -1,4 +1,4 @@
-/* vtt.js - v0.12.1 (https://github.com/mozilla/vtt.js) built on 27-11-2015 */
+/* vtt.js - v0.12.1 (https://github.com/mozilla/vtt.js) built on 30-11-2015 */
 
 /**
  * Copyright 2013 vtt.js Contributors
@@ -1215,7 +1215,8 @@
   // Constructs the computed display state of the cue (a div). Places the div
   // into the overlay which should be a block level element (usually a div).
   function CueStyleBox(window, cue, styleOptions) {
-    var isIE8 = (/MSIE\s8\.0/).test(navigator.userAgent);
+    var isIE8 = (typeof navigator !== "undefined") &&
+      (/MSIE\s8\.0/).test(navigator.userAgent);
     var color = "rgba(255, 255, 255, 1)";
     var backgroundColor = "rgba(0, 0, 0, 0.8)";
     var textShadow = "";
