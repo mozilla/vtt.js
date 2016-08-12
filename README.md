@@ -415,7 +415,7 @@ to run the whole test suite or set of tests.
 
 ####Tests####
 
-Tests are written and run using [Mocha](http://visionmedia.github.io/mocha/) on node.js.
+Tests are written and run using [Mocha](http://mochajs.org/) on node.js.
 
 To run all the tests, do the following:
 
@@ -423,7 +423,7 @@ To run all the tests, do the following:
 $ npm test
 ```
 
-If you want to run individual tests, you can install the [Mocha](http://visionmedia.github.io/mocha/) command-line
+If you want to run individual tests, you can install the [Mocha](http://mochajs.org/) command-line
 tool globally, and then run tests per-directory:
 
 ```bash
@@ -432,7 +432,7 @@ $ cd tests/some/sub/dir
 $ mocha --reporter spec --timeout 200000
 ```
 
-See the [usage docs](http://visionmedia.github.io/mocha/#usage) for further usage info.
+See the [usage docs](http://mochajs.org/#usage) for further usage info.
 
 ###Writing Tests###
 
