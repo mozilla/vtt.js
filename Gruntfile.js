@@ -1,5 +1,6 @@
 var exec = require("child_process").exec,
     distFiles = [
+      "lib/browser.js",
       "lib/vttcue.js",
       "lib/vttregion.js",
       "lib/vtt.js",
