@@ -15,7 +15,7 @@
     "grunt-contrib-uglify": "0.5.0",
     "grunt-contrib-concat": "0.4.0",
     "mocha": "1.20.1",
-    "difflet": "git://github.com/humphd/difflet.git#714b82706ad39d75275a886aeff637df5097626f",
+    "difflet": "https://github.com/humphd/difflet.git#714b82706ad39d75275a886aeff637df5097626f",
     "underscore": "1.6.0",
     "optimist": "0.6.1",
     "dive": "0.3.1",
