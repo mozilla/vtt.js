@@ -7,7 +7,7 @@
       "line": "auto",
       "lineAlign": "start",
       "pauseOnExit": false,
-      "position": 0,
+      "position": "auto",
       "positionAlign": "start",
       "region": {
         "lines": 3,
@@ -31,7 +31,7 @@
       "line": "auto",
       "lineAlign": "start",
       "pauseOnExit": false,
-      "position": 100,
+      "position": "auto",
       "positionAlign": "end",
       "region": {
         "lines": 3,
@@ -55,7 +55,7 @@
       "line": "auto",
       "lineAlign": "start",
       "pauseOnExit": false,
-      "position": 0,
+      "position": "auto",
       "positionAlign": "start",
       "region": {
         "lines": 3,
@@ -79,7 +79,7 @@
       "line": "auto",
       "lineAlign": "start",
       "pauseOnExit": false,
-      "position": 100,
+      "position": "auto",
       "positionAlign": "end",
       "region": {
         "lines": 3,
@@ -103,7 +103,7 @@
       "line": "auto",
       "lineAlign": "start",
       "pauseOnExit": false,
-      "position": 0,
+      "position": "auto",
       "positionAlign": "start",
       "region": {
         "lines": 3,
@@ -127,7 +127,7 @@
       "line": "auto",
       "lineAlign": "start",
       "pauseOnExit": false,
-      "position": 0,
+      "position": "auto",
       "positionAlign": "start",
       "region": {
         "lines": 3,
