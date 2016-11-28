@@ -35,7 +35,7 @@ function evalTest(vtt, json, testType, onDone) {
   }
   if (!deepEqual(vtt, json)) {
     return onDone(new Error("Failed JSON diff while " + testType + ".\n" +
-                            difflet.compare(vtt, json)));
+                            difflet.compare(vtt, json) + ".\n" + vtt + ".\n" + json));
   }
   onDone();
 }
