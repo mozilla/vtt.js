@@ -7,7 +7,7 @@
       "line": 42,
       "lineAlign": "end",
       "pauseOnExit": false,
-      "position": 50,
+      "position": "auto",
       "positionAlign": "middle",
       "region": "",
       "size": 100,
