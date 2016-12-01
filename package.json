@@ -2,7 +2,7 @@
   "author": "Andreas Gal <gal@mozilla.com>",
   "name": "vtt.js",
   "description": "A JavaScript implementation of the WebVTT specification.",
-  "version": "0.12.1",
+  "version": "0.13.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/mozilla/vtt.js.git"
@@ -15,7 +15,7 @@
     "grunt-contrib-uglify": "0.5.0",
     "grunt-contrib-concat": "0.4.0",
     "mocha": "1.20.1",
-    "difflet": "git://github.com/humphd/difflet.git#714b82706ad39d75275a886aeff637df5097626f",
+    "difflet": "https://github.com/humphd/difflet.git#714b82706ad39d75275a886aeff637df5097626f",
     "underscore": "1.6.0",
     "optimist": "0.6.1",
     "dive": "0.3.1",
@@ -46,8 +46,5 @@
   "scripts": {
     "test": "./node_modules/.bin/grunt"
   },
-  "license": {
-    "type": "Apache-2.0",
-    "url": "https://github.com/mozilla/vtt.js/blob/master/LICENSE"
-  }
+  "license": "Apache-2.0"
 }
