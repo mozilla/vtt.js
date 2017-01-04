@@ -1,5 +1,4 @@
-vtt.js
-======
+# vtt.js
 
 [![Build Status](https://travis-ci.org/mozilla/vtt.js.svg?branch=master)](https://travis-ci.org/mozilla/vtt.js) [![npm-version](http://img.shields.io/npm/v/vtt.js.svg)](https://www.npmjs.org/package/vtt.js) [![Dependency Status](https://david-dm.org/mozilla/vtt.js.svg?theme=shields.io)](https://david-dm.org/mozilla/vtt.js) [![devDependency Status](https://david-dm.org/mozilla/vtt.js/dev-status.svg?theme=shields.io)](https://david-dm.org/mozilla/vtt.js#info=devDependencies)
 
@@ -7,7 +6,7 @@ Implementation of the [WebVTT](https://developer.mozilla.org/en-US/docs/HTML/Web
 in NodeJS, on the browser, and many other places. Mozilla uses this implementation for parsing and processing WebVTT
 files in Firefox/Gecko.
 
-##Table of Contents##
+## Table of Contents
 
 - [Spec Compliance](#spec-compliance)
 - [API](#api)
@@ -42,8 +41,7 @@ files in Firefox/Gecko.
     - [Writing Tests](#writing-tests)
   - [Grunt Run Task](#grunt-run-task)
 
-Spec Compliance
-===============
+# Spec Compliance
 
 - [Parsing](http://dev.w3.org/html5/webvtt/#webvtt-file-format-parsing) (Completed)
   - [File](http://dev.w3.org/html5/webvtt/#webvtt-file-parsing) (Completed)
@@ -62,17 +60,16 @@ Spec Compliance
   - [VTTCue](http://dev.w3.org/html5/webvtt/#vttcue-interface) (Completed) ***Shims the TextTrackCue interface as well***
   - [VTTRegion](http://dev.w3.org/html5/webvtt/#vttregion-interface) (Completed)
 
-###Notes###
+## Notes
 
 Our processing model portion of the specification makes use of a custom property, `hasBeenReset`. It allows us to detect
 when a VTTCue is dirty, i.e. one of its properties that affects display has changed and so we need to recompute its display
 state. This allows us to reuse a cue's display state if it has already been computed and nothing has changed to effect its
 position.
 
-API
-===
+# API
 
-####WebVTT.Parser####
+## WebVTT.Parser
 
 The parser has a simple API:
 
@@ -94,7 +91,7 @@ use, a StringDecoder is provided via `WebVTT.StringDecoder()`. If a custom
 StringDecoder object is passed in it must support the API specified by the
 [#whatwg string encoding](http://encoding.spec.whatwg.org/#api) spec.
 
-####parse(data)####
+### parse(data)
 
 Hands data in some format to the parser for parsing. The passed data format
 is expected to be decodable by the StringDecoder object that it has. The parser
@@ -108,12 +105,12 @@ parser.parse("<v.loud Mary>That's awesome!");
 parser.flush();
 ```
 
-####flush()####
+### flush()
 
 Indicates that no more data is expected and will force the parser to parse any
 unparsed data that it may have. Will also trigger [onflush](#onflush).
 
-####onregion(region)####
+### onregion(region)
 
 Callback that is invoked for every region that is correctly parsed. Returns a [VTTRegion](#http://dev.w3.org/html5/webvtt/#dfn-vttregion)
 object.
@@ -124,7 +121,7 @@ parser.onregion = function(region) {
 };
 ```
 
-####oncue(cue)####
+### oncue(cue)
 
 Callback that is invoked for every cue that is fully parsed. In case of streaming parsing oncue is
 delayed until the cue has been completely received. Returns a [VTTCue](#http://dev.w3.org/html5/webvtt/#vttcue-interface) object.
@@ -135,7 +132,7 @@ parser.oncue = function(cue) {
 };
 ```
 
-####onflush()####
+### onflush()
 
 Is invoked in response to `flush()` and after the content was parsed completely.
 
@@ -145,7 +142,7 @@ parser.onflush = function() {
 };
 ```
 
-####onparsingerror(error)####
+### onparsingerror(error)
 
 Is invoked when a parsing error has occured. This means that some part of the
 WebVTT file markup is badly formed. See [ParsingError](#parsingerror) for more
@@ -157,7 +154,7 @@ parser.onparsingerror = function(e) {
 };
 ```
 
-####WebVTT.convertCueToDOMTree(window, cuetext)####
+## WebVTT.convertCueToDOMTree(window, cuetext)
 
 Parses the cue text handed to it into a tree of DOM nodes that mirrors the internal WebVTT node structure of
 the cue text. It uses the window object handed to it to construct new HTMLElements and returns a tree of DOM
@@ -167,7 +164,7 @@ nodes attached to a top level div.
 var div = WebVTT.convertCueToDOMTree(window, cuetext);
 ```
 
-####WebVTT.processCues(window, cues, overlay)####
+## WebVTT.processCues(window, cues, overlay)
 
 Converts the cuetext of the cues passed to it to DOM trees&mdash;by calling convertCueToDOMTree&mdash;and
 then runs the processing model steps of the WebVTT specification on the divs. The processing model applies the necessary
@@ -179,7 +176,7 @@ computed styles (only of the divs to do overlap avoidance.
 var divs = WebVTT.processCues(window, cues, overlay);
 ```
 
-####ParsingError####
+## ParsingError
 
 A custom JS error object that is reported through the
 [onparsingerror](#onparsingerror) callback. It has a `name`, `code`, and
@@ -201,7 +198,7 @@ There are two error codes that can be reported back currently:
 
 **Note:** Exceptions other then `ParsingError` will be thrown and not reported.
 
-####VTTCue####
+## VTTCue
 
 A DOM shim for the VTTCue. See the [spec](http://dev.w3.org/html5/webvtt/#vttcue-interface)
 for more information. Our VTTCue shim also includes properties of its abstract base class
@@ -214,7 +211,7 @@ var cue = new window.VTTCue(0, 1, "I'm a cue.");
 **Note:** Since this polfyill doesn't implement the track specification directly the `onenter`
 and `onexit` events will do nothing and do not exist on this shim.
 
-####Extended API####
+### Extended API
 
 There is also an extended version of this shim that gives a few convenience methods
 for converting back and forth between JSON and VTTCues. If you'd like to use these
@@ -222,7 +219,7 @@ methods then us `vttcue-extended.js` instead of `vttcue.js`. This isn't normally
 built into the `vtt.js` distributable so you will have to build a custom distribution
 instead of using bower.
 
-####toJSON()####
+#### toJSON()
 
 Converts a cue to JSON.
 
@@ -230,7 +227,7 @@ Converts a cue to JSON.
 var json = cue.toJSON();
 ```
 
-####VTTCue.fromJSON(json)####
+#### VTTCue.fromJSON(json)
 
 Create and initialize a VTTCue from JSON.
 
@@ -238,7 +235,7 @@ Create and initialize a VTTCue from JSON.
 var cue = VTTCue.fromJSON(json);
 ```
 
-####VTTCue.create(options)####
+#### VTTCue.create(options)
 
 Initializes a VTTCue from an options object where the properties in the option
 objects are the same as the properties on the VTTCue.
@@ -247,7 +244,7 @@ objects are the same as the properties on the VTTCue.
 var cue = VTTCue.create(options);
 ```
 
-####VTTRegion####
+## VTTRegion
 
 A DOM shim for the VTTRegion. See the [spec](http://dev.w3.org/html5/webvtt/#vttregion-interface)
 for more information.
@@ -257,7 +254,7 @@ var region = new window.VTTRegion(0, 1, "I'm a region.");
 cue.region = region;
 ```
 
-####Extended API####
+### Extended API
 
 There is also an extended version of this shim that gives a few convenience methods
 for converting back and forth between JSON and VTTRegions. If you'd like to use these
@@ -265,7 +262,7 @@ methods then us `vttregion-extended.js` instead of `vttregion.js`. This isn't no
 built into the `vtt.js` distributable so you will have to build a custom distribution
 instead of using bower.
 
-####VTTRegion.fromJSON(json)####
+#### VTTRegion.fromJSON(json)
 
 Creates and initializes a VTTRegion from JSON.
 
@@ -273,7 +270,7 @@ Creates and initializes a VTTRegion from JSON.
 var region = VTTRegion.fromJSON(json);
 ```
 
-####VTTRegion.create(options)####
+#### VTTRegion.create(options)
 
 Creates a VTTRegion from an options object where the properties on the options
 object are the same as the properties on the VTTRegion.
@@ -282,15 +279,14 @@ object are the same as the properties on the VTTRegion.
 var region = VTTRegion.create(options);
 ```
 
-Browser
-=======
+# Browser
 
 In order to use the `vtt.js` in a browser, you need to get the built distribution of vtt.js. The distribution
 contains polyfills for [TextDecoder](http://encoding.spec.whatwg.org/), [VTTCue](http://dev.w3.org/html5/webvtt/#vttcue-interface),
 and [VTTRegion](http://dev.w3.org/html5/webvtt/#vttregion-interface) since not all browsers currently
 support them.
 
-###Building Yourself###
+## Building Yourself
 
 Building a browser-ready version of the library is done using `grunt` (if you haven't installed
 `grunt` globally, you can run it from `./node_modules/.bin/grunt` after running `npm install`):
@@ -309,7 +305,7 @@ $ Done, without errors.
 Your newly built `vtt.js` now lives in `dist/vtt.min.js`, or alternatively, `dist/vtt.js` for an
 unminified version.
 
-###Bower###
+## Bower
 
 You can also get the a prebuilt distribution from [Bower](http://bower.io/). Either run the shell
 command:
@@ -322,7 +318,7 @@ Or include `vtt.js` as a dependency in your `bower.json` file. `vtt.js` should n
 live in `bower_components/vtt.js/vtt.min.js`. There is also an unminified
 version included with bower at `bower_components/vtt.js/vtt.js`.
 
-###Usage###
+## Usage
 
 To use `vtt.js` you can just include the script on an HTML page like so:
 
@@ -356,12 +352,11 @@ To use `vtt.js` you can just include the script on an HTML page like so:
 </html>
 ```
 
-Node
-====
+# Node
 
 You have a couple of options if you'd like to run the library from Node.
 
-###vtt.js###
+## vtt.js
 
 `vtt.js` is on npm. Just do:
 
@@ -395,15 +390,14 @@ or a shim of one with the necessary functionality for either the parsing or proc
 portion of the spec. The only shims that are provided to you are `VTTCue` and `VTTRegion`
 which you can attach to your global that is passed into the various functions.
 
-###node-vtt###
+## node-vtt
 
 Use [node-vtt](https://github.com/mozilla/node-vtt). Node-vtt runs `vtt.js` on a PhantomJS page
 from Node so it has access to a full DOM and CSS layout engine which means you can run any part
 of the library you want. See the [node-vtt](https://github.com/mozilla/node-vtt) repo for more
 information.
 
-Developing vtt.js
-=================
+# Developing vtt.js
 
 A few things to note:
 
@@ -413,7 +407,7 @@ go.
 * The [Grunt Run Task](#grunt-run-task) tool is handy for running the library without having
 to run the whole test suite or set of tests.
 
-####Tests####
+## Tests
 
 Tests are written and run using [Mocha](https://mochajs.org/) on node.js.
 
@@ -434,13 +428,13 @@ $ mocha --reporter spec --timeout 200000
 
 See the [usage docs](https://mochajs.org/#usage) for further usage info.
 
-###Writing Tests###
+### Writing Tests
 
 Tests are done by comparing live parsed output to a last-known-good JSON file. The JSON files
 can be easily generated using `vtt.js`, so you don't need to write these by hand
 (see details below about [Grunt Run Task](#grunt-run-task)).
 
-####TestRunner####
+#### TestRunner
 
 There's a prebuilt API in place for testing different parts of `vtt.js`. Simply
 require the [TestRunner](https://github.com/mozilla/vtt.js/blob/master/tests/test-runner.js)
@@ -452,29 +446,29 @@ and [processing JSON file](https://github.com/mozilla/vtt.js/blob/master/tests/c
 You can also check out the [tests](https://github.com/mozilla/vtt.js/tree/master/tests)
 directory for more examples on how to write tests.
 
-####jsonEqual(vttFile, jsonRefFile, message, onDone)####
+#### jsonEqual(vttFile, jsonRefFile, message, onDone)
 
 First parses the WebVTT file as UTF8 and compares it to the reference JSON file
 and then parses the WebVTT file as a string and compares it to the reference JSON
 file.
 
-####jsonEqualStreaming(vttFile, jsonRefFile, message, onDone)####
+#### jsonEqualStreaming(vttFile, jsonRefFile, message, onDone)
 
 Simulates parsing the file while streaming by splitting the WebVTT file into
 chunks. Will simulate parsing like this `n` times for a single WebVTT file where
 `n` is the length in unicode characters of the file, so use this only on small
 files or else you will get a timeout failure on your test.
 
-####jsonEqualParsing(vttFile, jsonRefFile, message, onDone)####
+#### jsonEqualParsing(vttFile, jsonRefFile, message, onDone)
 
 Runs `jsonEqual` and `jsonEqualStreaming` in one go.
 
-####jsonEqualProcModel(vttFile, jsonRefFile, message, onDone)####
+#### jsonEqualProcModel(vttFile, jsonRefFile, message, onDone)
 
 Runs the processing model over the `VTTCues` and `VTTRegions` that are returned
 from parsing the WebVTT file.
 
-####jsonEqualAll(vttFile, jsonRefFile, message, onDone)####
+#### jsonEqualAll(vttFile, jsonRefFile, message, onDone)
 
 Runs `jsonEqualParsing` and `jsonEqualProcModel`. Note that `jsonRefFile` should
 contain JSON that is generated from parsing. The processing model test will compare
@@ -482,13 +476,13 @@ its results to a JSON file located at `[vttFile]-proc.json`. Therefore, if you
 have a WebVTT file named `basic.vtt` the JSON reference file for the processing
 model tests will be `basic-proc.json`.
 
-####jsonEqualAllNoStream(vttFile, jsonRefFile, message, onDone)####
+#### jsonEqualAllNoStream(vttFile, jsonRefFile, message, onDone)
 
 Runs `jsonEqual` and `jsonEqualProcModel` use this if you want to do parsing
 and processing tests, but do not want to simulate streaming because you
 have too big of a WebVTT file.
 
-###Grunt Run Task###
+## Grunt Run Task
 
 You can automatically generate a JSON file for a given `.vtt` file using the
 `run` Grunt task.
