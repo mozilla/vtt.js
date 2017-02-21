@@ -1,6 +1,6 @@
 {
   "author": "Andreas Gal <gal@mozilla.com>",
-  "name": "vtt.js",
+  "name": "videojs-vtt.js",
   "description": "A JavaScript implementation of the WebVTT specification.",
   "version": "0.12.1",
   "repository": {
