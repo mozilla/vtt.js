@@ -5,9 +5,9 @@
   "version": "0.12.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mozilla/vtt.js.git"
+    "url": "https://github.com/gkatsev/vtt.js.git"
   },
-  "homepage": "https://github.com/mozilla/vtt.js",
+  "homepage": "https://github.com/gkatsev/vtt.js",
   "devDependencies": {
     "grunt": "0.4.1",
     "grunt-cli": "0.1.9",
@@ -50,6 +50,6 @@
   },
   "license": {
     "type": "Apache-2.0",
-    "url": "https://github.com/mozilla/vtt.js/blob/master/LICENSE"
+    "url": "https://github.com/gkatsev/vtt.js/blob/master/LICENSE"
   }
 }
