@@ -1,4 +1,5 @@
 *~
 node_modules/
 dev_build/
+dist/
 .DS_Store
