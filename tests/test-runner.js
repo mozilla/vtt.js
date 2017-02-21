@@ -16,7 +16,11 @@
 
 var NodeVTT = require("node-vtt"),
     deepEqual = require("underscore").isEqual,
-    difflet = require("difflet")({ indent: 2, deepEqual: deepEqual }),
+    difflet = require("difflet")({
+      indent: 2,
+      deepEqual: deepEqual,
+      comment: true
+    }),
     fs = require("fs"),
     path = require("path"),
     assert = Object.create(require("assert")),
