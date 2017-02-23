@@ -26,7 +26,7 @@
     "text-encoding": "0.1.0",
     "grunt-mocha-test": "0.11.0"
   },
-  "main": "lib/index.js",
+  "main": "lib/browser-index.js",
   "files": [
     "dist/",
     "lib/browser.js",
