@@ -9,22 +9,24 @@
   },
   "homepage": "https://github.com/gkatsev/vtt.js",
   "devDependencies": {
+    "async": "0.9.0",
+    "browserify": "^14.3.0",
+    "difflet": "git://github.com/humphd/difflet.git#714b82706ad39d75275a886aeff637df5097626f",
+    "dive": "0.3.1",
     "grunt": "0.4.1",
+    "grunt-bump": "0.0.14",
     "grunt-cli": "0.1.9",
+    "grunt-contrib-concat": "0.4.0",
     "grunt-contrib-jshint": "0.10.0",
     "grunt-contrib-uglify": "0.5.0",
-    "grunt-contrib-concat": "0.4.0",
-    "mocha": "1.20.1",
-    "difflet": "git://github.com/humphd/difflet.git#714b82706ad39d75275a886aeff637df5097626f",
-    "underscore": "1.6.0",
-    "optimist": "0.6.1",
-    "dive": "0.3.1",
-    "async": "0.9.0",
-    "grunt-bump": "0.0.14",
+    "grunt-mocha-test": "0.11.0",
     "json-stable-stringify": "1.0.0",
+    "mocha": "1.20.1",
     "node-vtt": "1.1.7",
+    "optimist": "0.6.1",
     "text-encoding": "0.1.0",
-    "grunt-mocha-test": "0.11.0"
+    "underscore": "1.6.0",
+    "watchify": "^3.9.0"
   },
   "main": "lib/browser-index.js",
   "files": [
@@ -46,10 +48,16 @@
     "text track"
   ],
   "scripts": {
+    "build": "browserify -s vttjs . -o dist/vtt.js",
+    "postbuild": "npm run minify",
+    "minify": "grunt uglify:dist",
     "test": "./node_modules/.bin/grunt"
   },
   "license": {
     "type": "Apache-2.0",
     "url": "https://github.com/gkatsev/vtt.js/blob/master/LICENSE"
+  },
+  "dependencies": {
+    "global": "^4.3.1"
   }
 }

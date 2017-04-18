@@ -1,6 +1,6 @@
 var exec = require("child_process").exec,
     distFiles = [
-      "lib/browser.js",
+      "lib/browser-index.js",
       "lib/vttcue.js",
       "lib/vttregion.js",
       "lib/vtt.js"
@@ -35,7 +35,7 @@ module.exports = function( grunt ) {
       },
       dist: {
         files: {
-          "dist/vtt.min.js": distFiles
+          "dist/vtt.min.js": "dist/vtt.js"
         }
       },
       dev: {
