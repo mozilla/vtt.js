@@ -2,7 +2,7 @@
   "author": "Andreas Gal <gal@mozilla.com>",
   "name": "videojs-vtt.js",
   "description": "A JavaScript implementation of the WebVTT specification.",
-  "version": "0.12.3",
+  "version": "0.12.4",
   "main": "lib/browser-index.js",
   "repository": {
     "type": "git",
