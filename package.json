@@ -12,6 +12,7 @@
   "devDependencies": {
     "async": "0.9.0",
     "browserify": "^14.3.0",
+    "deumdify": "^1.2.4",
     "difflet": "git://github.com/humphd/difflet.git#714b82706ad39d75275a886aeff637df5097626f",
     "dive": "0.3.1",
     "grunt": "0.4.1",
@@ -48,10 +49,12 @@
     "text track"
   ],
   "scripts": {
-    "build": "browserify -s vttjs . -o dist/vtt.js",
+    "build": "npm run build-umd && npm run build-global",
+    "build-umd": "browserify -s vttjs . -o dist/vtt.js",
+    "build-global": "browserify -s vttjs -p deumdify  . -o dist/vtt.global.js",
     "postbuild": "npm run minify",
-    "minify": "grunt uglify:dist",
-    "test": "./node_modules/.bin/grunt"
+    "minify": "grunt uglify:dist uglify:global",
+    "test": "grunt"
   },
   "license": {
     "type": "Apache-2.0",

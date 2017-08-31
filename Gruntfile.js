@@ -38,6 +38,11 @@ module.exports = function( grunt ) {
           "dist/vtt.min.js": "dist/vtt.js"
         }
       },
+      global: {
+        files: {
+          "dist/vtt.global.min.js": "dist/vtt.global.js"
+        }
+      },
       dev: {
         files: {
           "dev_build/vtt.min.js": distFiles
