@@ -1518,21 +1518,28 @@
         cue = styleBox.cue,
         linePos = computeLinePos(cue),
         axis = [];
+        // Safari 12 introduced a bug where the reverse order of an array instantiated with primitives
+        // is cached after array.prototype.reverse is called (https://bugs.webkit.org/show_bug.cgi?id=188794).
+        // Variables are used as a workaround.
+        const posY = '+y';
+        const negY = '-y';
+        const posX = '+x';
+        const negX = '-x';
 
     // If we have a line number to align the cue to.
     if (cue.snapToLines) {
       var size;
       switch (cue.vertical) {
       case "":
-        axis = [ "+y", "-y" ];
+        axis = [posY, negY];
         size = "height";
         break;
       case "rl":
-        axis = [ "+x", "-x" ];
+        axis = [posX, negX];
         size = "width";
         break;
       case "lr":
-        axis = [ "-x", "+x" ];
+        axis = [negX, posX];
         size = "width";
         break;
       }
@@ -1595,7 +1602,7 @@
         break;
       }
 
-      axis = [ "+y", "-x", "+x", "-y" ];
+      axis = [posY, negX, posX, negY];
 
       // Get the box position again after we've applied the specified positioning
       // to it.
