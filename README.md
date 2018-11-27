@@ -227,7 +227,7 @@ and `onexit` events will do nothing and do not exist on this shim.
 
 There is also an extended version of this shim that gives a few convenience methods
 for converting back and forth between JSON and VTTCues. If you'd like to use these
-methods then us `vttcue-extended.js` instead of `vttcue.js`. This isn't normally
+methods then use `vttcue-extended.js` instead of `vttcue.js`. This isn't normally
 built into the `vtt.js` distributable so you will have to build a custom distribution
 instead of using bower.
 
