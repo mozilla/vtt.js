@@ -208,7 +208,7 @@ for more information. Our VTTCue shim also includes properties of its abstract b
 var cue = new window.VTTCue(0, 1, "I'm a cue.");
 ```
 
-**Note:** Since this polfyill doesn't implement the track specification directly the `onenter`
+**Note:** Since this polyfill doesn't implement the track specification directly the `onenter`
 and `onexit` events will do nothing and do not exist on this shim.
 
 ### Extended API
