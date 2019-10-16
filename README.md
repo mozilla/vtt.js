@@ -144,7 +144,7 @@ parser.onflush = function() {
 
 ### onparsingerror(error)
 
-Is invoked when a parsing error has occured. This means that some part of the
+Is invoked when a parsing error has occurred. This means that some part of the
 WebVTT file markup is badly formed. See [ParsingError](#parsingerror) for more
 information.
 
